@@ -558,12 +558,28 @@ class TextDetector:
                         )
                 if "smoothing" in rect.settings:
                     if rect.settings["smoothing"]:
-                        # apply smoother
-                        text = rect.ocrResultPerCharacterSmoother.get_smoothed_result(
-                            text
-                        )
-                        if text is None:
-                            text = ""
+                        smoother = rect.ocrResultPerCharacterSmoother
+                        if (
+                            textstate
+                            == TextDetectionTargetWithResult.ResultState.Success
+                            and text
+                        ):
+                            # Low-confidence and format-rejected frames must not
+                            # contaminate the history used to stabilize valid OCR.
+                            text = smoother.get_smoothed_result(text) or ""
+                            if (
+                                "format_regex" in rect.settings
+                                and is_valid_regex(rect.settings["format_regex"])
+                                and not re.fullmatch(
+                                    rect.settings["format_regex"], text
+                                )
+                            ):
+                                textstate = (
+                                    TextDetectionTargetWithResult.ResultState.FailedFilter
+                                )
+                                smoother.clear()
+                        else:
+                            smoother.clear()
                 if "remove_leading_zeros" in rect.settings:
                     if rect.settings["remove_leading_zeros"]:
                         # remove leading zeros

@@ -5,8 +5,8 @@ obsws-python
 opencv-python==4.10.0.84
 pillow
 platformdirs
-pyinstaller==6.10.0
-pyside6==6.7.3
+pyinstaller==6.19.0
+pyside6==6.10.1
 python-dotenv
 requests
 tesserocr

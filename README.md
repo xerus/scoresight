@@ -75,7 +75,7 @@ See the [Install Guide](docs/INSTALL.md) for help with installation.
 
 ### Prerequisites
 
-- Python 3.11
+- Python 3.11 or newer
 - git
 
 ### Procedure
@@ -140,7 +140,7 @@ $ PATH="$PATH:/opt/homebrew/bin" CPPFLAGS="-I/opt/homebrew/include -L/opt/homebr
 1. Launch the application:
 
     ```shell
-    python main.py
+    python src/main.py
     ```
 
 1. Follow the on-screen instructions to load an image of the scoreboard and extract the text.
@@ -148,6 +148,8 @@ $ PATH="$PATH:/opt/homebrew/bin" CPPFLAGS="-I/opt/homebrew/include -L/opt/homebr
 ### Build an executable
 
 You may want to build a distributable .exe or .app or even an installer, this is possible with [PyInstaller](https://github.com/pyinstaller/pyinstaller).
+
+PyInstaller builds for the operating system it runs on. To build the Windows installer from another operating system, run the **Cross-Platform Build with PyInstaller** workflow from the GitHub Actions tab and download the `scoresight-windows` artifact.
 
 To build the executable run PyInstaller.
 
