@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install pre-commit
+      - name: Install prek
         run: pip install -r requirements-dev.txt
 
       - name: Run formatting and lint hooks
-        run: pre-commit run --all-files
+        run: prek run --all-files

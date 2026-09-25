@@ -16,6 +16,7 @@ jobs:
   build:
     needs: check-format
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-x86, macos-arm64, windows-latest]
         include:
