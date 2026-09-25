@@ -220,10 +220,10 @@ class MainWindow(QMainWindow):
         self.ui.toolButton_rotate.clicked.connect(self.rotateImage)
 
         self.ui.widget_detectionCadence.setVisible(True)
-        self.ui.horizontalSlider_detectionCadence.setValue(
+        self.ui.spinBox_detectionCadence.setValue(
             fetch_data("scoresight.json", "detection_cadence", 5)
         )
-        self.ui.horizontalSlider_detectionCadence.valueChanged.connect(
+        self.ui.spinBox_detectionCadence.valueChanged.connect(
             self.detectionCadenceChanged
         )
         self.ui.toolButton_addBox.clicked.connect(self.addBox)
@@ -363,13 +363,13 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_appendMethod.currentIndexChanged.connect(
             partial(self.globalSettingsChanged, "append_method")
         )
-        self.ui.horizontalSlider_aggsPerSecond.valueChanged.connect(
+        self.ui.spinBox_aggsPerSecond.valueChanged.connect(
             partial(self.globalSettingsChanged, "aggs_per_second")
         )
         self.ui.comboBox_appendMethod.setCurrentIndex(
             fetch_data("scoresight.json", "append_method", 3)
         )
-        self.ui.horizontalSlider_aggsPerSecond.setValue(
+        self.ui.spinBox_aggsPerSecond.setValue(
             fetch_data("scoresight.json", "aggs_per_second", 5)
         )
         self.ui.checkBox_updateOnchange.setChecked(
@@ -1209,7 +1209,7 @@ class MainWindow(QMainWindow):
         # check if enough time has passed since last file save according to aggs per second
         if (
             datetime.datetime.now() - self.last_aggregate_save
-        ).total_seconds() < 1.0 / self.ui.horizontalSlider_aggsPerSecond.value():
+        ).total_seconds() < 1.0 / self.ui.spinBox_aggsPerSecond.value():
             return
 
         self.last_aggregate_save = datetime.datetime.now()

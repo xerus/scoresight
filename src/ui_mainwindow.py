@@ -228,13 +228,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_15.addWidget(self.label_4)
 
-        self.horizontalSlider_cleanup = QSlider(self.widget_17)
-        self.horizontalSlider_cleanup.setObjectName(u"horizontalSlider_cleanup")
-        self.horizontalSlider_cleanup.setMinimum(0)
-        self.horizontalSlider_cleanup.setMaximum(100)
-        self.horizontalSlider_cleanup.setOrientation(Qt.Horizontal)
+        self.spinBox_cleanup = QSpinBox(self.widget_17)
+        self.spinBox_cleanup.setObjectName(u"spinBox_cleanup")
+        self.spinBox_cleanup.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.spinBox_cleanup.setMinimum(0)
+        self.spinBox_cleanup.setMaximum(100)
 
-        self.horizontalLayout_15.addWidget(self.horizontalSlider_cleanup)
+        self.horizontalLayout_15.addWidget(self.spinBox_cleanup)
 
 
         self.gridLayout_6.addWidget(self.widget_17, 10, 2, 1, 1)
@@ -292,14 +292,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_20.addWidget(self.label_3)
 
-        self.horizontalSlider_conf_thresh = QSlider(self.widget_21)
-        self.horizontalSlider_conf_thresh.setObjectName(u"horizontalSlider_conf_thresh")
-        self.horizontalSlider_conf_thresh.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
-        self.horizontalSlider_conf_thresh.setMaximum(100)
-        self.horizontalSlider_conf_thresh.setValue(50)
-        self.horizontalSlider_conf_thresh.setOrientation(Qt.Horizontal)
+        self.spinBox_conf_thresh = QSpinBox(self.widget_21)
+        self.spinBox_conf_thresh.setObjectName(u"spinBox_conf_thresh")
+        self.spinBox_conf_thresh.setButtonSymbols(QAbstractSpinBox.UpDownArrows)
+        self.spinBox_conf_thresh.setMaximum(100)
+        self.spinBox_conf_thresh.setValue(50)
 
-        self.horizontalLayout_20.addWidget(self.horizontalSlider_conf_thresh)
+        self.horizontalLayout_20.addWidget(self.spinBox_conf_thresh)
 
 
         self.gridLayout_6.addWidget(self.widget_21, 12, 2, 1, 1)
@@ -355,13 +354,11 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_13.addWidget(self.label_9)
 
-        self.horizontalSlider_dilate = QSlider(self.widget_13)
-        self.horizontalSlider_dilate.setObjectName(u"horizontalSlider_dilate")
-        self.horizontalSlider_dilate.setMaximum(5)
-        self.horizontalSlider_dilate.setPageStep(1)
-        self.horizontalSlider_dilate.setOrientation(Qt.Horizontal)
+        self.spinBox_dilate = QSpinBox(self.widget_13)
+        self.spinBox_dilate.setObjectName(u"spinBox_dilate")
+        self.spinBox_dilate.setMaximum(5)
 
-        self.horizontalLayout_13.addWidget(self.horizontalSlider_dilate)
+        self.horizontalLayout_13.addWidget(self.spinBox_dilate)
 
 
         self.gridLayout_6.addWidget(self.widget_13, 11, 2, 1, 1)
@@ -391,15 +388,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_11.addWidget(self.label_15)
 
-        self.horizontalSlider_vscale = QSlider(self.widget_vscale)
-        self.horizontalSlider_vscale.setObjectName(u"horizontalSlider_vscale")
-        self.horizontalSlider_vscale.setMinimum(1)
-        self.horizontalSlider_vscale.setMaximum(10)
-        self.horizontalSlider_vscale.setPageStep(5)
-        self.horizontalSlider_vscale.setValue(10)
-        self.horizontalSlider_vscale.setOrientation(Qt.Horizontal)
+        self.spinBox_vscale = QSpinBox(self.widget_vscale)
+        self.spinBox_vscale.setObjectName(u"spinBox_vscale")
+        self.spinBox_vscale.setMinimum(1)
+        self.spinBox_vscale.setMaximum(10)
+        self.spinBox_vscale.setValue(10)
 
-        self.horizontalLayout_11.addWidget(self.horizontalSlider_vscale)
+        self.horizontalLayout_11.addWidget(self.spinBox_vscale)
 
 
         self.gridLayout_6.addWidget(self.widget_vscale, 10, 3, 1, 1)
@@ -414,13 +409,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_12.addWidget(self.label_14)
 
-        self.horizontalSlider_skew = QSlider(self.widget_skew)
-        self.horizontalSlider_skew.setObjectName(u"horizontalSlider_skew")
-        self.horizontalSlider_skew.setMinimum(-10)
-        self.horizontalSlider_skew.setMaximum(10)
-        self.horizontalSlider_skew.setOrientation(Qt.Horizontal)
+        self.spinBox_skew = QSpinBox(self.widget_skew)
+        self.spinBox_skew.setObjectName(u"spinBox_skew")
+        self.spinBox_skew.setMinimum(-10)
+        self.spinBox_skew.setMaximum(10)
 
-        self.horizontalLayout_12.addWidget(self.horizontalSlider_skew)
+        self.horizontalLayout_12.addWidget(self.spinBox_skew)
 
 
         self.gridLayout_6.addWidget(self.widget_skew, 11, 3, 1, 1)
@@ -564,16 +558,13 @@ class Ui_MainWindow(object):
 
         self.formLayout_2.setWidget(3, QFormLayout.LabelRole, self.label_savePerSec)
 
-        self.horizontalSlider_aggsPerSecond = QSlider(self.tab_textFiles)
-        self.horizontalSlider_aggsPerSecond.setObjectName(u"horizontalSlider_aggsPerSecond")
-        self.horizontalSlider_aggsPerSecond.setMinimum(1)
-        self.horizontalSlider_aggsPerSecond.setMaximum(10)
-        self.horizontalSlider_aggsPerSecond.setPageStep(1)
-        self.horizontalSlider_aggsPerSecond.setValue(5)
-        self.horizontalSlider_aggsPerSecond.setOrientation(Qt.Horizontal)
-        self.horizontalSlider_aggsPerSecond.setTickPosition(QSlider.TicksBelow)
+        self.spinBox_aggsPerSecond = QSpinBox(self.tab_textFiles)
+        self.spinBox_aggsPerSecond.setObjectName(u"spinBox_aggsPerSecond")
+        self.spinBox_aggsPerSecond.setMinimum(1)
+        self.spinBox_aggsPerSecond.setMaximum(10)
+        self.spinBox_aggsPerSecond.setValue(5)
 
-        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.horizontalSlider_aggsPerSecond)
+        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.spinBox_aggsPerSecond)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
@@ -904,19 +895,13 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_9.addWidget(self.label_detectionCadence)
 
-        self.horizontalSlider_detectionCadence = QSlider(self.widget_detectionCadence)
-        self.horizontalSlider_detectionCadence.setObjectName(u"horizontalSlider_detectionCadence")
-        self.horizontalSlider_detectionCadence.setMinimum(1)
-        self.horizontalSlider_detectionCadence.setMaximum(15)
-        self.horizontalSlider_detectionCadence.setPageStep(5)
-        self.horizontalSlider_detectionCadence.setValue(5)
-        self.horizontalSlider_detectionCadence.setOrientation(Qt.Horizontal)
-        self.horizontalSlider_detectionCadence.setInvertedAppearance(False)
-        self.horizontalSlider_detectionCadence.setInvertedControls(False)
-        self.horizontalSlider_detectionCadence.setTickPosition(QSlider.TicksBelow)
-        self.horizontalSlider_detectionCadence.setTickInterval(5)
+        self.spinBox_detectionCadence = QSpinBox(self.widget_detectionCadence)
+        self.spinBox_detectionCadence.setObjectName(u"spinBox_detectionCadence")
+        self.spinBox_detectionCadence.setMinimum(1)
+        self.spinBox_detectionCadence.setMaximum(15)
+        self.spinBox_detectionCadence.setValue(5)
 
-        self.horizontalLayout_9.addWidget(self.horizontalSlider_detectionCadence)
+        self.horizontalLayout_9.addWidget(self.spinBox_detectionCadence)
 
         self.checkBox_updateOnchange = QCheckBox(self.widget_detectionCadence)
         self.checkBox_updateOnchange.setObjectName(u"checkBox_updateOnchange")
@@ -1240,13 +1225,14 @@ class Ui_MainWindow(object):
         self.comboBox_fieldType.setItemText(2, QCoreApplication.translate("MainWindow", u"Text", None))
 
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Cleanup", None))
+        self.spinBox_cleanup.setSuffix(QCoreApplication.translate("MainWindow", u" %", None))
         self.checkBox_ordinalIndicator.setText(QCoreApplication.translate("MainWindow", u"Ordinal (1st, 2nd, ..)", None))
         self.checkBox_skip_empty.setText(QCoreApplication.translate("MainWindow", u"Skip Empty Values", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Target:", None))
         self.label_selectedInfo.setText(QCoreApplication.translate("MainWindow", u"Select an item above", None))
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
         self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th (%)", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_normWHRatio.setToolTip(QCoreApplication.translate("MainWindow", u"Scale to a favorable 1:2 width-to-height ratio", None))
 #endif // QT_CONFIG(tooltip)

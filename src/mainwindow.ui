@@ -491,15 +491,18 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSlider" name="horizontalSlider_cleanup">
+                 <widget class="QSpinBox" name="spinBox_cleanup">
+                  <property name="suffix">
+                   <string> %</string>
+                  </property>
+                  <property name="buttonSymbols">
+                   <enum>QAbstractSpinBox::UpDownArrows</enum>
+                  </property>
                   <property name="minimum">
                    <number>0</number>
                   </property>
                   <property name="maximum">
                    <number>100</number>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -604,12 +607,18 @@
                    <string>Minimum OCR confidence in percent. Raise this to reject uncertain readings.</string>
                   </property>
                   <property name="text">
-                   <string>Conf. Th (%)</string>
+                   <string>Conf. Th</string>
                   </property>
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSlider" name="horizontalSlider_conf_thresh">
+                 <widget class="QSpinBox" name="spinBox_conf_thresh">
+                  <property name="suffix">
+                   <string> %</string>
+                  </property>
+                  <property name="buttonSymbols">
+                   <enum>QAbstractSpinBox::UpDownArrows</enum>
+                  </property>
                   <property name="toolTip">
                    <string>Minimum OCR confidence in percent. Raise this to reject uncertain readings.</string>
                   </property>
@@ -618,9 +627,6 @@
                   </property>
                   <property name="value">
                    <number>50</number>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -718,15 +724,9 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSlider" name="horizontalSlider_dilate">
+                 <widget class="QSpinBox" name="spinBox_dilate">
                   <property name="maximum">
                    <number>5</number>
-                  </property>
-                  <property name="pageStep">
-                   <number>1</number>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -780,21 +780,15 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSlider" name="horizontalSlider_vscale">
+                 <widget class="QSpinBox" name="spinBox_vscale">
                   <property name="minimum">
                    <number>1</number>
                   </property>
                   <property name="maximum">
                    <number>10</number>
                   </property>
-                  <property name="pageStep">
-                   <number>5</number>
-                  </property>
                   <property name="value">
                    <number>10</number>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -824,15 +818,12 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QSlider" name="horizontalSlider_skew">
+                 <widget class="QSpinBox" name="spinBox_skew">
                   <property name="minimum">
                    <number>-10</number>
                   </property>
                   <property name="maximum">
                    <number>10</number>
-                  </property>
-                  <property name="orientation">
-                   <enum>Qt::Horizontal</enum>
                   </property>
                  </widget>
                 </item>
@@ -1093,24 +1084,15 @@
             </widget>
            </item>
            <item row="3" column="1">
-            <widget class="QSlider" name="horizontalSlider_aggsPerSecond">
+            <widget class="QSpinBox" name="spinBox_aggsPerSecond">
              <property name="minimum">
               <number>1</number>
              </property>
              <property name="maximum">
               <number>10</number>
              </property>
-             <property name="pageStep">
-              <number>1</number>
-             </property>
              <property name="value">
               <number>5</number>
-             </property>
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="tickPosition">
-              <enum>QSlider::TicksBelow</enum>
              </property>
             </widget>
            </item>
@@ -1761,32 +1743,14 @@
            </widget>
           </item>
           <item>
-           <widget class="QSlider" name="horizontalSlider_detectionCadence">
+           <widget class="QSpinBox" name="spinBox_detectionCadence">
             <property name="minimum">
              <number>1</number>
             </property>
             <property name="maximum">
              <number>15</number>
             </property>
-            <property name="pageStep">
-             <number>5</number>
-            </property>
             <property name="value">
-             <number>5</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="invertedAppearance">
-             <bool>false</bool>
-            </property>
-            <property name="invertedControls">
-             <bool>false</bool>
-            </property>
-            <property name="tickPosition">
-             <enum>QSlider::TicksBelow</enum>
-            </property>
-            <property name="tickInterval">
              <number>5</number>
             </property>
            </widget>

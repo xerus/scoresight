@@ -53,19 +53,19 @@ class BoxSettingsUIHandler:
                 "removes components smaller than about 5% of this box's area. Increase "
                 "gradually: high values can erase dots or parts of digits."
             ),
-            "horizontalSlider_cleanup": (
+            "spinBox_cleanup": (
                 "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "
                 "removes components smaller than about 5% of this box's area. Increase "
                 "gradually: high values can erase dots or parts of digits."
             ),
             "label_9": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
-            "horizontalSlider_dilate": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
+            "spinBox_dilate": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
             "label_15": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
-            "horizontalSlider_vscale": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            "spinBox_vscale": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
             "label_14": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
-            "horizontalSlider_skew": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
+            "spinBox_skew": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
             "label_3": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
-            "horizontalSlider_conf_thresh": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+            "spinBox_conf_thresh": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
         }
         for object_name, tooltip in tooltips.items():
             widget = getattr(self.ui, object_name, None)
@@ -98,12 +98,12 @@ class BoxSettingsUIHandler:
 
     def confThreshChanged(self):
         self.genericSettingsChanged(
-            "conf_thresh", float(self.ui.horizontalSlider_conf_thresh.value()) / 100.0
+            "conf_thresh", float(self.ui.spinBox_conf_thresh.value()) / 100.0
         )
 
     def cleanupThreshChanged(self):
         self.genericSettingsChanged(
-            "cleanup_thresh", float(self.ui.horizontalSlider_cleanup.value()) / 100.0
+            "cleanup_thresh", float(self.ui.spinBox_cleanup.value()) / 100.0
         )
 
     def formatPrefixChanged(self, index):
@@ -128,9 +128,7 @@ class BoxSettingsUIHandler:
         self.ui.checkBox_skip_empty.toggled.connect(
             partial(self.genericSettingsChanged, "skip_empty")
         )
-        self.ui.horizontalSlider_conf_thresh.valueChanged.connect(
-            self.confThreshChanged
-        )
+        self.ui.spinBox_conf_thresh.valueChanged.connect(self.confThreshChanged)
         self.ui.lineEdit_format.textChanged.connect(
             partial(self.genericSettingsChanged, "format_regex")
         )
@@ -143,14 +141,14 @@ class BoxSettingsUIHandler:
         self.ui.checkBox_autocrop.toggled.connect(
             partial(self.genericSettingsChanged, "autocrop")
         )
-        self.ui.horizontalSlider_cleanup.valueChanged.connect(self.cleanupThreshChanged)
-        self.ui.horizontalSlider_dilate.valueChanged.connect(
+        self.ui.spinBox_cleanup.valueChanged.connect(self.cleanupThreshChanged)
+        self.ui.spinBox_dilate.valueChanged.connect(
             partial(self.genericSettingsChanged, "dilate")
         )
-        self.ui.horizontalSlider_skew.valueChanged.connect(
+        self.ui.spinBox_skew.valueChanged.connect(
             partial(self.genericSettingsChanged, "skew")
         )
-        self.ui.horizontalSlider_vscale.valueChanged.connect(
+        self.ui.spinBox_vscale.valueChanged.connect(
             partial(self.genericSettingsChanged, "vscale")
         )
         self.ui.checkBox_removeLeadingZeros.toggled.connect(
@@ -189,13 +187,13 @@ class BoxSettingsUIHandler:
         self.ui.comboBox_fieldType.blockSignals(True)
         self.ui.checkBox_smoothing.blockSignals(True)
         self.ui.checkBox_skip_empty.blockSignals(True)
-        self.ui.horizontalSlider_conf_thresh.blockSignals(True)
+        self.ui.spinBox_conf_thresh.blockSignals(True)
         self.ui.checkBox_autocrop.blockSignals(True)
         self.ui.checkBox_skip_similar_image.blockSignals(True)
-        self.ui.horizontalSlider_cleanup.blockSignals(True)
-        self.ui.horizontalSlider_dilate.blockSignals(True)
-        self.ui.horizontalSlider_skew.blockSignals(True)
-        self.ui.horizontalSlider_vscale.blockSignals(True)
+        self.ui.spinBox_cleanup.blockSignals(True)
+        self.ui.spinBox_dilate.blockSignals(True)
+        self.ui.spinBox_skew.blockSignals(True)
+        self.ui.spinBox_vscale.blockSignals(True)
         self.ui.checkBox_removeLeadingZeros.blockSignals(True)
         self.ui.checkBox_rescalePatch.blockSignals(True)
         self.ui.checkBox_normWHRatio.blockSignals(True)
@@ -214,13 +212,13 @@ class BoxSettingsUIHandler:
             self.ui.comboBox_fieldType.setCurrentIndex(0)
             self.ui.checkBox_smoothing.setChecked(True)
             self.ui.checkBox_skip_empty.setChecked(True)
-            self.ui.horizontalSlider_conf_thresh.setValue(50)
+            self.ui.spinBox_conf_thresh.setValue(50)
             self.ui.checkBox_autocrop.setChecked(False)
             self.ui.checkBox_skip_similar_image.setChecked(False)
-            self.ui.horizontalSlider_cleanup.setValue(0)
-            self.ui.horizontalSlider_dilate.setValue(1)
-            self.ui.horizontalSlider_skew.setValue(0)
-            self.ui.horizontalSlider_vscale.setValue(10)
+            self.ui.spinBox_cleanup.setValue(0)
+            self.ui.spinBox_dilate.setValue(1)
+            self.ui.spinBox_skew.setValue(0)
+            self.ui.spinBox_vscale.setValue(10)
             self.ui.label_selectedInfo.setText("")
             self.ui.checkBox_removeLeadingZeros.setChecked(False)
             self.ui.checkBox_rescalePatch.setChecked(False)
@@ -240,19 +238,19 @@ class BoxSettingsUIHandler:
             self.ui.comboBox_fieldType.setCurrentIndex(item_obj.settings["type"])
             self.ui.checkBox_smoothing.setChecked(item_obj.settings["smoothing"])
             self.ui.checkBox_skip_empty.setChecked(item_obj.settings["skip_empty"])
-            self.ui.horizontalSlider_conf_thresh.setValue(
+            self.ui.spinBox_conf_thresh.setValue(
                 int(item_obj.settings["conf_thresh"] * 100)
             )
             self.ui.checkBox_autocrop.setChecked(item_obj.settings["autocrop"])
             self.ui.checkBox_skip_similar_image.setChecked(
                 item_obj.settings["skip_similar_image"]
             )
-            self.ui.horizontalSlider_cleanup.setValue(
+            self.ui.spinBox_cleanup.setValue(
                 int(item_obj.settings["cleanup_thresh"] * 100)
             )
-            self.ui.horizontalSlider_dilate.setValue(item_obj.settings["dilate"])
-            self.ui.horizontalSlider_skew.setValue(item_obj.settings["skew"])
-            self.ui.horizontalSlider_vscale.setValue(item_obj.settings["vscale"])
+            self.ui.spinBox_dilate.setValue(item_obj.settings["dilate"])
+            self.ui.spinBox_skew.setValue(item_obj.settings["skew"])
+            self.ui.spinBox_vscale.setValue(item_obj.settings["vscale"])
             self.ui.checkBox_removeLeadingZeros.setChecked(
                 item_obj.settings["remove_leading_zeros"]
             )
@@ -282,13 +280,13 @@ class BoxSettingsUIHandler:
         self.ui.comboBox_fieldType.blockSignals(False)
         self.ui.checkBox_smoothing.blockSignals(False)
         self.ui.checkBox_skip_empty.blockSignals(False)
-        self.ui.horizontalSlider_conf_thresh.blockSignals(False)
+        self.ui.spinBox_conf_thresh.blockSignals(False)
         self.ui.checkBox_autocrop.blockSignals(False)
         self.ui.checkBox_skip_similar_image.blockSignals(False)
-        self.ui.horizontalSlider_cleanup.blockSignals(False)
-        self.ui.horizontalSlider_dilate.blockSignals(False)
-        self.ui.horizontalSlider_skew.blockSignals(False)
-        self.ui.horizontalSlider_vscale.blockSignals(False)
+        self.ui.spinBox_cleanup.blockSignals(False)
+        self.ui.spinBox_dilate.blockSignals(False)
+        self.ui.spinBox_skew.blockSignals(False)
+        self.ui.spinBox_vscale.blockSignals(False)
         self.ui.checkBox_removeLeadingZeros.blockSignals(False)
         self.ui.checkBox_rescalePatch.blockSignals(False)
         self.ui.checkBox_normWHRatio.blockSignals(False)
