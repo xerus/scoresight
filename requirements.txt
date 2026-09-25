@@ -11,4 +11,4 @@ python-dotenv
 requests
 tesserocr; sys_platform != "win32"
 uvicorn
-websockets==9.1
+websockets>=15,<16
