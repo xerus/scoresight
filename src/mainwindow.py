@@ -437,6 +437,17 @@ class MainWindow(QMainWindow):
         self.globalSettingsChanged("rotation", rotation)
 
     def cropMode(self):
+        # OCR coordinates are relative to the cropped image while crop mode is
+        # enabled. The preview uses full-frame coordinates, so translate the
+        # saved boxes whenever the coordinate system changes.
+        crop_was_enabled = fetch_data("scoresight.json", "crop_mode", False)
+        crop_is_enabled = self.ui.toolButton_topCrop.isChecked()
+        if crop_was_enabled != crop_is_enabled:
+            left = fetch_data("scoresight.json", "left_crop", 0)
+            top = fetch_data("scoresight.json", "top_crop", 0)
+            dx, dy = (-left, -top) if crop_is_enabled else (left, top)
+            self.translateDetectionBoxes(dx, dy)
+
         # if the toolButton_topCrop is unchecked, go to crop mode
         if self.ui.toolButton_topCrop.isChecked():
             self.ui.widget_cropPanel.setVisible(True)
@@ -446,6 +457,17 @@ class MainWindow(QMainWindow):
             self.ui.widget_cropPanel.setVisible(False)
             self.ui.widget_cropPanel.setEnabled(False)
             self.globalSettingsChanged("crop_mode", False)
+
+    def translateDetectionBoxes(self, dx, dy):
+        if not dx and not dy:
+            return
+        for target in self.detectionTargetsStorage.get_data():
+            target.setX(target.x() + dx)
+            target.setY(target.y() + dy)
+        self.detectionTargetsStorage.data_changed.emit(
+            self.detectionTargetsStorage.get_data()
+        )
+        self.detectionTargetsStorage.saveBoxesToStorage()
 
     def globalSettingsChanged(self, settingName, value):
         store_data("scoresight.json", settingName, value)
@@ -1051,7 +1073,48 @@ class MainWindow(QMainWindow):
 
         # load the boxes from scoresight.json
         self.detectionTargetsStorage.loadBoxesFromStorage()
+        self.migrateLegacyCropBoxCoordinates()
         self.updateError(None)
+
+    def migrateLegacyCropBoxCoordinates(self):
+        """Convert boxes saved against the old cropped preview to full-frame coordinates."""
+        if fetch_data("scoresight.json", "crop_mode", False) or fetch_data(
+            "scoresight.json", "crop_box_coordinates_migrated", False
+        ):
+            return
+
+        targets = self.detectionTargetsStorage.get_data()
+        if not targets:
+            return
+
+        left = fetch_data("scoresight.json", "left_crop", 0)
+        top = fetch_data("scoresight.json", "top_crop", 0)
+        right = fetch_data("scoresight.json", "right_crop", 0)
+        bottom = fetch_data("scoresight.json", "bottom_crop", 0)
+        frame_width = int(self.image_viewer.camera_width)
+        frame_height = int(self.image_viewer.camera_height)
+        crop_width = frame_width - left - right
+        crop_height = frame_height - top - bottom
+        if not left and not top:
+            return
+
+        # Before the interactive crop preview, boxes were saved relative to the
+        # cropped frame. They fit in its dimensions but sit outside the crop's
+        # location in the full frame. This identifies that legacy coordinate set.
+        looks_crop_relative = all(
+            target.x() >= 0
+            and target.y() >= 0
+            and target.x() + target.width() <= crop_width
+            and target.y() + target.height() <= crop_height
+            and (
+                target.x() + target.width() <= left
+                or target.y() + target.height() <= top
+            )
+            for target in targets
+        )
+        if looks_crop_relative:
+            self.translateDetectionBoxes(left, top)
+            store_data("scoresight.json", "crop_box_coordinates_migrated", True)
 
     def updateError(self, error):
         if not error:
