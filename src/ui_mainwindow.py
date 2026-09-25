@@ -1233,6 +1233,7 @@ class Ui_MainWindow(object):
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
         self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th", None))
+        self.spinBox_conf_thresh.setSuffix(QCoreApplication.translate("MainWindow", u" %", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_normWHRatio.setToolTip(QCoreApplication.translate("MainWindow", u"Scale to a favorable 1:2 width-to-height ratio", None))
 #endif // QT_CONFIG(tooltip)
