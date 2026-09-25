@@ -1012,6 +1012,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_10.addWidget(self.pushButton_binary)
 
+        self.toolButton_pause = QToolButton(self.widget_viewTools)
+        self.toolButton_pause.setObjectName(u"toolButton_pause")
+        self.toolButton_pause.setEnabled(False)
+
+        self.horizontalLayout_10.addWidget(self.toolButton_pause)
+
         self.pushButton_fourCorner = QToolButton(self.widget_viewTools)
         self.pushButton_fourCorner.setObjectName(u"pushButton_fourCorner")
         self.pushButton_fourCorner.setCheckable(True)
@@ -1342,6 +1348,7 @@ class Ui_MainWindow(object):
         self.pushButton_refresh_sources.setText(QCoreApplication.translate("MainWindow", u"Reload", None))
         self.pushButton_saveOCRTrainingData.setText(QCoreApplication.translate("MainWindow", u"Save OCR Training Data", None))
         self.pushButton_binary.setText(QCoreApplication.translate("MainWindow", u"Binary View", None))
+        self.toolButton_pause.setText(QCoreApplication.translate("MainWindow", u"Pause", None))
         self.pushButton_fourCorner.setText(QCoreApplication.translate("MainWindow", u"4-corner Correction", None))
 #if QT_CONFIG(tooltip)
         self.toolButton_topCrop.setToolTip(QCoreApplication.translate("MainWindow", u"Apply cropping to the entire image", None))

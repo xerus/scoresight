@@ -254,7 +254,7 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_ocrModel.addItems(ocr_models)
         # default to General Scoreboard
         ocr_model_from_storage = fetch_data("scoresight.json", "ocr_model", 1)
-        if type(ocr_model_from_storage) == str:
+        if type(ocr_model_from_storage) is str:
             ocr_model_from_storage = 4
         self.ui.comboBox_ocrModel.setCurrentIndex(ocr_model_from_storage)
 
@@ -282,7 +282,7 @@ class MainWindow(QMainWindow):
         )
         box_display_style = fetch_data("scoresight.json", "box_display_style", 3)
         self.ui.comboBox_boxDisplayStyle.setCurrentIndex(
-            box_display_style if type(box_display_style) == int else 3
+            box_display_style if type(box_display_style) is int else 3
         )
 
         self.ui.checkBox_updateOnchange.toggled.connect(self.toggleUpdateOnChange)
@@ -368,6 +368,7 @@ class MainWindow(QMainWindow):
         )
 
         self.ui.toolButton_speed.clicked.connect(self.toggleSpeed)
+        self.ui.toolButton_pause.clicked.connect(self.togglePlaybackPause)
 
         self.update_sources.connect(self.updateSources)
         self.get_sources.connect(self.getSources)
@@ -397,6 +398,12 @@ class MainWindow(QMainWindow):
                 speed = 1
             self.image_viewer.timerThread.setSpeed(speed)
             self.ui.toolButton_speed.setText(f"x{speed}")
+
+    def togglePlaybackPause(self):
+        if self.image_viewer and self.image_viewer.timerThread is not None:
+            thread = self.image_viewer.timerThread
+            thread.setPaused(not thread.isPaused())
+            self.ui.toolButton_pause.setText("Resume" if thread.isPaused() else "Pause")
 
     def saveOCRTrainingData(self):
         self.globalSettingsChanged(
@@ -552,10 +559,10 @@ class MainWindow(QMainWindow):
             file = path.abspath(file)
             self.globalSettingsChanged("ocr_model", file)
             ocrModel = file
-        elif type(index) == int:
+        elif type(index) is int:
             self.globalSettingsChanged("ocr_model", index)
             ocrModel = index
-        elif type(index) == str:
+        elif type(index) is str:
             # check if the index is a valid existing file
             if path.exists(index):
                 self.globalSettingsChanged("ocr_model", index)
@@ -791,7 +798,7 @@ class MainWindow(QMainWindow):
         self.ui.frame_source_view.setEnabled(True)
 
         selected_source_from_storage = fetch_data("scoresight.json", "source_selected")
-        if type(selected_source_from_storage) == str:
+        if type(selected_source_from_storage) is str:
             logger.info(
                 "Source selected from storage: %s", selected_source_from_storage
             )
@@ -810,6 +817,8 @@ class MainWindow(QMainWindow):
                 )
 
     def reset_playing_source(self):
+        self.ui.toolButton_pause.setEnabled(False)
+        self.ui.toolButton_pause.setText("Pause")
         if self.image_viewer:
             # remove the image viewer from the layout frame_for_source_view_label
             self.ui.frame_for_source_view_label.layout().removeWidget(self.image_viewer)
@@ -926,8 +935,6 @@ class MainWindow(QMainWindow):
         if self.ui.comboBox_camera_source.currentIndex() == 0:
             return
 
-        self.ui.frame_source_view.setEnabled(False)
-
         if self.ui.comboBox_camera_source.currentIndex() == 1:
             if self.source_name is None or not path.exists(self.source_name):
                 logger.error("No file selected")
@@ -989,6 +996,8 @@ class MainWindow(QMainWindow):
             self.detectionTargetsStorage,
             self.itemSelected,
         )
+        self.ui.toolButton_pause.setEnabled(True)
+        self.ui.toolButton_pause.setText("Pause")
         self.ui.toolButton_videoSettings.setEnabled(
             camera_info.type == CameraInfo.CameraType.OPENCV
         )

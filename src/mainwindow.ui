@@ -1976,6 +1976,16 @@
            </widget>
           </item>
           <item>
+           <widget class="QToolButton" name="toolButton_pause">
+            <property name="enabled">
+             <bool>false</bool>
+            </property>
+            <property name="text">
+             <string>Pause</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QToolButton" name="pushButton_fourCorner">
             <property name="text">
              <string>4-corner Correction</string>

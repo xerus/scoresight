@@ -9,7 +9,7 @@ import threading
 from base_video_capture import BaseVideoCapture
 from camera_info import CameraInfo
 from ndi import NDICapture
-from screen_capture_source import ScreenCapture, ScreenCaptureType
+from screen_capture_source import ScreenCapture
 from storage import TextDetectionTargetMemoryStorage, subscribe_to_data, fetch_data
 from tesseract import TextDetector
 from text_detection_target import TextDetectionTargetWithResult
@@ -207,6 +207,13 @@ class TimerThread(QThread):
         self.updateOnChange = True
         self.crop = FrameCropAndRotation()
         self.speed = 1
+        self.paused = False
+
+    def setPaused(self, paused):
+        self.paused = paused
+
+    def isPaused(self):
+        return self.paused
 
     def getSpeed(self):
         return self.speed
@@ -260,7 +267,7 @@ class TimerThread(QThread):
     def run(self):
         description_ascii = (
             self.camera_info.description.encode("ascii", errors="ignore").decode()
-            if type(self.camera_info.description) == str
+            if type(self.camera_info.description) is str
             else str(self.camera_info.description)
         )
         logger.info("Starting camera thread for: '%s'", description_ascii)
@@ -274,6 +281,10 @@ class TimerThread(QThread):
         self.last_emit_time = datetime.now()
 
         while not self.should_stop:
+            if self.paused:
+                time.sleep(0.05)
+                continue
+
             if self.video_capture is None:
                 logger.warn("Error: video capture is None")
                 break
