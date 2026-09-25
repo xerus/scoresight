@@ -18,16 +18,8 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-x86, macos-arm64, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         include:
-          - os: macos-x86
-            python-version: '3.11'
-            target: macos-x86
-            runs-on: macos-13
-          - os: macos-arm64
-            python-version: '3.11'
-            target: macos-arm64
-            runs-on: macos-latest
           - os: ubuntu-latest
             python-version: '3.11'
             target: linux
@@ -57,59 +49,17 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: python -m pip install pyinstaller==6.19.0
 
-      - name: Install tesserocr for MacOS arm64
-        if: matrix.os == 'macos-arm64'
-        run: |
-          brew install tesseract
-          pip install --no-binary tesserocr tesserocr
-
       - name: Install dependencies
         run: |
           python -m pip install -r requirements.txt
-
-      - name: Install MacOS dependencies
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          pip install -r requirements-mac.txt
 
       - name: Install Windows dependencies
         if: matrix.os == 'windows-latest'
         run: |
           python -m pip install -r requirements-win.txt
 
-      - name: Import Apple Certificate
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          if security list-keychains | grep -q "github_build.keychain"; then
-            security delete-keychain github_build.keychain
-          fi
-          security create-keychain -p "" github_build.keychain
-          security default-keychain -s github_build.keychain
-          security set-keychain-settings -lut 21600 github_build.keychain
-          echo "${{ secrets.APPLE_CERTIFICATE }}" | base64 --decode > apple_certificate.p12
-          security import apple_certificate.p12 -k github_build.keychain -P "${{ secrets.APPLE_CERTIFICATE_PASSWORD }}" \
-            -t cert -f pkcs12 -T /usr/bin/codesign -T /usr/bin/security -T /usr/bin/xcrun
-          security unlock-keychain -p "" github_build.keychain
-          security set-key-partition-list -S 'apple-tool:,apple:' -s -k "" github_build.keychain
-          security list-keychain -d user -s github_build.keychain 'login-keychain'
-        env:
-          APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
-          APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
-
-      - name: Unlock keychain on Mac
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          security unlock-keychain -p "" github_build.keychain
-          security set-key-partition-list -S apple-tool:,apple: -k "" -D "Developer" -t private github_build.keychain
-
-      - name: List available signing identities
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          security find-identity -v -p codesigning
-
-      # write a .env file with the secrets
-      - name: Write .env file Mac & Linux
-        if: matrix.os != 'windows-latest'
+      - name: Write .env file Linux
+        if: matrix.os == 'ubuntu-latest'
         run: |
           echo "LOCAL_RELEASE_TAG=${GITHUB_REF_NAME}" >> .env
           echo "LOCAL_RELEASE_DATE=$(date -u +"%Y-%m-%dT%H:%M:%SZ")" >> .env
@@ -130,13 +80,6 @@ jobs:
           python setup.py build_ext --inplace
           cd ../..
 
-      - name: Build with PyInstaller (MacOS)
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          pyinstaller --clean --noconfirm scoresight.spec -- --mac_osx
-        env:
-          APPLE_APP_DEVELOPER_ID: ${{ secrets.APPLE_APP_DEVELOPER_ID }}
-
       - name: Build with PyInstaller (Windows)
         if: matrix.os == 'windows-latest'
         run: |
@@ -150,27 +93,6 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: |
           pyinstaller --clean --noconfirm scoresight.spec
-
-      - name: Zip Application for Notarization
-        if: (matrix.os == 'macos-x86' || matrix.os == 'macos-arm64') && github.event_name != 'pull_request'
-        run: |
-          ditto -c -k --keepParent dist/scoresight.app scoresight.zip
-
-      - name: Notarize and Staple
-        if: (matrix.os == 'macos-x86' || matrix.os == 'macos-arm64') && github.event_name != 'pull_request'
-        run: |
-          xcrun notarytool submit scoresight.zip --apple-id \
-            "${{ secrets.APPLE_DEVELOPER_ID_USER }}" --password \
-            "${{ secrets.APPLE_DEVELOPER_ID_PASSWORD }}" --team-id \
-            "${{ secrets.APPLE_DEVELOPER_ID_TEAM }}" --wait --verbose
-          chmod 755 dist/scoresight.app
-          xcrun stapler staple dist/scoresight.app
-
-      - name: Verify Notarization
-        if: (matrix.os == 'macos-x86' || matrix.os == 'macos-arm64') && github.event_name != 'pull_request'
-        run: |
-          spctl -a -v dist/scoresight.app
-          rm scoresight.zip
 
       - name: Add version to .iss file
         if: matrix.os == 'windows-latest'
@@ -193,12 +115,6 @@ jobs:
           chmod a+x dist/scoresight
           tar -cvf scoresight.tar -C dist scoresight
 
-      - name: Create dmg MacOS
-        if: matrix.os == 'macos-x86' || matrix.os == 'macos-arm64'
-        run: |
-          chmod a+x dist/scoresight.app
-          hdiutil create -volname "ScoreSight" -srcfolder dist/scoresight.app -ov -format UDRO scoresight-${{ matrix.target }}.dmg
-
       - name: Create zip on Windows
         if: matrix.os == 'windows-latest'
         run: |
@@ -209,9 +125,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scoresight-${{ matrix.target }}
-          # only upload exe on windows, tar on linux, dmg on macos
-          path: |
-            scoresight-macos-arm64.dmg
-            scoresight-macos-x86.dmg
-            scoresight.tar
-            scoresight.zip
+          path: ${{ matrix.os == 'windows-latest' && 'scoresight.zip' || 'scoresight.tar' }}

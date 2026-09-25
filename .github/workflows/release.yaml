@@ -78,8 +78,6 @@ jobs:
 
           variants=(
             'linux'
-            'macos-x86'
-            'macos-arm64'
             'windows'
           )
 
@@ -126,5 +124,4 @@ jobs:
           files: |
             ${{ github.workspace }}/uploads/scoresight-*.zip
             ${{ github.workspace }}/uploads/scoresight-*.exe
-            ${{ github.workspace }}/uploads/scoresight-*.dmg
             ${{ github.workspace }}/uploads/scoresight-*.tar
