@@ -52,6 +52,10 @@ jobs:
           Invoke-WebRequest -Uri https://github.com/simonflueckiger/tesserocr-windows_build/releases/download/tesserocr-v2.7.0-tesseract-5.3.4/tesserocr-2.7.0-cp311-cp311-win_amd64.whl -OutFile tesserocr-2.7.0-cp311-cp311-win_amd64.whl
           python -m pip install tesserocr-2.7.0-cp311-cp311-win_amd64.whl
 
+      - name: Install PyInstaller for Windows
+        if: matrix.os == 'windows-latest'
+        run: python -m pip install pyinstaller==6.19.0
+
       - name: Install tesserocr for MacOS arm64
         if: matrix.os == 'macos-arm64'
         run: |
