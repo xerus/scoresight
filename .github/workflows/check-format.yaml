@@ -16,8 +16,8 @@ jobs:
         with:
           python-version: 3.x
 
-      - name: Install dependencies
-        run: pip install black
+      - name: Install pre-commit
+        run: pip install -r requirements-dev.txt
 
-      - name: Check formatting
-        run: black --check ./src --exclude '/ui_.*\.py'
+      - name: Run formatting and lint hooks
+        run: pre-commit run --all-files

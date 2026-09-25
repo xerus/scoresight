@@ -330,7 +330,7 @@ class TextDetector:
                         int(rect.x()) : int(rect.x() + rect.width()),
                     ] = skewed
                     imagecrop = skewed
-                except:
+                except Exception:
                     pass
 
             if (
@@ -472,7 +472,7 @@ class TextDetector:
                 pilimage = Image.fromarray(imagecrop)
                 with self.api_lock:
                     self.api.SetImage(pilimage)
-            except:
+            except Exception:
                 texts.append(
                     TextDetectionResult(
                         "", TextDetectionTargetWithResult.ResultState.Empty, None
