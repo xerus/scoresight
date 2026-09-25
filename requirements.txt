@@ -9,6 +9,6 @@ pyinstaller==6.19.0
 pyside6==6.10.1
 python-dotenv
 requests
-tesserocr
+tesserocr; sys_platform != "win32"
 uvicorn
 websockets==9.1

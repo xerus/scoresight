@@ -1,3 +1,5 @@
 pygetwindow
 pybind11
 pywin32
+# CPython 3.11 Windows wheel bundles Tesseract 5.5.2 and Leptonica 1.87.0.
+tesserocr @ https://github.com/simonflueckiger/tesserocr-windows_build/releases/download/tesserocr-v2.10.0-tesseract-5.5.2/tesserocr-2.10.0-cp311-cp311-win_amd64.whl#sha256=02f75202a13804dacaac111cc4375cdb7b0194217f7f36add30cbb57c37c002c
