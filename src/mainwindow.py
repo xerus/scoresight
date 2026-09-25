@@ -170,21 +170,21 @@ class MainWindow(QMainWindow):
         self.ui.widget_cropPanel.setVisible(self.ui.toolButton_topCrop.isChecked())
         self.ui.widget_cropPanel.setEnabled(self.ui.toolButton_topCrop.isChecked())
         self.ui.spinBox_leftCrop.valueChanged.connect(
-            partial(self.globalSettingsChanged, "left_crop")
+            partial(self.cropSettingChanged, "left_crop")
         )
         self.ui.spinBox_leftCrop.setValue(fetch_data("scoresight.json", "left_crop", 0))
         self.ui.spinBox_rightCrop.valueChanged.connect(
-            partial(self.globalSettingsChanged, "right_crop")
+            partial(self.cropSettingChanged, "right_crop")
         )
         self.ui.spinBox_rightCrop.setValue(
             fetch_data("scoresight.json", "right_crop", 0)
         )
         self.ui.spinBox_topCrop.valueChanged.connect(
-            partial(self.globalSettingsChanged, "top_crop")
+            partial(self.cropSettingChanged, "top_crop")
         )
         self.ui.spinBox_topCrop.setValue(fetch_data("scoresight.json", "top_crop", 0))
         self.ui.spinBox_bottomCrop.valueChanged.connect(
-            partial(self.globalSettingsChanged, "bottom_crop")
+            partial(self.cropSettingChanged, "bottom_crop")
         )
         self.ui.spinBox_bottomCrop.setValue(
             fetch_data("scoresight.json", "bottom_crop", 0)
@@ -449,6 +449,25 @@ class MainWindow(QMainWindow):
 
     def globalSettingsChanged(self, settingName, value):
         store_data("scoresight.json", settingName, value)
+
+    def cropSettingChanged(self, settingName, value):
+        self.globalSettingsChanged(settingName, value)
+        if getattr(self, "image_viewer", None) is not None:
+            self.image_viewer.cropSettingsChanged()
+
+    def cropBoundsChanged(self, left, top, right, bottom, commit):
+        values = {
+            "left_crop": (self.ui.spinBox_leftCrop, left),
+            "top_crop": (self.ui.spinBox_topCrop, top),
+            "right_crop": (self.ui.spinBox_rightCrop, right),
+            "bottom_crop": (self.ui.spinBox_bottomCrop, bottom),
+        }
+        for setting_name, (spin_box, value) in values.items():
+            spin_box.blockSignals(True)
+            spin_box.setValue(value)
+            spin_box.blockSignals(False)
+            if commit:
+                self.globalSettingsChanged(setting_name, value)
 
     def eventFilter(self, obj, event):
         if event.type() == QEvent.KeyPress:
@@ -995,6 +1014,7 @@ class MainWindow(QMainWindow):
             self.fourCornersApplied,
             self.detectionTargetsStorage,
             self.itemSelected,
+            self.cropBoundsChanged,
         )
         self.ui.toolButton_pause.setEnabled(True)
         self.ui.toolButton_pause.setText("Pause")

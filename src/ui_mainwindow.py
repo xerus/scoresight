@@ -292,6 +292,8 @@ class Ui_MainWindow(object):
 
         self.horizontalSlider_conf_thresh = QSlider(self.widget_21)
         self.horizontalSlider_conf_thresh.setObjectName(u"horizontalSlider_conf_thresh")
+        self.horizontalSlider_conf_thresh.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
+        self.horizontalSlider_conf_thresh.setMaximum(100)
         self.horizontalSlider_conf_thresh.setValue(50)
         self.horizontalSlider_conf_thresh.setOrientation(Qt.Horizontal)
 
@@ -1094,7 +1096,7 @@ class Ui_MainWindow(object):
         self.spinBox_leftCrop.setObjectName(u"spinBox_leftCrop")
         self.spinBox_leftCrop.setMinimumSize(QSize(70, 0))
         self.spinBox_leftCrop.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.spinBox_leftCrop.setMaximum(999)
+        self.spinBox_leftCrop.setMaximum(9999)
 
         self.horizontalLayout_26.addWidget(self.spinBox_leftCrop)
 
@@ -1107,7 +1109,7 @@ class Ui_MainWindow(object):
         self.spinBox_topCrop.setObjectName(u"spinBox_topCrop")
         self.spinBox_topCrop.setMinimumSize(QSize(70, 0))
         self.spinBox_topCrop.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.spinBox_topCrop.setMaximum(999)
+        self.spinBox_topCrop.setMaximum(9999)
 
         self.horizontalLayout_26.addWidget(self.spinBox_topCrop)
 
@@ -1120,7 +1122,7 @@ class Ui_MainWindow(object):
         self.spinBox_rightCrop.setObjectName(u"spinBox_rightCrop")
         self.spinBox_rightCrop.setMinimumSize(QSize(70, 0))
         self.spinBox_rightCrop.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.spinBox_rightCrop.setMaximum(999)
+        self.spinBox_rightCrop.setMaximum(9999)
 
         self.horizontalLayout_26.addWidget(self.spinBox_rightCrop)
 
@@ -1133,7 +1135,7 @@ class Ui_MainWindow(object):
         self.spinBox_bottomCrop.setObjectName(u"spinBox_bottomCrop")
         self.spinBox_bottomCrop.setMinimumSize(QSize(70, 0))
         self.spinBox_bottomCrop.setButtonSymbols(QAbstractSpinBox.NoButtons)
-        self.spinBox_bottomCrop.setMaximum(999)
+        self.spinBox_bottomCrop.setMaximum(9999)
 
         self.horizontalLayout_26.addWidget(self.spinBox_bottomCrop)
 
@@ -1241,7 +1243,8 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Target:", None))
         self.label_selectedInfo.setText(QCoreApplication.translate("MainWindow", u"Select an item above", None))
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th", None))
+        self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th (%)", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_normWHRatio.setToolTip(QCoreApplication.translate("MainWindow", u"Scale to a favorable 1:2 width-to-height ratio", None))
 #endif // QT_CONFIG(tooltip)

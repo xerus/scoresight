@@ -1,8 +1,10 @@
 import math
+from typing import Callable
 from PySide6.QtCore import QPointF, Qt, QTimer, QRectF
-from PySide6.QtGui import QBrush, QColor, QMouseEvent, QPen, QPolygonF
+from PySide6.QtGui import QBrush, QColor, QMouseEvent, QPainterPath, QPen, QPolygonF
 from PySide6.QtWidgets import (
     QGraphicsPolygonItem,
+    QGraphicsPathItem,
     QGraphicsRectItem,
 )
 
@@ -17,7 +19,7 @@ from storage import (
 )
 from text_detection_target import TextDetectionTarget, TextDetectionTargetWithResult
 from sc_logging import logger
-from resizable_rect import ResizableRectWithNameTypeAndResult
+from resizable_rect import ResizableRect, ResizableRectWithNameTypeAndResult
 
 
 def sort_points_clockwise(points: list[QGraphicsRectItem]) -> list[QGraphicsRectItem]:
@@ -41,6 +43,44 @@ def sort_points_clockwise(points: list[QGraphicsRectItem]) -> list[QGraphicsRect
     return sorted_points
 
 
+class CropSelectionRect(ResizableRect):
+    def __init__(self, x, y, width, height, changed_callback):
+        super().__init__(x, y, width, height)
+        self.changed_callback = changed_callback
+        self.setBrush(QBrush(QColor(50, 200, 100, 28)))
+        pen = QPen(QColor(40, 210, 110), 3)
+        pen.setCosmetic(True)
+        self.setPen(pen)
+        self.setZValue(5)
+
+    def getEdges(self, pos):
+        rect = self.rect()
+        views = self.scene().views() if self.scene() is not None else []
+        scale = views[0].transform().m11() if views else 1.0
+        border = max(self.pen().width() + 2, 16 / max(abs(scale), 0.001))
+        edge = None
+        if pos.x() < rect.x() + border:
+            edge = edge | Qt.Edge.LeftEdge if edge else Qt.Edge.LeftEdge
+        elif pos.x() > rect.right() - border:
+            edge = edge | Qt.Edge.RightEdge if edge else Qt.Edge.RightEdge
+        if pos.y() < rect.y() + border:
+            edge = edge | Qt.Edge.TopEdge if edge else Qt.Edge.TopEdge
+        elif pos.y() > rect.bottom() - border:
+            edge = edge | Qt.Edge.BottomEdge if edge else Qt.Edge.BottomEdge
+        return edge
+
+    def _notify(self, commit):
+        self.changed_callback(self.mapRectToScene(self.rect()), commit)
+
+    def mouseMoveEvent(self, event):
+        super().mouseMoveEvent(event)
+        self._notify(False)
+
+    def mouseReleaseEvent(self, event):
+        super().mouseReleaseEvent(event)
+        self._notify(True)
+
+
 class ImageViewer(CameraView):
     def __init__(
         self,
@@ -48,8 +88,27 @@ class ImageViewer(CameraView):
         fourCornersAppliedCallback: callable,
         detectionTargetsStorage: TextDetectionTargetMemoryStorage | None,
         itemSelectedCallback: callable,
+        cropBoundsChangedCallback: Callable[..., None] | None = None,
     ):
         super().__init__(camera_index, detectionTargetsStorage)
+        self.cropBoundsChangedCallback = cropBoundsChangedCallback
+        self.crop_values = {
+            "left_crop": fetch_data("scoresight.json", "left_crop", 0),
+            "top_crop": fetch_data("scoresight.json", "top_crop", 0),
+            "right_crop": fetch_data("scoresight.json", "right_crop", 0),
+            "bottom_crop": fetch_data("scoresight.json", "bottom_crop", 0),
+        }
+        self.crop_mode = fetch_data("scoresight.json", "crop_mode", False)
+        self.crop_overlay = None
+        self.crop_shade = None
+        self._updating_crop_overlay = False
+        for setting_name in self.crop_values:
+            subscribe_to_data(
+                "scoresight.json",
+                setting_name,
+                lambda value, name=setting_name: self._cropSettingChanged(name, value),
+            )
+        subscribe_to_data("scoresight.json", "crop_mode", self._cropModeChanged)
         self.setMouseTracking(True)
         self.fourCornerSelectionMode = False
         self.fourCorners = []
@@ -71,6 +130,88 @@ class ImageViewer(CameraView):
             "scoresight.json", "box_display_style", 3
         )
         subscribe_to_data("scoresight.json", "box_display_style", self.boxDisplayStyle)
+
+    def update_pixmap(self, frame):
+        super().update_pixmap(frame)
+        self._updateCropOverlay()
+
+    def _cropSettingChanged(self, setting_name, value):
+        self.crop_values[setting_name] = value
+        self._updateCropOverlay()
+        if self.timerThread is not None:
+            self.timerThread.requestPreviewUpdate()
+
+    def cropSettingsChanged(self):
+        self._updateCropOverlay()
+        if self.timerThread is not None:
+            self.timerThread.requestPreviewUpdate()
+
+    def _cropModeChanged(self, value):
+        self.crop_mode = value
+        self._updateCropOverlay()
+        self.detectionTargetsChanged()
+        if self.timerThread is not None:
+            self.timerThread.requestPreviewUpdate()
+
+    def _cropRectChanged(self, rect, commit):
+        if self._updating_crop_overlay or self.scenePixmapItem is None:
+            return
+        width = self.scenePixmapItem.pixmap().width()
+        height = self.scenePixmapItem.pixmap().height()
+        left = max(0, min(round(rect.left()), width - 1))
+        top = max(0, min(round(rect.top()), height - 1))
+        right = max(0, min(round(width - rect.right()), width - left - 1))
+        bottom = max(0, min(round(height - rect.bottom()), height - top - 1))
+        crop_rect = QRectF(left, top, width - left - right, height - top - bottom)
+        self._setCropOverlayRect(crop_rect, width, height)
+        if self.cropBoundsChangedCallback:
+            self.cropBoundsChangedCallback(left, top, right, bottom, commit)
+
+    def _setCropOverlayRect(self, rect, width, height):
+        if self.crop_overlay is None or self.crop_shade is None:
+            return
+        self._updating_crop_overlay = True
+        self.crop_overlay.setPos(rect.topLeft())
+        self.crop_overlay.setRect(0, 0, rect.width(), rect.height())
+        outer = QPainterPath()
+        outer.addRect(QRectF(0, 0, width, height))
+        inner = QPainterPath()
+        inner.addRect(rect)
+        self.crop_shade.setPath(outer.subtracted(inner))
+        self._updating_crop_overlay = False
+
+    def _updateCropOverlay(self):
+        if not hasattr(self, "scenePixmapItem") or self.scenePixmapItem is None:
+            return
+        if not self.crop_mode:
+            if self.crop_overlay is not None:
+                self.scene.removeItem(self.crop_overlay)
+                self.crop_overlay = None
+            if self.crop_shade is not None:
+                self.scene.removeItem(self.crop_shade)
+                self.crop_shade = None
+            return
+
+        width = self.scenePixmapItem.pixmap().width()
+        height = self.scenePixmapItem.pixmap().height()
+        left = max(0, min(int(self.crop_values["left_crop"]), width - 1))
+        top = max(0, min(int(self.crop_values["top_crop"]), height - 1))
+        right = max(0, min(int(self.crop_values["right_crop"]), width - left - 1))
+        bottom = max(0, min(int(self.crop_values["bottom_crop"]), height - top - 1))
+        rect = QRectF(left, top, width - left - right, height - top - bottom)
+
+        if self.crop_shade is None:
+            self.crop_shade = QGraphicsPathItem()
+            self.crop_shade.setBrush(QBrush(QColor(0, 0, 0, 110)))
+            self.crop_shade.setPen(QPen(Qt.PenStyle.NoPen))
+            self.crop_shade.setZValue(4)
+            self.scene.addItem(self.crop_shade)
+        if self.crop_overlay is None:
+            self.crop_overlay = CropSelectionRect(
+                left, top, rect.width(), rect.height(), self._cropRectChanged
+            )
+            self.scene.addItem(self.crop_overlay)
+        self._setCropOverlayRect(rect, width, height)
 
     def resizeEvent(self, event):
         if self._isScaling:
@@ -109,6 +250,12 @@ class ImageViewer(CameraView):
         if not self.firstFrameReceived:
             return
 
+        if self.crop_mode:
+            for item in self.scene.items():
+                if isinstance(item, ResizableRectWithNameTypeAndResult):
+                    item.setVisible(False)
+            return
+
         # get the detection targets from the storage
         detectionTargets: list[TextDetectionTarget] = (
             self.detectionTargetsStorage.get_data()
@@ -133,6 +280,7 @@ class ImageViewer(CameraView):
                 )
                 self.scene.addItem(boxFound)
             else:
+                boxFound.setVisible(True)
                 boxFound.setRect(
                     detectionTarget.x() - boxFound.x(),
                     detectionTarget.y() - boxFound.y(),

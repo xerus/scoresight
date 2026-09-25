@@ -551,8 +551,8 @@ class TextDetector:
                             )
                 if "conf_thresh" in rect.settings:
                     with self.api_lock:
-                        meanConf = self.api.MeanTextConf()
-                    if meanConf < rect.settings["conf_thresh"]:
+                        mean_conf = self.api.MeanTextConf() / 100.0
+                    if mean_conf < rect.settings["conf_thresh"]:
                         textstate = (
                             TextDetectionTargetWithResult.ResultState.FailedFilter
                         )

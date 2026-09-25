@@ -208,12 +208,16 @@ class TimerThread(QThread):
         self.crop = FrameCropAndRotation()
         self.speed = 1
         self.paused = False
+        self._preview_update_requested = threading.Event()
 
     def setPaused(self, paused):
         self.paused = paused
 
     def isPaused(self):
         return self.paused
+
+    def requestPreviewUpdate(self):
+        self._preview_update_requested.set()
 
     def getSpeed(self):
         return self.speed
@@ -385,11 +389,18 @@ class TimerThread(QThread):
                 )
                 frame_rgb = cv2.rotate(frame_rgb, rotateCode)
 
+            preview_frame = frame_rgb
+
             # apply top-level crop if set
             if self.crop.isCropSet:
+                height, width = frame_rgb.shape[:2]
+                top = min(max(self.crop.cropTop, 0), height - 1)
+                bottom = min(max(self.crop.cropBottom, 0), height - top - 1)
+                left = min(max(self.crop.cropLeft, 0), width - 1)
+                right = min(max(self.crop.cropRight, 0), width - left - 1)
                 frame_rgb = frame_rgb[
-                    self.crop.cropTop : frame_rgb.shape[0] - self.crop.cropBottom,
-                    self.crop.cropLeft : frame_rgb.shape[1] - self.crop.cropRight,
+                    top : height - bottom,
+                    left : width - right,
                 ]
 
             # Stabilize the frame
@@ -446,16 +457,23 @@ class TimerThread(QThread):
 
             # Emit the signal to update the pixmap once per second
             time_diff_prev = (current_time - self.last_emit_time).total_seconds() * 1000
-            if time_diff_prev >= self.preview_frame_interval:
+            if (
+                time_diff_prev >= self.preview_frame_interval
+                or self._preview_update_requested.is_set()
+            ):
                 if self.show_binary:
                     self.update_signal.emit(binary)
                 else:
-                    self.update_signal.emit(frame_rgb)
+                    self.update_signal.emit(
+                        preview_frame if self.crop.isCropSet else frame_rgb
+                    )
                 self.last_emit_time = current_time
-                self.pps = (
-                    self.fps_alpha * (1000 / time_diff_prev)
-                    + (1.0 - self.fps_alpha) * self.pps
-                )
+                self._preview_update_requested.clear()
+                if time_diff_prev > 0:
+                    self.pps = (
+                        self.fps_alpha * (1000 / time_diff_prev)
+                        + (1.0 - self.fps_alpha) * self.pps
+                    )
 
             self.sleep_fps_target()
 
