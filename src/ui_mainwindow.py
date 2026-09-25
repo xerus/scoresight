@@ -230,6 +230,8 @@ class Ui_MainWindow(object):
 
         self.horizontalSlider_cleanup = QSlider(self.widget_17)
         self.horizontalSlider_cleanup.setObjectName(u"horizontalSlider_cleanup")
+        self.horizontalSlider_cleanup.setMinimum(0)
+        self.horizontalSlider_cleanup.setMaximum(100)
         self.horizontalSlider_cleanup.setOrientation(Qt.Horizontal)
 
         self.horizontalLayout_15.addWidget(self.horizontalSlider_cleanup)

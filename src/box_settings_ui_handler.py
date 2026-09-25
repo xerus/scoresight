@@ -13,8 +13,64 @@ from sc_logging import logger
 class BoxSettingsUIHandler:
     def __init__(self, ui: Ui_MainWindow):
         self.ui = ui
+        self.setControlTooltips()
         self.boxSettingsUiSetup()
         self.detectionTargetsStorage = TextDetectionTargetMemoryStorage()
+
+    def setControlTooltips(self):
+        """Explain OCR controls where users configure each detection box."""
+        tooltips = {
+            "groupBox_target_settings": (
+                "Select a box in the list, then adjust its OCR settings. Start with "
+                "the defaults and change one setting at a time while watching the result."
+            ),
+            "label_13": "Choose whether this field contains digits, time, or general text.",
+            "comboBox_fieldType": "Choose whether this field contains digits, time, or general text.",
+            "label_2": "A regular expression that accepted OCR text must match. The preset list provides common formats.",
+            "lineEdit_format": "A regular expression that accepted OCR text must match. The preset list provides common formats.",
+            "comboBox_formatPrefix": "Choose a common value format to fill the Format field, or choose Custom.",
+            "checkBox": "Reserved option; currently unavailable.",
+            "checkBox_smoothing": "Smooth readings over time to reduce flicker. This can make updates slower to reflect.",
+            "checkBox_ordinalIndicator": "Append an ordinal suffix to numeric values, for example 1st or 2nd.",
+            "checkBox_skip_empty": "Do not send or display a new value when OCR reads nothing.",
+            "checkBox_skip_similar_image": "Skip OCR when this box looks almost unchanged from its previous image. Useful for reducing repeated work on static displays.",
+            "checkBox_autocrop": "Trim blank margins around the contents before OCR. Turn off if edge pixels or punctuation are being cut off.",
+            "checkBox_removeLeadingZeros": "Remove zeros at the start of numeric readings; for example, 007 becomes 7.",
+            "checkBox_rescalePatch": "Resize the image patch to a standard height before OCR. Usually helpful for small characters.",
+            "checkBox_normWHRatio": "Resize the patch toward a 1:2 width-to-height ratio before OCR. Use only when the characters are unusually wide or narrow.",
+            "checkBox_invertPatch": "Invert light and dark pixels in this box. Use when the current foreground/background polarity gives poor OCR.",
+            "checkBox_dotDetector": "Count bright blobs or dots instead of recognizing characters. Intended for displays made of separate indicator dots.",
+            "checkBox_templatefield": "Make this a derived field whose value is assembled from other fields using a template.",
+            "lineEdit_templatefield": "Enter a template using other field values, for example {{Home Score}}.",
+            "checkBox_compositeBox": "Read separate character sub-boxes and combine their results. Set up the sub-boxes for this field first.",
+            "label_binarizationMethod": "Choose how the image is turned into black and white before OCR.",
+            "comboBox_binarizationMethod": (
+                "Global uses the frame's threshold; No Binarization keeps grayscale; "
+                "Local thresholds this box; Adaptive adjusts the threshold across the box."
+            ),
+            "label_4": (
+                "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "
+                "removes components smaller than about 5% of this box's area. Increase "
+                "gradually: high values can erase dots or parts of digits."
+            ),
+            "horizontalSlider_cleanup": (
+                "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "
+                "removes components smaller than about 5% of this box's area. Increase "
+                "gradually: high values can erase dots or parts of digits."
+            ),
+            "label_9": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
+            "horizontalSlider_dilate": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
+            "label_15": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            "horizontalSlider_vscale": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            "label_14": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
+            "horizontalSlider_skew": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
+            "label_3": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+            "horizontalSlider_conf_thresh": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+        }
+        for object_name, tooltip in tooltips.items():
+            widget = getattr(self.ui, object_name, None)
+            if widget is not None:
+                widget.setToolTip(tooltip)
 
     def editSettings(self, settingsMutatorCallback):
         # update the selected item's settings in the detectionTargetsStorage

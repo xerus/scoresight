@@ -161,8 +161,16 @@ class MainWindow(QMainWindow):
 
         self.ui.pushButton_stabilize.setEnabled(True)
         self.ui.pushButton_stabilize.clicked.connect(self.toggleStabilize)
+        self.ui.pushButton_stabilize.setToolTip(
+            "Reduce camera shake by aligning each frame to a reference frame. "
+            "Allow about 10 frames for stabilization to initialize."
+        )
 
         self.ui.toolButton_topCrop.clicked.connect(self.cropMode)
+        self.ui.toolButton_topCrop.setToolTip(
+            "Toggle crop editing. Drag the green rectangle or its edges to choose "
+            "the image area used for OCR. Detection boxes remain in full-frame coordinates."
+        )
         # check configuation if crop is enabled
         self.ui.toolButton_topCrop.setChecked(
             fetch_data("scoresight.json", "crop_mode", False)
@@ -172,9 +180,15 @@ class MainWindow(QMainWindow):
         self.ui.spinBox_leftCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "left_crop")
         )
+        self.ui.spinBox_leftCrop.setToolTip(
+            "Pixels to remove from the left edge of the image."
+        )
         self.ui.spinBox_leftCrop.setValue(fetch_data("scoresight.json", "left_crop", 0))
         self.ui.spinBox_rightCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "right_crop")
+        )
+        self.ui.spinBox_rightCrop.setToolTip(
+            "Pixels to remove from the right edge of the image."
         )
         self.ui.spinBox_rightCrop.setValue(
             fetch_data("scoresight.json", "right_crop", 0)
@@ -182,9 +196,15 @@ class MainWindow(QMainWindow):
         self.ui.spinBox_topCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "top_crop")
         )
+        self.ui.spinBox_topCrop.setToolTip(
+            "Pixels to remove from the top edge of the image."
+        )
         self.ui.spinBox_topCrop.setValue(fetch_data("scoresight.json", "top_crop", 0))
         self.ui.spinBox_bottomCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "bottom_crop")
+        )
+        self.ui.spinBox_bottomCrop.setToolTip(
+            "Pixels to remove from the bottom edge of the image."
         )
         self.ui.spinBox_bottomCrop.setValue(
             fetch_data("scoresight.json", "bottom_crop", 0)
@@ -437,17 +457,6 @@ class MainWindow(QMainWindow):
         self.globalSettingsChanged("rotation", rotation)
 
     def cropMode(self):
-        # OCR coordinates are relative to the cropped image while crop mode is
-        # enabled. The preview uses full-frame coordinates, so translate the
-        # saved boxes whenever the coordinate system changes.
-        crop_was_enabled = fetch_data("scoresight.json", "crop_mode", False)
-        crop_is_enabled = self.ui.toolButton_topCrop.isChecked()
-        if crop_was_enabled != crop_is_enabled:
-            left = fetch_data("scoresight.json", "left_crop", 0)
-            top = fetch_data("scoresight.json", "top_crop", 0)
-            dx, dy = (-left, -top) if crop_is_enabled else (left, top)
-            self.translateDetectionBoxes(dx, dy)
-
         # if the toolButton_topCrop is unchecked, go to crop mode
         if self.ui.toolButton_topCrop.isChecked():
             self.ui.widget_cropPanel.setVisible(True)
@@ -459,6 +468,7 @@ class MainWindow(QMainWindow):
             self.globalSettingsChanged("crop_mode", False)
 
     def translateDetectionBoxes(self, dx, dy):
+        """Shift saved boxes during one-time migration from cropped-frame coordinates."""
         if not dx and not dy:
             return
         for target in self.detectionTargetsStorage.get_data():
@@ -1078,13 +1088,30 @@ class MainWindow(QMainWindow):
 
     def migrateLegacyCropBoxCoordinates(self):
         """Convert boxes saved against the old cropped preview to full-frame coordinates."""
-        if fetch_data("scoresight.json", "crop_mode", False) or fetch_data(
-            "scoresight.json", "crop_box_coordinates_migrated", False
-        ):
-            return
-
         targets = self.detectionTargetsStorage.get_data()
         if not targets:
+            return
+
+        # Older OCR code could clamp a saved box to the cropped image and leave
+        # it with a negative size. Restore a usable default size while preserving
+        # the user's saved position; the box can then be resized in the preview.
+        repaired_size = False
+        for target in targets:
+            defaults = default_info_for_box_name(target.name)
+            if target.width() <= 0:
+                target.setWidth(defaults["width"])
+                repaired_size = True
+            if target.height() <= 0:
+                target.setHeight(defaults["height"])
+                repaired_size = True
+        if repaired_size:
+            self.detectionTargetsStorage.data_changed.emit(targets)
+            self.detectionTargetsStorage.saveBoxesToStorage()
+            logger.warning(
+                "Repaired a detection box with invalid dimensions; check its position and resize it if needed."
+            )
+
+        if fetch_data("scoresight.json", "crop_box_coordinates_migrated", False):
             return
 
         left = fetch_data("scoresight.json", "left_crop", 0)

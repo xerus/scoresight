@@ -12,7 +12,7 @@ from ndi import NDICapture
 from screen_capture_source import ScreenCapture
 from storage import TextDetectionTargetMemoryStorage, subscribe_to_data, fetch_data
 from tesseract import TextDetector
-from text_detection_target import TextDetectionTargetWithResult
+from text_detection_target import TextDetectionTarget, TextDetectionTargetWithResult
 from sc_logging import logger
 from frame_stabilizer import FrameStabilizer
 from ocr_training_data import ocr_training_data_options
@@ -419,9 +419,32 @@ class TimerThread(QThread):
             # Detect text in the target
             if not self.detectionTargetsStorage.is_empty():
                 detectionTargets = self.detectionTargetsStorage.get_data()
-                texts = self.textDetector.detect_multi_text(
-                    binary, gray, detectionTargets
-                )
+                ocrTargets = []
+                for target in detectionTargets:
+                    # Keep saved/displayed boxes in full-frame coordinates.
+                    # OCR sees the cropped frame, so give it a separate local
+                    # rectangle; TextDetector clamps rectangles to the image and
+                    # must not mutate the user's stored box while doing so.
+                    left = self.crop.cropLeft if self.crop.isCropSet else 0
+                    top = self.crop.cropTop if self.crop.isCropSet else 0
+                    ocr_target = TextDetectionTarget(
+                        target.x() - left,
+                        target.y() - top,
+                        target.width(),
+                        target.height(),
+                        target.name,
+                        target.settings,
+                        target.mini_rects,
+                    )
+                    ocr_target.last_image = target.last_image
+                    ocr_target.last_text = target.last_text
+                    ocr_target.ocrResultPerCharacterSmoother = (
+                        target.ocrResultPerCharacterSmoother
+                    )
+                    ocrTargets.append(ocr_target)
+                texts = self.textDetector.detect_multi_text(binary, gray, ocrTargets)
+                for target, ocr_target in zip(detectionTargets, ocrTargets):
+                    target.last_image = ocr_target.last_image
                 if len(texts) > 0 and len(detectionTargets) == len(texts):
                     # augment the text detection targets with the results
                     results = []
