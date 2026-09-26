@@ -1,7 +1,7 @@
 import json
 import os
 from PySide6.QtCore import QObject, Signal, QRectF
-from platformdirs import user_data_dir
+from app_paths import get_user_data_dir
 from defaults import default_info_for_box_name, normalize_settings_dict
 
 from text_detection_target import TextDetectionTarget
@@ -14,7 +14,7 @@ data_subscribers = {}
 def subscribe_to_data(file_path: str, document_name: str, callback: callable):
     # Subscribe to data changes in a JSON file
     # prepend the user data directory
-    file_path = os.path.join(user_data_dir("scoresight"), file_path)
+    file_path = os.path.join(get_user_data_dir(), file_path)
 
     if file_path not in data_subscribers:
         data_subscribers[file_path] = {}
@@ -26,7 +26,7 @@ def subscribe_to_data(file_path: str, document_name: str, callback: callable):
 def store_data(file_path, document_name, data):
     # Store data into a JSON file
     # get the user data directory
-    data_dir = user_data_dir("scoresight")
+    data_dir = get_user_data_dir()
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
 
@@ -56,7 +56,7 @@ def store_data(file_path, document_name, data):
 def remove_data(file_path, document_name):
     # Remove data from a JSON file
     # prepend the user data directory
-    file_path = os.path.join(user_data_dir("scoresight"), file_path)
+    file_path = os.path.join(get_user_data_dir(), file_path)
 
     if not os.path.exists(file_path):
         return
@@ -79,7 +79,7 @@ def remove_data(file_path, document_name):
 def fetch_data(file_path, document_name, default=None):
     # Fetch data from a JSON file
     # prepend the user data directory
-    file_path = os.path.join(user_data_dir("scoresight"), file_path)
+    file_path = os.path.join(get_user_data_dir(), file_path)
 
     if not os.path.exists(file_path):
         return default

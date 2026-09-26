@@ -28,7 +28,7 @@ from PySide6.QtCore import (
 )
 from dotenv import load_dotenv
 from os import path
-from platformdirs import user_data_dir
+from app_paths import get_user_data_dir
 
 from api_output import update_out_api
 from box_settings_ui_handler import BoxSettingsUIHandler
@@ -589,9 +589,7 @@ class MainWindow(QMainWindow):
     def openConfigurationFolder(self):
         # open the configuration folder in the file explorer
         QDesktopServices.openUrl(
-            QUrl(
-                "file:///" + user_data_dir("scoresight"), QUrl.ParsingMode.TolerantMode
-            )
+            QUrl("file:///" + get_user_data_dir(), QUrl.ParsingMode.TolerantMode)
         )
 
     def toggleOSD(self, value):

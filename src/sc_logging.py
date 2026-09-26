@@ -1,9 +1,9 @@
 import logging
 import os
-from platformdirs import user_log_dir
 from datetime import datetime
 from dotenv import load_dotenv
 
+from app_paths import get_user_log_dir
 from resource_path import resource_path
 
 
@@ -16,7 +16,7 @@ def setup_logging():
     logger.setLevel(logging.DEBUG)
 
     # get the user data directory
-    data_dir = user_log_dir("scoresight")
+    data_dir = get_user_log_dir()
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
 
@@ -70,7 +70,7 @@ def setup_logging():
         for f in log_files[:-10]:
             try:
                 os.remove(os.path.join(data_dir, f))
-            except PermissionError as e:
+            except PermissionError:
                 logger.error(f"Failed to remove log file: {f}")
 
     return logger, file_handler, log_file_path

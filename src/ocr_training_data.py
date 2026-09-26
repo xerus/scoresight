@@ -3,12 +3,12 @@ import zipfile
 from PySide6.QtWidgets import QDialog, QFileDialog, QMessageBox
 import cv2
 from numpy import ndarray
-from platformdirs import user_data_dir
 import os
 import uuid
 
+from app_paths import get_user_data_dir
 from sc_logging import logger
-from text_detection_target import TextDetectionResult, TextDetectionTargetWithResult
+from text_detection_target import TextDetectionTargetWithResult
 from ui_ocr_training_data_dialog import Ui_OCRTrainingDataDialog
 from storage import fetch_data, store_data, subscribe_to_data
 
@@ -24,7 +24,7 @@ class OCRTrainingDataOptions:
         self.ocr_training_data_folder = fetch_data(
             "scoresight.json",
             "ocr_training_data_folder",
-            os.path.join(user_data_dir("scoresight"), "ocr_training_data"),
+            os.path.join(get_user_data_dir(), "ocr_training_data"),
         )
         subscribe_to_data(
             "scoresight.json",

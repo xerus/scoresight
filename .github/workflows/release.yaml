@@ -78,7 +78,8 @@ jobs:
 
           variants=(
             'linux'
-            'windows'
+            'windows-installer'
+            'windows-portable'
           )
 
           mkdir -p "${{ github.workspace }}/uploads"

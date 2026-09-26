@@ -102,6 +102,20 @@ jobs:
           path: scoresight.iss
           options: /O+
 
+      - name: Create portable Windows ZIP
+        if: matrix.os == 'windows-latest'
+        run: |
+          New-Item -Path dist/scoresight/scoresight.portable -ItemType File -Force | Out-Null
+          @"
+          ScoreSight portable build
+
+          Extract this folder to a USB drive and run scoresight.exe. No installer is needed.
+          Settings and logs are saved in the data folder beside the executable when the drive is writable.
+          If the drive is read-only, ScoreSight uses your normal Windows user data folder.
+          "@ | Out-File -FilePath dist/scoresight/README-portable.txt -Encoding utf8
+          Compress-Archive -Path dist/scoresight -DestinationPath dist/scoresight-portable.zip -CompressionLevel Optimal
+        shell: pwsh
+
       - name: Create tar Linux
         if: matrix.os == 'ubuntu-latest'
         # strip the folder name from the tar
@@ -109,8 +123,23 @@ jobs:
           chmod a+x dist/scoresight
           tar -cvf scoresight.tar -C dist scoresight
 
-      - name: Upload artifact
+      - name: Upload Windows installer
+        if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: scoresight-${{ matrix.target }}
-          path: ${{ matrix.os == 'windows-latest' && 'dist/scoresight-setup.exe' || 'scoresight.tar' }}
+          name: scoresight-windows-installer
+          path: dist/scoresight-setup.exe
+
+      - name: Upload portable Windows app
+        if: matrix.os == 'windows-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scoresight-windows-portable
+          path: dist/scoresight-portable.zip
+
+      - name: Upload Linux artifact
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scoresight-linux
+          path: scoresight.tar
