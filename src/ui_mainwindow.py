@@ -400,6 +400,26 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.widget_vscale, 10, 3, 1, 1)
 
+        self.widget_hscale = QWidget(self.groupBox_target_settings)
+        self.widget_hscale.setObjectName(u"widget_hscale")
+        self.horizontalLayout_hscale = QHBoxLayout(self.widget_hscale)
+        self.horizontalLayout_hscale.setObjectName(u"horizontalLayout_hscale")
+        self.horizontalLayout_hscale.setContentsMargins(0, 0, 0, 0)
+        self.label_hscale = QLabel(self.widget_hscale)
+        self.label_hscale.setObjectName(u"label_hscale")
+
+        self.horizontalLayout_hscale.addWidget(self.label_hscale)
+
+        self.spinBox_hscale = QSpinBox(self.widget_hscale)
+        self.spinBox_hscale.setObjectName(u"spinBox_hscale")
+        self.spinBox_hscale.setMinimum(1)
+        self.spinBox_hscale.setMaximum(20)
+        self.spinBox_hscale.setValue(10)
+
+        self.horizontalLayout_hscale.addWidget(self.spinBox_hscale)
+
+        self.gridLayout_6.addWidget(self.widget_hscale, 11, 3, 1, 1)
+
         self.widget_skew = QWidget(self.groupBox_target_settings)
         self.widget_skew.setObjectName(u"widget_skew")
         self.horizontalLayout_12 = QHBoxLayout(self.widget_skew)
@@ -418,7 +438,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_12.addWidget(self.spinBox_skew)
 
 
-        self.gridLayout_6.addWidget(self.widget_skew, 11, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.widget_skew, 12, 3, 1, 1)
 
 
         self.verticalLayout_3.addWidget(self.groupBox_target_settings)
@@ -1040,6 +1060,7 @@ class Ui_MainWindow(object):
         self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.addItem("")
+        self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.setObjectName(u"comboBox_boxDisplayStyle")
 
         self.horizontalLayout_10.addWidget(self.comboBox_boxDisplayStyle)
@@ -1252,6 +1273,7 @@ class Ui_MainWindow(object):
 #endif // QT_CONFIG(tooltip)
         self.checkBox_rescalePatch.setText(QCoreApplication.translate("MainWindow", u"Rescale Input", None))
         self.label_15.setText(QCoreApplication.translate("MainWindow", u"V.Scale", None))
+        self.label_hscale.setText(QCoreApplication.translate("MainWindow", u"H.Scale", None))
         self.label_14.setText(QCoreApplication.translate("MainWindow", u"Skew", None))
 #if QT_CONFIG(tooltip)
         self.checkBox_templatefield.setToolTip(QCoreApplication.translate("MainWindow", u"This field is a combination of exising fields in a template", None))
@@ -1354,6 +1376,7 @@ class Ui_MainWindow(object):
         self.comboBox_boxDisplayStyle.setItemText(1, QCoreApplication.translate("MainWindow", u"Outline", None))
         self.comboBox_boxDisplayStyle.setItemText(2, QCoreApplication.translate("MainWindow", u"Names", None))
         self.comboBox_boxDisplayStyle.setItemText(3, QCoreApplication.translate("MainWindow", u"All", None))
+        self.comboBox_boxDisplayStyle.setItemText(4, QCoreApplication.translate("MainWindow", u"Results (No Names)", None))
 
 #if QT_CONFIG(tooltip)
         self.toolButton_osd.setToolTip(QCoreApplication.translate("MainWindow", u"Show Statistics", None))

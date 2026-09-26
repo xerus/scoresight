@@ -801,6 +801,44 @@
               </widget>
              </item>
              <item row="11" column="3">
+              <widget class="QWidget" name="widget_hscale" native="true">
+               <layout class="QHBoxLayout" name="horizontalLayout_hscale">
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QLabel" name="label_hscale">
+                  <property name="text">
+                   <string>H.Scale</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QSpinBox" name="spinBox_hscale">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>20</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item row="12" column="3">
               <widget class="QWidget" name="widget_skew" native="true">
                <layout class="QHBoxLayout" name="horizontalLayout_12">
                 <property name="leftMargin">
@@ -2042,6 +2080,11 @@
             <item>
              <property name="text">
               <string>All</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Results (No Names)</string>
              </property>
             </item>
            </widget>

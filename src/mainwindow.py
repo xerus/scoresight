@@ -108,20 +108,34 @@ class MainWindow(QMainWindow):
             self.setWindowIcon(QIcon(resource_path("icons", "Windows-icon-open.ico")))
 
         self.menubar = self.menuBar()
-        file_menu = self.menubar.addMenu("File")
+        file_menu = self.menubar.addMenu(self.tr("File"))
+        self.file_menu = file_menu
 
         # check for updates
         check_for_updates(False)
-        file_menu.addAction("Check for Updates", lambda: check_for_updates(True))
-        file_menu.addAction("About", self.openAboutDialog)
-        file_menu.addAction("View Current Log", self.openLogsDialog)
-        file_menu.addAction("Import Configuration", self.importConfiguration)
-        file_menu.addAction("Export Configuration", self.exportConfiguration)
-        file_menu.addAction("Open Configuration Folder", self.openConfigurationFolder)
-        file_menu.addAction("OCR Training Data Setup", self.openOCRTrainingDataDialog)
+        self.menu_check_updates = file_menu.addAction(
+            self.tr("Check for Updates"), lambda: check_for_updates(True)
+        )
+        self.menu_about = file_menu.addAction(self.tr("About"), self.openAboutDialog)
+        self.menu_logs = file_menu.addAction(
+            self.tr("View Current Log"), self.openLogsDialog
+        )
+        self.menu_import = file_menu.addAction(
+            self.tr("Import Configuration"), self.importConfiguration
+        )
+        self.menu_export = file_menu.addAction(
+            self.tr("Export Configuration"), self.exportConfiguration
+        )
+        self.menu_config_folder = file_menu.addAction(
+            self.tr("Open Configuration Folder"), self.openConfigurationFolder
+        )
+        self.menu_ocr_training = file_menu.addAction(
+            self.tr("OCR Training Data Setup"), self.openOCRTrainingDataDialog
+        )
 
         # Add "Language" menu
-        languageMenu = file_menu.addMenu("Language")
+        languageMenu = file_menu.addMenu(self.tr("Language"))
+        self.language_menu = languageMenu
 
         # Add language options
         self.addLanguageOption(languageMenu, "English (US)", "en_US")
@@ -137,9 +151,11 @@ class MainWindow(QMainWindow):
         self.addLanguageOption(languageMenu, "Portuguese (Portugal)", "pt_PT")
         self.addLanguageOption(languageMenu, "Russian", "ru_RU")
         self.addLanguageOption(languageMenu, "Chinese (Simplified)", "zh_CN")
+        self.addLanguageOption(languageMenu, "Čeština", "cs_CZ")
 
         # add a menu item to change the theme
-        theme_menu = file_menu.addMenu("Theme")
+        theme_menu = file_menu.addMenu(self.tr("Theme"))
+        self.theme_menu = theme_menu
         for theme in QStyleFactory.keys():
             theme_menu.addAction(theme, lambda theme=theme: self.setStyleTheme(theme))
 
@@ -161,16 +177,8 @@ class MainWindow(QMainWindow):
 
         self.ui.pushButton_stabilize.setEnabled(True)
         self.ui.pushButton_stabilize.clicked.connect(self.toggleStabilize)
-        self.ui.pushButton_stabilize.setToolTip(
-            "Reduce camera shake by aligning each frame to a reference frame. "
-            "Allow about 10 frames for stabilization to initialize."
-        )
 
         self.ui.toolButton_topCrop.clicked.connect(self.cropMode)
-        self.ui.toolButton_topCrop.setToolTip(
-            "Toggle crop editing. Drag the green rectangle or its edges to choose "
-            "the image area used for OCR. Detection boxes remain in full-frame coordinates."
-        )
         # check configuation if crop is enabled
         self.ui.toolButton_topCrop.setChecked(
             fetch_data("scoresight.json", "crop_mode", False)
@@ -180,15 +188,9 @@ class MainWindow(QMainWindow):
         self.ui.spinBox_leftCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "left_crop")
         )
-        self.ui.spinBox_leftCrop.setToolTip(
-            "Pixels to remove from the left edge of the image."
-        )
         self.ui.spinBox_leftCrop.setValue(fetch_data("scoresight.json", "left_crop", 0))
         self.ui.spinBox_rightCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "right_crop")
-        )
-        self.ui.spinBox_rightCrop.setToolTip(
-            "Pixels to remove from the right edge of the image."
         )
         self.ui.spinBox_rightCrop.setValue(
             fetch_data("scoresight.json", "right_crop", 0)
@@ -196,15 +198,9 @@ class MainWindow(QMainWindow):
         self.ui.spinBox_topCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "top_crop")
         )
-        self.ui.spinBox_topCrop.setToolTip(
-            "Pixels to remove from the top edge of the image."
-        )
         self.ui.spinBox_topCrop.setValue(fetch_data("scoresight.json", "top_crop", 0))
         self.ui.spinBox_bottomCrop.valueChanged.connect(
             partial(self.cropSettingChanged, "bottom_crop")
-        )
-        self.ui.spinBox_bottomCrop.setToolTip(
-            "Pixels to remove from the bottom edge of the image."
         )
         self.ui.spinBox_bottomCrop.setValue(
             fetch_data("scoresight.json", "bottom_crop", 0)
@@ -273,18 +269,7 @@ class MainWindow(QMainWindow):
             "OpenCV Seven-Segment (2 digits, experimental)",
         ]
         self.ui.comboBox_ocrModel.addItems(ocr_models)
-        segment_tooltip = (
-            "OpenCV: numeric scores with two equally spaced warm red/orange/yellow LED digit slots. "
-            "Draw the box around both complete slots, including an unlit leading slot; exclude indicator LEDs. "
-            "Alignment and exposure sensitive; rectify perspective first. Blank is distinct from zero. "
-            "Uses its own color mask (visible in Binary View). Binarize, cleanup, dilate, auto crop, "
-            "rescale, skew, confidence and Average Output controls do not apply. "
-            "Clocks/general text and unknown patterns are rejected. Disable Skip Empty Values to publish blanks."
-        )
-        self.ui.comboBox_ocrModel.setItemData(
-            5, segment_tooltip, Qt.ItemDataRole.ToolTipRole
-        )
-        self.ui.comboBox_ocrModel.setToolTip(segment_tooltip)
+        self.setGlobalTooltips()
         # default to General Scoreboard
         ocr_model_from_storage = fetch_data("scoresight.json", "ocr_model", 1)
         if type(ocr_model_from_storage) is str:
@@ -540,8 +525,61 @@ class MainWindow(QMainWindow):
             appInstance.installTranslator(self.translator)
             try:
                 self.ui.retranslateUi(self)
+                self.retranslateMenus()
+                self.setGlobalTooltips()
+                self.boxSettingsUiHandler.setControlTooltips()
             except Exception as e:
                 logger.error(f"Error retranslating UI: {e}")
+
+    def retranslateMenus(self):
+        self.file_menu.setTitle(self.tr("File"))
+        self.language_menu.setTitle(self.tr("Language"))
+        self.theme_menu.setTitle(self.tr("Theme"))
+        self.menu_check_updates.setText(self.tr("Check for Updates"))
+        self.menu_about.setText(self.tr("About"))
+        self.menu_logs.setText(self.tr("View Current Log"))
+        self.menu_import.setText(self.tr("Import Configuration"))
+        self.menu_export.setText(self.tr("Export Configuration"))
+        self.menu_config_folder.setText(self.tr("Open Configuration Folder"))
+        self.menu_ocr_training.setText(self.tr("OCR Training Data Setup"))
+
+    def setGlobalTooltips(self):
+        self.ui.pushButton_stabilize.setToolTip(
+            self.tr(
+                "Reduce camera shake by aligning each frame to a reference frame. "
+                "Allow about 10 frames for stabilization to initialize."
+            )
+        )
+        self.ui.toolButton_topCrop.setToolTip(
+            self.tr(
+                "Toggle crop editing. Drag the green rectangle or its edges to choose "
+                "the image area used for OCR. Detection boxes remain in full-frame coordinates."
+            )
+        )
+        self.ui.spinBox_leftCrop.setToolTip(
+            self.tr("Pixels to remove from the left edge of the image.")
+        )
+        self.ui.spinBox_rightCrop.setToolTip(
+            self.tr("Pixels to remove from the right edge of the image.")
+        )
+        self.ui.spinBox_topCrop.setToolTip(
+            self.tr("Pixels to remove from the top edge of the image.")
+        )
+        self.ui.spinBox_bottomCrop.setToolTip(
+            self.tr("Pixels to remove from the bottom edge of the image.")
+        )
+        segment_tooltip = self.tr(
+            "OpenCV: numeric scores with two equally spaced warm red/orange/yellow LED digit slots. "
+            "Draw the box around both complete slots, including an unlit leading slot; exclude indicator LEDs. "
+            "Alignment and exposure sensitive; rectify perspective first. Blank is distinct from zero. "
+            "Uses its own color mask (visible in Binary View). Binarize, cleanup, dilate, auto crop, "
+            "rescale, H.Scale, skew, confidence and Average Output controls do not apply. "
+            "Clocks/general text and unknown patterns are rejected. Disable Skip Empty Values to publish blanks."
+        )
+        self.ui.comboBox_ocrModel.setItemData(
+            5, segment_tooltip, Qt.ItemDataRole.ToolTipRole
+        )
+        self.ui.comboBox_ocrModel.setToolTip(segment_tooltip)
 
     def addLanguageOption(self, menu: QMenu, language_name: str, locale: str):
         menu.addAction(language_name, lambda: self.changeLanguage(locale))

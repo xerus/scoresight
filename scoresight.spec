@@ -33,6 +33,7 @@ datas = [
     ('obs_data/Scoreboard parts/Right base Scoreboard.png', './obs_data/Scoreboard parts'),
     ('obs_data/Scoreboard parts/logo-placeholder-image.png', './obs_data/Scoreboard parts'),
     ('translations/scoresight_de_DE.qm', './translations'),
+    ('translations/scoresight_cs_CZ.qm', './translations'),
     ('translations/scoresight_en_US.qm', './translations'),
     ('translations/scoresight_es_ES.qm', './translations'),
     ('translations/scoresight_fr_FR.qm', './translations'),

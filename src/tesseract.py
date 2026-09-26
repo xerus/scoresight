@@ -572,6 +572,33 @@ class TextDetector:
                 # rescale the image in x or in y such that the width-to-height ratio is 0.5
                 scale_x *= 0.5 / rect.settings["median_wh_ratio"]
 
+            # Adjust character width in the OCR patch without moving the target box.
+            if rect.settings is not None:
+                hscale = rect.settings.get("hscale", 10) / 10.0
+                scale_x *= hscale
+                if hscale != 1.0 and isinstance(binary, np.ndarray):
+                    # Binary View has a fixed frame size. Show the center of the
+                    # resized patch inside the original box; OCR sees all of it.
+                    preview = binary[y:bottom, x:right].copy()
+                    preview_width = max(1, round(preview.shape[1] * hscale))
+                    preview = cv2.resize(
+                        preview,
+                        (preview_width, preview.shape[0]),
+                        interpolation=cv2.INTER_AREA,
+                    )
+                    if preview_width < right - x:
+                        pad_left = (right - x - preview_width) // 2
+                        preview = cv2.copyMakeBorder(
+                            preview,
+                            0,
+                            0,
+                            pad_left,
+                            right - x - preview_width - pad_left,
+                            cv2.BORDER_REPLICATE,
+                        )
+                    start = (preview.shape[1] - (right - x)) // 2
+                    binary[y:bottom, x:right] = preview[:, start : start + right - x]
+
             if scale_x != 1.0 or scale_y != 1.0:
                 imagecrop = cv2.resize(
                     imagecrop,
