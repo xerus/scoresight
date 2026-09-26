@@ -80,12 +80,7 @@ jobs:
 
       - name: Build with PyInstaller (Windows)
         if: matrix.os == 'windows-latest'
-        run: |
-          if ("${{ github.event_name }}" -eq "pull_request") {
-            pyinstaller --clean --noconfirm scoresight.spec -- --win --debug
-          } else {
-            pyinstaller --clean --noconfirm scoresight.spec -- --win
-          }
+        run: pyinstaller --clean --noconfirm scoresight.spec -- --win
 
       - name: Smoke test packaged Windows imports and OCR
         if: matrix.os == 'windows-latest'
