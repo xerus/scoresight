@@ -11,7 +11,7 @@ import numpy as np
 import cv2
 
 from camera_info import CameraInfo
-from storage import TextDetectionTargetMemoryStorage, subscribe_to_data
+from storage import TextDetectionTargetMemoryStorage
 from sc_logging import logger
 from camera_thread import TimerThread
 
@@ -41,10 +41,6 @@ class CameraView(QGraphicsView):
         self.showOSD = True
         self.camera_width = 0
         self.camera_height = 0
-        subscribe_to_data("scoresight.json", "video_settings", self.resetFrame)
-
-    def resetFrame(self, data):
-        self.firstFrameReceived = False
 
     def getCameraCapture(self):
         return self.timerThread.video_capture
@@ -67,6 +63,11 @@ class CameraView(QGraphicsView):
         # check if frame is not contiguous
         if not frame.flags["C_CONTIGUOUS"]:
             frame = np.ascontiguousarray(frame)
+
+        # Use the dimensions of the current preview frame. Capture properties
+        # are only sampled once at startup and can remain stale after a
+        # resolution change in Video Settings.
+        self.camera_height, self.camera_width = frame.shape[:2]
 
         # Create a QImage from the frame data
         image = QImage(
@@ -109,12 +110,6 @@ class CameraView(QGraphicsView):
 
         if not self.firstFrameReceived:
             self.firstFrameReceived = True
-            self.camera_width = self.timerThread.video_capture.get(
-                cv2.CAP_PROP_FRAME_WIDTH
-            )
-            self.camera_height = self.timerThread.video_capture.get(
-                cv2.CAP_PROP_FRAME_HEIGHT
-            )
             self.first_frame_received_signal.emit()
 
         # update the fps text
