@@ -192,7 +192,7 @@ Contributions are welcome! If you would like to contribute to this project, plea
 4. Push your changes to your forked repository.
 5. Submit a pull request.
 
-Qt translations live in `translations/scoresight_<locale>.ts`; compiled `.qm` files are loaded from that directory at runtime and bundled by `scoresight.spec`. To update Czech strings after UI changes, run `pyside6-lupdate src/mainwindow.py src/*.ui -ts translations/scoresight_cs_CZ.ts`, translate new entries, then run `pyside6-lrelease translations/scoresight_cs_CZ.ts -qm translations/scoresight_cs_CZ.qm`. On Windows, `scripts/update_translations.ps1` refreshes all catalogs and `scripts/compile_translations.ps1` compiles them.
+Qt translations live in `translations/scoresight_<locale>.ts`; compiled `.qm` files are loaded from that directory at runtime and bundled by `scoresight.spec`. To update Czech strings after UI changes, run `pyside6-lupdate src/mainwindow.py src/box_settings_ui_handler.py src/*.ui -ts translations/scoresight_cs_CZ.ts`, translate new entries, then run `pyside6-lrelease translations/scoresight_cs_CZ.ts -qm translations/scoresight_cs_CZ.qm`. On Windows, `scripts/update_translations.ps1` refreshes all catalogs and `scripts/compile_translations.ps1` compiles them.
 
 ## License
 

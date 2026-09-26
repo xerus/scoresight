@@ -6,7 +6,7 @@ This list tracks requests raised while testing the Windows portable build. Keep 
 
 **Status:** Implemented on the feature branch; Windows packaging pending.
 
-Add an **H.Scale** control beside **V.Scale** in Target Information Settings. It saves a value per detection box, leaves the OCR image unchanged at 10, and widens tightly spaced characters before OCR at higher values (up to 20). Keep existing V.Scale behavior and saved settings from older configurations intact. Verify the OCR input size, setting persistence, and UI wiring. Scaling cannot separate pixels that are already joined in the source image.
+Add an **H.Scale** control beside **V.Scale** in Target Information Settings. It saves a value per detection box, leaves the OCR image unchanged at 10, narrows characters at lower values (down to 1), and widens them at higher values (up to 20). Binary View previews the width change within the fixed box; widened edges may be clipped there, while OCR receives the full image. Keep existing V.Scale behavior and saved settings from older configurations intact. Verify the OCR input size, setting persistence, preview, and UI wiring. Scaling cannot separate pixels that are already joined in the source image.
 
 ## Force Format
 
@@ -18,3 +18,9 @@ The disabled **Force Format** checkbox is currently a placeholder with no handle
 
 - **Results (No Names)** keeps box outlines and OCR values visible while hiding box labels, including during selection.
 - **Czech interface translation** adds Čeština to the language menu and bundles its compiled catalog in Windows builds.
+
+## Tooltip translations
+
+**Status:** Implemented on the feature branch; Windows packaging pending.
+
+Translate programmatic control and global tooltips into Czech, including H.Scale, and refresh them immediately when the language changes. Update both the Qt translation source list and the compiled Czech catalog. Verify tooltips in both Czech and English after switching languages.

@@ -412,7 +412,7 @@ class Ui_MainWindow(object):
 
         self.spinBox_hscale = QSpinBox(self.widget_hscale)
         self.spinBox_hscale.setObjectName(u"spinBox_hscale")
-        self.spinBox_hscale.setMinimum(10)
+        self.spinBox_hscale.setMinimum(1)
         self.spinBox_hscale.setMaximum(20)
         self.spinBox_hscale.setValue(10)
 

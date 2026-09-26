@@ -1,4 +1,5 @@
 from functools import partial
+from PySide6.QtCore import QCoreApplication
 
 from defaults import (
     default_info_for_box_name,
@@ -20,58 +21,151 @@ class BoxSettingsUIHandler:
     def setControlTooltips(self):
         """Explain OCR controls where users configure each detection box."""
         tooltips = {
-            "groupBox_target_settings": (
+            "groupBox_target_settings": QCoreApplication.translate(
+                "MainWindow",
                 "Select a box in the list, then adjust its OCR settings. Start with "
-                "the defaults and change one setting at a time while watching the result."
+                "the defaults and change one setting at a time while watching the result.",
             ),
-            "label_13": "Choose whether this field contains digits, time, or general text.",
-            "comboBox_fieldType": "Choose whether this field contains digits, time, or general text.",
-            "label_2": "A regular expression that accepted OCR text must match. The preset list provides common formats.",
-            "lineEdit_format": "A regular expression that accepted OCR text must match. The preset list provides common formats.",
-            "comboBox_formatPrefix": "Choose a common value format to fill the Format field, or choose Custom.",
-            "checkBox": "Reserved option; currently unavailable.",
-            "checkBox_smoothing": "Smooth readings over time to reduce flicker. This can make updates slower to reflect.",
-            "checkBox_ordinalIndicator": "Append an ordinal suffix to numeric values, for example 1st or 2nd.",
-            "checkBox_skip_empty": "Do not send or display a new value when OCR reads nothing.",
-            "checkBox_skip_similar_image": "Skip OCR when this box looks almost unchanged from its previous image. Useful for reducing repeated work on static displays.",
-            "checkBox_autocrop": "Trim blank margins around the contents before OCR. Turn off if edge pixels or punctuation are being cut off.",
-            "checkBox_removeLeadingZeros": "Remove zeros at the start of numeric readings; for example, 007 becomes 7.",
-            "checkBox_rescalePatch": "Resize only this box to 35 pixels high before Tesseract reads it. This reduces OCR input size and can help small text; dense details may be lost.",
-            "checkBox_normWHRatio": "Resize the patch toward a 1:2 width-to-height ratio before OCR. Use only when the characters are unusually wide or narrow.",
-            "checkBox_invertPatch": "Invert light and dark pixels in this box. Use when the current foreground/background polarity gives poor OCR.",
-            "checkBox_dotDetector": "Count bright blobs or dots instead of recognizing characters. Intended for displays made of separate indicator dots.",
-            "checkBox_templatefield": "Make this a derived field whose value is assembled from other fields using a template.",
-            "lineEdit_templatefield": "Enter a template using other field values, for example {{Home Score}}.",
-            "checkBox_compositeBox": "Read separate character sub-boxes and combine their results. Set up the sub-boxes for this field first.",
-            "label_binarizationMethod": "Choose how the image is turned into black and white before OCR.",
-            "comboBox_binarizationMethod": (
+            "label_13": QCoreApplication.translate(
+                "MainWindow",
+                "Choose whether this field contains digits, time, or general text.",
+            ),
+            "comboBox_fieldType": QCoreApplication.translate(
+                "MainWindow",
+                "Choose whether this field contains digits, time, or general text.",
+            ),
+            "label_2": QCoreApplication.translate(
+                "MainWindow",
+                "A regular expression that accepted OCR text must match. The preset list provides common formats.",
+            ),
+            "lineEdit_format": QCoreApplication.translate(
+                "MainWindow",
+                "A regular expression that accepted OCR text must match. The preset list provides common formats.",
+            ),
+            "comboBox_formatPrefix": QCoreApplication.translate(
+                "MainWindow",
+                "Choose a common value format to fill the Format field, or choose Custom.",
+            ),
+            "checkBox": QCoreApplication.translate(
+                "MainWindow", "Reserved option; currently unavailable."
+            ),
+            "checkBox_smoothing": QCoreApplication.translate(
+                "MainWindow",
+                "Smooth readings over time to reduce flicker. This can make updates slower to reflect.",
+            ),
+            "checkBox_ordinalIndicator": QCoreApplication.translate(
+                "MainWindow",
+                "Append an ordinal suffix to numeric values, for example 1st or 2nd.",
+            ),
+            "checkBox_skip_empty": QCoreApplication.translate(
+                "MainWindow",
+                "Do not send or display a new value when OCR reads nothing.",
+            ),
+            "checkBox_skip_similar_image": QCoreApplication.translate(
+                "MainWindow",
+                "Skip OCR when this box looks almost unchanged from its previous image. Useful for reducing repeated work on static displays.",
+            ),
+            "checkBox_autocrop": QCoreApplication.translate(
+                "MainWindow",
+                "Trim blank margins around the contents before OCR. Turn off if edge pixels or punctuation are being cut off.",
+            ),
+            "checkBox_removeLeadingZeros": QCoreApplication.translate(
+                "MainWindow",
+                "Remove zeros at the start of numeric readings; for example, 007 becomes 7.",
+            ),
+            "checkBox_rescalePatch": QCoreApplication.translate(
+                "MainWindow",
+                "Resize only this box to 35 pixels high before Tesseract reads it. This reduces OCR input size and can help small text; dense details may be lost.",
+            ),
+            "checkBox_normWHRatio": QCoreApplication.translate(
+                "MainWindow",
+                "Resize the patch toward a 1:2 width-to-height ratio before OCR. Use only when the characters are unusually wide or narrow.",
+            ),
+            "checkBox_invertPatch": QCoreApplication.translate(
+                "MainWindow",
+                "Invert light and dark pixels in this box. Use when the current foreground/background polarity gives poor OCR.",
+            ),
+            "checkBox_dotDetector": QCoreApplication.translate(
+                "MainWindow",
+                "Count bright blobs or dots instead of recognizing characters. Intended for displays made of separate indicator dots.",
+            ),
+            "checkBox_templatefield": QCoreApplication.translate(
+                "MainWindow",
+                "Make this a derived field whose value is assembled from other fields using a template.",
+            ),
+            "lineEdit_templatefield": QCoreApplication.translate(
+                "MainWindow",
+                "Enter a template using other field values, for example {{Home Score}}.",
+            ),
+            "checkBox_compositeBox": QCoreApplication.translate(
+                "MainWindow",
+                "Read separate character sub-boxes and combine their results. Set up the sub-boxes for this field first.",
+            ),
+            "label_binarizationMethod": QCoreApplication.translate(
+                "MainWindow",
+                "Choose how the image is turned into black and white before OCR.",
+            ),
+            "comboBox_binarizationMethod": QCoreApplication.translate(
+                "MainWindow",
                 "Global uses one Otsu threshold computed from the selected boxes; "
                 "Local computes a separate Otsu threshold for this box; No Binarization "
                 "keeps grayscale; Adaptive adjusts the threshold within this box; "
                 "OpenCV LED Mask selects bright red/yellow LEDs by color and removes "
                 "most of the surrounding scoreboard. It works best with warm-colored "
-                "LEDs; other display colors may be removed."
+                "LEDs; other display colors may be removed.",
             ),
-            "label_4": (
+            "label_4": QCoreApplication.translate(
+                "MainWindow",
                 "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "
                 "removes components smaller than about 5% of this box's area. Increase "
-                "gradually: high values can erase dots or parts of digits."
+                "gradually: high values can erase dots or parts of digits.",
             ),
-            "spinBox_cleanup": (
+            "spinBox_cleanup": QCoreApplication.translate(
+                "MainWindow",
                 "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "
                 "removes components smaller than about 5% of this box's area. Increase "
-                "gradually: high values can erase dots or parts of digits."
+                "gradually: high values can erase dots or parts of digits.",
             ),
-            "label_9": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
-            "spinBox_dilate": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
-            "label_15": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
-            "spinBox_vscale": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
-            "label_hscale": "Widen close characters before OCR. 10 leaves width unchanged; higher values spread them apart.",
-            "spinBox_hscale": "Widen close characters before OCR. 10 leaves width unchanged; higher values spread them apart.",
-            "label_14": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
-            "spinBox_skew": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
-            "label_3": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
-            "spinBox_conf_thresh": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+            "label_9": QCoreApplication.translate(
+                "MainWindow",
+                "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
+            ),
+            "spinBox_dilate": QCoreApplication.translate(
+                "MainWindow",
+                "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
+            ),
+            "label_15": QCoreApplication.translate(
+                "MainWindow",
+                "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            ),
+            "spinBox_vscale": QCoreApplication.translate(
+                "MainWindow",
+                "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            ),
+            "label_hscale": QCoreApplication.translate(
+                "MainWindow",
+                "Adjust character width before OCR. 10 leaves width unchanged; lower values narrow characters, and higher values spread them apart. Binary View crops widened text to the box.",
+            ),
+            "spinBox_hscale": QCoreApplication.translate(
+                "MainWindow",
+                "Adjust character width before OCR. 10 leaves width unchanged; lower values narrow characters, and higher values spread them apart. Binary View crops widened text to the box.",
+            ),
+            "label_14": QCoreApplication.translate(
+                "MainWindow",
+                "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
+            ),
+            "spinBox_skew": QCoreApplication.translate(
+                "MainWindow",
+                "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
+            ),
+            "label_3": QCoreApplication.translate(
+                "MainWindow",
+                "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+            ),
+            "spinBox_conf_thresh": QCoreApplication.translate(
+                "MainWindow",
+                "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
+            ),
         }
         for object_name, tooltip in tooltips.items():
             widget = getattr(self.ui, object_name, None)

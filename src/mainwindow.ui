@@ -825,7 +825,7 @@
                 <item>
                  <widget class="QSpinBox" name="spinBox_hscale">
                   <property name="minimum">
-                   <number>10</number>
+                   <number>1</number>
                   </property>
                   <property name="maximum">
                    <number>20</number>

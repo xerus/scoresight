@@ -50,6 +50,10 @@ class RoiProcessingTests(unittest.TestCase):
         detector.detect_multi_text(None, None, [target], color=frame)
         self.assertEqual(detector.api.image_size, (40, 30))
 
+        target.settings["hscale"] = 5
+        detector.detect_multi_text(None, None, [target], color=frame)
+        self.assertEqual(detector.api.image_size, (20, 30))
+
         target.settings["hscale"] = 15
         storage = TextDetectionTargetMemoryStorage()
         storage.clear()
@@ -58,6 +62,33 @@ class RoiProcessingTests(unittest.TestCase):
             self.assertEqual(storage.getBoxesForStorage()[0]["settings"]["hscale"], 15)
         finally:
             storage.clear()
+
+    def test_horizontal_scale_changes_binary_preview_in_both_directions(self):
+        detector = TextDetector.__new__(TextDetector)
+        detector.api_lock = threading.Lock()
+        detector.api = FakeTesseract()
+        detector.ocr_model_index = TextDetector.OcrModelIndex.SCOREBOARD_GENERAL
+
+        frame = np.zeros((60, 80, 3), dtype=np.uint8)
+        frame[10:40, 16:20] = 255
+        frame[10:40, 34:38] = 255
+        target = TextDetectionTarget(10, 10, 40, 30, "Home Score")
+        target.settings = normalize_settings_dict(
+            {"rescale_patch": False}, default_info_for_box_name(target.name)
+        )
+
+        previews = {}
+        for value in (5, 10, 15):
+            target.settings["hscale"] = value
+            gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+            binary = gray.copy()
+            detector.detect_multi_text(binary, gray, [target], color=frame)
+            previews[value] = binary[10:40, 10:50].copy()
+            self.assertTrue(np.array_equal(binary[:10], gray[:10]))
+            self.assertTrue(np.array_equal(binary[:, :10], gray[:, :10]))
+
+        self.assertFalse(np.array_equal(previews[5], previews[10]))
+        self.assertFalse(np.array_equal(previews[15], previews[10]))
 
     def test_color_input_processes_only_selected_roi_and_scales_patch(self):
         detector = TextDetector.__new__(TextDetector)

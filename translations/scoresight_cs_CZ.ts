@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE TS>
 <TS version="2.1" language="cs_CZ">
     <context>
@@ -774,82 +774,117 @@
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="111" />
-            <location filename="../src/mainwindow.py" line="564" />
+            <location filename="../src/mainwindow.py" line="535" />
             <source>File</source>
             <translation>Soubor</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="117" />
-            <location filename="../src/mainwindow.py" line="567" />
+            <location filename="../src/mainwindow.py" line="538" />
             <source>Check for Updates</source>
             <translation>Zkontrolovat aktualizace</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="119" />
-            <location filename="../src/mainwindow.py" line="568" />
+            <location filename="../src/mainwindow.py" line="539" />
             <source>About</source>
             <translation>O aplikaci</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="121" />
-            <location filename="../src/mainwindow.py" line="569" />
+            <location filename="../src/mainwindow.py" line="540" />
             <source>View Current Log</source>
             <translation>Zobrazit aktuální záznam</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="124" />
-            <location filename="../src/mainwindow.py" line="570" />
+            <location filename="../src/mainwindow.py" line="541" />
             <source>Import Configuration</source>
             <translation>Importovat konfiguraci</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="127" />
-            <location filename="../src/mainwindow.py" line="571" />
+            <location filename="../src/mainwindow.py" line="542" />
             <source>Export Configuration</source>
             <translation>Exportovat konfiguraci</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="130" />
-            <location filename="../src/mainwindow.py" line="572" />
+            <location filename="../src/mainwindow.py" line="543" />
             <source>Open Configuration Folder</source>
             <translation>Otevřít složku s konfigurací</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="133" />
-            <location filename="../src/mainwindow.py" line="573" />
+            <location filename="../src/mainwindow.py" line="544" />
             <source>OCR Training Data Setup</source>
             <translation>Nastavení trénovacích dat OCR</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="137" />
-            <location filename="../src/mainwindow.py" line="565" />
+            <location filename="../src/mainwindow.py" line="536" />
             <source>Language</source>
             <translation>Jazyk</translation>
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="157" />
-            <location filename="../src/mainwindow.py" line="566" />
+            <location filename="../src/mainwindow.py" line="537" />
             <source>Theme</source>
             <translation>Motiv</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.py" line="697" />
+            <location filename="../src/mainwindow.py" line="549" />
+            <source>Reduce camera shake by aligning each frame to a reference frame. Allow about 10 frames for stabilization to initialize.</source>
+            <translation>Omezí chvění kamery zarovnáním každého snímku s referenčním snímkem. Inicializace stabilizace trvá přibližně 10 snímků.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="555" />
+            <source>Toggle crop editing. Drag the green rectangle or its edges to choose the image area used for OCR. Detection boxes remain in full-frame coordinates.</source>
+            <translation>Zapne úpravu ořezu. Přetažením zeleného obdélníku nebo jeho hran vyberte oblast obrazu pro OCR. Rámečky rozpoznávání zůstávají v souřadnicích celého snímku.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="560" />
+            <source>Pixels to remove from the left edge of the image.</source>
+            <translation>Počet pixelů odstraněných z levého okraje obrazu.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="563" />
+            <source>Pixels to remove from the right edge of the image.</source>
+            <translation>Počet pixelů odstraněných z pravého okraje obrazu.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="566" />
+            <source>Pixels to remove from the top edge of the image.</source>
+            <translation>Počet pixelů odstraněných z horního okraje obrazu.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="569" />
+            <source>Pixels to remove from the bottom edge of the image.</source>
+            <translation>Počet pixelů odstraněných ze spodního okraje obrazu.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="572" />
+            <source>OpenCV: numeric scores with two equally spaced warm red/orange/yellow LED digit slots. Draw the box around both complete slots, including an unlit leading slot; exclude indicator LEDs. Alignment and exposure sensitive; rectify perspective first. Blank is distinct from zero. Uses its own color mask (visible in Binary View). Binarize, cleanup, dilate, auto crop, rescale, H.Scale, skew, confidence and Average Output controls do not apply. Clocks/general text and unknown patterns are rejected. Disable Skip Empty Values to publish blanks.</source>
+            <translation>OpenCV: číselné skóre se dvěma stejně vzdálenými pozicemi číslic z červených, oranžových nebo žlutých LED. Rámeček veďte kolem obou celých pozic včetně nezapálené úvodní pozice; vynechte indikační LED. Výsledek závisí na zarovnání a expozici; nejprve opravte perspektivu. Prázdná hodnota se liší od nuly. Používá vlastní barevnou masku (viditelnou v binárním zobrazení). Nastavení binarizace, čištění, dilatace, automatického ořezu, změny velikosti, H.Scale, zkosení, spolehlivosti a průměrování výstupu se nepoužijí. Čas, obecný text a neznámé vzory se odmítnou. Pro odesílání prázdných hodnot vypněte Přeskočit prázdné hodnoty.</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.py" line="706" />
             <source>Resume Updates</source>
             <translation>Obnovit aktualizace</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.py" line="699" />
+            <location filename="../src/mainwindow.py" line="708" />
             <location filename="../src/mainwindow.ui" line="1759" />
             <source>Stop Updates</source>
             <translation>Zastavit aktualizace</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.py" line="976" />
+            <location filename="../src/mainwindow.py" line="985" />
             <source>Screen Capture Selection</source>
             <translation>Výběr záznamu obrazovky</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.py" line="983" />
+            <location filename="../src/mainwindow.py" line="992" />
             <source>Capture the entire screen</source>
             <translation>Zaznamenávat celou obrazovku</translation>
         </message>
@@ -1040,6 +1075,144 @@
             <location filename="../src/mainwindow.ui" line="2327" />
             <source>### Open a Camera or Load a File</source>
             <translation>### Otevřete kameru nebo načtěte soubor</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="24" />
+            <source>Select a box in the list, then adjust its OCR settings. Start with the defaults and change one setting at a time while watching the result.</source>
+            <translation>Vyberte rámeček v seznamu a upravte jeho nastavení OCR. Začněte s výchozími hodnotami a měňte vždy jen jednu volbu, abyste viděli její vliv na výsledek.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="29" />
+            <location filename="../src/box_settings_ui_handler.py" line="33" />
+            <source>Choose whether this field contains digits, time, or general text.</source>
+            <translation>Určete, zda pole obsahuje číslice, čas nebo obecný text.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="37" />
+            <location filename="../src/box_settings_ui_handler.py" line="41" />
+            <source>A regular expression that accepted OCR text must match. The preset list provides common formats.</source>
+            <translation>Regulární výraz, kterému musí rozpoznaný text celý odpovídat. Seznam předvoleb obsahuje běžné formáty.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="45" />
+            <source>Choose a common value format to fill the Format field, or choose Custom.</source>
+            <translation>Vyberte běžný formát hodnoty pro pole Formát, případně zvolte vlastní.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="49" />
+            <source>Reserved option; currently unavailable.</source>
+            <translation>Vyhrazená volba; zatím není dostupná.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="52" />
+            <source>Smooth readings over time to reduce flicker. This can make updates slower to reflect.</source>
+            <translation>Vyhlazuje rozpoznané hodnoty v čase a omezuje blikání. Změny se pak mohou projevit pomaleji.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="56" />
+            <source>Append an ordinal suffix to numeric values, for example 1st or 2nd.</source>
+            <translation>Přidá k číselným hodnotám příponu řadové číslovky, například 1st nebo 2nd.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="60" />
+            <source>Do not send or display a new value when OCR reads nothing.</source>
+            <translation>Když OCR nic nerozpozná, neodesílat ani nezobrazovat novou hodnotu.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="64" />
+            <source>Skip OCR when this box looks almost unchanged from its previous image. Useful for reducing repeated work on static displays.</source>
+            <translation>Přeskočí OCR, pokud se obraz v tomto rámečku téměř nezměnil. Omezuje opakovanou práci u statických displejů.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="68" />
+            <source>Trim blank margins around the contents before OCR. Turn off if edge pixels or punctuation are being cut off.</source>
+            <translation>Před OCR odstraní prázdné okraje kolem obsahu. Vypněte, pokud se ořezávají krajní pixely nebo interpunkce.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="72" />
+            <source>Remove zeros at the start of numeric readings; for example, 007 becomes 7.</source>
+            <translation>Odstraní nuly na začátku číselné hodnoty; například z 007 vznikne 7.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="76" />
+            <source>Resize only this box to 35 pixels high before Tesseract reads it. This reduces OCR input size and can help small text; dense details may be lost.</source>
+            <translation>Před čtením Tesseractem změní výšku tohoto rámečku na 35 pixelů. Menší vstup může pomoci u drobného textu, ale jemné detaily se mohou ztratit.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="80" />
+            <source>Resize the patch toward a 1:2 width-to-height ratio before OCR. Use only when the characters are unusually wide or narrow.</source>
+            <translation>Před OCR upraví výřez na poměr šířky a výšky přibližně 1:2. Použijte jen u nezvykle širokých nebo úzkých znaků.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="84" />
+            <source>Invert light and dark pixels in this box. Use when the current foreground/background polarity gives poor OCR.</source>
+            <translation>V tomto rámečku prohodí světlé a tmavé pixely. Pomáhá, pokud současná polarita popředí a pozadí zhoršuje OCR.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="88" />
+            <source>Count bright blobs or dots instead of recognizing characters. Intended for displays made of separate indicator dots.</source>
+            <translation>Počítá světlé body místo rozpoznávání znaků. Určeno pro displeje ze samostatných světelných bodů.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="92" />
+            <source>Make this a derived field whose value is assembled from other fields using a template.</source>
+            <translation>Vytvoří odvozené pole, jehož hodnota se sestaví z jiných polí podle šablony.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="96" />
+            <source>Enter a template using other field values, for example {{Home Score}}.</source>
+            <translation>Zadejte šablonu s hodnotami jiných polí, například {{Home Score}}.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="100" />
+            <source>Read separate character sub-boxes and combine their results. Set up the sub-boxes for this field first.</source>
+            <translation>Načte samostatné podrámečky znaků a spojí jejich výsledky. Nejprve nastavte podrámečky pro toto pole.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="104" />
+            <source>Choose how the image is turned into black and white before OCR.</source>
+            <translation>Vyberte způsob převodu obrazu na černobílý před OCR.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="108" />
+            <source>Global uses one Otsu threshold computed from the selected boxes; Local computes a separate Otsu threshold for this box; No Binarization keeps grayscale; Adaptive adjusts the threshold within this box; OpenCV LED Mask selects bright red/yellow LEDs by color and removes most of the surrounding scoreboard. It works best with warm-colored LEDs; other display colors may be removed.</source>
+            <translation>Globální režim používá jeden Otsuův práh vypočtený z vybraných rámečků; Lokální režim počítá samostatný Otsuův práh pro tento rámeček; Bez binarizace ponechá stupně šedi; Adaptivní režim upravuje práh uvnitř rámečku; Maska LED OpenCV vybírá jasné červené a žluté LED podle barvy a odstraní většinu okolní tabule. Funguje nejlépe s LED teplých barev; jiné barvy displeje mohou zmizet.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="117" />
+            <location filename="../src/box_settings_ui_handler.py" line="123" />
+            <source>Remove small isolated blobs before OCR. 0 disables cleanup; 100 removes components smaller than about 5% of this box's area. Increase gradually: high values can erase dots or parts of digits.</source>
+            <translation>Před OCR odstraní malé osamocené body. Hodnota 0 čištění vypne; 100 odstraní části menší než přibližně 5 % plochy rámečku. Zvyšujte postupně: vysoké hodnoty mohou smazat tečky nebo části číslic.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="129" />
+            <location filename="../src/box_settings_ui_handler.py" line="133" />
+            <source>Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.</source>
+            <translation>Rozšíří bílé tahy jádrem 3 × 3. Pomáhá spojit přerušené segmenty, ale vysoké hodnoty mohou propojit sousední LED. Hodnota 0 funkci vypne.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="137" />
+            <location filename="../src/box_settings_ui_handler.py" line="141" />
+            <source>Adjust character height. 10 keeps the original height; lower values make characters shorter.</source>
+            <translation>Upraví výšku znaků. Hodnota 10 zachová původní výšku; nižší hodnoty znaky zkrátí.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="145" />
+            <location filename="../src/box_settings_ui_handler.py" line="149" />
+            <source>Adjust character width before OCR. 10 leaves width unchanged; lower values narrow characters, and higher values spread them apart. Binary View crops widened text to the box.</source>
+            <translation>Před OCR upraví šířku znaků. Hodnota 10 zachová původní šířku; nižší hodnoty znaky zúží a vyšší je roztáhnou. V binárním zobrazení se roztažený text ořízne na rámeček.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="153" />
+            <location filename="../src/box_settings_ui_handler.py" line="157" />
+            <source>Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.</source>
+            <translation>Vodorovně zkosit obraz kvůli šikmým znakům. Hodnota 0 obraz nezmění.</translation>
+        </message>
+        <message>
+            <location filename="../src/box_settings_ui_handler.py" line="161" />
+            <location filename="../src/box_settings_ui_handler.py" line="165" />
+            <source>Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.</source>
+            <translation>Odmítne rozpoznání OCR pod zadanou spolehlivostí v procentech. Zvýšením odfiltrujete nejisté hodnoty; snižte ji, pokud se odmítají správné výsledky.</translation>
         </message>
     </context>
     <context>
