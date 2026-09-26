@@ -1,6 +1,5 @@
 from os import path
 import os
-import platform
 import sys
 import traceback
 from pathlib import Path
@@ -19,6 +18,11 @@ if "--check-imports" in sys.argv:
     # chain without opening the GUI or touching any camera hardware.
     try:
         from mainwindow import MainWindow  # noqa: F401
+        from tesserocr import PyTessBaseAPI
+
+        # Exercise the bundled OCR DLLs and traineddata, not just imports.
+        api = PyTessBaseAPI(path=resource_path("tesseract", "tessdata"), lang="eng")
+        api.End()
     except BaseException:
         import_check_result = traceback.format_exc()
         import_check_exit_code = 1
@@ -36,15 +40,6 @@ if "--check-imports" in sys.argv:
 from mainwindow import MainWindow
 
 if __name__ == "__main__":
-    # only attempt splash when not on Mac OSX
-    os_name = platform.system()
-    if os_name != "Darwin":
-        try:
-            import pyi_splash  # type: ignore
-
-            pyi_splash.close()
-        except ImportError:
-            pass
     app = QApplication(sys.argv)
 
     # Get system locale

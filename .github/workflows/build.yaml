@@ -52,6 +52,10 @@ jobs:
         run: |
           python -m pip install -r requirements-win.txt
 
+      - name: Verify Windows OCR dependency
+        if: matrix.os == 'windows-latest'
+        run: python -c "import tesserocr, tesserocr.cysignals.signals; print(tesserocr.tesseract_version())"
+
       - name: Write .env file Linux
         if: matrix.os == 'ubuntu-latest'
         run: |
@@ -83,7 +87,7 @@ jobs:
             pyinstaller --clean --noconfirm scoresight.spec -- --win
           }
 
-      - name: Smoke test packaged Windows imports
+      - name: Smoke test packaged Windows imports and OCR
         if: matrix.os == 'windows-latest'
         run: |
           $resultPath = Join-Path $env:RUNNER_TEMP "scoresight-import-check.txt"
@@ -97,7 +101,7 @@ jobs:
           }
           if ($exitCode -ne 0) { exit $exitCode }
           if (!(Test-Path $resultPath) -or $result -ne "imports-ok") {
-            throw "Packaged application import smoke test did not report success."
+            throw "Packaged application import and OCR smoke test did not report success."
           }
         shell: pwsh
 

@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 import os
-from PyInstaller.utils.hooks import collect_all, collect_dynamic_libs
+from PyInstaller.utils.hooks import collect_all, collect_dynamic_libs, collect_submodules
 
 # parse command line arguments
 import argparse
@@ -19,7 +19,6 @@ datas = [
     ('icons/template-field.svg', './icons'),
     ('icons/MacOS_icon.png', './icons'),
     ('icons/plus.svg', './icons'),
-    ('icons/splash.png', './icons'),
     ('icons/trash.svg', './icons'),
     ('icons/Windows-icon-open.ico', './icons'),
     ('tesseract/tessdata/daktronics.traineddata', './tesseract/tessdata'),
@@ -109,6 +108,9 @@ numpy_datas, numpy_binaries, numpy_hiddenimports = collect_all('numpy')
 pyside6_binaries = collect_dynamic_libs('PySide6')
 # Cython extension imports are not always visible to PyInstaller's module graph.
 cyndilib_datas, cyndilib_binaries, cyndilib_hiddenimports = collect_all('cyndilib')
+# The Windows tesserocr wheel loads its bundled cysignals extension from
+# Cython code, so PyInstaller cannot see that import by scanning Python code.
+tesserocr_hiddenimports = collect_submodules('tesserocr')
 # Recent Linux tesserocr builds import cysignals from their Cython module.
 try:
     cysignals_datas, cysignals_binaries, cysignals_hiddenimports = collect_all('cysignals')
@@ -121,7 +123,7 @@ a = Analysis(
     pathex=[],
     binaries=numpy_binaries + pyside6_binaries + cyndilib_binaries + cysignals_binaries,
     datas=datas + numpy_datas + cyndilib_datas + cysignals_datas,
-    hiddenimports=numpy_hiddenimports + cyndilib_hiddenimports + cysignals_hiddenimports + ws_hiddenimports,
+    hiddenimports=numpy_hiddenimports + cyndilib_hiddenimports + tesserocr_hiddenimports + cysignals_hiddenimports + ws_hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
@@ -131,16 +133,9 @@ a = Analysis(
 pyz = PYZ(a.pure)
 
 if args.win:
-    splash = Splash('icons/splash.png',
-                    binaries=a.binaries,
-                    datas=a.datas,
-                    text_pos=(10, 20),
-                    text_size=10,
-                    text_color='black')
     exe = EXE(
         pyz,
         a.scripts,
-        splash,
         name='scoresight',
         icon='icons/Windows-icon-open.ico',
         debug=args.debug is not None and args.debug,
@@ -159,7 +154,6 @@ if args.win:
         a.binaries,
         a.zipfiles,
         a.datas,
-        splash.binaries,
         strip=False,
         upx=True,
         upx_exclude=[],
@@ -196,19 +190,11 @@ elif args.mac_osx:
         }
     )
 else:
-    splash = Splash('icons/splash.png',
-                    binaries=a.binaries,
-                    datas=a.datas,
-                    text_pos=(10, 20),
-                    text_size=10,
-                    text_color='black')
     exe = EXE(
         pyz,
         a.binaries,
         a.datas,
         a.scripts,
-        splash,
-        splash.binaries,
         name='scoresight',
         icon='icons/Windows-icon-open.ico',
         debug=args.debug is not None and args.debug,
