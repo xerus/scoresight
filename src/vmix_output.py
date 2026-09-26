@@ -31,6 +31,7 @@ class VMixAPI:
             return
 
         look_in = [TextDetectionTargetWithResult.ResultState.Success]
+        # A confirmed blank clears the mapped field unless the target opts out.
         if self.update_same:
             # If we want to send the same values as well
             look_in.append(TextDetectionTargetWithResult.ResultState.SameNoChange)
@@ -38,6 +39,12 @@ class VMixAPI:
         # Prepare the data to send
         data = {}
         for target in detection:
+            if (
+                target.result_state == TextDetectionTargetWithResult.ResultState.Empty
+                and not (target.settings or {}).get("skip_empty", False)
+                and target.name in self.field_mapping
+            ):
+                data[self.field_mapping[target.name]] = ""
             if target.result_state in look_in:
                 if target.name in self.field_mapping:
                     data[self.field_mapping[target.name]] = target.result

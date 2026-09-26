@@ -1,0 +1,6 @@
+[
+  {"image":"home_1_away_0_2:58.png","home":{"roi":[58,104,76,58],"expected":"1"},"away":{"roi":[315,102,75,59],"expected":"0"}},
+  {"image":"home_1_away___2:54.png","home":{"roi":[66,124,77,57],"expected":"1"},"away":{"roi":[319,121,76,60],"expected":""}},
+  {"image":"home_2_away_2_2:52.png","home":{"roi":[67,122,77,59],"expected":"2"},"away":{"roi":[319,121,77,59],"expected":"2"}},
+  {"image":"home_4_away_2_2:47.png","home":{"roi":[69,109,78,56],"expected":"4"},"away":{"roi":[321,104,77,60],"expected":"2"}}
+]

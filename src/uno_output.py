@@ -44,6 +44,13 @@ class UNOAPI:
             look_in.append(TextDetectionTargetWithResult.ResultState.SameNoChange)
 
         for target in detection:
+            if (
+                target.result_state == TextDetectionTargetWithResult.ResultState.Empty
+                and not (target.settings or {}).get("skip_empty", False)
+                and target.name in self.field_mapping
+            ):
+                self.send_uno_command(self.field_mapping[target.name], "")
+                continue
             if target.result_state in look_in and target.name in self.field_mapping:
                 uno_command = self.field_mapping[target.name]
                 self.send_uno_command(uno_command, target.result)

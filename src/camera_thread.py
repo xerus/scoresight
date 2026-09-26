@@ -442,21 +442,24 @@ class TimerThread(QThread):
                         target.ocrResultPerCharacterSmoother
                     )
                     ocrTargets.append(ocr_target)
-                texts = self.textDetector.detect_multi_text(binary, gray, ocrTargets)
+                texts = self.textDetector.detect_multi_text(
+                    binary, gray, ocrTargets, color=frame_rgb
+                )
                 for target, ocr_target in zip(detectionTargets, ocrTargets):
                     target.last_image = ocr_target.last_image
                 if len(texts) > 0 and len(detectionTargets) == len(texts):
                     # augment the text detection targets with the results
                     results = []
                     for i, result in enumerate(texts):
-                        if self.updateOnChange:
+                        if self.updateOnChange and result.state in (
+                            TextDetectionTargetWithResult.ResultState.Success,
+                            TextDetectionTargetWithResult.ResultState.Empty,
+                        ):
                             if (
                                 detectionTargets[i].last_text is not None
                                 and detectionTargets[i].last_text == result.text
                             ):
-                                result.state = (
-                                    TextDetectionTargetWithResult.ResultState.SameNoChange
-                                )
+                                result.state = TextDetectionTargetWithResult.ResultState.SameNoChange
 
                         results.append(
                             TextDetectionTargetWithResult(
@@ -467,7 +470,11 @@ class TimerThread(QThread):
                                 result.extra,
                             )
                         )
-                        detectionTargets[i].last_text = result.text
+                        if (
+                            result.state
+                            != TextDetectionTargetWithResult.ResultState.FailedFilter
+                        ):
+                            detectionTargets[i].last_text = result.text
 
                     # emit the results
                     self.ocr_result_signal.emit(results)

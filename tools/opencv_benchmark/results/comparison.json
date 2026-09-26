@@ -1,0 +1,813 @@
+{
+  "repeats_per_field": 100,
+  "warmup_passes": 10,
+  "timing_scope": "preprocessing+recognition+decoding; excludes imports, model load, IO, crop extraction and perturbation",
+  "omp_thread_limit": "1",
+  "tesseract": "tesseract 5.5.1\n leptonica-1.85.0\n  libjpeg 6b (libjpeg-turbo 1.5.3) : libpng 1.6.34 : libtiff 4.0.9 : zlib 1.2.11 : libwebp 1.0.0",
+  "latency": {
+    "opencv_geometry": {
+      "median_ms": 0.18298199999999998,
+      "p95_ms": 0.25248704999999994,
+      "calls": 800
+    },
+    "tesseract_7seg_oem1_psm8_led160_scale1": {
+      "median_ms": 4.181467,
+      "p95_ms": 7.4864646,
+      "calls": 800
+    }
+  },
+  "sensitivity": [
+    {
+      "engine": "opencv_geometry",
+      "condition": "original",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "original",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "opencv_geometry",
+      "condition": "brightness_60pct",
+      "correct": 1,
+      "total": 8,
+      "rejected": 7,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": null,
+          "correct": false
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "brightness_60pct",
+      "correct": 1,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "",
+          "correct": false
+        }
+      ]
+    },
+    {
+      "engine": "opencv_geometry",
+      "condition": "brightness_80pct",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "brightness_80pct",
+      "correct": 7,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "",
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "opencv_geometry",
+      "condition": "brightness_120pct",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "brightness_120pct",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "opencv_geometry",
+      "condition": "roi_right_2px",
+      "correct": 6,
+      "total": 8,
+      "rejected": 2,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": null,
+          "correct": false
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": null,
+          "correct": false
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "roi_right_2px",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "opencv_geometry",
+      "condition": "roi_down_2px",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    },
+    {
+      "engine": "tesseract_7seg_oem1_psm8_led160_scale1",
+      "condition": "roi_down_2px",
+      "correct": 8,
+      "total": 8,
+      "rejected": 0,
+      "blank_false_positives": 0,
+      "readings": [
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away_0_2:58.png",
+          "field": "away",
+          "expected": "0",
+          "prediction": "0",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "home",
+          "expected": "1",
+          "prediction": "1",
+          "correct": true
+        },
+        {
+          "image": "home_1_away___2:54.png",
+          "field": "away",
+          "expected": "",
+          "prediction": "",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "home",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_2_away_2_2:52.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "home",
+          "expected": "4",
+          "prediction": "4",
+          "correct": true
+        },
+        {
+          "image": "home_4_away_2_2:47.png",
+          "field": "away",
+          "expected": "2",
+          "prediction": "2",
+          "correct": true
+        }
+      ]
+    }
+  ]
+}

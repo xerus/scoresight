@@ -140,6 +140,11 @@ async def get_json(pivot=Query(None)):
                 result.result_state == TextDetectionTargetWithResult.ResultState.Success
                 or result.result_state
                 == TextDetectionTargetWithResult.ResultState.SameNoChange
+                or (
+                    result.result_state
+                    == TextDetectionTargetWithResult.ResultState.Empty
+                    and not (result.settings or {}).get("skip_empty", False)
+                )
             ):
                 data[result.name] = result.result
     else:
@@ -158,6 +163,11 @@ async def get_xml(pivot=Query(None)):
                 result.result_state == TextDetectionTargetWithResult.ResultState.Success
                 or result.result_state
                 == TextDetectionTargetWithResult.ResultState.SameNoChange
+                or (
+                    result.result_state
+                    == TextDetectionTargetWithResult.ResultState.Empty
+                    and not (result.settings or {}).get("skip_empty", False)
+                )
             ):
                 data[result.name] = result.result
         for key in data:
@@ -246,7 +256,7 @@ def stop_http_server():
         conn = http.client.HTTPConnection("localhost", PORT)
         conn.request("GET", "/shutdown")
         conn.close()
-    except Exception as e:
+    except Exception:
         pass
 
 

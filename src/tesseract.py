@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import re
 
+from seven_segment import read_score
 from resource_path import resource_path
 from storage import fetch_data
 from text_detection_target import (
@@ -91,6 +92,8 @@ class TextDetector:
         SCOREBOARD_GENERAL = 1
         GENERAL_ENGLISH = 2
         SCOREBOARD_GENERAL_LARGE = 3
+        # Index 4 remains the external Tesseract model file picker.
+        OPENCV_SEVEN_SEGMENT = 5
 
     class BinarizationMethod:
         GLOBAL = 0
@@ -101,19 +104,22 @@ class TextDetector:
     def __init__(self):
         self.api_lock = Lock()
         self.api = None
+        self.ocr_model_index = None
+        self.setOcrModel(fetch_data("scoresight.json", "ocr_model", 1))
         if (
-            fetch_data(
-                "scoresight.json",
-                "ocr_model",
-                TextDetector.OcrModelIndex.SCOREBOARD_GENERAL,
-            )
-            == TextDetector.OcrModelIndex.SCOREBOARD_GENERAL
+            self.api is None
+            and self.ocr_model_index != self.OcrModelIndex.OPENCV_SEVEN_SEGMENT
         ):
-            self.setOcrModel(TextDetector.OcrModelIndex.SCOREBOARD_GENERAL)
-        else:
-            self.setOcrModel(TextDetector.OcrModelIndex.DAKTRONICS)
+            self.setOcrModel(self.OcrModelIndex.SCOREBOARD_GENERAL)
 
     def setOcrModel(self, ocrModelIndex: OcrModelIndex | int | str | None = None):
+        if ocrModelIndex == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
+            with self.api_lock:
+                if self.api is not None:
+                    self.api.End()
+                    self.api = None
+                self.ocr_model_index = ocrModelIndex
+            return
         ocr_model = None
         model_folder = resource_path("tesseract", "tessdata")
         if ocrModelIndex == TextDetector.OcrModelIndex.DAKTRONICS:
@@ -146,6 +152,7 @@ class TextDetector:
                 path=model_folder,
                 lang=ocr_model,
             )
+            self.ocr_model_index = ocrModelIndex
             # single word PSM
             self.api.SetPageSegMode(8)
             self.api.SetVariable("load_system_dawg", "F")
@@ -159,6 +166,8 @@ class TextDetector:
         # check the image has rows and columns
         if len(image.shape) < 2 or image.shape[0] < 1 or image.shape[1] < 1:
             return ""
+        if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
+            return read_score(image)[0] or ""
         pilimage = Image.fromarray(image)
         text = ""
         with self.api_lock:
@@ -166,9 +175,66 @@ class TextDetector:
             text = self.api.GetUTF8Text()
         return text.strip()
 
+    def _detect_seven_segment(self, color, binary, rects):
+        """Use the transformed BGR frame; preserve blank and rejected states."""
+        results = []
+        states = TextDetectionTargetWithResult.ResultState
+        valid_frame = (
+            isinstance(color, np.ndarray) and color.ndim == 3 and color.shape[2] == 3
+        )
+        for rect in rects:
+            result = TextDetectionResult("", states.FailedFilter, None)
+            results.append(result)
+            if rect is None or not valid_frame:
+                continue
+            settings = rect.settings or {}
+            # This calibrated score reader does not parse clocks or general text.
+            if settings.get("type", FieldType.NUMBER) != FieldType.NUMBER:
+                continue
+            x, y = int(rect.x()), int(rect.y())
+            right, bottom = int(rect.x() + rect.width()), int(rect.y() + rect.height())
+            if (
+                x < 0
+                or y < 0
+                or right > color.shape[1]
+                or bottom > color.shape[0]
+                or right <= x
+                or bottom <= y
+            ):
+                continue
+            text, mask, details = read_score(color[y:bottom, x:right])
+            result.extra = {"segment_slots": details, "engine": "opencv_seven_segment"}
+            if (
+                mask is not None
+                and isinstance(binary, np.ndarray)
+                and binary.shape == color.shape[:2]
+            ):
+                binary[y:bottom, x:right] = mask
+            # Do not feed geometry readings into per-character Tesseract smoothing.
+            rect.ocrResultPerCharacterSmoother.clear()
+            if text is None:
+                continue
+            result.text = text
+            if text == "":
+                result.state = states.Empty
+                continue
+            if settings.get("remove_leading_zeros"):
+                result.text = text.lstrip("0") or "0"
+            pattern = settings.get("format_regex")
+            if pattern and (
+                not is_valid_regex(pattern) or not re.fullmatch(pattern, result.text)
+            ):
+                continue
+            if settings.get("ordinal_indicator"):
+                result.text = add_ordinal_indicator(result.text)
+            result.state = states.Success
+        return results
+
     def detect_multi_text(
-        self, binary, gray, rects: list[TextDetectionTarget]
+        self, binary, gray, rects: list[TextDetectionTarget], color=None
     ) -> list[TextDetectionResult]:
+        if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
+            return self._detect_seven_segment(color, binary, rects)
         if binary is None:
             return []
         if not isinstance(binary, np.ndarray):
@@ -574,9 +640,7 @@ class TextDetector:
                                     rect.settings["format_regex"], text
                                 )
                             ):
-                                textstate = (
-                                    TextDetectionTargetWithResult.ResultState.FailedFilter
-                                )
+                                textstate = TextDetectionTargetWithResult.ResultState.FailedFilter
                                 smoother.clear()
                         else:
                             smoother.clear()

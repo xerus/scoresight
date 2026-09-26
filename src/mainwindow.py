@@ -270,8 +270,21 @@ class MainWindow(QMainWindow):
             "General Fonts (English)",
             "General Scoreboard Large",
             "Load External OCR Model",
+            "OpenCV Seven-Segment (2 digits, experimental)",
         ]
         self.ui.comboBox_ocrModel.addItems(ocr_models)
+        segment_tooltip = (
+            "OpenCV: numeric scores with two equally spaced warm red/orange/yellow LED digit slots. "
+            "Draw the box around both complete slots, including an unlit leading slot; exclude indicator LEDs. "
+            "Alignment and exposure sensitive; rectify perspective first. Blank is distinct from zero. "
+            "Uses its own color mask (visible in Binary View). Binarize, cleanup, dilate, auto crop, "
+            "rescale, skew, confidence and Average Output controls do not apply. "
+            "Clocks/general text and unknown patterns are rejected. Disable Skip Empty Values to publish blanks."
+        )
+        self.ui.comboBox_ocrModel.setItemData(
+            5, segment_tooltip, Qt.ItemDataRole.ToolTipRole
+        )
+        self.ui.comboBox_ocrModel.setToolTip(segment_tooltip)
         # default to General Scoreboard
         ocr_model_from_storage = fetch_data("scoresight.json", "ocr_model", 1)
         if type(ocr_model_from_storage) is str:
@@ -1168,19 +1181,26 @@ class MainWindow(QMainWindow):
 
         # update the table widget value items
         for targetWithResult in results:
+            if targetWithResult.result_state not in (
+                TextDetectionTargetWithResult.ResultState.Success,
+                TextDetectionTargetWithResult.ResultState.Empty,
+            ):
+                continue
             if (
                 targetWithResult.result_state
-                == TextDetectionTargetWithResult.ResultState.Success
+                == TextDetectionTargetWithResult.ResultState.Empty
+                and (targetWithResult.settings or {}).get("skip_empty", False)
             ):
-                items = self.ui.tableWidget_boxes.findItems(
-                    targetWithResult.name, Qt.MatchFlag.MatchExactly
-                )
-                if len(items) == 0:
-                    continue
-                item = items[0]
-                # get the value (1 column) of the item
-                item = self.ui.tableWidget_boxes.item(item.row(), 1)
-                item.setText(targetWithResult.result)
+                continue
+            items = self.ui.tableWidget_boxes.findItems(
+                targetWithResult.name, Qt.MatchFlag.MatchExactly
+            )
+            if len(items) == 0:
+                continue
+            item = items[0]
+            # get the value (1 column) of the item
+            item = self.ui.tableWidget_boxes.item(item.row(), 1)
+            item.setText(targetWithResult.result or "")
 
         if not self.updateOCRResults:
             # don't update the results, the user has disabled updates
@@ -1225,9 +1245,9 @@ class MainWindow(QMainWindow):
                 and len(targetWithResult.result) == 0
             ):
                 continue
-            if (
-                targetWithResult.result_state
-                != TextDetectionTargetWithResult.ResultState.Success
+            if targetWithResult.result_state not in (
+                TextDetectionTargetWithResult.ResultState.Success,
+                TextDetectionTargetWithResult.ResultState.Empty,
             ):
                 continue
 

@@ -1,0 +1,157 @@
+[
+  {
+    "path": "tesseract/tessdata/daktronics.traineddata",
+    "bytes": 2942285,
+    "sha256": "884b6adeb539ff931e9d13d2449e31a74876a4a05da893f646a33a29ddf3e22b"
+  },
+  {
+    "path": "tesseract/tessdata/eng.traineddata",
+    "bytes": 23466654,
+    "sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047"
+  },
+  {
+    "path": "tesseract/tessdata/scoreboard_general.traineddata",
+    "bytes": 2943901,
+    "sha256": "7a7fa1393b5d29b04856d9e695be35c2cc1ca878a6f9ffe0dcf6ac13fc7f9f93"
+  },
+  {
+    "path": "tesseract/tessdata/scoreboard_general_large.traineddata",
+    "bytes": 5312159,
+    "sha256": "1ea2910900f5dc0fc16953eba63f803d5721334b52015ec0741fe3ffba9ae190"
+  },
+  {
+    "path": "/tmp/scoresight-ssd-models/ssd_int.traineddata",
+    "bytes": 1442809,
+    "sha256": "557759383e030694420ee9f6a88e824abae4acf17f7b94415ca07e1152339339"
+  },
+  {
+    "path": "/tmp/scoresight-ssd-models/ssd_plus.traineddata",
+    "bytes": 11314684,
+    "sha256": "be3fb146b538122d884d09e5029d3e24ccd1ee646f6b879125df754a9cd3667e"
+  },
+  {
+    "path": "/tmp/scoresight-ssd-models/ssd.traineddata",
+    "bytes": 11314684,
+    "sha256": "f0060f4d2acb107f7c48c418f60887eddb37656fbbc2c21677df06ecbdf44ca5"
+  },
+  {
+    "path": "/tmp/scoresight-ssd-models/7seg.traineddata",
+    "bytes": 11435044,
+    "sha256": "7e170293e5ac660295d7d3f53346453447bd9c9845f9f384cc1005c791487291"
+  },
+  {
+    "path": "/tmp/ocrbench-tessdata-best/eng.traineddata",
+    "bytes": 15400601,
+    "sha256": "8280aed0782fe27257a68ea10fe7ef324ca0f8d85bd2fd145d1c2b560bcb66ba"
+  },
+  {
+    "path": "/tmp/ocrbench-tessdata-fast/eng.traineddata",
+    "bytes": 4113088,
+    "sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2"
+  },
+  {
+    "path": "/tmp/ocrbench-weights/crnn_config.json",
+    "bytes": 54,
+    "sha256": "ff9843b958e481eaf06305ae9e42058e79d95d8d82ea3aa933269b8038bdc2fb"
+  },
+  {
+    "path": "/tmp/ocrbench-weights/final_crnn.pth",
+    "bytes": 14483509,
+    "sha256": "0bc18c193043516986a5b4445643b1558e03a03d8eb191b9bad2dd860131b408"
+  },
+  {
+    "path": "/tmp/ocrbench-weights/best.pt",
+    "bytes": 6242474,
+    "sha256": "d43dcf6d806586f92e4646b7c7d39d57008e80cedbf8f6479cb51a8e4c4b388f"
+  },
+  {
+    "path": "/tmp/renjith2/model_float16.tflite",
+    "bytes": 17648784,
+    "sha256": "f5b15936e77af2bd7269460b18be6cb859b2c8669f2901ab505e973093dbc38d"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_temp_v6.keras",
+    "bytes": 5291095,
+    "sha256": "7ef5c7caf16c41b1946c19a039927ec3a08d91a1e1c92dd6d00f58eed3f0493e"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_synthetic_temp.keras",
+    "bytes": 5291095,
+    "sha256": "e5199ebed5ad7b58c7d576350353afdb5786c1cb04c6017ac8eeac4f325180e2"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_synthetic_mV_v2.keras",
+    "bytes": 6363332,
+    "sha256": "ab60368fbaf895693df35ce103a90b7a4cc10a65ce15fdd009fe93e20028f8c8"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_synthetic_mV.keras",
+    "bytes": 6363332,
+    "sha256": "8da6ae118533680e44da94bc0d8cb6abba45dd8b3049c6933892389d29a4af80"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_synthetic_V_v2.keras",
+    "bytes": 6363332,
+    "sha256": "a7dff37a61d0d3eeef684a4c65394c0666f24cb47494d7523b2fff43123f0b3a"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/sequence_model_synthetic_V.keras",
+    "bytes": 6363332,
+    "sha256": "5de8c5a641a9c9b85117474ecb5b4998f0a867ed40c53387b14543b624bb9ba6"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_temp_v5.keras",
+    "bytes": 5291095,
+    "sha256": "53f715b2c44ef18caca3eca6633c3af9cef74e310ea75206620e8435351a6166"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_synthetic_v1.keras",
+    "bytes": 6363332,
+    "sha256": "40b0db669be5bb069dea0111d2eb4c617233a73baf70c94871deb81fe35c0414"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_sample2_meter_2.keras",
+    "bytes": 5267625,
+    "sha256": "a7709bd1f98d3eebb30ca715fd41755532d9ee2b3843be4b588656ecef0d4694"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_sample1_meter_1.keras",
+    "bytes": 5314749,
+    "sha256": "c8f43192b6cbaaac57aecd2d113a6379994b9600b87ebb4bec8d05a6adffbf4e"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_multimeter.keras",
+    "bytes": 5314749,
+    "sha256": "df417db92d9fa27d1e7abacdba254740268b4fd42286349412468c7156b10959"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined_temp_v4.keras",
+    "bytes": 5267625,
+    "sha256": "8e55839dea89d7fd523ba0ca3115dc41ae8310e0b2a1d509e38b7922ed649857"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined_temp_v3.keras",
+    "bytes": 5267625,
+    "sha256": "d0f859800fffb9f06a03229a9ece27a97bed14a8980765e07b2f191c1abf849b"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined_temp_v2.keras",
+    "bytes": 5267625,
+    "sha256": "4dd610e1422d330e1a4350af3e03398932835e97c7b3e0f8742740ebee2d4d58"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined_multi_v2.keras",
+    "bytes": 5314749,
+    "sha256": "384e41552a164e26d159a2057edf38cb8e7efba17e8b541c94ef9f8115f88f5a"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined_multi.keras",
+    "bytes": 5314749,
+    "sha256": "b905e596a7524d06e1bddb97df0abc9cc6367df00791ce69e1ca2e3a26dee068"
+  },
+  {
+    "path": "/tmp/leander-sparse/models/old/sequence_model_combined.keras",
+    "bytes": 5267625,
+    "sha256": "331659797e4fa546c8ca915654f2b2b95a13460c497b5accb1e2540a34595ecd"
+  }
+]

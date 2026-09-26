@@ -102,14 +102,21 @@ if args.mac_osx:
     sources += ['src/screen_capture_source_mac.py']
 
 numpy_datas, numpy_binaries, numpy_hiddenimports = collect_all('numpy')
+# Cython extension imports are not always visible to PyInstaller's module graph.
+cyndilib_datas, cyndilib_binaries, cyndilib_hiddenimports = collect_all('cyndilib')
+# Recent Linux tesserocr builds import cysignals from their Cython module.
+try:
+    cysignals_datas, cysignals_binaries, cysignals_hiddenimports = collect_all('cysignals')
+except ModuleNotFoundError:
+    cysignals_datas, cysignals_binaries, cysignals_hiddenimports = [], [], []
 ws_hiddenimports=['websockets', 'websockets.legacy']
 
 a = Analysis(
     sources,
     pathex=[],
-    binaries=numpy_binaries,
-    datas=datas + numpy_datas,
-    hiddenimports=numpy_hiddenimports + ws_hiddenimports,
+    binaries=numpy_binaries + cyndilib_binaries + cysignals_binaries,
+    datas=datas + numpy_datas + cyndilib_datas + cysignals_datas,
+    hiddenimports=numpy_hiddenimports + cyndilib_hiddenimports + cysignals_hiddenimports + ws_hiddenimports,
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],

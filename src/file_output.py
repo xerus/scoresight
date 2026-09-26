@@ -15,9 +15,9 @@ def save_text_files(results, out_folder, append_method_index):
             and len(targetWithResult.result) == 0
         ):
             continue
-        if (
-            targetWithResult.result_state
-            != TextDetectionTargetWithResult.ResultState.Success
+        if targetWithResult.result_state not in (
+            TextDetectionTargetWithResult.ResultState.Success,
+            TextDetectionTargetWithResult.ResultState.Empty,
         ):
             continue
 

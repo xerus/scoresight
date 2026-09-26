@@ -1,0 +1,562 @@
+[
+  {
+    "image": "home_1_away_0_2:58.png",
+    "imgsz": 640,
+    "confidence": 0.3,
+    "boxes": [
+      [
+        346.83282470703125,
+        100.15834045410156,
+        390.5213623046875,
+        161.22042846679688
+      ]
+    ],
+    "scores": [
+      0.5120585560798645
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "0",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away___2:54.png",
+    "imgsz": 640,
+    "confidence": 0.3,
+    "boxes": [],
+    "scores": [],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_2_away_2_2:52.png",
+    "imgsz": 640,
+    "confidence": 0.3,
+    "boxes": [
+      [
+        103.13098907470703,
+        119.9970474243164,
+        143.2057342529297,
+        181.98297119140625
+      ]
+    ],
+    "scores": [
+      0.46503084897994995
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "2",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_4_away_2_2:47.png",
+    "imgsz": 640,
+    "confidence": 0.3,
+    "boxes": [
+      [
+        106.07827758789062,
+        109.14155578613281,
+        146.72459411621094,
+        167.8415985107422
+      ]
+    ],
+    "scores": [
+      0.3544608950614929
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "4",
+        "raw": "10.0",
+        "predicted": "10",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away_0_2:58.png",
+    "imgsz": 640,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        346.83282470703125,
+        100.15834045410156,
+        390.5213623046875,
+        161.22042846679688
+      ],
+      [
+        115.13705444335938,
+        105.5268783569336,
+        136.08665466308594,
+        163.20892333984375
+      ]
+    ],
+    "scores": [
+      0.5120585560798645,
+      0.05747705698013306
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": "31.0",
+        "predicted": "31",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "0",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away___2:54.png",
+    "imgsz": 640,
+    "confidence": 0.05,
+    "boxes": [],
+    "scores": [],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_2_away_2_2:52.png",
+    "imgsz": 640,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        103.13098907470703,
+        119.9970474243164,
+        143.2057342529297,
+        181.98297119140625
+      ],
+      [
+        353.60015869140625,
+        117.2328109741211,
+        394.0400085449219,
+        178.9620361328125
+      ]
+    ],
+    "scores": [
+      0.46503084897994995,
+      0.09269054979085922
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "2",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_4_away_2_2:47.png",
+    "imgsz": 640,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        106.07827758789062,
+        109.14155578613281,
+        146.72459411621094,
+        167.8415985107422
+      ],
+      [
+        354.8739013671875,
+        101.8532943725586,
+        396.03076171875,
+        163.96539306640625
+      ]
+    ],
+    "scores": [
+      0.3544608950614929,
+      0.056398965418338776
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "4",
+        "raw": "10.0",
+        "predicted": "10",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away_0_2:58.png",
+    "imgsz": 1280,
+    "confidence": 0.3,
+    "boxes": [],
+    "scores": [],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "0",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away___2:54.png",
+    "imgsz": 1280,
+    "confidence": 0.3,
+    "boxes": [],
+    "scores": [],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_2_away_2_2:52.png",
+    "imgsz": 1280,
+    "confidence": 0.3,
+    "boxes": [
+      [
+        104.8699722290039,
+        145.08758544921875,
+        135.48828125,
+        180.21807861328125
+      ]
+    ],
+    "scores": [
+      0.373440682888031
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "2",
+        "raw": "1.5",
+        "predicted": "1.5",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_4_away_2_2:47.png",
+    "imgsz": 1280,
+    "confidence": 0.3,
+    "boxes": [
+      [
+        108.69613647460938,
+        109.37971496582031,
+        143.91001892089844,
+        166.85902404785156
+      ],
+      [
+        108.97737884521484,
+        110.37997436523438,
+        143.90570068359375,
+        139.32676696777344
+      ]
+    ],
+    "scores": [
+      0.47598305344581604,
+      0.4082164168357849
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "4",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away_0_2:58.png",
+    "imgsz": 1280,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        294.004638671875,
+        120.94698333740234,
+        303.2349853515625,
+        142.62767028808594
+      ],
+      [
+        349.5885925292969,
+        97.7459716796875,
+        390.0384521484375,
+        160.59503173828125
+      ]
+    ],
+    "scores": [
+      0.21911485493183136,
+      0.1912073791027069
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "0",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_1_away___2:54.png",
+    "imgsz": 1280,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        299.4068908691406,
+        139.8248291015625,
+        308.9656677246094,
+        163.1925811767578
+      ]
+    ],
+    "scores": [
+      0.2533484995365143
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "1",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "",
+        "raw": null,
+        "predicted": null,
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_2_away_2_2:52.png",
+    "imgsz": 1280,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        104.8699722290039,
+        145.08758544921875,
+        135.48828125,
+        180.21807861328125
+      ],
+      [
+        299.7527770996094,
+        138.19569396972656,
+        309.0877380371094,
+        160.3771514892578
+      ],
+      [
+        345.5349426269531,
+        110.08814239501953,
+        395.5271301269531,
+        179.0458984375
+      ],
+      [
+        356.0887756347656,
+        112.2978515625,
+        392.2718200683594,
+        177.4329376220703
+      ]
+    ],
+    "scores": [
+      0.373440682888031,
+      0.18259726464748383,
+      0.16992413997650146,
+      0.07473699748516083
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "2",
+        "raw": "1.5",
+        "predicted": "1.5",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": "32.0",
+        "predicted": "32",
+        "correct": false
+      }
+    ]
+  },
+  {
+    "image": "home_4_away_2_2:47.png",
+    "imgsz": 1280,
+    "confidence": 0.05,
+    "boxes": [
+      [
+        108.69613647460938,
+        109.37971496582031,
+        143.91001892089844,
+        166.85902404785156
+      ],
+      [
+        108.97737884521484,
+        110.37997436523438,
+        143.90570068359375,
+        139.32676696777344
+      ],
+      [
+        97.4564437866211,
+        104.77745819091797,
+        146.0702667236328,
+        169.30484008789062
+      ],
+      [
+        357.83917236328125,
+        127.25106811523438,
+        389.92724609375,
+        162.63128662109375
+      ],
+      [
+        347.82427978515625,
+        100.06983184814453,
+        394.5165100097656,
+        165.14598083496094
+      ]
+    ],
+    "scores": [
+      0.47598305344581604,
+      0.4082164168357849,
+      0.12077612429857254,
+      0.10301228612661362,
+      0.08051002770662308
+    ],
+    "readings": [
+      {
+        "field": "home",
+        "expected": "4",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      },
+      {
+        "field": "away",
+        "expected": "2",
+        "raw": "1.0",
+        "predicted": "1",
+        "correct": false
+      }
+    ]
+  }
+]

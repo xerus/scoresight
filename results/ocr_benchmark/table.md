@@ -1,0 +1,31 @@
+| Model | Baseline correct / 8 | Best explored / 8 | Blank correct? | Best setting |
+|---|---:|---:|---|---|
+| daktronics | 1 | 5 | no | `oem1/psm8/rgb/scale3` |
+| scoreboard_general | 5 | 6 | no | `oem1/psm13/otsu/scale1` |
+| scoreboard_general_large | 3 | 7 | no | `oem1/psm13/otsu/scale3` |
+| eng | 2 | 6 | yes | `oem1/psm8/led160/scale3` |
+| tessdata_best_eng | 3 | 5 | yes | `oem1/psm8/led160/scale1` |
+| tessdata_fast_eng | 1 | 3 | yes | `oem1/psm8/led160/scale1` |
+| 7seg | 6 | 8 | yes | `oem1/psm8/led160/scale1` |
+| ssd | 0 | 7 | no | `oem1/psm7/led160/scale1` |
+| ssd_plus | 1 | 7 | no | `oem1/psm7/led160/scale1` |
+| ssd_int | 0 | 7 | no | `oem1/psm7/led160/scale1` |
+| OICWS_CRNN | 2 | 2 | no | `rgb` |
+| Renjith_TFLite | 0 | 1 | no | `rgb/invertTrue` |
+| Leander/old/sequence_model_combined.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_combined_multi.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_combined_multi_v2.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_combined_temp_v2.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_combined_temp_v3.keras | 0 | 1 | no | `otsu/invertFalse` |
+| Leander/old/sequence_model_combined_temp_v4.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_multimeter.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_sample1_meter_1.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_sample2_meter_2.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_synthetic_v1.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/old/sequence_model_temp_v5.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_synthetic_V.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_synthetic_V_v2.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_synthetic_mV.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_synthetic_mV_v2.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_synthetic_temp.keras | 0 | 0 | no | `otsu/invertTrue` |
+| Leander/sequence_model_temp_v6.keras | 0 | 0 | no | `otsu/invertTrue` |
