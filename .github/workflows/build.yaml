@@ -83,6 +83,24 @@ jobs:
             pyinstaller --clean --noconfirm scoresight.spec -- --win
           }
 
+      - name: Smoke test packaged Windows imports
+        if: matrix.os == 'windows-latest'
+        run: |
+          $resultPath = Join-Path $env:RUNNER_TEMP "scoresight-import-check.txt"
+          Remove-Item $resultPath -ErrorAction Ignore
+          $env:SCORESIGHT_IMPORT_CHECK_RESULT = $resultPath
+          & .\dist\scoresight\scoresight.exe --check-imports
+          $exitCode = $LASTEXITCODE
+          if (Test-Path $resultPath) {
+            $result = Get-Content -Path $resultPath -Raw
+            Write-Output $result
+          }
+          if ($exitCode -ne 0) { exit $exitCode }
+          if (!(Test-Path $resultPath) -or $result -ne "imports-ok") {
+            throw "Packaged application import smoke test did not report success."
+          }
+        shell: pwsh
+
       - name: Build with PyInstaller (Linux)
         if: matrix.os == 'ubuntu-latest'
         run: |
