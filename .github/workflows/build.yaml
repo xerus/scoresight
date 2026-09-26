@@ -83,6 +83,16 @@ jobs:
             pyinstaller --clean --noconfirm scoresight.spec -- --win
           }
 
+      - name: Verify bundled Qt ICU runtime
+        if: matrix.os == 'windows-latest'
+        run: |
+          $icuDlls = @(Get-ChildItem -Path dist/scoresight/_internal -Filter "icu*.dll" -File -Recurse)
+          if ($icuDlls.Count -eq 0) {
+            throw "PySide6 ICU runtime DLLs are missing from the packaged application."
+          }
+          $icuDlls | ForEach-Object { Write-Output $_.FullName }
+        shell: pwsh
+
       - name: Smoke test packaged Windows imports
         if: matrix.os == 'windows-latest'
         run: |

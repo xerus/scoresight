@@ -1,6 +1,6 @@
 # -*- mode: python ; coding: utf-8 -*-
 import os
-from PyInstaller.utils.hooks import collect_all
+from PyInstaller.utils.hooks import collect_all, collect_dynamic_libs
 
 # parse command line arguments
 import argparse
@@ -103,6 +103,10 @@ if args.mac_osx:
     sources += ['src/screen_capture_source_mac.py']
 
 numpy_datas, numpy_binaries, numpy_hiddenimports = collect_all('numpy')
+# Qt loads some DLLs at runtime (including ICU) that are not always visible to
+# PyInstaller's dependency scanner. Collect the complete PySide6 DLL set so the
+# portable build has the same runtime libraries as the installed wheel.
+pyside6_binaries = collect_dynamic_libs('PySide6')
 # Cython extension imports are not always visible to PyInstaller's module graph.
 cyndilib_datas, cyndilib_binaries, cyndilib_hiddenimports = collect_all('cyndilib')
 # Recent Linux tesserocr builds import cysignals from their Cython module.
@@ -115,7 +119,7 @@ ws_hiddenimports=['websockets', 'websockets.legacy']
 a = Analysis(
     sources,
     pathex=[],
-    binaries=numpy_binaries + cyndilib_binaries + cysignals_binaries,
+    binaries=numpy_binaries + pyside6_binaries + cyndilib_binaries + cysignals_binaries,
     datas=datas + numpy_datas + cyndilib_datas + cysignals_datas,
     hiddenimports=numpy_hiddenimports + cyndilib_hiddenimports + cysignals_hiddenimports + ws_hiddenimports,
     hookspath=[],
