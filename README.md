@@ -92,7 +92,17 @@ See the [Install Guide](docs/INSTALL.md) for help with installation.
   pip install -r requirements.txt
   ```
 
-For Mac and Windows there are further dependencies in `requirements-mac.txt` and `requirements-win.txt`
+On Windows, use Python 3.11 and install the Windows dependencies into the same
+environment before running the app:
+
+```powershell
+python -m pip install -r requirements-win.txt
+python -c "import tesserocr; print(tesserocr.tesseract_version())"
+```
+
+The Windows requirements include a Python 3.11 wheel for `tesserocr`; the base
+requirements intentionally skip it on Windows. On macOS, also install the
+dependencies in `requirements-mac.txt`.
 
 3. Create a `.env` file. See the contents of the file in the `.github/worksflows/build.yaml` file
 
