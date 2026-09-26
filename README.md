@@ -41,7 +41,7 @@ It is the best **free** real-time OCR tool on planet Earth for scoreboards and g
 - Camera bump and drift correction with stabilization algorithm
 - Unlimited devices or open instances on the same device
 - Detect any scoreboard fonts, general fonts and even "dot" indicators
-- Translated to 12 languages (English, German, Spanish, French, Italian, Japanese, Korean, Dutch, Polish, Portugese, Russian, Chinese)
+- Translated to 13 languages (English, Czech, German, Spanish, French, Italian, Japanese, Korean, Dutch, Polish, Portuguese, Russian, Chinese)
 - [Collect OCR training data](docs/data_annotation.md) and annotate it with a built-in tool
 
 Price: FREE.
@@ -191,6 +191,8 @@ Contributions are welcome! If you would like to contribute to this project, plea
 3. Make your changes and commit them.
 4. Push your changes to your forked repository.
 5. Submit a pull request.
+
+Qt translations live in `translations/scoresight_<locale>.ts`; compiled `.qm` files are loaded from that directory at runtime and bundled by `scoresight.spec`. To update Czech strings after UI changes, run `pyside6-lupdate src/mainwindow.py src/*.ui -ts translations/scoresight_cs_CZ.ts`, translate new entries, then run `pyside6-lrelease translations/scoresight_cs_CZ.ts -qm translations/scoresight_cs_CZ.qm`. On Windows, `scripts/compile_translations.ps1` compiles all translation catalogs.
 
 ## License
 

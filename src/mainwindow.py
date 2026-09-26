@@ -108,20 +108,34 @@ class MainWindow(QMainWindow):
             self.setWindowIcon(QIcon(resource_path("icons", "Windows-icon-open.ico")))
 
         self.menubar = self.menuBar()
-        file_menu = self.menubar.addMenu("File")
+        file_menu = self.menubar.addMenu(self.tr("File"))
+        self.file_menu = file_menu
 
         # check for updates
         check_for_updates(False)
-        file_menu.addAction("Check for Updates", lambda: check_for_updates(True))
-        file_menu.addAction("About", self.openAboutDialog)
-        file_menu.addAction("View Current Log", self.openLogsDialog)
-        file_menu.addAction("Import Configuration", self.importConfiguration)
-        file_menu.addAction("Export Configuration", self.exportConfiguration)
-        file_menu.addAction("Open Configuration Folder", self.openConfigurationFolder)
-        file_menu.addAction("OCR Training Data Setup", self.openOCRTrainingDataDialog)
+        self.menu_check_updates = file_menu.addAction(
+            self.tr("Check for Updates"), lambda: check_for_updates(True)
+        )
+        self.menu_about = file_menu.addAction(self.tr("About"), self.openAboutDialog)
+        self.menu_logs = file_menu.addAction(
+            self.tr("View Current Log"), self.openLogsDialog
+        )
+        self.menu_import = file_menu.addAction(
+            self.tr("Import Configuration"), self.importConfiguration
+        )
+        self.menu_export = file_menu.addAction(
+            self.tr("Export Configuration"), self.exportConfiguration
+        )
+        self.menu_config_folder = file_menu.addAction(
+            self.tr("Open Configuration Folder"), self.openConfigurationFolder
+        )
+        self.menu_ocr_training = file_menu.addAction(
+            self.tr("OCR Training Data Setup"), self.openOCRTrainingDataDialog
+        )
 
         # Add "Language" menu
-        languageMenu = file_menu.addMenu("Language")
+        languageMenu = file_menu.addMenu(self.tr("Language"))
+        self.language_menu = languageMenu
 
         # Add language options
         self.addLanguageOption(languageMenu, "English (US)", "en_US")
@@ -137,9 +151,11 @@ class MainWindow(QMainWindow):
         self.addLanguageOption(languageMenu, "Portuguese (Portugal)", "pt_PT")
         self.addLanguageOption(languageMenu, "Russian", "ru_RU")
         self.addLanguageOption(languageMenu, "Chinese (Simplified)", "zh_CN")
+        self.addLanguageOption(languageMenu, "Čeština", "cs_CZ")
 
         # add a menu item to change the theme
-        theme_menu = file_menu.addMenu("Theme")
+        theme_menu = file_menu.addMenu(self.tr("Theme"))
+        self.theme_menu = theme_menu
         for theme in QStyleFactory.keys():
             theme_menu.addAction(theme, lambda theme=theme: self.setStyleTheme(theme))
 
@@ -540,8 +556,21 @@ class MainWindow(QMainWindow):
             appInstance.installTranslator(self.translator)
             try:
                 self.ui.retranslateUi(self)
+                self.retranslateMenus()
             except Exception as e:
                 logger.error(f"Error retranslating UI: {e}")
+
+    def retranslateMenus(self):
+        self.file_menu.setTitle(self.tr("File"))
+        self.language_menu.setTitle(self.tr("Language"))
+        self.theme_menu.setTitle(self.tr("Theme"))
+        self.menu_check_updates.setText(self.tr("Check for Updates"))
+        self.menu_about.setText(self.tr("About"))
+        self.menu_logs.setText(self.tr("View Current Log"))
+        self.menu_import.setText(self.tr("Import Configuration"))
+        self.menu_export.setText(self.tr("Export Configuration"))
+        self.menu_config_folder.setText(self.tr("Open Configuration Folder"))
+        self.menu_ocr_training.setText(self.tr("OCR Training Data Setup"))
 
     def addLanguageOption(self, menu: QMenu, language_name: str, locale: str):
         menu.addAction(language_name, lambda: self.changeLanguage(locale))
