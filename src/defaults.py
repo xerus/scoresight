@@ -179,6 +179,7 @@ def normalize_settings_dict(settings, box_info):
         "dilate": (settings["dilate"] if "dilate" in settings else 1),
         "skew": (settings["skew"] if "skew" in settings else 0),
         "vscale": (settings["vscale"] if "vscale" in settings else 10),
+        "hscale": (settings["hscale"] if "hscale" in settings else 10),
         "autocrop": (settings["autocrop"] if "autocrop" in settings else False),
         "skip_similar_image": (
             settings["skip_similar_image"]

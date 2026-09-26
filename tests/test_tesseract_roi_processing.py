@@ -7,9 +7,10 @@ import cv2
 import numpy as np
 from PySide6.QtCore import QRectF
 
-from defaults import FieldType
+from defaults import FieldType, default_info_for_box_name, normalize_settings_dict
+from storage import TextDetectionTargetMemoryStorage
 from tesseract import TextDetector
-from text_detection_target import TextDetectionTargetWithResult
+from text_detection_target import TextDetectionTarget, TextDetectionTargetWithResult
 
 
 class FakeTesseract:
@@ -25,8 +26,39 @@ class FakeTesseract:
     def GetUTF8Text(self):
         return ""
 
+    def MeanTextConf(self):
+        return 100
+
 
 class RoiProcessingTests(unittest.TestCase):
+    def test_horizontal_scale_widens_ocr_patch_and_is_saved_per_box(self):
+        detector = TextDetector.__new__(TextDetector)
+        detector.api_lock = threading.Lock()
+        detector.api = FakeTesseract()
+        detector.ocr_model_index = TextDetector.OcrModelIndex.SCOREBOARD_GENERAL
+
+        frame = np.zeros((60, 80, 3), dtype=np.uint8)
+        target = TextDetectionTarget(10, 10, 40, 30, "Home Score")
+        target.settings = normalize_settings_dict(
+            {"hscale": 15, "rescale_patch": False},
+            default_info_for_box_name(target.name),
+        )
+        detector.detect_multi_text(None, None, [target], color=frame)
+        self.assertEqual(detector.api.image_size, (60, 30))
+
+        target.settings["hscale"] = 10
+        detector.detect_multi_text(None, None, [target], color=frame)
+        self.assertEqual(detector.api.image_size, (40, 30))
+
+        target.settings["hscale"] = 15
+        storage = TextDetectionTargetMemoryStorage()
+        storage.clear()
+        try:
+            storage.add_item(target)
+            self.assertEqual(storage.getBoxesForStorage()[0]["settings"]["hscale"], 15)
+        finally:
+            storage.clear()
+
     def test_color_input_processes_only_selected_roi_and_scales_patch(self):
         detector = TextDetector.__new__(TextDetector)
         detector.api_lock = threading.Lock()

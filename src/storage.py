@@ -283,6 +283,7 @@ class TextDetectionTargetMemoryStorage(QObject):
                         "dilate": detectionTarget.settings.get("dilate"),
                         "skew": detectionTarget.settings.get("skew"),
                         "vscale": detectionTarget.settings.get("vscale"),
+                        "hscale": detectionTarget.settings.get("hscale"),
                         "autocrop": detectionTarget.settings.get("autocrop"),
                         "skip_similar_image": detectionTarget.settings.get(
                             "skip_similar_image"

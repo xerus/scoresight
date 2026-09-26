@@ -66,6 +66,8 @@ class BoxSettingsUIHandler:
             "spinBox_dilate": "Expand white strokes with a 3x3 kernel. Helps broken segments, but too much joins nearby LEDs; use 0 to disable.",
             "label_15": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
             "spinBox_vscale": "Adjust character height. 10 keeps the original height; lower values make characters shorter.",
+            "label_hscale": "Widen close characters before OCR. 10 leaves width unchanged; higher values spread them apart.",
+            "spinBox_hscale": "Widen close characters before OCR. 10 leaves width unchanged; higher values spread them apart.",
             "label_14": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
             "spinBox_skew": "Shear the image sideways to compensate for slanted characters. 0 leaves it unchanged.",
             "label_3": "Reject OCR readings below this confidence percentage. Raise it to filter uncertain readings; lower it if valid readings are rejected.",
@@ -155,6 +157,9 @@ class BoxSettingsUIHandler:
         self.ui.spinBox_vscale.valueChanged.connect(
             partial(self.genericSettingsChanged, "vscale")
         )
+        self.ui.spinBox_hscale.valueChanged.connect(
+            partial(self.genericSettingsChanged, "hscale")
+        )
         self.ui.checkBox_removeLeadingZeros.toggled.connect(
             partial(self.genericSettingsChanged, "remove_leading_zeros")
         )
@@ -198,6 +203,7 @@ class BoxSettingsUIHandler:
         self.ui.spinBox_dilate.blockSignals(True)
         self.ui.spinBox_skew.blockSignals(True)
         self.ui.spinBox_vscale.blockSignals(True)
+        self.ui.spinBox_hscale.blockSignals(True)
         self.ui.checkBox_removeLeadingZeros.blockSignals(True)
         self.ui.checkBox_rescalePatch.blockSignals(True)
         self.ui.checkBox_normWHRatio.blockSignals(True)
@@ -223,6 +229,7 @@ class BoxSettingsUIHandler:
             self.ui.spinBox_dilate.setValue(1)
             self.ui.spinBox_skew.setValue(0)
             self.ui.spinBox_vscale.setValue(10)
+            self.ui.spinBox_hscale.setValue(10)
             self.ui.label_selectedInfo.setText("")
             self.ui.checkBox_removeLeadingZeros.setChecked(False)
             self.ui.checkBox_rescalePatch.setChecked(False)
@@ -255,6 +262,7 @@ class BoxSettingsUIHandler:
             self.ui.spinBox_dilate.setValue(item_obj.settings["dilate"])
             self.ui.spinBox_skew.setValue(item_obj.settings["skew"])
             self.ui.spinBox_vscale.setValue(item_obj.settings["vscale"])
+            self.ui.spinBox_hscale.setValue(item_obj.settings["hscale"])
             self.ui.checkBox_removeLeadingZeros.setChecked(
                 item_obj.settings["remove_leading_zeros"]
             )
@@ -291,6 +299,7 @@ class BoxSettingsUIHandler:
         self.ui.spinBox_dilate.blockSignals(False)
         self.ui.spinBox_skew.blockSignals(False)
         self.ui.spinBox_vscale.blockSignals(False)
+        self.ui.spinBox_hscale.blockSignals(False)
         self.ui.checkBox_removeLeadingZeros.blockSignals(False)
         self.ui.checkBox_rescalePatch.blockSignals(False)
         self.ui.checkBox_normWHRatio.blockSignals(False)

@@ -31,6 +31,8 @@ class CzechTranslationTests(unittest.TestCase):
             self.assertEqual(
                 ui.comboBox_boxDisplayStyle.itemText(4), "Výsledky (bez názvů)"
             )
+            self.assertEqual(ui.label_hscale.text(), "Vodor. měřítko")
+            self.assertEqual(ui.spinBox_hscale.value(), 10)
             self.assertEqual(ui.checkBox.text(), "Vynutit formát")
             self.assertEqual(QCoreApplication.translate("MainWindow", "File"), "Soubor")
         finally:

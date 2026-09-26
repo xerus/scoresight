@@ -491,279 +491,284 @@
         </message>
         <message>
             <location filename="../src/mainwindow.ui" line="821" />
+            <source>H.Scale</source>
+            <translation>Vodor. měřítko</translation>
+        </message>
+        <message>
+            <location filename="../src/mainwindow.ui" line="859" />
             <source>Skew</source>
             <translation>Zkosení</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="859" />
+            <location filename="../src/mainwindow.ui" line="897" />
             <source>This field is a combination of exising fields in a template</source>
             <translation>Toto pole kombinuje existující pole podle šablony</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="862" />
+            <location filename="../src/mainwindow.ui" line="900" />
             <source>Template Field</source>
             <translation>Pole šablony</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="872" />
+            <location filename="../src/mainwindow.ui" line="910" />
             <source>{{template}}</source>
             <translation>{{template}}</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="903" />
+            <location filename="../src/mainwindow.ui" line="941" />
             <source>OCR Model</source>
             <translation>Model OCR</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="942" />
+            <location filename="../src/mainwindow.ui" line="980" />
             <source>Text Files</source>
             <translation>Textové soubory</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="957" />
+            <location filename="../src/mainwindow.ui" line="995" />
             <source>Folder</source>
             <translation>Složka</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="992" />
+            <location filename="../src/mainwindow.ui" line="1030" />
             <source>Open</source>
             <translation>Otevřít</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="999" />
+            <location filename="../src/mainwindow.ui" line="1037" />
             <source>Clear</source>
             <translation>Vymazat</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1030" />
+            <location filename="../src/mainwindow.ui" line="1068" />
             <source>Save .csv file</source>
             <translation>Uložit soubor .csv</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1037" />
+            <location filename="../src/mainwindow.ui" line="1075" />
             <source>Save .xml file</source>
             <translation>Uložit soubor .xml</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1047" />
+            <location filename="../src/mainwindow.ui" line="1085" />
             <source>Append</source>
             <translation>Připojit</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1061" />
+            <location filename="../src/mainwindow.ui" line="1099" />
             <source>Results in .csv file</source>
             <translation>Výsledky do souboru .csv</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1066" />
+            <location filename="../src/mainwindow.ui" line="1104" />
             <source>Results in .txt files</source>
             <translation>Výsledky do souborů .txt</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1071" />
+            <location filename="../src/mainwindow.ui" line="1109" />
             <source>Results in both</source>
             <translation>Výsledky do obou</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1076" />
+            <location filename="../src/mainwindow.ui" line="1114" />
             <source>Don't append results</source>
             <translation>Nepřipojovat výsledky</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1084" />
+            <location filename="../src/mainwindow.ui" line="1122" />
             <source>How many times per second to save the results to files</source>
             <translation>Kolikrát za sekundu ukládat výsledky do souborů</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1087" />
+            <location filename="../src/mainwindow.ui" line="1125" />
             <source>Save / s</source>
             <translation>Uložení/s</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1121" />
+            <location filename="../src/mainwindow.ui" line="1159" />
             <source>Browser</source>
             <translation>Prohlížeč</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1127" />
+            <location filename="../src/mainwindow.ui" line="1165" />
             <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Use these endpoints in external software to get live data updates&lt;/p&gt;&lt;p&gt;HTML Scoreboard: &lt;a href="http://localhost:18099/scoresight"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/scoresight&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;JSON: &lt;a href="http://localhost:18099/json"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/json&lt;/span&gt;&lt;/a&gt; (optional: ?pivot)&lt;br/&gt;XML: &lt;a href="http://localhost:18099/xml"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/xml&lt;/span&gt;&lt;/a&gt; (optional: ?pivot)&lt;br/&gt;CSV: &lt;a href="http://localhost:18099/csv"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/csv&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
             <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Tyto adresy použijte v externím softwaru k získání aktuálních dat&lt;/p&gt;&lt;p&gt;HTML výsledková tabule: &lt;a href="http://localhost:18099/scoresight"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/scoresight&lt;br/&gt;&lt;/span&gt;&lt;/a&gt;JSON: &lt;a href="http://localhost:18099/json"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/json&lt;/span&gt;&lt;/a&gt; (volitelné: ?pivot)&lt;br/&gt;XML: &lt;a href="http://localhost:18099/xml"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/xml&lt;/span&gt;&lt;/a&gt; (volitelné: ?pivot)&lt;br/&gt;CSV: &lt;a href="http://localhost:18099/csv"&gt;&lt;span style=" text-decoration: underline; color:#0000ff;"&gt;http://localhost:18099/csv&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1144" />
+            <location filename="../src/mainwindow.ui" line="1182" />
             <source>OBS</source>
             <translation>OBS</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1165" />
+            <location filename="../src/mainwindow.ui" line="1203" />
             <source>Connect OBS</source>
             <translation>Připojit OBS</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1178" />
+            <location filename="../src/mainwindow.ui" line="1216" />
             <source>ScoreSight Scene</source>
             <translation>Scéna ScoreSight</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1188" />
+            <location filename="../src/mainwindow.ui" line="1226" />
             <source>Create OBS Scene</source>
             <translation>Vytvořit scénu OBS</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1198" />
+            <location filename="../src/mainwindow.ui" line="1236" />
             <source>Recreate</source>
             <translation>Vytvořit znovu</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1212" />
+            <location filename="../src/mainwindow.ui" line="1250" />
             <source>VMix</source>
             <translation>VMix</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1263" />
+            <location filename="../src/mainwindow.ui" line="1301" />
             <source>Connection</source>
             <translation>Připojení</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1270" />
+            <location filename="../src/mainwindow.ui" line="1308" />
             <source>localhost</source>
             <translation>localhost</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1277" />
+            <location filename="../src/mainwindow.ui" line="1315" />
             <source>:</source>
             <translation>:</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1296" />
+            <location filename="../src/mainwindow.ui" line="1334" />
             <source>8099</source>
             <translation>8099</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1309" />
+            <location filename="../src/mainwindow.ui" line="1347" />
             <source>Start</source>
             <translation>Spustit</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1346" />
+            <location filename="../src/mainwindow.ui" line="1384" />
             <source>Input</source>
             <translation>Vstup</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1353" />
+            <location filename="../src/mainwindow.ui" line="1391" />
             <source>1</source>
             <translation>1</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1360" />
-            <location filename="../src/mainwindow.ui" line="1472" />
+            <location filename="../src/mainwindow.ui" line="1398" />
+            <location filename="../src/mainwindow.ui" line="1510" />
             <source>Send only new detections or also existing?</source>
             <translation>Odesílat jen nová rozpoznání, nebo i stávající?</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1363" />
-            <location filename="../src/mainwindow.ui" line="1475" />
+            <location filename="../src/mainwindow.ui" line="1401" />
+            <location filename="../src/mainwindow.ui" line="1513" />
             <source>Send Same?</source>
             <translation>Odesílat stejné?</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1376" />
+            <location filename="../src/mainwindow.ui" line="1414" />
             <source>UNO</source>
             <translation>UNO</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1418" />
-            <location filename="../src/mainwindow.ui" line="1704" />
+            <location filename="../src/mainwindow.ui" line="1456" />
+            <location filename="../src/mainwindow.ui" line="1742" />
             <source>URL</source>
             <translation>URL</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1425" />
+            <location filename="../src/mainwindow.ui" line="1463" />
             <source>https://app.overlays.uno/apiv2/controlapps/.../api</source>
             <translation>https://app.overlays.uno/apiv2/controlapps/.../api</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1432" />
+            <location filename="../src/mainwindow.ui" line="1470" />
             <source>▶️</source>
             <translation>▶️</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1488" />
+            <location filename="../src/mainwindow.ui" line="1526" />
             <source>Essentials</source>
             <translation>Základní nastavení</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1501" />
+            <location filename="../src/mainwindow.ui" line="1539" />
             <source>Rate Limit</source>
             <translation>Omezení rychlosti</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1514" />
+            <location filename="../src/mainwindow.ui" line="1552" />
             <source>/sec</source>
             <translation>/sec</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1548" />
+            <location filename="../src/mainwindow.ui" line="1586" />
             <source>Overlay ID</source>
             <translation>ID překrytí</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1564" />
+            <location filename="../src/mainwindow.ui" line="1602" />
             <source>aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</source>
             <translation>aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeeee</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1588" />
+            <location filename="../src/mainwindow.ui" line="1626" />
             <source>API</source>
             <translation>API</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1600" />
+            <location filename="../src/mainwindow.ui" line="1638" />
             <source>Send out API requests to external services.</source>
             <translation>Odesílat požadavky API externím službám.</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1607" />
+            <location filename="../src/mainwindow.ui" line="1645" />
             <source>Encode</source>
             <translation>Kódování</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1615" />
+            <location filename="../src/mainwindow.ui" line="1653" />
             <source>JSON (Full)</source>
             <translation>JSON (úplný)</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1620" />
+            <location filename="../src/mainwindow.ui" line="1658" />
             <source>JSON (Simple key-value)</source>
             <translation>JSON (jednoduché klíč–hodnota)</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1625" />
+            <location filename="../src/mainwindow.ui" line="1663" />
             <source>XML</source>
             <translation>XML</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1630" />
+            <location filename="../src/mainwindow.ui" line="1668" />
             <source>CSV</source>
             <translation>CSV</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1669" />
+            <location filename="../src/mainwindow.ui" line="1707" />
             <source>http://</source>
             <translation>http://</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1683" />
+            <location filename="../src/mainwindow.ui" line="1721" />
             <source>POST</source>
             <translation>POST</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1688" />
+            <location filename="../src/mainwindow.ui" line="1726" />
             <source>PUT</source>
             <translation>PUT</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1693" />
+            <location filename="../src/mainwindow.ui" line="1731" />
             <source>GET</source>
             <translation>GET</translation>
         </message>
@@ -834,7 +839,7 @@
         </message>
         <message>
             <location filename="../src/mainwindow.py" line="699" />
-            <location filename="../src/mainwindow.ui" line="1721" />
+            <location filename="../src/mainwindow.ui" line="1759" />
             <source>Stop Updates</source>
             <translation>Zastavit aktualizace</translation>
         </message>
@@ -849,190 +854,190 @@
             <translation>Zaznamenávat celou obrazovku</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1746" />
+            <location filename="../src/mainwindow.ui" line="1784" />
             <source>Detections / s</source>
             <translation>Rozpoznání/s</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1766" />
+            <location filename="../src/mainwindow.ui" line="1804" />
             <source>Only send an update if the field value has changed</source>
             <translation>Odeslat aktualizaci jen při změně hodnoty pole</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1769" />
+            <location filename="../src/mainwindow.ui" line="1807" />
             <source>Update on change</source>
             <translation>Aktualizovat při změně</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1848" />
+            <location filename="../src/mainwindow.ui" line="1886" />
             <source>Source</source>
             <translation>Zdroj</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1862" />
+            <location filename="../src/mainwindow.ui" line="1900" />
             <source>Select a source</source>
             <translation>Vyberte zdroj</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1867" />
+            <location filename="../src/mainwindow.ui" line="1905" />
             <source>Open a Video File</source>
             <translation>Otevřít soubor videa</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1872" />
+            <location filename="../src/mainwindow.ui" line="1910" />
             <source>URL Source (HTTP, RTSP)</source>
             <translation>Zdroj URL (HTTP, RTSP)</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1877" />
+            <location filename="../src/mainwindow.ui" line="1915" />
             <source>Screen Capture</source>
             <translation>Záznam obrazovky</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1888" />
+            <location filename="../src/mainwindow.ui" line="1926" />
             <source>Video Settings</source>
             <translation>Nastavení videa</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1895" />
+            <location filename="../src/mainwindow.ui" line="1933" />
             <source>Refresh Sources</source>
             <translation>Obnovit zdroje</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1898" />
+            <location filename="../src/mainwindow.ui" line="1936" />
             <source>Reload</source>
             <translation>Znovu načíst</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1921" />
+            <location filename="../src/mainwindow.ui" line="1959" />
             <source>Save OCR Training Data</source>
             <translation>Uložit trénovací data OCR</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1955" />
+            <location filename="../src/mainwindow.ui" line="1993" />
             <source>Binary View</source>
             <translation>Binární zobrazení</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1968" />
+            <location filename="../src/mainwindow.ui" line="2006" />
             <source>Pause</source>
             <translation>Pozastavit</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1975" />
+            <location filename="../src/mainwindow.ui" line="2013" />
             <source>4-corner Correction</source>
             <translation>Korekce čtyř rohů</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1985" />
+            <location filename="../src/mainwindow.ui" line="2023" />
             <source>Apply cropping to the entire image</source>
             <translation>Použít ořez na celý obraz</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1988" />
+            <location filename="../src/mainwindow.ui" line="2026" />
             <source>Crop</source>
             <translation>Oříznout</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="1998" />
+            <location filename="../src/mainwindow.ui" line="2036" />
             <source>Rotate</source>
             <translation>Otočit</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2005" />
+            <location filename="../src/mainwindow.ui" line="2043" />
             <source>Stabilize</source>
             <translation>Stabilizovat</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2029" />
+            <location filename="../src/mainwindow.ui" line="2067" />
             <source>No Box</source>
             <translation>Bez rámečků</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2034" />
+            <location filename="../src/mainwindow.ui" line="2072" />
             <source>Outline</source>
             <translation>Obrysy</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2039" />
+            <location filename="../src/mainwindow.ui" line="2077" />
             <source>Names</source>
             <translation>Názvy</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2044" />
+            <location filename="../src/mainwindow.ui" line="2082" />
             <source>All</source>
             <translation>Vše</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2049" />
+            <location filename="../src/mainwindow.ui" line="2087" />
             <source>Results (No Names)</source>
             <translation>Výsledky (bez názvů)</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2057" />
+            <location filename="../src/mainwindow.ui" line="2095" />
             <source>Show Statistics</source>
             <translation>Zobrazit statistiky</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2060" />
+            <location filename="../src/mainwindow.ui" line="2098" />
             <source>OSD</source>
             <translation>OSD</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2073" />
+            <location filename="../src/mainwindow.ui" line="2111" />
             <source>Reset zoom</source>
             <translation>Obnovit přiblížení</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2076" />
+            <location filename="../src/mainwindow.ui" line="2114" />
             <source>1:1</source>
             <translation>1:1</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2086" />
+            <location filename="../src/mainwindow.ui" line="2124" />
             <source>Ctrl-scroll to zoom</source>
             <translation>Přibližujte pomocí Ctrl a kolečka myši</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2125" />
+            <location filename="../src/mainwindow.ui" line="2163" />
             <source>Left</source>
             <translation>Vlevo</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2141" />
-            <location filename="../src/mainwindow.ui" line="2167" />
-            <location filename="../src/mainwindow.ui" line="2193" />
-            <location filename="../src/mainwindow.ui" line="2219" />
+            <location filename="../src/mainwindow.ui" line="2179" />
+            <location filename="../src/mainwindow.ui" line="2205" />
+            <location filename="../src/mainwindow.ui" line="2231" />
+            <location filename="../src/mainwindow.ui" line="2257" />
             <source>px</source>
             <translation>px</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2151" />
+            <location filename="../src/mainwindow.ui" line="2189" />
             <source>Top</source>
             <translation>Nahoře</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2177" />
+            <location filename="../src/mainwindow.ui" line="2215" />
             <source>Right</source>
             <translation>Vpravo</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2203" />
+            <location filename="../src/mainwindow.ui" line="2241" />
             <source>Bottom</source>
             <translation>Dole</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2229" />
+            <location filename="../src/mainwindow.ui" line="2267" />
             <source>Speed</source>
             <translation>Rychlost</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2236" />
+            <location filename="../src/mainwindow.ui" line="2274" />
             <source>x1</source>
             <translation>x1</translation>
         </message>
         <message>
-            <location filename="../src/mainwindow.ui" line="2289" />
+            <location filename="../src/mainwindow.ui" line="2327" />
             <source>### Open a Camera or Load a File</source>
             <translation>### Otevřete kameru nebo načtěte soubor</translation>
         </message>

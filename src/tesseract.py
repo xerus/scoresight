@@ -572,6 +572,10 @@ class TextDetector:
                 # rescale the image in x or in y such that the width-to-height ratio is 0.5
                 scale_x *= 0.5 / rect.settings["median_wh_ratio"]
 
+            # Widen close characters in the OCR patch without moving the target box.
+            if rect.settings is not None:
+                scale_x *= rect.settings.get("hscale", 10) / 10.0
+
             if scale_x != 1.0 or scale_y != 1.0:
                 imagecrop = cv2.resize(
                     imagecrop,
