@@ -79,7 +79,6 @@ jobs:
           variants=(
             'linux'
             'windows-installer'
-            'windows-portable'
           )
 
           mkdir -p "${{ github.workspace }}/uploads"
@@ -92,6 +91,16 @@ jobs:
               cp "${candidate}" "${{ github.workspace }}/uploads/scoresight-${variant}-${GITHUB_REF_NAME}.${candidate##*.}"
             done
           done
+
+          portable_dir='scoresight-windows-portable'
+          if [[ ! -d "${portable_dir}" ]]; then
+            echo "Portable app artifact is missing: ${portable_dir}" >&2
+            exit 1
+          fi
+          (
+            cd "${portable_dir}"
+            zip -q -r "${{ github.workspace }}/uploads/scoresight-windows-portable-${GITHUB_REF_NAME}.zip" .
+          )
 
       - name: Upload Release Artifacts 📤
         if: fromJSON(steps.check.outputs.validTag)
