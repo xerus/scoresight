@@ -300,13 +300,13 @@ class ResizableRectWithNameTypeAndResult(ResizableRect):
             self.bgItem.hide()
             self.resultItem.hide()
         else:
-            # show the rect and the text
+            # show results without the name in style 4
             self.show()
-            self.posItem.show()
-            self.bgItem.show()
+            self.posItem.setVisible(self.boxDisplayStyle != 4)
+            self.bgItem.setVisible(self.boxDisplayStyle != 4)
             self.resultItem.show()
 
-        if self.boxDisplayStyle != 3:
+        if self.boxDisplayStyle not in (3, 4):
             # do not show the effective rect and extra boxes
             if self.effectiveRect is not None:
                 self.effectiveRect.hide()
@@ -333,8 +333,8 @@ class ResizableRectWithNameTypeAndResult(ResizableRect):
             cornerBox.setVisible(selected)
         if selected:
             self.show()
-            self.posItem.show()
-            self.bgItem.show()
+            self.posItem.setVisible(self.boxDisplayStyle != 4)
+            self.bgItem.setVisible(self.boxDisplayStyle != 4)
             self.resultItem.show()
         else:
             self.setBoxDisplayStyle(self.boxDisplayStyle)
@@ -378,7 +378,7 @@ class ResizableRectWithNameTypeAndResult(ResizableRect):
         )
         self.resultItem.setZValue(2)
 
-        if self.boxDisplayStyle != 3:
+        if self.boxDisplayStyle not in (3, 4):
             return
 
         if targetWithResult.effectiveRect is not None:

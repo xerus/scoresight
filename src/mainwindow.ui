@@ -2044,6 +2044,11 @@
               <string>All</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>Results (No Names)</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>

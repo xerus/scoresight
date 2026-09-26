@@ -1040,6 +1040,7 @@ class Ui_MainWindow(object):
         self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.addItem("")
+        self.comboBox_boxDisplayStyle.addItem("")
         self.comboBox_boxDisplayStyle.setObjectName(u"comboBox_boxDisplayStyle")
 
         self.horizontalLayout_10.addWidget(self.comboBox_boxDisplayStyle)
@@ -1354,6 +1355,7 @@ class Ui_MainWindow(object):
         self.comboBox_boxDisplayStyle.setItemText(1, QCoreApplication.translate("MainWindow", u"Outline", None))
         self.comboBox_boxDisplayStyle.setItemText(2, QCoreApplication.translate("MainWindow", u"Names", None))
         self.comboBox_boxDisplayStyle.setItemText(3, QCoreApplication.translate("MainWindow", u"All", None))
+        self.comboBox_boxDisplayStyle.setItemText(4, QCoreApplication.translate("MainWindow", u"Results (No Names)", None))
 
 #if QT_CONFIG(tooltip)
         self.toolButton_osd.setToolTip(QCoreApplication.translate("MainWindow", u"Show Statistics", None))
