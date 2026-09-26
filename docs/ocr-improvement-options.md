@@ -2,7 +2,9 @@
 
 Reviewed 2026-09-25. This document records code findings and proposed experiments;
 it does not claim measured accuracy improvements. See the benchmark report for
-actual measurements. No application code was changed during this review.
+actual measurements. The implementation has since changed: Tesseract now crops
+selected regions before thresholding, with Global thresholding shared across
+those regions. Binary View and training export still create a full-frame image.
 
 ## What the new examples establish
 
@@ -49,11 +51,10 @@ choice of recognizer.
    coordinates. Subtracting crop offsets alone cannot account for all these
    transforms. This is a concrete route to the reported shifted overlays.
    Use one explicit coordinate transform chain for preview, OCR, and boxes.
-5. **Whole-frame Otsu sees the room.** Global binarization in
-   `src/camera_thread.py` derives its threshold from the entire frame, including
-   windows and furniture. Local mode in `src/tesseract.py` derives Otsu from
-   the field. Neither explicitly distinguishes lit red LEDs from unlit red
-   segments. Global and Local are meaningfully different benchmark variants.
+5. **LED activity is still not explicit.** Global thresholding now derives one
+   Otsu threshold from selected OCR boxes, not the room around them. Local mode
+   derives a separate Otsu threshold for each box. Neither explicitly
+   distinguishes lit red LEDs from unlit red segments.
 6. **Cleanup can remove the signal.** Cleanup deletes individual contours
    smaller than a fraction of crop area, before dilation. A dot-matrix digit
    consists of many small LED components. Increasing cleanup can delete the

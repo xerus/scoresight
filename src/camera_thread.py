@@ -413,8 +413,20 @@ class TimerThread(QThread):
                     frame_rgb, self.homography, (frame_rgb.shape[1], frame_rgb.shape[0])
                 )
 
-            gray = cv2.cvtColor(frame_rgb, cv2.COLOR_BGR2GRAY)
-            _, binary = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+            needs_full_frame_gray = (
+                self.show_binary or ocr_training_data_options.save_ocr_training_data
+            )
+            if needs_full_frame_gray:
+                gray = cv2.cvtColor(frame_rgb, cv2.COLOR_BGR2GRAY)
+                # Full-frame thresholding is unnecessary: OCR thresholds the
+                # selected regions. Binary View starts gray and replaces each
+                # selected region with its processed result.
+                binary = gray.copy()
+            else:
+                # Convert only the selected OCR regions, not every pixel in a
+                # large source frame.
+                gray = None
+                binary = None
 
             # Detect text in the target
             if not self.detectionTargetsStorage.is_empty():

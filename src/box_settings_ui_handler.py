@@ -36,7 +36,7 @@ class BoxSettingsUIHandler:
             "checkBox_skip_similar_image": "Skip OCR when this box looks almost unchanged from its previous image. Useful for reducing repeated work on static displays.",
             "checkBox_autocrop": "Trim blank margins around the contents before OCR. Turn off if edge pixels or punctuation are being cut off.",
             "checkBox_removeLeadingZeros": "Remove zeros at the start of numeric readings; for example, 007 becomes 7.",
-            "checkBox_rescalePatch": "Resize the image patch to a standard height before OCR. Usually helpful for small characters.",
+            "checkBox_rescalePatch": "Resize only this box to 35 pixels high before Tesseract reads it. This reduces OCR input size and can help small text; dense details may be lost.",
             "checkBox_normWHRatio": "Resize the patch toward a 1:2 width-to-height ratio before OCR. Use only when the characters are unusually wide or narrow.",
             "checkBox_invertPatch": "Invert light and dark pixels in this box. Use when the current foreground/background polarity gives poor OCR.",
             "checkBox_dotDetector": "Count bright blobs or dots instead of recognizing characters. Intended for displays made of separate indicator dots.",
@@ -45,8 +45,9 @@ class BoxSettingsUIHandler:
             "checkBox_compositeBox": "Read separate character sub-boxes and combine their results. Set up the sub-boxes for this field first.",
             "label_binarizationMethod": "Choose how the image is turned into black and white before OCR.",
             "comboBox_binarizationMethod": (
-                "Global uses the frame's threshold; No Binarization keeps grayscale; "
-                "Local thresholds this box; Adaptive adjusts the threshold across the box."
+                "Global uses one Otsu threshold computed from the selected boxes; "
+                "Local computes a separate Otsu threshold for this box; No Binarization "
+                "keeps grayscale; Adaptive adjusts the threshold within this box."
             ),
             "label_4": (
                 "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "

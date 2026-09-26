@@ -235,16 +235,81 @@ class TextDetector:
     ) -> list[TextDetectionResult]:
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
             return self._detect_seven_segment(color, binary, rects)
-        if binary is None:
-            return []
-        if not isinstance(binary, np.ndarray):
-            return []
-        # check the image has rows and columns
-        if len(binary.shape) < 2 or binary.shape[0] < 1 or binary.shape[1] < 1:
+        color_valid = (
+            isinstance(color, np.ndarray)
+            and color.ndim == 3
+            and color.shape[2] == 3
+            and color.shape[0] > 0
+            and color.shape[1] > 0
+        )
+        gray_valid = (
+            isinstance(gray, np.ndarray)
+            and gray.ndim == 2
+            and gray.shape[0] > 0
+            and gray.shape[1] > 0
+        )
+        binary_valid = (
+            isinstance(binary, np.ndarray)
+            and binary.ndim == 2
+            and binary.shape[0] > 0
+            and binary.shape[1] > 0
+        )
+        if not (color_valid or gray_valid or binary_valid):
             return []
 
+        frame_height, frame_width = (
+            color.shape[:2]
+            if color_valid
+            else gray.shape[:2]
+            if gray_valid
+            else binary.shape[:2]
+        )
+
+        def gray_roi_for(rect):
+            x = max(0, int(rect.x()))
+            y = max(0, int(rect.y()))
+            right = min(frame_width, int(rect.x() + rect.width()))
+            bottom = min(frame_height, int(rect.y() + rect.height()))
+            if right <= x or bottom <= y:
+                return None
+            if color_valid:
+                return cv2.cvtColor(color[y:bottom, x:right], cv2.COLOR_BGR2GRAY)
+            if gray_valid:
+                return gray[y:bottom, x:right]
+            return binary[y:bottom, x:right]
+
+        roi_gray = {}
+        global_rois = []
+        for index, rect in enumerate(rects):
+            if (
+                rect is None
+                or rect.x() < 0
+                or rect.y() < 0
+                or rect.width() < 1
+                or rect.height() < 1
+            ):
+                continue
+            patch = gray_roi_for(rect)
+            if patch is None or patch.size == 0:
+                continue
+            roi_gray[index] = patch
+            settings = rect.settings or {}
+            method = settings.get("binarization_method", self.BinarizationMethod.GLOBAL)
+            if method == self.BinarizationMethod.GLOBAL:
+                global_rois.append(patch.reshape(-1))
+
+        # Preserve one shared global threshold while computing it only from
+        # selected OCR regions. Local mode computes an independent threshold
+        # for each selected region.
+        global_threshold = 127
+        if global_rois:
+            pixels = np.concatenate(global_rois).reshape(-1, 1)
+            global_threshold = cv2.threshold(
+                pixels, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU
+            )[0]
+
         texts = []
-        for rect in rects:
+        for rect_index, rect in enumerate(rects):
             effectiveRect = None
             scale_x = 1.0
             scale_y = 1.0
@@ -263,73 +328,75 @@ class TextDetector:
                 )
                 continue
 
-            if rect.x() >= binary.shape[1]:
+            if rect.x() >= frame_width:
                 # move the rect inside the image
-                rect.setX(binary.shape[1] - rect.width())
-            if rect.y() >= binary.shape[0]:
+                rect.setX(frame_width - rect.width())
+            if rect.y() >= frame_height:
                 # move the rect inside the image
-                rect.setY(binary.shape[0] - rect.height())
-            if rect.x() + rect.width() > binary.shape[1]:
-                rect.setWidth(binary.shape[1] - rect.x())
-            if rect.y() + rect.height() > binary.shape[0]:
-                rect.setHeight(binary.shape[0] - rect.y())
+                rect.setY(frame_height - rect.height())
+            if rect.x() + rect.width() > frame_width:
+                rect.setWidth(frame_width - rect.x())
+            if rect.y() + rect.height() > frame_height:
+                rect.setHeight(frame_height - rect.y())
 
-            if (
-                rect.settings is not None
-                and "binarization_method" in rect.settings
-                and rect.settings["binarization_method"]
-                != TextDetector.BinarizationMethod.GLOBAL
-            ):
-                if (
-                    rect.settings["binarization_method"]
-                    == TextDetector.BinarizationMethod.NO_BINARIZATION
-                ):
-                    # no binarization
-                    imagecrop = gray[
-                        int(rect.y()) : int(rect.y() + rect.height()),
-                        int(rect.x()) : int(rect.x() + rect.width()),
-                    ]
-                elif (
-                    rect.settings["binarization_method"]
-                    == TextDetector.BinarizationMethod.LOCAL
-                ):
-                    # local binarization using Otsu's method
-                    _, imagecrop = cv2.threshold(
-                        gray[
-                            int(rect.y()) : int(rect.y() + rect.height()),
-                            int(rect.x()) : int(rect.x() + rect.width()),
-                        ],
-                        0,
-                        255,
-                        cv2.THRESH_BINARY + cv2.THRESH_OTSU,
+            x, y = int(rect.x()), int(rect.y())
+            right = int(rect.x() + rect.width())
+            bottom = int(rect.y() + rect.height())
+            graycrop = roi_gray.get(rect_index)
+            if graycrop is None or graycrop.shape != (bottom - y, right - x):
+                graycrop = gray_roi_for(rect)
+            if graycrop is None or graycrop.size == 0:
+                texts.append(
+                    TextDetectionResult(
+                        "", TextDetectionTargetWithResult.ResultState.Empty, None
                     )
-                elif (
-                    rect.settings["binarization_method"]
-                    == TextDetector.BinarizationMethod.ADAPTIVE
-                ):
-                    # apply adaptive binarization
+                )
+                continue
+
+            settings = rect.settings or {}
+            binarization_method = settings.get(
+                "binarization_method", self.BinarizationMethod.GLOBAL
+            )
+            if binarization_method == self.BinarizationMethod.NO_BINARIZATION:
+                imagecrop = graycrop.copy()
+            elif binarization_method == self.BinarizationMethod.LOCAL:
+                # Otsu's threshold is calculated independently for this box.
+                _, imagecrop = cv2.threshold(
+                    graycrop, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU
+                )
+            elif binarization_method == self.BinarizationMethod.ADAPTIVE:
+                # Keep the neighborhood odd and no larger than the crop.
+                max_block = min(graycrop.shape)
+                if max_block % 2 == 0:
+                    max_block -= 1
+                if max_block < 3:
+                    _, imagecrop = cv2.threshold(
+                        graycrop, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU
+                    )
+                else:
+                    block_size = max(3, min(int(graycrop.size * 0.01) | 1, max_block))
                     imagecrop = cv2.adaptiveThreshold(
-                        gray[
-                            int(rect.y()) : int(rect.y() + rect.height()),
-                            int(rect.x()) : int(rect.x() + rect.width()),
-                        ],
+                        graycrop,
                         255,
                         cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
                         cv2.THRESH_BINARY,
-                        # use a fraction of the patch area
-                        max(int(rect.width() * rect.height() * 0.01), 3) | 1,
+                        block_size,
                         2,
                     )
-                # update the binary image for visualisation in the binary mode
-                binary[
-                    int(rect.y()) : int(rect.y() + rect.height()),
-                    int(rect.x()) : int(rect.x() + rect.width()),
-                ] = imagecrop
             else:
-                imagecrop = binary[
-                    int(rect.y()) : int(rect.y() + rect.height()),
-                    int(rect.x()) : int(rect.x() + rect.width()),
-                ]
+                # Global mode shares an Otsu threshold across selected boxes;
+                # no pixels outside OCR targets contribute to the threshold.
+                _, imagecrop = cv2.threshold(
+                    graycrop,
+                    global_threshold,
+                    255,
+                    cv2.THRESH_BINARY,
+                )
+
+            # Binary View and training export need a full-size image; normal
+            # OCR operation leaves it unset and only processes the selected ROI.
+            if isinstance(binary, np.ndarray):
+                binary[y:bottom, x:right] = imagecrop
 
             if (
                 rect.settings is not None
@@ -371,11 +438,9 @@ class TextDetector:
                 )
                 # make sure the image is the same size as the original
                 scaled = scaled[:rows, :]
-                # copy back into imagecrop and binary display
-                binary[
-                    int(rect.y()) : int(rect.y() + rect.height()),
-                    int(rect.x()) : int(rect.x() + rect.width()),
-                ] = scaled
+                # copy back into the optional binary display
+                if isinstance(binary, np.ndarray):
+                    binary[y:bottom, x:right] = scaled
                 imagecrop = scaled
 
             if (
@@ -391,10 +456,8 @@ class TextDetector:
                 M[0, 1] = rect.settings["skew"] / 40.0
                 try:
                     skewed = cv2.warpAffine(imagecrop, M, (cols, rows))
-                    binary[
-                        int(rect.y()) : int(rect.y() + rect.height()),
-                        int(rect.x()) : int(rect.x() + rect.width()),
-                    ] = skewed
+                    if isinstance(binary, np.ndarray):
+                        binary[y:bottom, x:right] = skewed
                     imagecrop = skewed
                 except Exception:
                     pass
@@ -414,10 +477,8 @@ class TextDetector:
                     iterations=int(rect.settings["dilate"]),
                 )
                 # copy back into image crop
-                binary[
-                    int(rect.y()) : int(rect.y() + rect.height()),
-                    int(rect.x()) : int(rect.x() + rect.width()),
-                ] = dilated
+                if isinstance(binary, np.ndarray):
+                    binary[y:bottom, x:right] = dilated
 
             if (
                 rect.settings is not None
