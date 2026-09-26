@@ -8,7 +8,7 @@ import cv2
 import numpy as np
 import re
 
-from seven_segment import read_score
+from seven_segment import read_score, threshold_led_colors
 from resource_path import resource_path
 from storage import fetch_data
 from text_detection_target import (
@@ -100,6 +100,7 @@ class TextDetector:
         NO_BINARIZATION = 1
         LOCAL = 2
         ADAPTIVE = 3
+        OPENCV_LED_MASK = 4
 
     def __init__(self):
         self.api_lock = Lock()
@@ -382,6 +383,16 @@ class TextDetector:
                         cv2.THRESH_BINARY,
                         block_size,
                         2,
+                    )
+            elif binarization_method == self.BinarizationMethod.OPENCV_LED_MASK:
+                # Apply the calibrated OpenCV HSV mask to this OCR region only.
+                # If only grayscale input is available, keep OCR functional by
+                # falling back to a local Otsu threshold.
+                if color_valid:
+                    imagecrop = threshold_led_colors(color[y:bottom, x:right])
+                else:
+                    _, imagecrop = cv2.threshold(
+                        graycrop, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU
                     )
             else:
                 # Global mode shares an Otsu threshold across selected boxes;

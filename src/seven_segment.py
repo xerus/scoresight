@@ -33,6 +33,25 @@ PATTERNS = {
 }
 
 
+def threshold_led_colors(crop, brightness=140, saturation=90):
+    """Return a binary mask for bright, saturated red/yellow display LEDs."""
+    if (
+        not isinstance(crop, np.ndarray)
+        or crop.ndim != 3
+        or crop.shape[2] != 3
+        or crop.dtype != np.uint8
+        or crop.shape[0] < 1
+        or crop.shape[1] < 1
+    ):
+        return None
+    hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
+    return (
+        ((hsv[:, :, 0] <= 35) | (hsv[:, :, 0] >= 165))
+        & (hsv[:, :, 1] >= saturation)
+        & (hsv[:, :, 2] >= brightness)
+    ).astype(np.uint8) * 255
+
+
 def read_score(crop, brightness=140, occupancy=0.09):
     if (
         not isinstance(crop, np.ndarray)
@@ -43,12 +62,7 @@ def read_score(crop, brightness=140, occupancy=0.09):
         or crop.dtype != np.uint8
     ):
         return None, None, []
-    hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
-    mask = (
-        ((hsv[:, :, 0] <= 35) | (hsv[:, :, 0] >= 165))
-        & (hsv[:, :, 1] >= 90)
-        & (hsv[:, :, 2] >= brightness)
-    ).astype(np.uint8) * 255
+    mask = threshold_led_colors(crop, brightness=brightness)
     digits, details = [], []
     for cell in np.array_split(mask, 2, axis=1):
         h, w = cell.shape

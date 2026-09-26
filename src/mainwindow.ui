@@ -325,6 +325,11 @@
                     <string>Adaptive</string>
                    </property>
                   </item>
+                  <item>
+                   <property name="text">
+                    <string>OpenCV LED Mask</string>
+                   </property>
+                  </item>
                  </widget>
                 </item>
                </layout>

@@ -47,7 +47,10 @@ class BoxSettingsUIHandler:
             "comboBox_binarizationMethod": (
                 "Global uses one Otsu threshold computed from the selected boxes; "
                 "Local computes a separate Otsu threshold for this box; No Binarization "
-                "keeps grayscale; Adaptive adjusts the threshold within this box."
+                "keeps grayscale; Adaptive adjusts the threshold within this box; "
+                "OpenCV LED Mask selects bright red/yellow LEDs by color and removes "
+                "most of the surrounding scoreboard. It works best with warm-colored "
+                "LEDs; other display colors may be removed."
             ),
             "label_4": (
                 "Remove small isolated blobs before OCR. 0 disables cleanup; 100 "

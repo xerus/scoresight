@@ -163,6 +163,7 @@ class Ui_MainWindow(object):
         self.comboBox_binarizationMethod.addItem("")
         self.comboBox_binarizationMethod.addItem("")
         self.comboBox_binarizationMethod.addItem("")
+        self.comboBox_binarizationMethod.addItem("")
         self.comboBox_binarizationMethod.setObjectName(u"comboBox_binarizationMethod")
 
         self.horizontalLayout_32.addWidget(self.comboBox_binarizationMethod)
@@ -1200,6 +1201,7 @@ class Ui_MainWindow(object):
         self.comboBox_binarizationMethod.setItemText(1, QCoreApplication.translate("MainWindow", u"No Binarization", None))
         self.comboBox_binarizationMethod.setItemText(2, QCoreApplication.translate("MainWindow", u"Local", None))
         self.comboBox_binarizationMethod.setItemText(3, QCoreApplication.translate("MainWindow", u"Adaptive", None))
+        self.comboBox_binarizationMethod.setItemText(4, QCoreApplication.translate("MainWindow", u"OpenCV LED Mask", None))
 
         self.comboBox_formatPrefix.setItemText(0, QCoreApplication.translate("MainWindow", u"Time mm:ss.d", None))
         self.comboBox_formatPrefix.setItemText(1, QCoreApplication.translate("MainWindow", u"Time mm:ss", None))
