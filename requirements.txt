@@ -6,7 +6,9 @@ opencv-python==4.10.0.84
 pillow
 platformdirs
 pyinstaller==6.19.0
-pyside6==6.10.1
+# Qt 6.10+ depends on Windows system ICU DLLs that are not shipped in the
+# PySide6 wheels and are unavailable in Wine. Keep the portable build self-contained.
+pyside6==6.9.3
 python-dotenv
 requests
 tesserocr; sys_platform != "win32"
