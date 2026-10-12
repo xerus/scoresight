@@ -78,6 +78,12 @@ jobs:
           python setup.py build_ext --inplace
           cd ../..
 
+      - name: Install Linux Qt test dependency
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y libegl1
+
       - name: Run regression tests
         env:
           PYTHONPATH: src
