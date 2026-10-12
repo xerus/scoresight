@@ -9,7 +9,9 @@ import app_paths
 class AppPathTests(unittest.TestCase):
     def test_portable_build_uses_data_and_logs_next_to_executable(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
+            # Windows may return an 8.3 alias for the temp directory; the app
+            # resolves the executable path before locating portable data.
+            root = Path(tmp).resolve()
             executable = root / "scoresight.exe"
             executable.touch()
             (root / app_paths.PORTABLE_MARKER).touch()
@@ -25,7 +27,7 @@ class AppPathTests(unittest.TestCase):
 
     def test_read_only_portable_folder_falls_back_to_user_data(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
+            root = Path(tmp).resolve()
             executable = root / "scoresight.exe"
             executable.touch()
             (root / app_paths.PORTABLE_MARKER).touch()
