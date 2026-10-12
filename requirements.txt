@@ -1,6 +1,7 @@
 cyndilib
 fastapi
 numpy==1.26.4
+onnxruntime==1.31.0
 obsws-python
 opencv-python==4.10.0.84
 pillow

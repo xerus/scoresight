@@ -1,0 +1,668 @@
+{
+  "engine": "tesseract",
+  "model": "eng.traineddata",
+  "model_bytes": 23466654,
+  "model_sha256": "daa0c97d651c19fba3b25e81317cd697e9908c8208090c94c3905381c23fc047",
+  "manifest_sha256": "c7d3863563978ae412e62c0bc00259f8ee300134544b61314614a6b14835c887",
+  "python": "3.11.16",
+  "platform": "Linux-7.2.8-200.fc44.x86_64-x86_64-with-glibc2.43",
+  "packages": {
+    "tesserocr": "2.11.0",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84"
+  },
+  "preprocessing": "ROI grayscale/Otsu/invert/12px white border; resize height 35; OEM1/PSM8/digits",
+  "repeats": 10,
+  "correct": 0,
+  "total": 34,
+  "median_ms": 3.427499499593978,
+  "p95_ms": 4.344861200206652,
+  "readings": [
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 18,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip01_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.4656865000215475
+    },
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 18,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip01_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.5045894992435933
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip02_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.4286665004401584
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip02_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.3406454995201784
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "home",
+      "expected": "7",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip03_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.3731720004652743
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "away",
+      "expected": "10",
+      "roi": [
+        425,
+        430,
+        110,
+        90
+      ],
+      "image": "clip03_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.8201685001695296
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        395,
+        450,
+        105,
+        85
+      ],
+      "image": "clip04_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 4.160038999543758
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "away",
+      "expected": "30",
+      "roi": [
+        665,
+        435,
+        100,
+        85
+      ],
+      "image": "clip04_1.png",
+      "raw": "0",
+      "predicted": "0",
+      "confidence": 64.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.5228085007474874
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        35,
+        445,
+        110,
+        85
+      ],
+      "image": "clip05_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.690900500259886
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        320,
+        430,
+        95,
+        85
+      ],
+      "image": "clip05_1.png",
+      "raw": "2",
+      "predicted": "2",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 2.0420655000634724
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip06_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.804148499511939
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "away",
+      "expected": "34",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip06_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 2.0597835009539267
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip07_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.7730100002590916
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "away",
+      "expected": "37",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip07_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 2.0258445001672953
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip08_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 2.1642305009663687
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "away",
+      "expected": "38",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip08_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.379613999641151
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "home",
+      "expected": "31",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip10_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.532842499225808
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip10_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.4013249996860395
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip12_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.6417125002117245
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip12_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.3513059997858363
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip13_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.580727500775538
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip13_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.492386500511202
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip14_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.804023499469622
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip14_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.370988500137173
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip15_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.6423689998628106
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip15_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.2628995013510576
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip16_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.7438310000652564
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip16_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 5.789101500340621
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip17_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 2.1327860004021204
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip17_1.png",
+      "raw": "3",
+      "predicted": "3",
+      "confidence": 1.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.1210019997161
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip18_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 1.9481839999571093
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "away",
+      "expected": "50",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip18_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 3.051145499739505
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 167,
+      "field": "home",
+      "expected": "96",
+      "roi": [
+        185,
+        455,
+        105,
+        90
+      ],
+      "image": "clip19_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 1.906580499962729
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 167,
+      "field": "away",
+      "expected": "108",
+      "roi": [
+        445,
+        445,
+        110,
+        85
+      ],
+      "image": "clip19_1.png",
+      "raw": "",
+      "predicted": "",
+      "confidence": 0.0,
+      "error": null,
+      "correct": false,
+      "median_ms": 0.48350000088248635
+    }
+  ]
+}

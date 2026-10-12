@@ -1,0 +1,3677 @@
+{
+  "model_sha256": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318",
+  "manifest_sha256": "c7d3863563978ae412e62c0bc00259f8ee300134544b61314614a6b14835c887",
+  "summary": {
+    "native": {
+      "correct": 31,
+      "total": 34
+    },
+    "inverted_gray": {
+      "correct": 33,
+      "total": 34
+    },
+    "inverted_gray_border": {
+      "correct": 23,
+      "total": 34
+    },
+    "native_border": {
+      "correct": 23,
+      "total": 34
+    },
+    "sharpen": {
+      "correct": 32,
+      "total": 34
+    },
+    "stretch_1.5": {
+      "correct": 29,
+      "total": 34
+    },
+    "shear_-0.25": {
+      "correct": 33,
+      "total": 34
+    },
+    "shear_0.25": {
+      "correct": 34,
+      "total": 34
+    },
+    "rotate_-3": {
+      "correct": 32,
+      "total": 34
+    },
+    "rotate_3": {
+      "correct": 30,
+      "total": 34
+    },
+    "majority": {
+      "correct": 32,
+      "total": 34,
+      "rejected": 1,
+      "median_ms": 195.06902149987582
+    }
+  },
+  "readings": [
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 18,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip01_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.60857,
+          "ms": 19.47514399944339,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.51021,
+          "ms": 18.789964000461623,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.48676,
+          "ms": 19.301086000268697,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.43776,
+          "ms": 20.071877999725984,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.63149,
+          "ms": 20.996469000237994,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.67642,
+          "ms": 19.409950999033754,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.62965,
+          "ms": 19.161131998771452,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.47571,
+          "ms": 19.466297000690247,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.5592,
+          "ms": 19.51028100120311,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.64618,
+          "ms": 20.176865999019356,
+          "correct": true
+        }
+      ],
+      "vote": "0",
+      "correct": true,
+      "total_ms": 196.3590679988556
+    },
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 18,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip01_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.44863,
+          "ms": 18.849636000595638,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.39864,
+          "ms": 20.267726999009028,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "D",
+          "value": null,
+          "confidence": 0.41269,
+          "ms": 20.24838000033924,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "D",
+          "value": null,
+          "confidence": 0.33077,
+          "ms": 19.43348600070749,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.42387,
+          "ms": 20.041550998939783,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.51295,
+          "ms": 18.85117900019395,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.59162,
+          "ms": 19.698694999533473,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.63847,
+          "ms": 18.846008999389596,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.48042,
+          "ms": 19.40571300110605,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.59467,
+          "ms": 19.102932999885525,
+          "correct": true
+        }
+      ],
+      "vote": "0",
+      "correct": true,
+      "total_ms": 194.74530899969977
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip02_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.65305,
+          "ms": 19.115686998702586,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.50189,
+          "ms": 19.123842001135927,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.44328,
+          "ms": 19.518153998433263,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.56235,
+          "ms": 19.571124999856693,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.63748,
+          "ms": 21.070988999781548,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.47288,
+          "ms": 19.83789699988847,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.61875,
+          "ms": 19.54137900065689,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.53297,
+          "ms": 20.079732999874977,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.48606,
+          "ms": 19.149210000250605,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.60019,
+          "ms": 18.960504999995464,
+          "correct": true
+        }
+      ],
+      "vote": "0",
+      "correct": true,
+      "total_ms": 195.96852099857642
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip02_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.57154,
+          "ms": 17.875120000098832,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.47214,
+          "ms": 17.646480000621523,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "O",
+          "value": null,
+          "confidence": 0.39582,
+          "ms": 17.433048000384588,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "O",
+          "value": null,
+          "confidence": 0.48235,
+          "ms": 17.601495999770123,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.53665,
+          "ms": 18.91056099884736,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.54361,
+          "ms": 17.953848999241018,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.65611,
+          "ms": 18.30868700017163,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.62591,
+          "ms": 18.53982200009341,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.58161,
+          "ms": 18.151501999454922,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "0",
+          "value": "0",
+          "confidence": 0.62053,
+          "ms": 17.385569000907708,
+          "correct": true
+        }
+      ],
+      "vote": "0",
+      "correct": true,
+      "total_ms": 179.8061339995911
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "home",
+      "expected": "7",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip03_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.62315,
+          "ms": 18.17259000017657,
+          "correct": false
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.52306,
+          "ms": 17.483532999904128,
+          "correct": false
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.69711,
+          "ms": 17.26492199850327,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.81006,
+          "ms": 18.43933399868547,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.51705,
+          "ms": 18.319576998692355,
+          "correct": false
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "7",
+          "value": "7",
+          "confidence": 0.8267,
+          "ms": 17.420464999304386,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "7",
+          "value": "7",
+          "confidence": 0.82665,
+          "ms": 17.11899700057984,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "7",
+          "value": "7",
+          "confidence": 0.60341,
+          "ms": 17.290470001171343,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.68002,
+          "ms": 17.865612999230507,
+          "correct": false
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "1",
+          "value": "1",
+          "confidence": 0.71924,
+          "ms": 18.310229999769945,
+          "correct": false
+        }
+      ],
+      "vote": "1",
+      "correct": false,
+      "total_ms": 177.6857309960178
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "away",
+      "expected": "10",
+      "roi": [
+        425,
+        430,
+        110,
+        90
+      ],
+      "image": "clip03_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.67392,
+          "ms": 18.905181001173332,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.6959,
+          "ms": 17.92577600099321,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.68402,
+          "ms": 17.424763000235544,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.57192,
+          "ms": 17.797144000724074,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.72804,
+          "ms": 20.537274000162142,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "10F",
+          "value": null,
+          "confidence": 0.59995,
+          "ms": 17.833162000897573,
+          "correct": false
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.90324,
+          "ms": 17.724968000038643,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.7667,
+          "ms": 18.223568000394152,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.74859,
+          "ms": 18.5526570003276,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "10",
+          "value": "10",
+          "confidence": 0.62836,
+          "ms": 18.03807800024515,
+          "correct": true
+        }
+      ],
+      "vote": "10",
+      "correct": true,
+      "total_ms": 182.96257100519142
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        395,
+        450,
+        105,
+        85
+      ],
+      "image": "clip04_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99833,
+          "ms": 17.89444700079912,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99621,
+          "ms": 17.822461999458028,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.98938,
+          "ms": 17.236518000572687,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99278,
+          "ms": 17.3676960002922,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99813,
+          "ms": 17.918511999596376,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99839,
+          "ms": 17.577029000676703,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99504,
+          "ms": 18.17035699968983,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.9978,
+          "ms": 17.823113001213642,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.9972,
+          "ms": 18.08625900048355,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99805,
+          "ms": 18.597080001200084,
+          "correct": true
+        }
+      ],
+      "vote": "24",
+      "correct": true,
+      "total_ms": 178.49347300398222
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "away",
+      "expected": "30",
+      "roi": [
+        665,
+        435,
+        100,
+        85
+      ],
+      "image": "clip04_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.96578,
+          "ms": 18.403665999358054,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.96984,
+          "ms": 18.199912999989465,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.93692,
+          "ms": 17.52199600014137,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.95368,
+          "ms": 17.98940600019705,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.96846,
+          "ms": 19.110648001515074,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "30F",
+          "value": null,
+          "confidence": 0.90605,
+          "ms": 18.74956799838401,
+          "correct": false
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.97412,
+          "ms": 19.13952200084168,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.94468,
+          "ms": 20.152469000095152,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.96677,
+          "ms": 20.064143000126933,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "30",
+          "value": "30",
+          "confidence": 0.96009,
+          "ms": 20.351934999780497,
+          "correct": true
+        }
+      ],
+      "vote": "30",
+      "correct": true,
+      "total_ms": 189.68326600042928
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        35,
+        445,
+        110,
+        85
+      ],
+      "image": "clip05_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99794,
+          "ms": 19.630466000307933,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99314,
+          "ms": 19.801619000645587,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99086,
+          "ms": 19.65901999938069,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99361,
+          "ms": 19.890947000021697,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99671,
+          "ms": 21.113229000548017,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99862,
+          "ms": 20.252688000255148,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99428,
+          "ms": 18.907985999248922,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99844,
+          "ms": 18.72790700144833,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99552,
+          "ms": 18.087501000991324,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "24",
+          "value": "24",
+          "confidence": 0.99864,
+          "ms": 17.713216000629473,
+          "correct": true
+        }
+      ],
+      "vote": "24",
+      "correct": true,
+      "total_ms": 193.78457900347712
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        320,
+        430,
+        95,
+        85
+      ],
+      "image": "clip05_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99484,
+          "ms": 17.53892799933965,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99607,
+          "ms": 17.527756999697885,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.96544,
+          "ms": 17.727403001117636,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.96191,
+          "ms": 18.757972999082995,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99529,
+          "ms": 20.282884999687667,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99947,
+          "ms": 19.31027300088317,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99317,
+          "ms": 19.65793800081883,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99292,
+          "ms": 20.276563000152237,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.99544,
+          "ms": 19.60903699909977,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "32",
+          "value": "32",
+          "confidence": 0.9933,
+          "ms": 21.468106999236625,
+          "correct": true
+        }
+      ],
+      "vote": "32",
+      "correct": true,
+      "total_ms": 192.15686399911647
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip06_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.92582,
+          "ms": 20.411175999470288,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.94684,
+          "ms": 19.745982999666012,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.875,
+          "ms": 19.533833999958006,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.86382,
+          "ms": 18.939925999802654,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.91568,
+          "ms": 19.794073999946704,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.95068,
+          "ms": 18.75090999965323,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.98735,
+          "ms": 18.207687000540318,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.96712,
+          "ms": 17.89293500041822,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.9821,
+          "ms": 17.653143000643468,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.95228,
+          "ms": 18.25820200065209,
+          "correct": true
+        }
+      ],
+      "vote": "27",
+      "correct": true,
+      "total_ms": 189.187870000751
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "away",
+      "expected": "34",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip06_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98715,
+          "ms": 18.403957001282834,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98775,
+          "ms": 19.951872000092408,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "341",
+          "value": "341",
+          "confidence": 0.70579,
+          "ms": 19.808461000138777,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "341",
+          "value": "341",
+          "confidence": 0.73714,
+          "ms": 19.885326000803616,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98634,
+          "ms": 20.698767999419942,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34F",
+          "value": null,
+          "confidence": 0.79992,
+          "ms": 19.87610899959691,
+          "correct": false
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.97484,
+          "ms": 19.680860999869765,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98642,
+          "ms": 19.842226000037044,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99267,
+          "ms": 20.02105199971993,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99046,
+          "ms": 20.17681500001345,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 198.34544700097467
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip07_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.9269,
+          "ms": 20.138623000093503,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.92767,
+          "ms": 19.824402001177077,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.88372,
+          "ms": 20.138252999458928,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.93893,
+          "ms": 19.874706000337028,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.9245,
+          "ms": 20.931446000759024,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.88637,
+          "ms": 19.360607999260537,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.99546,
+          "ms": 18.484838999938802,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.96759,
+          "ms": 17.739355000230717,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.95046,
+          "ms": 17.494043000624515,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.86881,
+          "ms": 17.900598999403883,
+          "correct": true
+        }
+      ],
+      "vote": "27",
+      "correct": true,
+      "total_ms": 191.886874001284
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "away",
+      "expected": "37",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip07_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.73777,
+          "ms": 17.843130000983365,
+          "correct": false
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.7899,
+          "ms": 17.606253999474575,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.76905,
+          "ms": 17.418591000023298,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.80929,
+          "ms": 17.61292700030026,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.73968,
+          "ms": 17.81427599962626,
+          "correct": false
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.85701,
+          "ms": 17.708396999296383,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.97494,
+          "ms": 17.57640799951332,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.95356,
+          "ms": 18.046152001261362,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.80008,
+          "ms": 17.542505000164965,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.77474,
+          "ms": 17.965390999961528,
+          "correct": true
+        }
+      ],
+      "vote": "37",
+      "correct": true,
+      "total_ms": 177.13403100060532
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip08_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.77578,
+          "ms": 19.136775999868405,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.87136,
+          "ms": 19.367421000424656,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.85484,
+          "ms": 19.439797000813996,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "21",
+          "value": "21",
+          "confidence": 0.95946,
+          "ms": 19.543462000001455,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.74859,
+          "ms": 20.97828399928403,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.91546,
+          "ms": 20.613156999388593,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.99596,
+          "ms": 20.729695999762043,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.95807,
+          "ms": 20.614999999452266,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.95684,
+          "ms": 20.67012499901466,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "27",
+          "value": "27",
+          "confidence": 0.94595,
+          "ms": 19.47603599910508,
+          "correct": true
+        }
+      ],
+      "vote": "27",
+      "correct": true,
+      "total_ms": 200.56975399711519
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "away",
+      "expected": "38",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip08_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.88774,
+          "ms": 19.002062999788905,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.94844,
+          "ms": 19.129623000480933,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.89668,
+          "ms": 18.995120000909083,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.87078,
+          "ms": 18.60044699969876,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.89366,
+          "ms": 19.35319399854052,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.97088,
+          "ms": 17.76598499964166,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.95591,
+          "ms": 18.154395998863038,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.77528,
+          "ms": 17.71138199910638,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "38",
+          "value": "38",
+          "confidence": 0.91863,
+          "ms": 17.38930600004096,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "38-",
+          "value": null,
+          "confidence": 0.77589,
+          "ms": 18.048497000563657,
+          "correct": false
+        }
+      ],
+      "vote": "38",
+      "correct": true,
+      "total_ms": 184.1500129976339
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "home",
+      "expected": "31",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip10_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.96788,
+          "ms": 18.007890999797382,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.97431,
+          "ms": 17.66080700144812,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.92004,
+          "ms": 18.670960000235937,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.89453,
+          "ms": 17.462804000388132,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.964,
+          "ms": 19.711578999704216,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.96188,
+          "ms": 18.105594999724417,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.97583,
+          "ms": 17.572220000147354,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.981,
+          "ms": 17.487450000771787,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.98281,
+          "ms": 18.908406000264222,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.98152,
+          "ms": 19.546958999853814,
+          "correct": true
+        }
+      ],
+      "vote": "31",
+      "correct": true,
+      "total_ms": 183.13467100233538
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip10_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99622,
+          "ms": 18.140439999115188,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99301,
+          "ms": 18.883550001191907,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.97246,
+          "ms": 17.829245000029914,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.98524,
+          "ms": 18.167221000112477,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99514,
+          "ms": 19.20847200017306,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99775,
+          "ms": 17.557251998368884,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.9991,
+          "ms": 17.470819999289233,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99223,
+          "ms": 17.527537000205484,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99755,
+          "ms": 18.697459998293198,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99778,
+          "ms": 17.92084699991392,
+          "correct": true
+        }
+      ],
+      "vote": "42",
+      "correct": true,
+      "total_ms": 181.40284399669326
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip12_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99462,
+          "ms": 20.117572999879485,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99492,
+          "ms": 18.671780999284238,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.969,
+          "ms": 19.248155998866423,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.96292,
+          "ms": 19.245441000748542,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99384,
+          "ms": 20.194508999338723,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9967,
+          "ms": 19.404250000661705,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99544,
+          "ms": 19.895876001100987,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99024,
+          "ms": 19.799814999714727,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99668,
+          "ms": 19.40349899996363,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98302,
+          "ms": 19.4118340004934,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 195.39273400005186
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip12_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.9967,
+          "ms": 18.833755999366986,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99438,
+          "ms": 19.169788998624426,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.97598,
+          "ms": 20.106632999159046,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.9876,
+          "ms": 21.71478099990054,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99592,
+          "ms": 22.40469999924244,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99867,
+          "ms": 21.914487000685767,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.9992,
+          "ms": 21.03325800089806,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99396,
+          "ms": 20.70274600009725,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99808,
+          "ms": 20.51436100009596,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99848,
+          "ms": 20.918131000144058,
+          "correct": true
+        }
+      ],
+      "vote": "42",
+      "correct": true,
+      "total_ms": 207.31264199821453
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip13_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99604,
+          "ms": 20.145165999565506,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9954,
+          "ms": 20.410123999681673,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9708,
+          "ms": 20.488522000960074,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.97888,
+          "ms": 20.52731500043592,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99573,
+          "ms": 21.509243999389582,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99674,
+          "ms": 20.24116599932313,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99585,
+          "ms": 19.313580000016373,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99112,
+          "ms": 19.230373000027612,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99575,
+          "ms": 18.707317000007606,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99558,
+          "ms": 19.254548999015242,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 199.82735599842272
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip13_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99652,
+          "ms": 17.895689999932074,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99379,
+          "ms": 18.182460000389256,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.96852,
+          "ms": 18.312344000150915,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.98779,
+          "ms": 18.740822000836488,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99574,
+          "ms": 19.570163000025786,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.9246,
+          "ms": 19.50294699963706,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99915,
+          "ms": 20.01180499973998,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99484,
+          "ms": 20.208415000524838,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99619,
+          "ms": 20.318191998740076,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "42",
+          "value": "42",
+          "confidence": 0.99731,
+          "ms": 20.109327999307425,
+          "correct": true
+        }
+      ],
+      "vote": "42",
+      "correct": true,
+      "total_ms": 192.8521659992839
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip14_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9963,
+          "ms": 17.92588599892042,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9953,
+          "ms": 18.07592899967858,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.96804,
+          "ms": 18.80077399982838,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.98042,
+          "ms": 19.472869998935494,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99614,
+          "ms": 20.50201800011564,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99614,
+          "ms": 19.541689000107,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99657,
+          "ms": 19.20225999856484,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99199,
+          "ms": 18.703651001487742,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9965,
+          "ms": 18.606008001370355,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99492,
+          "ms": 18.485810000129277,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 189.31689499913773
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip14_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98552,
+          "ms": 18.503424000300583,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.97388,
+          "ms": 18.784063000566675,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.88348,
+          "ms": 18.698952000704594,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.93082,
+          "ms": 19.504698999298853,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98325,
+          "ms": 19.04294999985723,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.99411,
+          "ms": 18.558366999059217,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.9949,
+          "ms": 18.446125999616925,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.97125,
+          "ms": 18.4110399986821,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98894,
+          "ms": 18.80962100040051,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "43-",
+          "value": null,
+          "confidence": 0.81262,
+          "ms": 19.735644000320463,
+          "correct": false
+        }
+      ],
+      "vote": "43",
+      "correct": true,
+      "total_ms": 188.49488599880715
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip15_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99593,
+          "ms": 18.40712300145242,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99582,
+          "ms": 18.339746000492596,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.96736,
+          "ms": 18.726274000073317,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.97863,
+          "ms": 20.173578999674646,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99586,
+          "ms": 23.422047001076862,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99498,
+          "ms": 21.706174999053474,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99568,
+          "ms": 20.92196800003876,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99176,
+          "ms": 21.15592900008778,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99571,
+          "ms": 21.306802998878993,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99123,
+          "ms": 21.496950999789988,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 205.65659500061884
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip15_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.99152,
+          "ms": 20.452413999009877,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.97444,
+          "ms": 20.966883001165115,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.86078,
+          "ms": 21.400148998509394,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.90009,
+          "ms": 22.02180899985251,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98912,
+          "ms": 24.466833001497434,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "43-",
+          "value": null,
+          "confidence": 0.83642,
+          "ms": 21.105593999891425,
+          "correct": false
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.99594,
+          "ms": 19.75317700089363,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.97122,
+          "ms": 19.04807999926561,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98894,
+          "ms": 19.096330001048045,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "43",
+          "value": "43",
+          "confidence": 0.98302,
+          "ms": 19.5766349988844,
+          "correct": true
+        }
+      ],
+      "vote": "43",
+      "correct": true,
+      "total_ms": 207.88790400001744
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip16_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.9962,
+          "ms": 19.18508800008567,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99506,
+          "ms": 20.26315699913539,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.96716,
+          "ms": 21.409035000033327,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.97736,
+          "ms": 21.601999000267824,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99584,
+          "ms": 22.77644099922327,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.997,
+          "ms": 22.197180000148364,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99518,
+          "ms": 23.40748899950995,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99172,
+          "ms": 23.35278600003221,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99616,
+          "ms": 23.984336001376505,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "34",
+          "value": "34",
+          "confidence": 0.99632,
+          "ms": 23.42704600050638,
+          "correct": true
+        }
+      ],
+      "vote": "34",
+      "correct": true,
+      "total_ms": 221.6045570003189
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip16_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99208,
+          "ms": 20.46538799913833,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.96123,
+          "ms": 19.681681998918066,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.9526,
+          "ms": 19.17748300002131,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.98188,
+          "ms": 18.767090001347242,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99125,
+          "ms": 20.243500999640673,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99228,
+          "ms": 20.949280000422732,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99673,
+          "ms": 20.827952001127414,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.96331,
+          "ms": 21.306091999576893,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99684,
+          "ms": 22.006099999998696,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99074,
+          "ms": 22.054050001315773,
+          "correct": true
+        }
+      ],
+      "vote": "46",
+      "correct": true,
+      "total_ms": 205.47861800150713
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip17_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.8311,
+          "ms": 20.706814000732265,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.78566,
+          "ms": 21.26640699862037,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.80142,
+          "ms": 22.317446000670316,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.77936,
+          "ms": 23.782004000167944,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.81984,
+          "ms": 23.292732999834698,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.90652,
+          "ms": 21.11806799985061,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.97966,
+          "ms": 19.96383400000923,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.91473,
+          "ms": 20.477410998864798,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.81046,
+          "ms": 20.075173999430262,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.77422,
+          "ms": 19.244529999923543,
+          "correct": true
+        }
+      ],
+      "vote": "37",
+      "correct": true,
+      "total_ms": 212.24442099810403
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip17_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.98952,
+          "ms": 20.40122799917299,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.97248,
+          "ms": 20.907440999508253,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.94469,
+          "ms": 21.684323999579647,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.97607,
+          "ms": 21.515194999665255,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.98883,
+          "ms": 22.155971999382018,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.90806,
+          "ms": 21.777970001494396,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99611,
+          "ms": 22.01778200105764,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.96955,
+          "ms": 21.9329720002861,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99372,
+          "ms": 21.701807001591078,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "46",
+          "value": "46",
+          "confidence": 0.99124,
+          "ms": 20.921076999002253,
+          "correct": true
+        }
+      ],
+      "vote": "46",
+      "correct": true,
+      "total_ms": 215.01576800073963
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip18_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.81816,
+          "ms": 18.490369000573992,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.80276,
+          "ms": 18.597690999740735,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.85704,
+          "ms": 18.588364000606816,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "31",
+          "value": "31",
+          "confidence": 0.84322,
+          "ms": 18.944655001178035,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.79223,
+          "ms": 20.83513499928813,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.84583,
+          "ms": 20.592517999830307,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.9798,
+          "ms": 21.3681990007899,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.93212,
+          "ms": 21.6816590000235,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.88488,
+          "ms": 22.55756900012784,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "37",
+          "value": "37",
+          "confidence": 0.7497,
+          "ms": 22.720676000972162,
+          "correct": true
+        }
+      ],
+      "vote": "37",
+      "correct": true,
+      "total_ms": 204.37683500313142
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "away",
+      "expected": "50",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip18_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "5O",
+          "value": null,
+          "confidence": 0.61048,
+          "ms": 20.93048399910913,
+          "correct": false
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "50",
+          "value": "50",
+          "confidence": 0.77155,
+          "ms": 21.57206199990469,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "50F",
+          "value": null,
+          "confidence": 0.64092,
+          "ms": 21.707468000386143,
+          "correct": false
+        },
+        {
+          "variant": "native_border",
+          "raw": "50F",
+          "value": null,
+          "confidence": 0.57197,
+          "ms": 21.800844000608777,
+          "correct": false
+        },
+        {
+          "variant": "sharpen",
+          "raw": "50",
+          "value": "50",
+          "confidence": 0.6123,
+          "ms": 21.821913000167115,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "5O-",
+          "value": null,
+          "confidence": 0.49813,
+          "ms": 20.50984199922823,
+          "correct": false
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "5O",
+          "value": null,
+          "confidence": 0.6779,
+          "ms": 19.26720199844567,
+          "correct": false
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "50",
+          "value": "50",
+          "confidence": 0.79634,
+          "ms": 18.866958000216982,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "5O",
+          "value": null,
+          "confidence": 0.7235,
+          "ms": 18.936229000246385,
+          "correct": false
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "5O-",
+          "value": null,
+          "confidence": 0.65612,
+          "ms": 18.770386999676703,
+          "correct": false
+        }
+      ],
+      "vote": null,
+      "correct": false,
+      "total_ms": 204.18338899798982
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 167,
+      "field": "home",
+      "expected": "96",
+      "roi": [
+        185,
+        455,
+        105,
+        90
+      ],
+      "image": "clip19_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99404,
+          "ms": 18.197818999396986,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99307,
+          "ms": 18.47299600012775,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.97123,
+          "ms": 20.524841000224114,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.9733,
+          "ms": 21.181066000281135,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.9933,
+          "ms": 22.545947000253364,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99802,
+          "ms": 21.68003599945223,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99338,
+          "ms": 21.937350998996408,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99486,
+          "ms": 22.488337999675423,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.98556,
+          "ms": 23.455108001144254,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "96",
+          "value": "96",
+          "confidence": 0.99477,
+          "ms": 22.68954699866299,
+          "correct": true
+        }
+      ],
+      "vote": "96",
+      "correct": true,
+      "total_ms": 213.17304899821465
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 167,
+      "field": "away",
+      "expected": "108",
+      "roi": [
+        445,
+        445,
+        110,
+        85
+      ],
+      "image": "clip19_1.png",
+      "variants": [
+        {
+          "variant": "native",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.85102,
+          "ms": 21.06055899821513,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.69409,
+          "ms": 20.501095999861718,
+          "correct": true
+        },
+        {
+          "variant": "inverted_gray_border",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.84031,
+          "ms": 19.5498149987543,
+          "correct": true
+        },
+        {
+          "variant": "native_border",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.85224,
+          "ms": 19.208842000807635,
+          "correct": true
+        },
+        {
+          "variant": "sharpen",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.83893,
+          "ms": 20.853459998761537,
+          "correct": true
+        },
+        {
+          "variant": "stretch_1.5",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.75405,
+          "ms": 20.608237999113044,
+          "correct": true
+        },
+        {
+          "variant": "shear_-0.25",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.90207,
+          "ms": 19.213360999856377,
+          "correct": true
+        },
+        {
+          "variant": "shear_0.25",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.91644,
+          "ms": 18.966736000948003,
+          "correct": true
+        },
+        {
+          "variant": "rotate_-3",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.77801,
+          "ms": 18.75619999918854,
+          "correct": true
+        },
+        {
+          "variant": "rotate_3",
+          "raw": "108",
+          "value": "108",
+          "confidence": 0.79498,
+          "ms": 18.998756999280886,
+          "correct": true
+        }
+      ],
+      "vote": "108",
+      "correct": true,
+      "total_ms": 197.71706399478717
+    }
+  ],
+  "adaptive": {
+    "development_policy": true,
+    "confidence_trigger": 0.85,
+    "alternatives": [
+      "inverted_gray",
+      "shear_-0.25",
+      "shear_0.25"
+    ],
+    "required_votes": 2,
+    "correct": 34,
+    "total": 34,
+    "rejected": 0,
+    "triggered": 11,
+    "estimated_median_ms": 20.141894499829505,
+    "estimated_mean_ms": 37.673621617507116,
+    "estimated_p95_ms": 80.31249379992005,
+    "decisions": [
+      {
+        "image": "clip01_1.png",
+        "field": "home",
+        "predicted": "0",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 76.89253699936671
+      },
+      {
+        "image": "clip01_1.png",
+        "field": "away",
+        "predicted": "0",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 77.66206699852773
+      },
+      {
+        "image": "clip02_1.png",
+        "field": "home",
+        "predicted": "0",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 77.86064100037038
+      },
+      {
+        "image": "clip02_1.png",
+        "field": "away",
+        "predicted": "0",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 72.3701090009854
+      },
+      {
+        "image": "clip03_1.png",
+        "field": "home",
+        "predicted": "7",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 70.06559000183188
+      },
+      {
+        "image": "clip03_1.png",
+        "field": "away",
+        "predicted": "10",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 72.77949300259934
+      },
+      {
+        "image": "clip04_1.png",
+        "field": "home",
+        "predicted": "24",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 17.89444700079912
+      },
+      {
+        "image": "clip04_1.png",
+        "field": "away",
+        "predicted": "30",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.403665999358054
+      },
+      {
+        "image": "clip05_1.png",
+        "field": "home",
+        "predicted": "24",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 19.630466000307933
+      },
+      {
+        "image": "clip05_1.png",
+        "field": "away",
+        "predicted": "32",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 17.53892799933965
+      },
+      {
+        "image": "clip06_1.png",
+        "field": "home",
+        "predicted": "27",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.411175999470288
+      },
+      {
+        "image": "clip06_1.png",
+        "field": "away",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.403957001282834
+      },
+      {
+        "image": "clip07_1.png",
+        "field": "home",
+        "predicted": "27",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.138623000093503
+      },
+      {
+        "image": "clip07_1.png",
+        "field": "away",
+        "predicted": "37",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 71.07194400123262
+      },
+      {
+        "image": "clip08_1.png",
+        "field": "home",
+        "predicted": "27",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 79.84889299950737
+      },
+      {
+        "image": "clip08_1.png",
+        "field": "away",
+        "predicted": "38",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 19.002062999788905
+      },
+      {
+        "image": "clip10_1.png",
+        "field": "home",
+        "predicted": "31",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.007890999797382
+      },
+      {
+        "image": "clip10_1.png",
+        "field": "away",
+        "predicted": "42",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.140439999115188
+      },
+      {
+        "image": "clip12_1.png",
+        "field": "home",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.117572999879485
+      },
+      {
+        "image": "clip12_1.png",
+        "field": "away",
+        "predicted": "42",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.833755999366986
+      },
+      {
+        "image": "clip13_1.png",
+        "field": "home",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.145165999565506
+      },
+      {
+        "image": "clip13_1.png",
+        "field": "away",
+        "predicted": "42",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 17.895689999932074
+      },
+      {
+        "image": "clip14_1.png",
+        "field": "home",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 17.92588599892042
+      },
+      {
+        "image": "clip14_1.png",
+        "field": "away",
+        "predicted": "43",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.503424000300583
+      },
+      {
+        "image": "clip15_1.png",
+        "field": "home",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.40712300145242
+      },
+      {
+        "image": "clip15_1.png",
+        "field": "away",
+        "predicted": "43",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.452413999009877
+      },
+      {
+        "image": "clip16_1.png",
+        "field": "home",
+        "predicted": "34",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 19.18508800008567
+      },
+      {
+        "image": "clip16_1.png",
+        "field": "away",
+        "predicted": "46",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.46538799913833
+      },
+      {
+        "image": "clip17_1.png",
+        "field": "home",
+        "predicted": "37",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 82.41446599822666
+      },
+      {
+        "image": "clip17_1.png",
+        "field": "away",
+        "predicted": "46",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 20.40122799917299
+      },
+      {
+        "image": "clip18_1.png",
+        "field": "home",
+        "predicted": "37",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 80.13791800112813
+      },
+      {
+        "image": "clip18_1.png",
+        "field": "away",
+        "predicted": "50",
+        "correct": true,
+        "triggered": true,
+        "estimated_ms": 80.63670599767647
+      },
+      {
+        "image": "clip19_1.png",
+        "field": "home",
+        "predicted": "96",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 18.197818999396986
+      },
+      {
+        "image": "clip19_1.png",
+        "field": "away",
+        "predicted": "108",
+        "correct": true,
+        "triggered": false,
+        "estimated_ms": 21.06055899821513
+      }
+    ]
+  }
+}
