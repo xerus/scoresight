@@ -1,0 +1,496 @@
+[
+  {
+    "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+    "bytes": 334009,
+    "frames": 37,
+    "fps": 30.008110300081103,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 1.233,
+    "samples": [
+      {
+        "frame": 3,
+        "time_s": 0.09997297297297297,
+        "image": "clip01_0.png"
+      },
+      {
+        "frame": 18,
+        "time_s": 0.5998378378378378,
+        "image": "clip01_1.png"
+      },
+      {
+        "frame": 32,
+        "time_s": 1.0663783783783785,
+        "image": "clip01_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+    "bytes": 3542883,
+    "frames": 394,
+    "fps": 29.929354569164154,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 13.164333333333333,
+    "samples": [
+      {
+        "frame": 39,
+        "time_s": 1.3030685279187817,
+        "image": "clip02_0.png"
+      },
+      {
+        "frame": 196,
+        "time_s": 6.548754653130288,
+        "image": "clip02_1.png"
+      },
+      {
+        "frame": 353,
+        "time_s": 11.794440778341794,
+        "image": "clip02_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+    "bytes": 101645972,
+    "frames": 9002,
+    "fps": 23.83724368519586,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 377.64433333333335,
+    "samples": [
+      {
+        "frame": 900,
+        "time_s": 37.756043101532995,
+        "image": "clip03_0.png"
+      },
+      {
+        "frame": 4500,
+        "time_s": 188.78021550766496,
+        "image": "clip03_1.png"
+      },
+      {
+        "frame": 8100,
+        "time_s": 339.8043879137969,
+        "image": "clip03_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+    "bytes": 18349766,
+    "frames": 2043,
+    "fps": 30.004846597835186,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 68.089,
+    "samples": [
+      {
+        "frame": 204,
+        "time_s": 6.798901615271659,
+        "image": "clip04_0.png"
+      },
+      {
+        "frame": 1021,
+        "time_s": 34.027836025452764,
+        "image": "clip04_1.png"
+      },
+      {
+        "frame": 1837,
+        "time_s": 61.223442486539405,
+        "image": "clip04_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+    "bytes": 10307621,
+    "frames": 1131,
+    "fps": 29.534652948242545,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 38.294,
+    "samples": [
+      {
+        "frame": 113,
+        "time_s": 3.8260141467727675,
+        "image": "clip05_0.png"
+      },
+      {
+        "frame": 565,
+        "time_s": 19.130070733863835,
+        "image": "clip05_1.png"
+      },
+      {
+        "frame": 1017,
+        "time_s": 34.43412732095491,
+        "image": "clip05_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+    "bytes": 23846866,
+    "frames": 2624,
+    "fps": 29.552211910982972,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 88.792,
+    "samples": [
+      {
+        "frame": 262,
+        "time_s": 8.865664634146341,
+        "image": "clip06_0.png"
+      },
+      {
+        "frame": 1311,
+        "time_s": 44.362161585365854,
+        "image": "clip06_1.png"
+      },
+      {
+        "frame": 2360,
+        "time_s": 79.85865853658537,
+        "image": "clip06_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+    "bytes": 38666613,
+    "frames": 3545,
+    "fps": 24.733881114571243,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 143.32566666666668,
+    "samples": [
+      {
+        "frame": 354,
+        "time_s": 14.312351480959098,
+        "image": "clip07_0.png"
+      },
+      {
+        "frame": 1772,
+        "time_s": 71.64261814762577,
+        "image": "clip07_1.png"
+      },
+      {
+        "frame": 3189,
+        "time_s": 128.9324544428773,
+        "image": "clip07_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+    "bytes": 49594112,
+    "frames": 4653,
+    "fps": 25.028822861773982,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 185.90566666666666,
+    "samples": [
+      {
+        "frame": 465,
+        "time_s": 18.578580485708144,
+        "image": "clip08_0.png"
+      },
+      {
+        "frame": 2326,
+        "time_s": 92.93285636506913,
+        "image": "clip08_1.png"
+      },
+      {
+        "frame": 4186,
+        "time_s": 167.24717830790172,
+        "image": "clip08_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-40-26.985859.mp4",
+    "bytes": 5797302,
+    "frames": 645,
+    "fps": 30.00232576168695,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 21.498333333333335,
+    "samples": [
+      {
+        "frame": 64,
+        "time_s": 2.133167958656331,
+        "image": "clip09_0.png"
+      },
+      {
+        "frame": 322,
+        "time_s": 10.732501291989665,
+        "image": "clip09_1.png"
+      },
+      {
+        "frame": 579,
+        "time_s": 19.298503875968994,
+        "image": "clip09_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+    "bytes": 19511191,
+    "frames": 2163,
+    "fps": 29.93398746176947,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 72.259,
+    "samples": [
+      {
+        "frame": 216,
+        "time_s": 7.215877947295422,
+        "image": "clip10_0.png"
+      },
+      {
+        "frame": 1081,
+        "time_s": 36.1127965788257,
+        "image": "clip10_1.png"
+      },
+      {
+        "frame": 1945,
+        "time_s": 64.9763083680074,
+        "image": "clip10_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-44-35.024232.mp4",
+    "bytes": 20140383,
+    "frames": 2023,
+    "fps": 27.131782945736433,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 74.562,
+    "samples": [
+      {
+        "frame": 202,
+        "time_s": 7.445142857142858,
+        "image": "clip11_0.png"
+      },
+      {
+        "frame": 1011,
+        "time_s": 37.262571428571434,
+        "image": "clip11_1.png"
+      },
+      {
+        "frame": 1819,
+        "time_s": 67.04314285714285,
+        "image": "clip11_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+    "bytes": 10568760,
+    "frames": 1161,
+    "fps": 29.665780866721178,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 39.135999999999996,
+    "samples": [
+      {
+        "frame": 116,
+        "time_s": 3.910229112833764,
+        "image": "clip12_0.png"
+      },
+      {
+        "frame": 580,
+        "time_s": 19.55114556416882,
+        "image": "clip12_1.png"
+      },
+      {
+        "frame": 1044,
+        "time_s": 35.19206201550387,
+        "image": "clip12_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+    "bytes": 3146471,
+    "frames": 350,
+    "fps": 29.9982858122393,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 11.667333333333334,
+    "samples": [
+      {
+        "frame": 34,
+        "time_s": 1.1333980952380953,
+        "image": "clip13_0.png"
+      },
+      {
+        "frame": 174,
+        "time_s": 5.800331428571429,
+        "image": "clip13_1.png"
+      },
+      {
+        "frame": 314,
+        "time_s": 10.467264761904762,
+        "image": "clip13_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+    "bytes": 8007329,
+    "frames": 891,
+    "fps": 29.969055520674498,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 29.730666666666668,
+    "samples": [
+      {
+        "frame": 89,
+        "time_s": 2.9697298915076695,
+        "image": "clip14_0.png"
+      },
+      {
+        "frame": 445,
+        "time_s": 14.848649457538347,
+        "image": "clip14_1.png"
+      },
+      {
+        "frame": 801,
+        "time_s": 26.727569023569025,
+        "image": "clip14_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+    "bytes": 5819076,
+    "frames": 647,
+    "fps": 30.004637501932294,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 21.563333333333333,
+    "samples": [
+      {
+        "frame": 64,
+        "time_s": 2.1330036063884594,
+        "image": "clip15_0.png"
+      },
+      {
+        "frame": 323,
+        "time_s": 10.765002575991756,
+        "image": "clip15_1.png"
+      },
+      {
+        "frame": 581,
+        "time_s": 19.363673364245233,
+        "image": "clip15_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+    "bytes": 5120430,
+    "frames": 570,
+    "fps": 29.998947405354198,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 19.000666666666667,
+    "samples": [
+      {
+        "frame": 56,
+        "time_s": 1.8667321637426901,
+        "image": "clip16_0.png"
+      },
+      {
+        "frame": 284,
+        "time_s": 9.466998830409358,
+        "image": "clip16_1.png"
+      },
+      {
+        "frame": 512,
+        "time_s": 17.067265497076022,
+        "image": "clip16_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+    "bytes": 6443706,
+    "frames": 718,
+    "fps": 30.002925076260915,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 23.931,
+    "samples": [
+      {
+        "frame": 71,
+        "time_s": 2.3664359331476326,
+        "image": "clip17_0.png"
+      },
+      {
+        "frame": 358,
+        "time_s": 11.93216991643454,
+        "image": "clip17_1.png"
+      },
+      {
+        "frame": 645,
+        "time_s": 21.49790389972145,
+        "image": "clip17_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+    "bytes": 94434909,
+    "frames": 7986,
+    "fps": 22.754729883747437,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 350.96,
+    "samples": [
+      {
+        "frame": 798,
+        "time_s": 35.06963185574756,
+        "image": "clip18_0.png"
+      },
+      {
+        "frame": 3992,
+        "time_s": 175.43605309291257,
+        "image": "clip18_1.png"
+      },
+      {
+        "frame": 7186,
+        "time_s": 315.8024743300776,
+        "image": "clip18_2.png"
+      }
+    ]
+  },
+  {
+    "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+    "bytes": 3072365,
+    "frames": 335,
+    "fps": 29.384246535290334,
+    "width": 1920,
+    "height": 1080,
+    "duration_s": 11.400666666666666,
+    "samples": [
+      {
+        "frame": 33,
+        "time_s": 1.1230507462686568,
+        "image": "clip19_0.png"
+      },
+      {
+        "frame": 167,
+        "time_s": 5.683317412935323,
+        "image": "clip19_1.png"
+      },
+      {
+        "frame": 300,
+        "time_s": 10.209552238805971,
+        "image": "clip19_2.png"
+      }
+    ]
+  }
+]

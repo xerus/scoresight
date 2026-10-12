@@ -13,6 +13,9 @@ parser.add_argument('--debug', action='store_true')
 args = parser.parse_args()
 
 datas = [
+    ('models/en_PP-OCRv4_rec_mobile.onnx', './models'),
+    ('models/LICENSE', './models'),
+    ('models/NOTICE.md', './models'),
     ('.env', '.'),
     ('icons/circle-check.svg', './icons'),
     ('icons/circle-x.svg', './icons'),
@@ -57,6 +60,7 @@ sources = [
     'src/camera_thread.py',
     'src/camera_view.py',
     'src/defaults.py',
+    'src/dnn_ocr.py',
     'src/file_output.py',
     'src/frame_stabilizer.py',
     'src/get_camera_info.py',
@@ -107,6 +111,9 @@ numpy_datas, numpy_binaries, numpy_hiddenimports = collect_all('numpy')
 # PyInstaller's dependency scanner. Collect the complete PySide6 DLL set so the
 # portable build has the same runtime libraries as the installed wheel.
 pyside6_binaries = collect_dynamic_libs('PySide6')
+onnxruntime_binaries = collect_dynamic_libs(
+    'onnxruntime', search_patterns=['*.dll', '*.dylib', '*.so', '*.so.*']
+)
 # Cython extension imports are not always visible to PyInstaller's module graph.
 cyndilib_datas, cyndilib_binaries, cyndilib_hiddenimports = collect_all('cyndilib')
 # The Windows tesserocr wheel loads its bundled cysignals extension from
@@ -122,7 +129,7 @@ ws_hiddenimports=['websockets', 'websockets.legacy']
 a = Analysis(
     sources,
     pathex=[],
-    binaries=numpy_binaries + pyside6_binaries + cyndilib_binaries + cysignals_binaries,
+    binaries=numpy_binaries + pyside6_binaries + onnxruntime_binaries + cyndilib_binaries + cysignals_binaries,
     datas=datas + numpy_datas + cyndilib_datas + cysignals_datas,
     hiddenimports=numpy_hiddenimports + cyndilib_hiddenimports + tesserocr_hiddenimports + cysignals_hiddenimports + ws_hiddenimports,
     hookspath=[],

@@ -267,6 +267,7 @@ class MainWindow(QMainWindow):
             "General Scoreboard Large",
             "Load External OCR Model",
             "OpenCV Seven-Segment (2 digits, experimental)",
+            "PP-OCRv4 + TTA (experimental)",
         ]
         self.ui.comboBox_ocrModel.addItems(ocr_models)
         self.setGlobalTooltips()
@@ -579,7 +580,22 @@ class MainWindow(QMainWindow):
         self.ui.comboBox_ocrModel.setItemData(
             5, segment_tooltip, Qt.ItemDataRole.ToolTipRole
         )
-        self.ui.comboBox_ocrModel.setToolTip(segment_tooltip)
+        self.ui.comboBox_ocrModel.setToolTip(
+            self.tr(
+                "Select the OCR model. Hover over a model for its settings and limitations."
+            )
+        )
+        self.ui.comboBox_ocrModel.setItemData(
+            6,
+            self.tr(
+                "CPU neural OCR with selective TTA for uncertain readings. "
+                "Draw boxes around complete digits. Uses original color crops; "
+                "binarization, patch transforms, Average Output and Skip Similar Image do not apply. "
+                "Confidence and format filters apply. Uncertain or empty readings are rejected. "
+                "Reduce detection cadence on slower computers."
+            ),
+            Qt.ItemDataRole.ToolTipRole,
+        )
 
     def addLanguageOption(self, menu: QMenu, language_name: str, locale: str):
         menu.addAction(language_name, lambda: self.changeLanguage(locale))
@@ -657,24 +673,42 @@ class MainWindow(QMainWindow):
                 return
             # get absolute file path
             file = path.abspath(file)
-            self.globalSettingsChanged("ocr_model", file)
             ocrModel = file
         elif type(index) is int:
-            self.globalSettingsChanged("ocr_model", index)
             ocrModel = index
         elif type(index) is str:
             # check if the index is a valid existing file
             if path.exists(index):
-                self.globalSettingsChanged("ocr_model", index)
                 ocrModel = index
 
         # update the ocr model in the text detector
-        if (
-            self.image_viewer
-            and self.image_viewer.timerThread
-            and self.image_viewer.timerThread.textDetector
-        ):
-            self.image_viewer.timerThread.textDetector.setOcrModel(ocrModel)
+        if ocrModel is None:
+            return
+        try:
+            if ocrModel == 6:
+                import onnxruntime  # noqa: F401
+
+                if not path.isfile(
+                    resource_path("models", "en_PP-OCRv4_rec_mobile.onnx")
+                ):
+                    raise FileNotFoundError("The bundled PP-OCRv4 model is missing.")
+            if (
+                self.image_viewer
+                and self.image_viewer.timerThread
+                and self.image_viewer.timerThread.textDetector
+            ):
+                self.image_viewer.timerThread.textDetector.setOcrModel(ocrModel)
+        except Exception as exc:
+            logger.exception("Unable to load OCR model")
+            previous = fetch_data("scoresight.json", "ocr_model", 1)
+            self.ui.comboBox_ocrModel.blockSignals(True)
+            self.ui.comboBox_ocrModel.setCurrentIndex(
+                4 if isinstance(previous, str) else previous
+            )
+            self.ui.comboBox_ocrModel.blockSignals(False)
+            QMessageBox.warning(self, self.tr("Unable to load OCR model"), str(exc))
+            return
+        self.globalSettingsChanged("ocr_model", ocrModel)
 
     def openLogsDialog(self):
         if self.log_dialog is None:

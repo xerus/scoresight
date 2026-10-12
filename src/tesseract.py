@@ -94,6 +94,7 @@ class TextDetector:
         SCOREBOARD_GENERAL_LARGE = 3
         # Index 4 remains the external Tesseract model file picker.
         OPENCV_SEVEN_SEGMENT = 5
+        PPOCR_TTA = 6
 
     class BinarizationMethod:
         GLOBAL = 0
@@ -105,15 +106,29 @@ class TextDetector:
     def __init__(self):
         self.api_lock = Lock()
         self.api = None
+        self.dnn = None
         self.ocr_model_index = None
         self.setOcrModel(fetch_data("scoresight.json", "ocr_model", 1))
-        if (
-            self.api is None
-            and self.ocr_model_index != self.OcrModelIndex.OPENCV_SEVEN_SEGMENT
+        if self.api is None and self.ocr_model_index not in (
+            self.OcrModelIndex.OPENCV_SEVEN_SEGMENT,
+            self.OcrModelIndex.PPOCR_TTA,
         ):
             self.setOcrModel(self.OcrModelIndex.SCOREBOARD_GENERAL)
 
     def setOcrModel(self, ocrModelIndex: OcrModelIndex | int | str | None = None):
+        if ocrModelIndex == self.OcrModelIndex.PPOCR_TTA:
+            from dnn_ocr import DnnOcr
+
+            with self.api_lock:
+                model = self.dnn or DnnOcr(
+                    resource_path("models", "en_PP-OCRv4_rec_mobile.onnx")
+                )
+                if self.api is not None:
+                    self.api.End()
+                    self.api = None
+                self.dnn = model
+                self.ocr_model_index = ocrModelIndex
+            return
         if ocrModelIndex == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
             with self.api_lock:
                 if self.api is not None:
@@ -169,6 +184,11 @@ class TextDetector:
             return ""
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
             return read_score(image)[0] or ""
+        if self.ocr_model_index == self.OcrModelIndex.PPOCR_TTA:
+            if image.ndim == 2:
+                image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+            with self.api_lock:
+                return self.dnn.recognize(image)[0] or ""
         pilimage = Image.fromarray(image)
         text = ""
         with self.api_lock:
@@ -231,11 +251,69 @@ class TextDetector:
             result.state = states.Success
         return results
 
+    def _detect_dnn(self, color, gray, rects):
+        states = TextDetectionTargetWithResult.ResultState
+        frame = color
+        if not isinstance(frame, np.ndarray) or frame.ndim != 3 or frame.shape[2] != 3:
+            if isinstance(gray, np.ndarray) and gray.ndim == 2 and gray.size:
+                frame = cv2.cvtColor(gray, cv2.COLOR_GRAY2BGR)
+            else:
+                frame = None
+        results = []
+        for rect in rects:
+            result = TextDetectionResult("", states.FailedFilter, None)
+            results.append(result)
+            if rect is None or frame is None:
+                continue
+            rect.ocrResultPerCharacterSmoother.clear()
+            settings = rect.settings or {}
+            x, y = int(rect.x()), int(rect.y())
+            right, bottom = int(rect.x() + rect.width()), int(rect.y() + rect.height())
+            if (
+                x < 0
+                or y < 0
+                or right > frame.shape[1]
+                or bottom > frame.shape[0]
+                or right <= x
+                or bottom <= y
+            ):
+                continue
+            try:
+                with self.api_lock:
+                    text, confidence, readings = self.dnn.recognize(
+                        frame[y:bottom, x:right], settings.get("type", FieldType.NUMBER)
+                    )
+            except Exception:
+                logger.exception("PP-OCRv4 recognition failed")
+                continue
+            result.extra = {
+                "engine": "ppocrv4_tta",
+                "confidence": confidence,
+                "tta": readings,
+            }
+            # Empty neural decoding cannot establish that the physical field is blank.
+            if text is None or not text or confidence < settings.get("conf_thresh", 0):
+                continue
+            result.text = text
+            if settings.get("remove_leading_zeros") and re.fullmatch(r"[0-9]+", text):
+                result.text = text.lstrip("0") or "0"
+            pattern = settings.get("format_regex")
+            if pattern and (
+                not is_valid_regex(pattern) or not re.fullmatch(pattern, result.text)
+            ):
+                continue
+            if settings.get("ordinal_indicator"):
+                result.text = add_ordinal_indicator(result.text)
+            result.state = states.Success
+        return results
+
     def detect_multi_text(
         self, binary, gray, rects: list[TextDetectionTarget], color=None
     ) -> list[TextDetectionResult]:
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
             return self._detect_seven_segment(color, binary, rects)
+        if self.ocr_model_index == self.OcrModelIndex.PPOCR_TTA:
+            return self._detect_dnn(color, gray, rects)
         color_valid = (
             isinstance(color, np.ndarray)
             and color.ndim == 3
