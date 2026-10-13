@@ -104,12 +104,16 @@ class TextDetector:
         ADAPTIVE = 3
         OPENCV_LED_MASK = 4
 
-    def __init__(self):
+    def __init__(self, model_index=None):
         self.api_lock = Lock()
         self.api = None
         self.dnn = None
         self.ocr_model_index = None
-        self.setOcrModel(fetch_data("scoresight.json", "ocr_model", 1))
+        self.setOcrModel(
+            fetch_data("scoresight.json", "ocr_model", 1)
+            if model_index is None
+            else model_index
+        )
         if self.api is None and self.ocr_model_index not in (
             self.OcrModelIndex.OPENCV_SEVEN_SEGMENT,
             self.OcrModelIndex.PPOCR_TTA,
@@ -316,6 +320,7 @@ class TextDetector:
 
     def reset_temporal(self):
         self._temporal_token = object()
+        self._box_model_failures = {}
 
     def detect_multi_text(self, binary, gray, rects, color=None, observation_time=None):
         readings = self._detect_multi_text(binary, gray, rects, color=color)
@@ -363,6 +368,58 @@ class TextDetector:
         return readings
 
     def _detect_multi_text(
+        self, binary, gray, rects: list[TextDetectionTarget], color=None
+    ) -> list[TextDetectionResult]:
+        """Group fields by reader while retaining input order and cached models."""
+        from defaults import BOX_OCR_MODELS
+
+        groups = {}
+        for index, rect in enumerate(rects):
+            model = (rect.settings or {}).get("box_ocr_model", -1) if rect else -1
+            if type(model) is not int or model not in BOX_OCR_MODELS or model == -1:
+                model = self.ocr_model_index
+            groups.setdefault(model, []).append((index, rect))
+        if not groups:
+            return []
+        if len(groups) == 1 and self.ocr_model_index in groups:
+            return self._detect_selected_model(binary, gray, rects, color=color)
+        if not hasattr(self, "_box_detectors"):
+            self._box_detectors = {}
+        if not hasattr(self, "_box_model_failures"):
+            self._box_model_failures = {}
+        results = [
+            TextDetectionResult(
+                "", TextDetectionTargetWithResult.ResultState.FailedFilter
+            )
+            for _ in rects
+        ]
+        for model, entries in groups.items():
+            targets = [rect for _, rect in entries]
+            if model == self.ocr_model_index:
+                detector = self
+            else:
+                try:
+                    # A missing/broken optional model must reject its fields,
+                    # not silently use another reader or reload on every frame.
+                    failed_at = self._box_model_failures.get(model)
+                    if failed_at is not None and time.monotonic() - failed_at < 5:
+                        continue
+                    if model not in self._box_detectors:
+                        self._box_detectors[model] = TextDetector(model)
+                    detector = self._box_detectors[model]
+                    self._box_model_failures.pop(model, None)
+                except Exception:
+                    self._box_model_failures[model] = time.monotonic()
+                    logger.exception("Cannot load OCR reader %s for box", model)
+                    continue
+            readings = detector._detect_selected_model(
+                binary, gray, targets, color=color
+            )
+            for (index, _), result in zip(entries, readings):
+                results[index] = result
+        return results
+
+    def _detect_selected_model(
         self, binary, gray, rects: list[TextDetectionTarget], color=None
     ) -> list[TextDetectionResult]:
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:

@@ -171,6 +171,28 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
 
+        self.label_boxOcrModel = QLabel(self.groupBox_target_settings)
+        self.label_boxOcrModel.setObjectName(u"label_boxOcrModel")
+
+        self.gridLayout_6.addWidget(self.label_boxOcrModel, 15, 0, 1, 1)
+
+        self.comboBox_boxOcrModel = QComboBox(self.groupBox_target_settings)
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.setObjectName(u"comboBox_boxOcrModel")
+
+        self.gridLayout_6.addWidget(self.comboBox_boxOcrModel, 15, 1, 1, 2)
+
+        self.pushButton_basketballPreset = QPushButton(self.groupBox_target_settings)
+        self.pushButton_basketballPreset.setObjectName(u"pushButton_basketballPreset")
+
+        self.gridLayout_6.addWidget(self.pushButton_basketballPreset, 15, 3, 1, 1)
+
         self.groupBox_segmentSettings = QGroupBox(self.groupBox_target_settings)
         self.groupBox_segmentSettings.setObjectName(u"groupBox_segmentSettings")
         self.horizontalLayout_segmentSettings = QHBoxLayout(self.groupBox_segmentSettings)
@@ -1292,6 +1314,22 @@ class Ui_MainWindow(object):
 
 #if QT_CONFIG(tooltip)
         self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_boxOcrModel.setText(QCoreApplication.translate("MainWindow", u"Box reader", None))
+        self.comboBox_boxOcrModel.setItemText(0, QCoreApplication.translate("MainWindow", u"Use global model", None))
+        self.comboBox_boxOcrModel.setItemText(1, QCoreApplication.translate("MainWindow", u"Daktronics", None))
+        self.comboBox_boxOcrModel.setItemText(2, QCoreApplication.translate("MainWindow", u"General Scoreboard", None))
+        self.comboBox_boxOcrModel.setItemText(3, QCoreApplication.translate("MainWindow", u"General Fonts (English)", None))
+        self.comboBox_boxOcrModel.setItemText(4, QCoreApplication.translate("MainWindow", u"General Scoreboard Large", None))
+        self.comboBox_boxOcrModel.setItemText(5, QCoreApplication.translate("MainWindow", u"OpenCV Seven-Segment", None))
+        self.comboBox_boxOcrModel.setItemText(6, QCoreApplication.translate("MainWindow", u"PP-OCRv4 + TTA", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_boxOcrModel.setToolTip(QCoreApplication.translate("MainWindow", u"Choose an OCR reader for this box, or inherit the global OCR Model. Each selected reader stays loaded. The external model file is available through the global selection.", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_basketballPreset.setText(QCoreApplication.translate("MainWindow", u"Basketball", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_basketballPreset.setToolTip(QCoreApplication.translate("MainWindow", u"Apply basketball format and change-confirmation settings to the selected standard field (scores, Time, Shot Clock, Period, or fouls). Keeps the box position, reader, LED calibration, and output mapping.", None))
 #endif // QT_CONFIG(tooltip)
         self.groupBox_segmentSettings.setTitle(QCoreApplication.translate("MainWindow", u"LED reader calibration", None))
 #if QT_CONFIG(tooltip)

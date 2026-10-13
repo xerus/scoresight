@@ -46,6 +46,11 @@ Temporal score/countdown confirmation already exists; reuse it.
   committed separately in `261bc8c`, with a pixel-verifying re-extraction tool.
 - Those fixtures reproduce the PP-OCR/TTA accepted 7-to-1 error and rejected
   isolated foul 1 / score 11. No recognition accuracy improvement is claimed
-  for those cases; milestones 2–4 remain to do.
+  for those cases.
+- Milestone 3 complete: cached per-box readers with global inheritance,
+  isolated model-load failures and basketball settings for selected standard
+  fields. Mixed-reader/confirmation regression cases and offscreen UI checks
+  pass; full suite now has 88 passing tests. See [usage](basketball-settings.md).
+- Milestones 2 and 4 remain to do.
 - Existing local benchmarks cover mostly scores from one session. Synthetic
   regression tests verify behavior, not accuracy on unseen basketball footage.
