@@ -12,6 +12,34 @@ You can then open any browser and enter "http://localhost:18099/scoresight" as t
 
 All the scoreboard information will be delivered as JSON in http://localhost:18099/json . This can be used as API in any other software or even HTML pages.
 
+## JSON response formats
+
+`GET /json` returns a list of fields. Each entry contains `name`, `text`, `state`,
+and `rect` (`x`, `y`, `width`, `height`). It includes rejected readings and empty
+fields so clients can inspect their state. Text values remain strings: a score
+of zero is `"0"`, a confirmed blank is `""`, and a missing raw reading can be
+JSON `null`. A client should check `state` before publishing a reading.
+
+`GET /json?pivot` returns a map from field names to text. It includes `Success`
+and `SameNoChange` readings, plus `Empty` readings when **Skip Empty Values** is
+off. `FailedFilter` readings and skipped blanks are omitted. For example:
+
+```json
+{"Home Score": "0", "Away Score": "", "Time": "01:07"}
+```
+
+The presence of `pivot` enables this format, even with `?pivot=false`. With no
+results, the responses are `[]` and `{}` respectively. Duplicate names use the
+last accepted value in pivot output; use distinct box names to retain all fields.
+Each update replaces the previous batch, so clients must handle omitted fields
+explicitly rather than assuming that an earlier score is still current.
+
+The JSON endpoint accepts GET requests and browser CORS/preflight requests.
+It does not accept POST updates. Its regression tests cover both response formats,
+UTF-8 text and JSON escaping, output-state filtering, fresh batch replacement,
+and a real HTTP connection on an automatically allocated local port. CI runs
+these tests on Windows and Linux.
+
 If you want to create a more customized HTML scoreboard you are able to do so. Create a ".html" file anywhere on your disk and use the template example below to fetch data automatically from ScoreSight into the browser.
 
 Here is a simple HTML example that uses the JSON output:

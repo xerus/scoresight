@@ -18,11 +18,10 @@ class VMixUIHanlder:
         store_data("scoresight.json", settingName, value)
 
     def vmixConnectionChanged(self):
-        self.vmixUpdater = VMixAPI(
+        self.vmixUpdater.set_connection(
             self.ui.lineEdit_vmixHost.text(),
             self.ui.lineEdit_vmixPort.text(),
             self.ui.inputLineEdit_vmix.text(),
-            {},
         )
         self.globalSettingsChanged("vmix_host", self.ui.lineEdit_vmixHost.text())
         self.globalSettingsChanged("vmix_port", self.ui.lineEdit_vmixPort.text())
@@ -49,7 +48,7 @@ class VMixUIHanlder:
             fetch_data("scoresight.json", "vmix_host", "localhost")
         )
         self.ui.lineEdit_vmixPort.setText(
-            fetch_data("scoresight.json", "vmix_port", "8099")
+            fetch_data("scoresight.json", "vmix_port", "8088")
         )
         self.ui.inputLineEdit_vmix.setText(
             fetch_data("scoresight.json", "vmix_input", "1")
@@ -65,6 +64,11 @@ class VMixUIHanlder:
             self.ui.lineEdit_vmixPort.text(),
             self.ui.inputLineEdit_vmix.text(),
             {},
+        )
+        self.ui.tableView_vmixMapping.setToolTip(
+            "Enter the exact field name from the vMix Title Editor. "
+            "GT titles use a .Text suffix (for example HomeScore.Text). "
+            "Leave a field empty to disable output for that detection."
         )
         # add standard item model to the tableView_vmixMapping
         self.ui.tableView_vmixMapping.setModel(QStandardItemModel())
@@ -125,3 +129,5 @@ class VMixUIHanlder:
         self.ui.tableView_vmixMapping.model().dataChanged.connect(
             self.vmixMappingChanged
         )
+        # Apply the displayed defaults immediately, even before a cell is edited.
+        self.vmixMappingChanged(None)

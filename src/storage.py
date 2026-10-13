@@ -275,6 +275,9 @@ class TextDetectionTargetMemoryStorage(QObject):
                         ),
                         "format_regex": detectionTarget.settings.get("format_regex"),
                         "smoothing": detectionTarget.settings.get("smoothing"),
+                        "temporal_mode": detectionTarget.settings.get(
+                            "temporal_mode", 0
+                        ),
                         "skip_empty": detectionTarget.settings.get("skip_empty"),
                         "conf_thresh": detectionTarget.settings.get("conf_thresh"),
                         "cleanup_thresh": detectionTarget.settings.get(
