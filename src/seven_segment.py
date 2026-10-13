@@ -1,4 +1,4 @@
-"""Original ScoreSight OpenCV reader for two calibrated warm-LED digit cells.
+"""ScoreSight OpenCV reader for calibrated, equally spaced LED digit cells.
 
 Developed against the local four-image scoreboard dataset. No external code or
 weights. BGR uint8 input; returns (text, mask, segment details). Empty string means
@@ -33,8 +33,8 @@ PATTERNS = {
 }
 
 
-def threshold_led_colors(crop, brightness=140, saturation=90):
-    """Return a binary mask for bright, saturated red/yellow display LEDs."""
+def threshold_led_colors(crop, brightness=140, saturation=90, led_color=0):
+    """Mask warm (0), green (1), or all saturated (2) bright LEDs."""
     if (
         not isinstance(crop, np.ndarray)
         or crop.ndim != 3
@@ -44,15 +44,22 @@ def threshold_led_colors(crop, brightness=140, saturation=90):
         or crop.shape[1] < 1
     ):
         return None
+    if led_color not in (0, 1, 2):
+        return None
     hsv = cv2.cvtColor(crop, cv2.COLOR_BGR2HSV)
+    hue = hsv[:, :, 0]
+    if led_color == 0:
+        color_mask = (hue <= 35) | (hue >= 165)
+    elif led_color == 1:
+        color_mask = (hue > 35) & (hue <= 90)
+    else:
+        color_mask = np.ones(hue.shape, dtype=bool)
     return (
-        ((hsv[:, :, 0] <= 35) | (hsv[:, :, 0] >= 165))
-        & (hsv[:, :, 1] >= saturation)
-        & (hsv[:, :, 2] >= brightness)
+        color_mask & (hsv[:, :, 1] >= saturation) & (hsv[:, :, 2] >= brightness)
     ).astype(np.uint8) * 255
 
 
-def read_score(crop, brightness=140, occupancy=0.09):
+def read_score(crop, brightness=140, occupancy=0.09, digit_count=2, led_color=0):
     if (
         not isinstance(crop, np.ndarray)
         or crop.ndim != 3
@@ -60,11 +67,16 @@ def read_score(crop, brightness=140, occupancy=0.09):
         or crop.shape[0] < 12
         or crop.shape[1] < 16
         or crop.dtype != np.uint8
+        or type(digit_count) is not int
+        or digit_count not in (1, 2, 3)
+        or crop.shape[1] < 8 * digit_count
     ):
         return None, None, []
-    mask = threshold_led_colors(crop, brightness=brightness)
+    mask = threshold_led_colors(crop, brightness=brightness, led_color=led_color)
+    if mask is None:
+        return None, None, []
     digits, details = [], []
-    for cell in np.array_split(mask, 2, axis=1):
+    for cell in np.array_split(mask, digit_count, axis=1):
         h, w = cell.shape
         densities = [
             float(
@@ -77,8 +89,12 @@ def read_score(crop, brightness=140, occupancy=0.09):
         value = "" if np.count_nonzero(cell) < 3 else PATTERNS.get(pattern)
         digits.append(value)
         details.append({"pattern": pattern, "densities": densities, "value": value})
-    # A lit tens digit followed by a blank units cell is ambiguous, not a number.
-    result = (
-        None if None in digits or (digits[0] and not digits[1]) else "".join(digits)
-    )
+    # Leading unlit cells are allowed. Once digits begin, every cell must be lit.
+    result = "".join(value or "" for value in digits)
+    seen_digit = False
+    for value in digits:
+        if value is None or (seen_digit and value == ""):
+            result = None
+            break
+        seen_digit = seen_digit or bool(value)
     return result, mask, details

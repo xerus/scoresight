@@ -278,6 +278,11 @@ class TextDetectionTargetMemoryStorage(QObject):
                         "temporal_mode": detectionTarget.settings.get(
                             "temporal_mode", 0
                         ),
+                        "segment_digits": detectionTarget.settings["segment_digits"],
+                        "segment_color": detectionTarget.settings["segment_color"],
+                        "segment_brightness": detectionTarget.settings[
+                            "segment_brightness"
+                        ],
                         "skip_empty": detectionTarget.settings.get("skip_empty"),
                         "conf_thresh": detectionTarget.settings.get("conf_thresh"),
                         "cleanup_thresh": detectionTarget.settings.get(

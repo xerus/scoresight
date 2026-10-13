@@ -175,6 +175,24 @@ def normalize_settings_dict(settings, box_info):
         "type": (settings["type"] if "type" in settings else box_info["type"]),
         "smoothing": (settings["smoothing"] if "smoothing" in settings else False),
         "temporal_mode": temporal_mode,
+        "segment_digits": (
+            settings.get("segment_digits", 2)
+            if type(settings.get("segment_digits", 2)) is int
+            and settings.get("segment_digits", 2) in (1, 2, 3)
+            else 2
+        ),
+        "segment_color": (
+            settings.get("segment_color", 0)
+            if type(settings.get("segment_color", 0)) is int
+            and settings.get("segment_color", 0) in (0, 1, 2)
+            else 0
+        ),
+        "segment_brightness": (
+            settings.get("segment_brightness", 140)
+            if type(settings.get("segment_brightness", 140)) is int
+            and 1 <= settings.get("segment_brightness", 140) <= 255
+            else 140
+        ),
         "skip_empty": (settings["skip_empty"] if "skip_empty" in settings else True),
         "conf_thresh": (settings["conf_thresh"] if "conf_thresh" in settings else 0.5),
         "cleanup_thresh": (
