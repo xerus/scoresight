@@ -1,0 +1,2167 @@
+{
+  "platform": "Linux-7.2.9-201.fc44.x86_64-x86_64-with-glibc2.43",
+  "python": "3.11.16",
+  "onnxruntime": "1.31.0",
+  "opencv": "4.10.0",
+  "numpy": "1.26.4",
+  "model_sha256": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318",
+  "manifest_sha256": "c7d3863563978ae412e62c0bc00259f8ee300134544b61314614a6b14835c887",
+  "repeats": 3,
+  "reversed_order": false,
+  "timings": "Warmed full recognize calls; video decoding and model loading excluded",
+  "configurations": [
+    {
+      "minimum_width": 320,
+      "threads": 1,
+      "correct": 34,
+      "native_correct": 31,
+      "fallbacks": 11,
+      "mean_ms": 39.06237680393374,
+      "median_ms": 19.545210499927634,
+      "p95_ms": 93.11124040008272,
+      "readings": [
+        {
+          "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+          "frame": 18,
+          "field": "home",
+          "expected": "0",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip01_1.png",
+          "native_text": "0",
+          "native_confidence": 0.60857,
+          "text": "0",
+          "confidence": 0.5385233333333334,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.60857
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.51021
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.62965
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.47571
+            }
+          ],
+          "median_ms": 74.33011299985992
+        },
+        {
+          "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+          "frame": 18,
+          "field": "away",
+          "expected": "0",
+          "roi": [
+            430,
+            430,
+            105,
+            90
+          ],
+          "image": "clip01_1.png",
+          "native_text": "0",
+          "native_confidence": 0.44863,
+          "text": "0",
+          "confidence": 0.54291,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.44863
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.39864
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.59162
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.63847
+            }
+          ],
+          "median_ms": 73.7584670000615
+        },
+        {
+          "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+          "frame": 196,
+          "field": "home",
+          "expected": "0",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip02_1.png",
+          "native_text": "0",
+          "native_confidence": 0.65305,
+          "text": "0",
+          "confidence": 0.5512033333333334,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.65305
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.50189
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.61875
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.53297
+            }
+          ],
+          "median_ms": 75.65464699996483
+        },
+        {
+          "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+          "frame": 196,
+          "field": "away",
+          "expected": "0",
+          "roi": [
+            430,
+            430,
+            105,
+            90
+          ],
+          "image": "clip02_1.png",
+          "native_text": "0",
+          "native_confidence": 0.57154,
+          "text": "0",
+          "confidence": 0.58472,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.57154
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.47214
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.65611
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.62591
+            }
+          ],
+          "median_ms": 103.88413099985883
+        },
+        {
+          "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+          "frame": 4500,
+          "field": "home",
+          "expected": "7",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip03_1.png",
+          "native_text": "1",
+          "native_confidence": 0.62315,
+          "text": "7",
+          "confidence": 0.71503,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "1",
+              "confidence": 0.62315
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "1",
+              "confidence": 0.52306
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "7",
+              "confidence": 0.82665
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "7",
+              "confidence": 0.60341
+            }
+          ],
+          "median_ms": 80.03175699991516
+        },
+        {
+          "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+          "frame": 4500,
+          "field": "away",
+          "expected": "10",
+          "roi": [
+            425,
+            430,
+            110,
+            90
+          ],
+          "image": "clip03_1.png",
+          "native_text": "10",
+          "native_confidence": 0.67393,
+          "text": "10",
+          "confidence": 0.7886133333333333,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "10",
+              "confidence": 0.67393
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "10",
+              "confidence": 0.6959
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "10",
+              "confidence": 0.90323
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "10",
+              "confidence": 0.76671
+            }
+          ],
+          "median_ms": 68.25617399999828
+        },
+        {
+          "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+          "frame": 1021,
+          "field": "home",
+          "expected": "24",
+          "roi": [
+            395,
+            450,
+            105,
+            85
+          ],
+          "image": "clip04_1.png",
+          "native_text": "24",
+          "native_confidence": 0.99833,
+          "text": "24",
+          "confidence": 0.99833,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "24",
+              "confidence": 0.99833
+            }
+          ],
+          "median_ms": 17.61447500007307
+        },
+        {
+          "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+          "frame": 1021,
+          "field": "away",
+          "expected": "30",
+          "roi": [
+            665,
+            435,
+            100,
+            85
+          ],
+          "image": "clip04_1.png",
+          "native_text": "30",
+          "native_confidence": 0.96579,
+          "text": "30",
+          "confidence": 0.96579,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "30",
+              "confidence": 0.96579
+            }
+          ],
+          "median_ms": 17.66726400001062
+        },
+        {
+          "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+          "frame": 565,
+          "field": "home",
+          "expected": "24",
+          "roi": [
+            35,
+            445,
+            110,
+            85
+          ],
+          "image": "clip05_1.png",
+          "native_text": "24",
+          "native_confidence": 0.99794,
+          "text": "24",
+          "confidence": 0.99794,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "24",
+              "confidence": 0.99794
+            }
+          ],
+          "median_ms": 17.75633200008997
+        },
+        {
+          "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+          "frame": 565,
+          "field": "away",
+          "expected": "32",
+          "roi": [
+            320,
+            430,
+            95,
+            85
+          ],
+          "image": "clip05_1.png",
+          "native_text": "32",
+          "native_confidence": 0.99484,
+          "text": "32",
+          "confidence": 0.99484,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "32",
+              "confidence": 0.99484
+            }
+          ],
+          "median_ms": 18.221107000044867
+        },
+        {
+          "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+          "frame": 1311,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            120,
+            445,
+            115,
+            85
+          ],
+          "image": "clip06_1.png",
+          "native_text": "27",
+          "native_confidence": 0.92581,
+          "text": "27",
+          "confidence": 0.92581,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.92581
+            }
+          ],
+          "median_ms": 17.108512000049814
+        },
+        {
+          "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+          "frame": 1311,
+          "field": "away",
+          "expected": "34",
+          "roi": [
+            395,
+            430,
+            110,
+            90
+          ],
+          "image": "clip06_1.png",
+          "native_text": "34",
+          "native_confidence": 0.98715,
+          "text": "34",
+          "confidence": 0.98715,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.98715
+            }
+          ],
+          "median_ms": 17.986345000053916
+        },
+        {
+          "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+          "frame": 1772,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            120,
+            445,
+            115,
+            85
+          ],
+          "image": "clip07_1.png",
+          "native_text": "27",
+          "native_confidence": 0.9269,
+          "text": "27",
+          "confidence": 0.9269,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.9269
+            }
+          ],
+          "median_ms": 18.653370999800245
+        },
+        {
+          "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+          "frame": 1772,
+          "field": "away",
+          "expected": "37",
+          "roi": [
+            395,
+            430,
+            110,
+            90
+          ],
+          "image": "clip07_1.png",
+          "native_text": "31",
+          "native_confidence": 0.73777,
+          "text": "37",
+          "confidence": 0.9061333333333333,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "31",
+              "confidence": 0.73777
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "37",
+              "confidence": 0.7899
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.97494
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.95356
+            }
+          ],
+          "median_ms": 83.65476700009822
+        },
+        {
+          "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+          "frame": 2326,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip08_1.png",
+          "native_text": "27",
+          "native_confidence": 0.77578,
+          "text": "27",
+          "confidence": 0.9418000000000001,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.77578
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "27",
+              "confidence": 0.87136
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "27",
+              "confidence": 0.99597
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "27",
+              "confidence": 0.95807
+            }
+          ],
+          "median_ms": 85.67332699999497
+        },
+        {
+          "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+          "frame": 2326,
+          "field": "away",
+          "expected": "38",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip08_1.png",
+          "native_text": "38",
+          "native_confidence": 0.88775,
+          "text": "38",
+          "confidence": 0.88775,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "38",
+              "confidence": 0.88775
+            }
+          ],
+          "median_ms": 18.375819000084448
+        },
+        {
+          "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+          "frame": 1081,
+          "field": "home",
+          "expected": "31",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip10_1.png",
+          "native_text": "31",
+          "native_confidence": 0.96789,
+          "text": "31",
+          "confidence": 0.96789,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "31",
+              "confidence": 0.96789
+            }
+          ],
+          "median_ms": 20.998255999984394
+        },
+        {
+          "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+          "frame": 1081,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip10_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99622,
+          "text": "42",
+          "confidence": 0.99622,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99622
+            }
+          ],
+          "median_ms": 23.358430000143926
+        },
+        {
+          "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+          "frame": 580,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip12_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99462,
+          "text": "34",
+          "confidence": 0.99462,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99462
+            }
+          ],
+          "median_ms": 23.617668000042613
+        },
+        {
+          "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+          "frame": 580,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip12_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99671,
+          "text": "42",
+          "confidence": 0.99671,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99671
+            }
+          ],
+          "median_ms": 19.467022000071665
+        },
+        {
+          "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+          "frame": 174,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip13_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99604,
+          "text": "34",
+          "confidence": 0.99604,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99604
+            }
+          ],
+          "median_ms": 17.486714999904507
+        },
+        {
+          "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+          "frame": 174,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip13_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99651,
+          "text": "42",
+          "confidence": 0.99651,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99651
+            }
+          ],
+          "median_ms": 17.76609000012286
+        },
+        {
+          "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+          "frame": 445,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip14_1.png",
+          "native_text": "34",
+          "native_confidence": 0.9963,
+          "text": "34",
+          "confidence": 0.9963,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.9963
+            }
+          ],
+          "median_ms": 17.046484999809763
+        },
+        {
+          "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+          "frame": 445,
+          "field": "away",
+          "expected": "43",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip14_1.png",
+          "native_text": "43",
+          "native_confidence": 0.98552,
+          "text": "43",
+          "confidence": 0.98552,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "43",
+              "confidence": 0.98552
+            }
+          ],
+          "median_ms": 18.500864000088768
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+          "frame": 323,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip15_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99593,
+          "text": "34",
+          "confidence": 0.99593,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99593
+            }
+          ],
+          "median_ms": 19.913324000071952
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+          "frame": 323,
+          "field": "away",
+          "expected": "43",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip15_1.png",
+          "native_text": "43",
+          "native_confidence": 0.99152,
+          "text": "43",
+          "confidence": 0.99152,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "43",
+              "confidence": 0.99152
+            }
+          ],
+          "median_ms": 18.56573500003833
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+          "frame": 284,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip16_1.png",
+          "native_text": "34",
+          "native_confidence": 0.9962,
+          "text": "34",
+          "confidence": 0.9962,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.9962
+            }
+          ],
+          "median_ms": 18.31928199999311
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+          "frame": 284,
+          "field": "away",
+          "expected": "46",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip16_1.png",
+          "native_text": "46",
+          "native_confidence": 0.99208,
+          "text": "46",
+          "confidence": 0.99208,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "46",
+              "confidence": 0.99208
+            }
+          ],
+          "median_ms": 19.46493900004498
+        },
+        {
+          "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+          "frame": 358,
+          "field": "home",
+          "expected": "37",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip17_1.png",
+          "native_text": "37",
+          "native_confidence": 0.8311,
+          "text": "37",
+          "confidence": 0.89335,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "37",
+              "confidence": 0.8311
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "37",
+              "confidence": 0.78566
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.97966
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.91473
+            }
+          ],
+          "median_ms": 82.65905200005363
+        },
+        {
+          "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+          "frame": 358,
+          "field": "away",
+          "expected": "46",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip17_1.png",
+          "native_text": "46",
+          "native_confidence": 0.98952,
+          "text": "46",
+          "confidence": 0.98952,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "46",
+              "confidence": 0.98952
+            }
+          ],
+          "median_ms": 18.142899999929796
+        },
+        {
+          "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+          "frame": 3992,
+          "field": "home",
+          "expected": "37",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip18_1.png",
+          "native_text": "37",
+          "native_confidence": 0.81816,
+          "text": "37",
+          "confidence": 0.90489,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "37",
+              "confidence": 0.81816
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "37",
+              "confidence": 0.80275
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.9798
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.93212
+            }
+          ],
+          "median_ms": 75.21065800006
+        },
+        {
+          "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+          "frame": 3992,
+          "field": "away",
+          "expected": "50",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip18_1.png",
+          "native_text": "5O",
+          "native_confidence": 0.61047,
+          "text": "50",
+          "confidence": 0.783945,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "5O",
+              "confidence": 0.61047
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "50",
+              "confidence": 0.77155
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "5O",
+              "confidence": 0.6779
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "50",
+              "confidence": 0.79634
+            }
+          ],
+          "median_ms": 72.96182400000362
+        },
+        {
+          "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+          "frame": 167,
+          "field": "home",
+          "expected": "96",
+          "roi": [
+            185,
+            455,
+            105,
+            90
+          ],
+          "image": "clip19_1.png",
+          "native_text": "96",
+          "native_confidence": 0.99404,
+          "text": "96",
+          "confidence": 0.99404,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "96",
+              "confidence": 0.99404
+            }
+          ],
+          "median_ms": 19.504633999986254
+        },
+        {
+          "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+          "frame": 167,
+          "field": "away",
+          "expected": "108",
+          "roi": [
+            445,
+            445,
+            110,
+            85
+          ],
+          "image": "clip19_1.png",
+          "native_text": "108",
+          "native_confidence": 0.85102,
+          "text": "108",
+          "confidence": 0.85102,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "108",
+              "confidence": 0.85102
+            }
+          ],
+          "median_ms": 23.93111800006409
+        }
+      ],
+      "acceptance_at_0_5": {
+        "accepted_correct": 34,
+        "accepted_wrong": 0,
+        "rejected": 0
+      }
+    },
+    {
+      "minimum_width": 128,
+      "threads": 1,
+      "correct": 34,
+      "native_correct": 33,
+      "fallbacks": 12,
+      "mean_ms": 17.31245876470332,
+      "median_ms": 9.00714900001276,
+      "p95_ms": 35.8990775501411,
+      "readings": [
+        {
+          "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+          "frame": 18,
+          "field": "home",
+          "expected": "0",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip01_1.png",
+          "native_text": "0",
+          "native_confidence": 0.77314,
+          "text": "0",
+          "confidence": 0.72777,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.77314
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.70563
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.7897
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.68798
+            }
+          ],
+          "median_ms": 30.84670900011588
+        },
+        {
+          "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+          "frame": 18,
+          "field": "away",
+          "expected": "0",
+          "roi": [
+            430,
+            430,
+            105,
+            90
+          ],
+          "image": "clip01_1.png",
+          "native_text": "0",
+          "native_confidence": 0.56878,
+          "text": "0",
+          "confidence": 0.6813933333333333,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.56878
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.56385
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.70648
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.77385
+            }
+          ],
+          "median_ms": 31.182371000113562
+        },
+        {
+          "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+          "frame": 196,
+          "field": "home",
+          "expected": "0",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip02_1.png",
+          "native_text": "0",
+          "native_confidence": 0.77977,
+          "text": "0",
+          "confidence": 0.6924266666666666,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.77977
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.67702
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.71983
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.68043
+            }
+          ],
+          "median_ms": 30.90470799998002
+        },
+        {
+          "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+          "frame": 196,
+          "field": "away",
+          "expected": "0",
+          "roi": [
+            430,
+            430,
+            105,
+            90
+          ],
+          "image": "clip02_1.png",
+          "native_text": "0",
+          "native_confidence": 0.63084,
+          "text": "0",
+          "confidence": 0.7035833333333333,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "0",
+              "confidence": 0.63084
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "0",
+              "confidence": 0.60526
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "0",
+              "confidence": 0.73636
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "0",
+              "confidence": 0.76913
+            }
+          ],
+          "median_ms": 32.10800300007577
+        },
+        {
+          "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+          "frame": 4500,
+          "field": "home",
+          "expected": "7",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "image": "clip03_1.png",
+          "native_text": "7",
+          "native_confidence": 0.68866,
+          "text": "7",
+          "confidence": 0.6867800000000001,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "7",
+              "confidence": 0.68866
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "7",
+              "confidence": 0.4752
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "7",
+              "confidence": 0.96478
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "7",
+              "confidence": 0.62036
+            }
+          ],
+          "median_ms": 29.40284999999676
+        },
+        {
+          "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+          "frame": 4500,
+          "field": "away",
+          "expected": "10",
+          "roi": [
+            425,
+            430,
+            110,
+            90
+          ],
+          "image": "clip03_1.png",
+          "native_text": "10",
+          "native_confidence": 0.51645,
+          "text": "10",
+          "confidence": 0.7384066666666667,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "10",
+              "confidence": 0.51645
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "10",
+              "confidence": 0.68889
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "10",
+              "confidence": 0.69839
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "10",
+              "confidence": 0.82794
+            }
+          ],
+          "median_ms": 29.575796000017363
+        },
+        {
+          "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+          "frame": 1021,
+          "field": "home",
+          "expected": "24",
+          "roi": [
+            395,
+            450,
+            105,
+            85
+          ],
+          "image": "clip04_1.png",
+          "native_text": "24",
+          "native_confidence": 0.99827,
+          "text": "24",
+          "confidence": 0.99827,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "24",
+              "confidence": 0.99827
+            }
+          ],
+          "median_ms": 7.795066999960909
+        },
+        {
+          "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+          "frame": 1021,
+          "field": "away",
+          "expected": "30",
+          "roi": [
+            665,
+            435,
+            100,
+            85
+          ],
+          "image": "clip04_1.png",
+          "native_text": "30",
+          "native_confidence": 0.9643,
+          "text": "30",
+          "confidence": 0.9643,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "30",
+              "confidence": 0.9643
+            }
+          ],
+          "median_ms": 8.066328000040812
+        },
+        {
+          "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+          "frame": 565,
+          "field": "home",
+          "expected": "24",
+          "roi": [
+            35,
+            445,
+            110,
+            85
+          ],
+          "image": "clip05_1.png",
+          "native_text": "24",
+          "native_confidence": 0.99848,
+          "text": "24",
+          "confidence": 0.99848,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "24",
+              "confidence": 0.99848
+            }
+          ],
+          "median_ms": 8.20899600012126
+        },
+        {
+          "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+          "frame": 565,
+          "field": "away",
+          "expected": "32",
+          "roi": [
+            320,
+            430,
+            95,
+            85
+          ],
+          "image": "clip05_1.png",
+          "native_text": "32",
+          "native_confidence": 0.99769,
+          "text": "32",
+          "confidence": 0.99769,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "32",
+              "confidence": 0.99769
+            }
+          ],
+          "median_ms": 8.54090100006033
+        },
+        {
+          "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+          "frame": 1311,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            120,
+            445,
+            115,
+            85
+          ],
+          "image": "clip06_1.png",
+          "native_text": "27",
+          "native_confidence": 0.94974,
+          "text": "27",
+          "confidence": 0.94974,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.94974
+            }
+          ],
+          "median_ms": 8.816019000050801
+        },
+        {
+          "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+          "frame": 1311,
+          "field": "away",
+          "expected": "34",
+          "roi": [
+            395,
+            430,
+            110,
+            90
+          ],
+          "image": "clip06_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99191,
+          "text": "34",
+          "confidence": 0.99191,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99191
+            }
+          ],
+          "median_ms": 8.464607999940199
+        },
+        {
+          "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+          "frame": 1772,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            120,
+            445,
+            115,
+            85
+          ],
+          "image": "clip07_1.png",
+          "native_text": "27",
+          "native_confidence": 0.92407,
+          "text": "27",
+          "confidence": 0.92407,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.92407
+            }
+          ],
+          "median_ms": 8.699700000079247
+        },
+        {
+          "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+          "frame": 1772,
+          "field": "away",
+          "expected": "37",
+          "roi": [
+            395,
+            430,
+            110,
+            90
+          ],
+          "image": "clip07_1.png",
+          "native_text": "37",
+          "native_confidence": 0.79181,
+          "text": "37",
+          "confidence": 0.93331,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "37",
+              "confidence": 0.79181
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "37",
+              "confidence": 0.85526
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.98177
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.9629
+            }
+          ],
+          "median_ms": 34.790524000072764
+        },
+        {
+          "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+          "frame": 2326,
+          "field": "home",
+          "expected": "27",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip08_1.png",
+          "native_text": "27",
+          "native_confidence": 0.89407,
+          "text": "27",
+          "confidence": 0.89407,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "27",
+              "confidence": 0.89407
+            }
+          ],
+          "median_ms": 9.341237999933583
+        },
+        {
+          "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+          "frame": 2326,
+          "field": "away",
+          "expected": "38",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip08_1.png",
+          "native_text": "38",
+          "native_confidence": 0.81883,
+          "text": "38",
+          "confidence": 0.94665,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "38",
+              "confidence": 0.81883
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "38",
+              "confidence": 0.94537
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "38",
+              "confidence": 0.94793
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "39",
+              "confidence": 0.70975
+            }
+          ],
+          "median_ms": 35.80363200012471
+        },
+        {
+          "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+          "frame": 1081,
+          "field": "home",
+          "expected": "31",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip10_1.png",
+          "native_text": "31",
+          "native_confidence": 0.89096,
+          "text": "31",
+          "confidence": 0.89096,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "31",
+              "confidence": 0.89096
+            }
+          ],
+          "median_ms": 8.512307000046349
+        },
+        {
+          "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+          "frame": 1081,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip10_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99646,
+          "text": "42",
+          "confidence": 0.99646,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99646
+            }
+          ],
+          "median_ms": 8.257156000126997
+        },
+        {
+          "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+          "frame": 580,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip12_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99496,
+          "text": "34",
+          "confidence": 0.99496,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99496
+            }
+          ],
+          "median_ms": 8.880911000005653
+        },
+        {
+          "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+          "frame": 580,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip12_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99708,
+          "text": "42",
+          "confidence": 0.99708,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99708
+            }
+          ],
+          "median_ms": 8.73523599989312
+        },
+        {
+          "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+          "frame": 174,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip13_1.png",
+          "native_text": "34",
+          "native_confidence": 0.98783,
+          "text": "34",
+          "confidence": 0.98783,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.98783
+            }
+          ],
+          "median_ms": 8.53258500001175
+        },
+        {
+          "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+          "frame": 174,
+          "field": "away",
+          "expected": "42",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip13_1.png",
+          "native_text": "42",
+          "native_confidence": 0.99663,
+          "text": "42",
+          "confidence": 0.99663,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "42",
+              "confidence": 0.99663
+            }
+          ],
+          "median_ms": 8.788767999931224
+        },
+        {
+          "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+          "frame": 445,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip14_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99527,
+          "text": "34",
+          "confidence": 0.99527,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99527
+            }
+          ],
+          "median_ms": 8.80349500016564
+        },
+        {
+          "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+          "frame": 445,
+          "field": "away",
+          "expected": "43",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip14_1.png",
+          "native_text": "43",
+          "native_confidence": 0.98267,
+          "text": "43",
+          "confidence": 0.98267,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "43",
+              "confidence": 0.98267
+            }
+          ],
+          "median_ms": 9.051010999883147
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+          "frame": 323,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip15_1.png",
+          "native_text": "34",
+          "native_confidence": 0.9955,
+          "text": "34",
+          "confidence": 0.9955,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.9955
+            }
+          ],
+          "median_ms": 9.170988000050784
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+          "frame": 323,
+          "field": "away",
+          "expected": "43",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip15_1.png",
+          "native_text": "43",
+          "native_confidence": 0.99132,
+          "text": "43",
+          "confidence": 0.99132,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "43",
+              "confidence": 0.99132
+            }
+          ],
+          "median_ms": 9.44093599991902
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+          "frame": 284,
+          "field": "home",
+          "expected": "34",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip16_1.png",
+          "native_text": "34",
+          "native_confidence": 0.99636,
+          "text": "34",
+          "confidence": 0.99636,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "34",
+              "confidence": 0.99636
+            }
+          ],
+          "median_ms": 8.870972999829974
+        },
+        {
+          "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+          "frame": 284,
+          "field": "away",
+          "expected": "46",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip16_1.png",
+          "native_text": "46",
+          "native_confidence": 0.99747,
+          "text": "46",
+          "confidence": 0.99747,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "46",
+              "confidence": 0.99747
+            }
+          ],
+          "median_ms": 8.751196999810418
+        },
+        {
+          "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+          "frame": 358,
+          "field": "home",
+          "expected": "37",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip17_1.png",
+          "native_text": "37",
+          "native_confidence": 0.80174,
+          "text": "37",
+          "confidence": 0.9357500000000001,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "37",
+              "confidence": 0.80174
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "31",
+              "confidence": 0.78089
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.97089
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.90061
+            }
+          ],
+          "median_ms": 35.39800799990189
+        },
+        {
+          "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+          "frame": 358,
+          "field": "away",
+          "expected": "46",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip17_1.png",
+          "native_text": "46",
+          "native_confidence": 0.99434,
+          "text": "46",
+          "confidence": 0.99434,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "46",
+              "confidence": 0.99434
+            }
+          ],
+          "median_ms": 8.224344999916866
+        },
+        {
+          "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+          "frame": 3992,
+          "field": "home",
+          "expected": "37",
+          "roi": [
+            150,
+            445,
+            115,
+            90
+          ],
+          "image": "clip18_1.png",
+          "native_text": "37",
+          "native_confidence": 0.75403,
+          "text": "37",
+          "confidence": 0.8853533333333333,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "37",
+              "confidence": 0.75403
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "37",
+              "confidence": 0.75753
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "37",
+              "confidence": 0.98678
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "37",
+              "confidence": 0.91175
+            }
+          ],
+          "median_ms": 35.020808000126635
+        },
+        {
+          "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+          "frame": 3992,
+          "field": "away",
+          "expected": "50",
+          "roi": [
+            420,
+            430,
+            115,
+            95
+          ],
+          "image": "clip18_1.png",
+          "native_text": "5O",
+          "native_confidence": 0.50741,
+          "text": "50",
+          "confidence": 0.7040150000000001,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "5O",
+              "confidence": 0.50741
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "50",
+              "confidence": 0.63207
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "5O",
+              "confidence": 0.45264
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "50",
+              "confidence": 0.77596
+            }
+          ],
+          "median_ms": 35.904101000141964
+        },
+        {
+          "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+          "frame": 167,
+          "field": "home",
+          "expected": "96",
+          "roi": [
+            185,
+            455,
+            105,
+            90
+          ],
+          "image": "clip19_1.png",
+          "native_text": "96",
+          "native_confidence": 0.99743,
+          "text": "96",
+          "confidence": 0.99743,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "96",
+              "confidence": 0.99743
+            }
+          ],
+          "median_ms": 9.197967999853063
+        },
+        {
+          "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+          "frame": 167,
+          "field": "away",
+          "expected": "108",
+          "roi": [
+            445,
+            445,
+            110,
+            85
+          ],
+          "image": "clip19_1.png",
+          "native_text": "108",
+          "native_confidence": 0.78584,
+          "text": "108",
+          "confidence": 0.8276049999999999,
+          "correct": true,
+          "variants": [
+            {
+              "variant": "native",
+              "text": "108",
+              "confidence": 0.78584
+            },
+            {
+              "variant": "inverted_gray",
+              "text": "10B",
+              "confidence": 0.6081
+            },
+            {
+              "variant": "shear_-0.25",
+              "text": "108",
+              "confidence": 0.77987
+            },
+            {
+              "variant": "shear_0.25",
+              "text": "108",
+              "confidence": 0.87534
+            }
+          ],
+          "median_ms": 34.728787999938504
+        }
+      ],
+      "acceptance_at_0_5": {
+        "accepted_correct": 34,
+        "accepted_wrong": 0,
+        "rejected": 0
+      }
+    }
+  ],
+  "app_equivalence": {
+    "width": 128,
+    "matching_readings": 34,
+    "total_readings": 34,
+    "source_sha256": "cf0ca3c122f582e82308b3d0794a0e908d4f8b3569d96ef526c6d727f12c5881"
+  }
+}

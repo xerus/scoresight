@@ -3,6 +3,11 @@
 Exploration date: 2026-10-12. The app now offers **PP-OCRv4 + TTA (experimental)**
 in the OCR model dropdown. It bundles the model and uses CPU ONNX Runtime directly.
 
+Follow-up: numeric padding is now optimized to width 128 after checking 71
+additional crops. See [numeric validation](numeric-padding-validation.md) for
+current timings and the remaining accepted 7→1 error. Measurements below describe
+the original width-320 development trial.
+
 ## Recommendation
 
 Try an optional **English PP-OCRv4 mobile recognizer through CPU ONNX Runtime**,

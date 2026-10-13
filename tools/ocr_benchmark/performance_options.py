@@ -29,10 +29,10 @@ class ExperimentalOcr(DnnOcr):
         )
         self.minimum_width = minimum_width
 
-    def predict(self, crop):
+    def predict(self, crop, minimum_width=320):
         height, width = crop.shape[:2]
-        padded_width = max(self.minimum_width, int(48 * width / height))
-        resized_width = min(max(1, math.ceil(48 * width / height)), padded_width)
+        resized_width = max(1, math.ceil(48 * width / height))
+        padded_width = max(self.minimum_width, resized_width)
         image = cv2.resize(crop, (resized_width, 48)).astype(np.float32)
         image = image.transpose(2, 0, 1) / 127.5 - 1
         tensor = np.zeros((1, 3, 48, padded_width), dtype=np.float32)
@@ -54,11 +54,21 @@ def normalized(text):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--samples", type=Path, required=True)
+    source = parser.add_mutually_exclusive_group(required=True)
+    source.add_argument("--samples", type=Path)
+    source.add_argument("--videos", type=Path)
     parser.add_argument("--manifest", type=Path, required=True)
     parser.add_argument("--model", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--repeats", type=int, default=5)
+    parser.add_argument(
+        "--widths", type=int, nargs="+", help="Widths to compare on one CPU thread"
+    )
+    parser.add_argument(
+        "--verify-app-width",
+        type=int,
+        help="Verify app numeric readings match this experimental width",
+    )
     parser.add_argument(
         "--reverse", action="store_true", help="Reverse configuration order"
     )
@@ -67,8 +77,23 @@ def main():
         parser.error("--repeats must be positive")
     rows = json.loads(args.manifest.read_text())
     crops = []
+    decoded = {}
     for row in rows:
-        image = cv2.imread(str(args.samples / row["image"]))
+        if args.samples:
+            image = cv2.imread(str(args.samples / row["image"]))
+        else:
+            key = (row["video"], row["frame"])
+            if key not in decoded:
+                cap = cv2.VideoCapture(str(args.videos / row["video"]))
+                try:
+                    cap.set(cv2.CAP_PROP_POS_FRAMES, row["frame"])
+                    ok, image = cap.read()
+                    if not ok:
+                        raise ValueError(f"Cannot decode {key}")
+                    decoded[key] = image
+                finally:
+                    cap.release()
+            image = decoded[key]
         if image is None:
             raise ValueError(f"Missing image: {row['image']}")
         x, y, width, height = row["roi"]
@@ -85,6 +110,10 @@ def main():
         (128, 1),
         (320, 2),
     ]
+    if args.widths:
+        if min(args.widths) < 1:
+            parser.error("--widths must be positive")
+        configurations = [(width, 1) for width in args.widths]
     if args.reverse:
         configurations.reverse()
     for minimum_width, threads in configurations:
@@ -125,6 +154,19 @@ def main():
             "p95_ms": float(np.percentile(timings, 95)),
             "readings": readings,
         }
+        result["acceptance_at_0_5"] = {
+            "accepted_correct": sum(
+                r["correct"] and r["text"] is not None and r["confidence"] >= 0.5
+                for r in readings
+            ),
+            "accepted_wrong": sum(
+                not r["correct"] and r["text"] is not None and r["confidence"] >= 0.5
+                for r in readings
+            ),
+            "rejected": sum(
+                r["text"] is None or r["confidence"] < 0.5 for r in readings
+            ),
+        }
         results.append(result)
         print(
             json.dumps({k: v for k, v in result.items() if k != "readings"}), flush=True
@@ -142,6 +184,30 @@ def main():
         "timings": "Warmed full recognize calls; video decoding and model loading excluded",
         "configurations": results,
     }
+    if args.verify_app_width is not None:
+        configuration = next(
+            (r for r in results if r["minimum_width"] == args.verify_app_width), None
+        )
+        if configuration is None:
+            parser.error("--verify-app-width must be one of the measured widths")
+        engine = DnnOcr(str(args.model))
+        matches = []
+        for crop, reading in zip(crops, configuration["readings"]):
+            actual = engine.recognize(crop)
+            expected = (reading["text"], reading["confidence"], reading["variants"])
+            matches.append(actual == expected)
+        output["app_equivalence"] = {
+            "width": args.verify_app_width,
+            "matching_readings": sum(matches),
+            "total_readings": len(matches),
+            "source_sha256": hashlib.sha256(
+                (Path(__file__).resolve().parents[2] / "src/dnn_ocr.py").read_bytes()
+            ).hexdigest(),
+        }
+        if not all(matches):
+            raise ValueError(
+                f"App predictions do not match width {args.verify_app_width}"
+            )
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(output, indent=2) + "\n")
 
