@@ -1,5 +1,6 @@
 import enum
 from PySide6.QtCore import QRectF
+from temporal_values import TemporalValueFilter
 
 
 class OCRResultPerCharacterSmoother:
@@ -53,6 +54,7 @@ class TextDetectionTarget(QRectF):
         self.name = name
         self.settings = settings
         self.ocrResultPerCharacterSmoother = OCRResultPerCharacterSmoother()
+        self.temporal_filter = TemporalValueFilter()
         self.last_image = None
         self.last_text = None
         self.mini_rects: list[QRectF] = mini_rects

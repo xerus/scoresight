@@ -7,6 +7,7 @@ from threading import Lock
 import cv2
 import numpy as np
 import re
+import time
 
 from seven_segment import read_score, threshold_led_colors
 from resource_path import resource_path
@@ -116,6 +117,7 @@ class TextDetector:
             self.setOcrModel(self.OcrModelIndex.SCOREBOARD_GENERAL)
 
     def setOcrModel(self, ocrModelIndex: OcrModelIndex | int | str | None = None):
+        self.reset_temporal()
         if ocrModelIndex == self.OcrModelIndex.PPOCR_TTA:
             from dnn_ocr import DnnOcr
 
@@ -307,7 +309,55 @@ class TextDetector:
             result.state = states.Success
         return results
 
-    def detect_multi_text(
+    def reset_temporal(self):
+        self._temporal_token = object()
+
+    def detect_multi_text(self, binary, gray, rects, color=None, observation_time=None):
+        readings = self._detect_multi_text(binary, gray, rects, color=color)
+        timestamp = time.monotonic() if observation_time is None else observation_time
+        states = TextDetectionTargetWithResult.ResultState
+        for rect, result in zip(rects, readings):
+            if rect is None:
+                continue
+            settings = rect.settings or {}
+            mode = settings.get("temporal_mode", 0)
+            if not mode or settings.get("templatefield"):
+                if hasattr(rect, "temporal_filter"):
+                    rect.temporal_filter.clear()
+                continue
+            if not hasattr(rect, "temporal_filter"):
+                from temporal_values import TemporalValueFilter
+
+                rect.temporal_filter = TemporalValueFilter()
+            if hasattr(rect, "ocrResultPerCharacterSmoother"):
+                rect.ocrResultPerCharacterSmoother.clear()
+            context = (
+                getattr(self, "_temporal_token", id(self)),
+                self.ocr_model_index,
+                rect.x(),
+                rect.y(),
+                rect.width(),
+                rect.height(),
+                tuple(
+                    sorted(
+                        (key, repr(value))
+                        for key, value in settings.items()
+                        if key != "median_wh_ratio"
+                    )
+                ),
+            )
+            valid = result.state in (states.Success, states.Empty)
+            if result.state == states.Empty and settings.get("skip_empty", False):
+                valid = False
+            accepted, details = rect.temporal_filter.observe(
+                result.text if valid else None, timestamp, mode, context
+            )
+            result.extra = dict(result.extra or {}, temporal=details)
+            if valid and not accepted:
+                result.state = states.FailedFilter
+        return readings
+
+    def _detect_multi_text(
         self, binary, gray, rects: list[TextDetectionTarget], color=None
     ) -> list[TextDetectionResult]:
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
@@ -581,6 +631,7 @@ class TextDetector:
                 rect.settings is not None
                 and "skip_similar_image" in rect.settings
                 and rect.settings["skip_similar_image"]
+                and not rect.settings.get("temporal_mode", 0)
             ):
                 # compare the image with the last image
                 if (
@@ -800,7 +851,9 @@ class TextDetector:
                             TextDetectionTargetWithResult.ResultState.FailedFilter
                         )
                 if "smoothing" in rect.settings:
-                    if rect.settings["smoothing"]:
+                    if rect.settings["smoothing"] and not rect.settings.get(
+                        "temporal_mode", 0
+                    ):
                         smoother = rect.ocrResultPerCharacterSmoother
                         if (
                             textstate
@@ -822,11 +875,10 @@ class TextDetector:
                         else:
                             smoother.clear()
                 if "remove_leading_zeros" in rect.settings:
-                    if rect.settings["remove_leading_zeros"]:
-                        # remove leading zeros
-                        text = text.lstrip("0")
-                        if text == "":
-                            text = "0"
+                    if rect.settings["remove_leading_zeros"] and re.fullmatch(
+                        r"[0-9]+", text
+                    ):
+                        text = text.lstrip("0") or "0"
                 if "ordinal_indicator" in rect.settings:
                     if rect.settings["ordinal_indicator"]:
                         # add ordinal indicator
