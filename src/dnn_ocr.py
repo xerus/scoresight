@@ -25,12 +25,11 @@ class DnnOcr:
         self.characters = [""] + characters.splitlines() + [" "]
         self.input_name = self.session.get_inputs()[0].name
 
-    def predict(self, crop):
+    def predict(self, crop, minimum_width=320):
         """Preserve aspect ratio, normalize BGR, then greedily decode CTC."""
         height, width = crop.shape[:2]
         resized_width = max(1, math.ceil(48 * width / height))
-        padded_width = max(320, int(48 * width / height))
-        resized_width = min(resized_width, padded_width)
+        padded_width = max(minimum_width, resized_width)
         image = cv2.resize(crop, (resized_width, 48)).astype(np.float32)
         image = image.transpose(2, 0, 1) / 127.5 - 1
         tensor = np.zeros((1, 3, 48, padded_width), dtype=np.float32)
@@ -54,7 +53,11 @@ class DnnOcr:
         return bool(text.strip())
 
     def recognize(self, crop, field_type=FieldType.NUMBER):
-        text, confidence = self.predict(crop)
+        # Short numeric fields need less right padding. Keep the original
+        # convention for clocks/text and choose per call rather than mutating
+        # shared model state while processing different fields.
+        minimum_width = 128 if field_type == FieldType.NUMBER else 320
+        text, confidence = self.predict(crop, minimum_width=minimum_width)
         readings = [{"variant": "native", "text": text, "confidence": confidence}]
         if confidence >= 0.85 and self.valid_text(text, field_type):
             return text, confidence, readings
@@ -68,7 +71,7 @@ class DnnOcr:
             )
             alternatives.append((f"shear_{shear}", image))
         for name, image in alternatives:
-            value, score = self.predict(image)
+            value, score = self.predict(image, minimum_width=minimum_width)
             readings.append({"variant": name, "text": value, "confidence": score})
         votes = Counter(
             r["text"] for r in readings[1:] if self.valid_text(r["text"], field_type)

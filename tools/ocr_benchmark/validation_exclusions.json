@@ -1,0 +1,74 @@
+[
+  {
+    "video": "Recording from 2026-09-26 18-40-26.985859.mp4",
+    "frame": 64,
+    "field": "home",
+    "image": "clip09_0.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-40-26.985859.mp4",
+    "frame": 64,
+    "field": "away",
+    "image": "clip09_0.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-40-26.985859.mp4",
+    "frame": 579,
+    "field": "home",
+    "image": "clip09_2.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-40-26.985859.mp4",
+    "frame": 579,
+    "field": "away",
+    "image": "clip09_2.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-44-35.024232.mp4",
+    "frame": 202,
+    "field": "home",
+    "image": "clip11_0.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-44-35.024232.mp4",
+    "frame": 202,
+    "field": "away",
+    "image": "clip11_0.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-44-35.024232.mp4",
+    "frame": 1819,
+    "field": "home",
+    "image": "clip11_2.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  },
+  {
+    "video": "Recording from 2026-09-26 18-44-35.024232.mp4",
+    "frame": 1819,
+    "field": "away",
+    "image": "clip11_2.png",
+    "expected": null,
+    "status": "excluded",
+    "reason": "Strong glare obscures segment boundaries; numeric ground truth is uncertain in this individual frame"
+  }
+]

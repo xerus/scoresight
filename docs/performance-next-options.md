@@ -1,14 +1,15 @@
 # Next performance experiments
 
 Explored 2026-10-12 against the current PP-OCRv4 + selective TTA implementation.
-This investigation adds a benchmark and measurements; application behavior is
-unchanged. The first experiment to pursue is reducing recognition input padding
-for short numeric fields. For accuracy, collect independent transition and blank
+The initial investigation added a benchmark and measurements. The follow-up
+[numeric validation](numeric-padding-validation.md) checked 71 fresh crops from
+the supplied recordings; the app now uses width 128 for numeric fields and keeps
+width 320 for clocks/text. For accuracy, collect independent transition and blank
 examples before tuning another model or changing the TTA policy.
 
 ## Measured CPU options
 
-The current recognizer resizes each score to height 48 while preserving aspect
+The original recognizer resized each score to height 48 while preserving aspect
 ratio, then pads its input to at least width 320. Most tested score crops use only
 a small part of that width. The ONNX model exposes dynamic batch/width dimensions.
 The diagnostic runner changes only the minimum padding width or thread count,
@@ -23,7 +24,7 @@ Five calls per crop were measured after a warm-up, in the table's order.
 
 | Minimum width | CPU threads | Native correct | With TTA | Fallback fields | Mean ms | Median ms | p95 ms |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 320 (current) | 1 | 31/34 | 34/34 | 11/34 | 39.53 | 21.49 | 91.01 |
+| 320 (baseline) | 1 | 31/34 | 34/34 | 11/34 | 39.53 | 21.49 | 91.01 |
 | 256 | 1 | 32/34 | 34/34 | 11/34 | 34.62 | 19.37 | 76.82 |
 | 192 | 1 | 32/34 | 34/34 | 10/34 | 23.04 | 12.55 | 50.04 |
 | 160 | 1 | 33/34 | 34/34 | 10/34 | 19.02 | 10.71 | 42.64 |
