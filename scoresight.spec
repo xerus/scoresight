@@ -80,6 +80,7 @@ sources = [
     'src/template_fields.py',
     'src/tesseract.py',
     'src/text_detection_target.py',
+    'src/temporal_values.py',
     'src/training_dojo.py',
     'src/video_settings.py',
     'src/ui_about.py',

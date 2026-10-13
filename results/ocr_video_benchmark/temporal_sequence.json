@@ -1,0 +1,324 @@
+{
+  "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+  "roi": [
+    140,
+    445,
+    120,
+    90
+  ],
+  "expected": "7",
+  "mode": "number",
+  "confidence_threshold": 0.5,
+  "readings": [
+    {
+      "frame": 3480,
+      "raw": "1",
+      "confidence": 0.57114,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 2
+      }
+    },
+    {
+      "frame": 3486,
+      "raw": "7",
+      "confidence": 0.70737,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 2
+      }
+    },
+    {
+      "frame": 3492,
+      "raw": "1",
+      "confidence": 0.58293,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 2
+      }
+    },
+    {
+      "frame": 3498,
+      "raw": "1",
+      "confidence": 0.601245,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 2
+      }
+    },
+    {
+      "frame": 3504,
+      "raw": "7",
+      "confidence": 0.73899,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3510,
+      "raw": "7",
+      "confidence": 0.70827,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 2,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3516,
+      "raw": "1",
+      "confidence": 0.64063,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3522,
+      "raw": "7",
+      "confidence": 0.7386950000000001,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3528,
+      "raw": "1",
+      "confidence": 0.805725,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3534,
+      "raw": "1",
+      "confidence": 0.739345,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3540,
+      "raw": "1",
+      "confidence": 0.6654450000000001,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3546,
+      "raw": "1",
+      "confidence": 0.57575,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3552,
+      "raw": "1",
+      "confidence": 0.5647249999999999,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3558,
+      "raw": "1",
+      "confidence": 0.551845,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3564,
+      "raw": "7",
+      "confidence": 0.75,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3570,
+      "raw": "1",
+      "confidence": 0.65434,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3576,
+      "raw": "1",
+      "confidence": 0.57509,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3582,
+      "raw": "1",
+      "confidence": 0.678275,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3588,
+      "raw": "1",
+      "confidence": 0.546035,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3594,
+      "raw": "7",
+      "confidence": 0.73473,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3600,
+      "raw": "1",
+      "confidence": 0.59075,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3606,
+      "raw": "1",
+      "confidence": 0.66045,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3612,
+      "raw": "1",
+      "confidence": 0.55791,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3618,
+      "raw": "7",
+      "confidence": 0.8206,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 1,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3624,
+      "raw": "7",
+      "confidence": 0.8206,
+      "accepted": false,
+      "details": {
+        "reason": "confirming_change",
+        "observations": 2,
+        "required": 3
+      }
+    },
+    {
+      "frame": 3630,
+      "raw": "7",
+      "confidence": 0.767965,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 3
+      }
+    },
+    {
+      "frame": 3636,
+      "raw": "7",
+      "confidence": 0.7583599999999999,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3642,
+      "raw": "7",
+      "confidence": 0.7806649999999999,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3648,
+      "raw": "7",
+      "confidence": 0.73829,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    },
+    {
+      "frame": 3654,
+      "raw": "7",
+      "confidence": 0.778995,
+      "accepted": true,
+      "details": {
+        "reason": "confirmed",
+        "required": 1
+      }
+    }
+  ]
+}

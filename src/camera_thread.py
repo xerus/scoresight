@@ -5,6 +5,7 @@ import time
 import cv2
 from datetime import datetime
 import threading
+import math
 
 from base_video_capture import BaseVideoCapture
 from camera_info import CameraInfo
@@ -211,6 +212,8 @@ class TimerThread(QThread):
         self._preview_update_requested = threading.Event()
 
     def setPaused(self, paused):
+        if paused != self.paused:
+            self.textDetector.reset_temporal()
         self.paused = paused
 
     def isPaused(self):
@@ -223,10 +226,23 @@ class TimerThread(QThread):
         return self.speed
 
     def setSpeed(self, speed):
+        self.textDetector.reset_temporal()
         self.speed = speed
 
     def setUpdateFrameInterval(self, cadence):
         self.update_frame_interval = 1000 / cadence
+
+    def observation_time_for_file(self):
+        seconds = self.video_capture.get(cv2.CAP_PROP_POS_MSEC) / 1000
+        if math.isfinite(seconds) and seconds > 0:
+            return seconds
+        # Some backends do not expose POS_MSEC. Frame position still keeps
+        # clock checks aligned with playback speed and backward seeks.
+        frames = self.video_capture.get(cv2.CAP_PROP_POS_FRAMES)
+        fps = self.video_capture.get(cv2.CAP_PROP_FPS)
+        if math.isfinite(frames) and math.isfinite(fps) and frames >= 0 and fps > 0:
+            return frames / fps
+        return None
 
     def connect_video_capture(self) -> bool:
         if self.camera_info.type == CameraInfo.CameraType.NDI:
@@ -266,6 +282,7 @@ class TimerThread(QThread):
         #     # make sure to open the camera at the highest resolution
         #     set_camera_highest_resolution(self.video_capture)
 
+        self.textDetector.reset_temporal()
         return True
 
     def run(self):
@@ -336,6 +353,7 @@ class TimerThread(QThread):
                 self.retry_count += 1
                 if self.camera_info.type == CameraInfo.CameraType.FILE:
                     logger.debug("Restarting video file")
+                    self.textDetector.reset_temporal()
                     self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
                     self.sleep_fps_target()
                     continue
@@ -453,9 +471,17 @@ class TimerThread(QThread):
                     ocr_target.ocrResultPerCharacterSmoother = (
                         target.ocrResultPerCharacterSmoother
                     )
+                    ocr_target.temporal_filter = target.temporal_filter
                     ocrTargets.append(ocr_target)
+                observation_time = None
+                if self.camera_info.type == CameraInfo.CameraType.FILE:
+                    observation_time = self.observation_time_for_file()
                 texts = self.textDetector.detect_multi_text(
-                    binary, gray, ocrTargets, color=frame_rgb
+                    binary,
+                    gray,
+                    ocrTargets,
+                    color=frame_rgb,
+                    observation_time=observation_time,
                 )
                 for target, ocr_target in zip(detectionTargets, ocrTargets):
                     target.last_image = ocr_target.last_image
