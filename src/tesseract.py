@@ -225,7 +225,12 @@ class TextDetector:
                 or bottom <= y
             ):
                 continue
-            text, mask, details = read_score(color[y:bottom, x:right])
+            text, mask, details = read_score(
+                color[y:bottom, x:right],
+                digit_count=settings.get("segment_digits", 2),
+                led_color=settings.get("segment_color", 0),
+                brightness=settings.get("segment_brightness", 140),
+            )
             result.extra = {"segment_slots": details, "engine": "opencv_seven_segment"}
             if (
                 mask is not None

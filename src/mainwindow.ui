@@ -291,6 +291,32 @@
                <item><property name="text"><string>Count-up clock</string></property></item>
               </widget>
              </item>
+             <item row="14" column="0" colspan="4">
+              <widget class="QGroupBox" name="groupBox_segmentSettings">
+               <property name="title"><string>LED reader calibration</string></property>
+               <property name="toolTip"><string>Used only by the OpenCV seven-segment reader for numeric fields. Crop all physical digit cells with equal spacing, including unlit leading cells. Match the digit count and LED color to the display.</string></property>
+               <layout class="QHBoxLayout" name="horizontalLayout_segmentSettings">
+                <item><widget class="QLabel" name="label_segmentDigits"><property name="text"><string>Digits</string></property></widget></item>
+                <item><widget class="QSpinBox" name="spinBox_segmentDigits">
+                 <property name="minimum"><number>1</number></property>
+                 <property name="maximum"><number>3</number></property>
+                 <property name="value"><number>2</number></property>
+                </widget></item>
+                <item><widget class="QComboBox" name="comboBox_segmentColor">
+                 <item><property name="text"><string>Red / yellow</string></property></item>
+                 <item><property name="text"><string>Green</string></property></item>
+                 <item><property name="text"><string>Any LED color</string></property></item>
+                </widget></item>
+                <item><widget class="QLabel" name="label_segmentBrightness"><property name="text"><string>Brightness</string></property></widget></item>
+                <item><widget class="QSpinBox" name="spinBox_segmentBrightness">
+                 <property name="toolTip"><string>Minimum LED brightness, from 1 to 255. Lower it for dim segments; raise it to suppress background light. Verify results against the display.</string></property>
+                 <property name="minimum"><number>1</number></property>
+                 <property name="maximum"><number>255</number></property>
+                 <property name="value"><number>140</number></property>
+                </widget></item>
+               </layout>
+              </widget>
+             </item>
              <item row="9" column="2">
               <widget class="QWidget" name="widget_27" native="true">
                <property name="sizePolicy">

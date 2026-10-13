@@ -221,6 +221,15 @@ class BoxSettingsUIHandler:
         self.editSettings(editGenericSettings)
 
     def boxSettingsUiSetup(self):
+        self.ui.spinBox_segmentDigits.valueChanged.connect(
+            partial(self.genericSettingsChanged, "segment_digits")
+        )
+        self.ui.comboBox_segmentColor.currentIndexChanged.connect(
+            partial(self.genericSettingsChanged, "segment_color")
+        )
+        self.ui.spinBox_segmentBrightness.valueChanged.connect(
+            partial(self.genericSettingsChanged, "segment_brightness")
+        )
         self.ui.pushButton_restoreDefaults.clicked.connect(self.restoreDefaults)
         self.ui.checkBox_smoothing.toggled.connect(
             partial(self.genericSettingsChanged, "smoothing")
@@ -293,6 +302,9 @@ class BoxSettingsUIHandler:
         self.ui.comboBox_fieldType.blockSignals(True)
         self.ui.checkBox_smoothing.blockSignals(True)
         self.ui.comboBox_temporalMode.blockSignals(True)
+        self.ui.spinBox_segmentDigits.blockSignals(True)
+        self.ui.comboBox_segmentColor.blockSignals(True)
+        self.ui.spinBox_segmentBrightness.blockSignals(True)
         self.ui.checkBox_skip_empty.blockSignals(True)
         self.ui.spinBox_conf_thresh.blockSignals(True)
         self.ui.checkBox_autocrop.blockSignals(True)
@@ -320,6 +332,9 @@ class BoxSettingsUIHandler:
             self.ui.comboBox_fieldType.setCurrentIndex(0)
             self.ui.checkBox_smoothing.setChecked(True)
             self.ui.comboBox_temporalMode.setCurrentIndex(0)
+            self.ui.spinBox_segmentDigits.setValue(2)
+            self.ui.comboBox_segmentColor.setCurrentIndex(0)
+            self.ui.spinBox_segmentBrightness.setValue(140)
             self.ui.checkBox_skip_empty.setChecked(True)
             self.ui.spinBox_conf_thresh.setValue(50)
             self.ui.checkBox_autocrop.setChecked(False)
@@ -349,6 +364,13 @@ class BoxSettingsUIHandler:
             self.ui.checkBox_smoothing.setChecked(item_obj.settings["smoothing"])
             self.ui.comboBox_temporalMode.setCurrentIndex(
                 item_obj.settings["temporal_mode"]
+            )
+            self.ui.spinBox_segmentDigits.setValue(item_obj.settings["segment_digits"])
+            self.ui.comboBox_segmentColor.setCurrentIndex(
+                item_obj.settings["segment_color"]
+            )
+            self.ui.spinBox_segmentBrightness.setValue(
+                item_obj.settings["segment_brightness"]
             )
             self.ui.checkBox_skip_empty.setChecked(item_obj.settings["skip_empty"])
             self.ui.spinBox_conf_thresh.setValue(
@@ -394,6 +416,9 @@ class BoxSettingsUIHandler:
         self.ui.comboBox_fieldType.blockSignals(False)
         self.ui.checkBox_smoothing.blockSignals(False)
         self.ui.comboBox_temporalMode.blockSignals(False)
+        self.ui.spinBox_segmentDigits.blockSignals(False)
+        self.ui.comboBox_segmentColor.blockSignals(False)
+        self.ui.spinBox_segmentBrightness.blockSignals(False)
         self.ui.checkBox_skip_empty.blockSignals(False)
         self.ui.spinBox_conf_thresh.blockSignals(False)
         self.ui.checkBox_autocrop.blockSignals(False)

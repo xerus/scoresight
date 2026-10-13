@@ -17,11 +17,13 @@ These four images were used to develop the detector and adjust the segment sampl
 
 ## Use it in ScoreSight
 
-Choose **OpenCV Seven-Segment (2 digits, experimental)** in the OCR Model list. Draw each score box around both complete digit cells, including an unlit leading cell, and exclude nearby indicator LEDs. The reader uses the same transformed frame as OCR and exposes its color mask in Binary View. It accepts numeric fields only; clock and general-text boxes return uncertain. Its hue, saturation, brightness and occupancy thresholds are fixed in `src/seven_segment.py`; the existing Tesseract binarization/cleanup/dilation/rescale/confidence controls do not tune this reader.
+Choose **OpenCV Seven-Segment (experimental)** in the OCR Model list. In the selected box's **LED reader calibration**, choose one to three digits, LED color (red/yellow, green, or any saturated LED color), and minimum brightness. Existing configurations default to two red/yellow cells with brightness 140. Draw each box around all complete, equally spaced digit cells, including unlit leading cells, and exclude nearby indicator LEDs. For example, a three-cell score display showing 7 must include its two unlit leading cells. A missing cell after a lit digit is rejected.
+
+The reader uses the same transformed frame as OCR and exposes its color mask in Binary View. It accepts numeric fields only; clock and general-text boxes return uncertain. Saturation and occupancy thresholds remain fixed in `src/seven_segment.py`; the existing Tesseract binarization/cleanup/dilation/rescale/confidence controls do not tune this reader. Any LED color still requires saturation, so white light is excluded. An incorrect color or brightness setting can hide lit segments and produce a blank; verify the mask and readings against the display before enabling blank output.
 
 Confirmed blank is `Empty`; an unknown segment pattern is `FailedFilter`. When **Skip Empty Values** is off, a confirmed blank clears the visible value, OBS, vMix, UNO, pivoted HTTP JSON/XML and text-file output. An uncertain frame leaves the last accepted output alone. Per-character smoothing is bypassed and reset for this model.
 
-The build remains experimental: cell boundaries are split at the box midpoint and assume a nearly straight-on display. Perspective rectification, changing exposure, non-warm LED colors, reflections and LED multiplexing require more work and held-out examples.
+The build remains experimental: cells divide the box into equal widths and assume a nearly straight-on display. Custom cell positions, perspective rectification, changing exposure, reflections and LED multiplexing require more work and held-out examples. One/three-cell and green-display support has synthetic regression coverage; the development benchmark below used the original two-cell warm-LED defaults and does not establish accuracy for these new configurations.
 
 ## Reproduce
 

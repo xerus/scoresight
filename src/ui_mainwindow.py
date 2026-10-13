@@ -171,6 +171,47 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
 
+        self.groupBox_segmentSettings = QGroupBox(self.groupBox_target_settings)
+        self.groupBox_segmentSettings.setObjectName(u"groupBox_segmentSettings")
+        self.horizontalLayout_segmentSettings = QHBoxLayout(self.groupBox_segmentSettings)
+        self.horizontalLayout_segmentSettings.setObjectName(u"horizontalLayout_segmentSettings")
+        self.label_segmentDigits = QLabel(self.groupBox_segmentSettings)
+        self.label_segmentDigits.setObjectName(u"label_segmentDigits")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.label_segmentDigits)
+
+        self.spinBox_segmentDigits = QSpinBox(self.groupBox_segmentSettings)
+        self.spinBox_segmentDigits.setObjectName(u"spinBox_segmentDigits")
+        self.spinBox_segmentDigits.setMinimum(1)
+        self.spinBox_segmentDigits.setMaximum(3)
+        self.spinBox_segmentDigits.setValue(2)
+
+        self.horizontalLayout_segmentSettings.addWidget(self.spinBox_segmentDigits)
+
+        self.comboBox_segmentColor = QComboBox(self.groupBox_segmentSettings)
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.setObjectName(u"comboBox_segmentColor")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.comboBox_segmentColor)
+
+        self.label_segmentBrightness = QLabel(self.groupBox_segmentSettings)
+        self.label_segmentBrightness.setObjectName(u"label_segmentBrightness")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.label_segmentBrightness)
+
+        self.spinBox_segmentBrightness = QSpinBox(self.groupBox_segmentSettings)
+        self.spinBox_segmentBrightness.setObjectName(u"spinBox_segmentBrightness")
+        self.spinBox_segmentBrightness.setMinimum(1)
+        self.spinBox_segmentBrightness.setMaximum(255)
+        self.spinBox_segmentBrightness.setValue(140)
+
+        self.horizontalLayout_segmentSettings.addWidget(self.spinBox_segmentBrightness)
+
+
+        self.gridLayout_6.addWidget(self.groupBox_segmentSettings, 14, 0, 1, 4)
+
         self.widget_27 = QWidget(self.groupBox_target_settings)
         self.widget_27.setObjectName(u"widget_27")
         sizePolicy.setHeightForWidth(self.widget_27.sizePolicy().hasHeightForWidth())
@@ -1251,6 +1292,19 @@ class Ui_MainWindow(object):
 
 #if QT_CONFIG(tooltip)
         self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
+#endif // QT_CONFIG(tooltip)
+        self.groupBox_segmentSettings.setTitle(QCoreApplication.translate("MainWindow", u"LED reader calibration", None))
+#if QT_CONFIG(tooltip)
+        self.groupBox_segmentSettings.setToolTip(QCoreApplication.translate("MainWindow", u"Used only by the OpenCV seven-segment reader for numeric fields. Crop all physical digit cells with equal spacing, including unlit leading cells. Match the digit count and LED color to the display.", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_segmentDigits.setText(QCoreApplication.translate("MainWindow", u"Digits", None))
+        self.comboBox_segmentColor.setItemText(0, QCoreApplication.translate("MainWindow", u"Red / yellow", None))
+        self.comboBox_segmentColor.setItemText(1, QCoreApplication.translate("MainWindow", u"Green", None))
+        self.comboBox_segmentColor.setItemText(2, QCoreApplication.translate("MainWindow", u"Any LED color", None))
+
+        self.label_segmentBrightness.setText(QCoreApplication.translate("MainWindow", u"Brightness", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_segmentBrightness.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum LED brightness, from 1 to 255. Lower it for dim segments; raise it to suppress background light. Verify results against the display.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_binarizationMethod.setText(QCoreApplication.translate("MainWindow", u"Binarize", None))
         self.comboBox_binarizationMethod.setItemText(0, QCoreApplication.translate("MainWindow", u"Global", None))
