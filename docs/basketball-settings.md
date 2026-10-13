@@ -28,7 +28,8 @@ disabled for custom names. Position the boxes and choose readers for the actual
 display separately. The preset does not infer digit count or restrict basketball
 to a particular league's period duration or shot-clock reset rules.
 
-PP-OCR + TTA and Tesseract can read clock text. The OpenCV reader currently reads
-numeric fields only. Selecting OpenCV for a clock produces a rejected reading.
+PP-OCR + TTA and Tesseract can read clock text. The OpenCV reader supports clocks
+with [explicitly calibrated digits and visible separators](calibrated-led-clocks.md).
+Its default Number layout rejects Time fields.
 See [confirmation behavior](temporal-confirmation.md) for update delay and resets,
 and [LED calibration](opencv-benchmark.md) for digit geometry and color settings.

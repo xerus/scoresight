@@ -171,6 +171,21 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
 
+        self.label_segmentLayout = QLabel(self.groupBox_target_settings)
+        self.label_segmentLayout.setObjectName(u"label_segmentLayout")
+
+        self.gridLayout_6.addWidget(self.label_segmentLayout, 16, 0, 1, 1)
+
+        self.comboBox_segmentLayout = QComboBox(self.groupBox_target_settings)
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.setObjectName(u"comboBox_segmentLayout")
+
+        self.gridLayout_6.addWidget(self.comboBox_segmentLayout, 16, 1, 1, 3)
+
         self.label_boxOcrModel = QLabel(self.groupBox_target_settings)
         self.label_boxOcrModel.setObjectName(u"label_boxOcrModel")
 
@@ -1315,6 +1330,16 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
 #endif // QT_CONFIG(tooltip)
+        self.label_segmentLayout.setText(QCoreApplication.translate("MainWindow", u"LED layout", None))
+        self.comboBox_segmentLayout.setItemText(0, QCoreApplication.translate("MainWindow", u"Number", None))
+        self.comboBox_segmentLayout.setItemText(1, QCoreApplication.translate("MainWindow", u"MM:SS (5 cells)", None))
+        self.comboBox_segmentLayout.setItemText(2, QCoreApplication.translate("MainWindow", u"M:SS (4 cells)", None))
+        self.comboBox_segmentLayout.setItemText(3, QCoreApplication.translate("MainWindow", u"SS.t (4 cells)", None))
+        self.comboBox_segmentLayout.setItemText(4, QCoreApplication.translate("MainWindow", u"S.t (3 cells)", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_segmentLayout.setToolTip(QCoreApplication.translate("MainWindow", u"OpenCV LED layout. For clocks select Time and enable Composite (Per-Character), then draw one cell for every digit and separator, from left to right. Separator cells must span the digit height. A colon or decimal point must be visible.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_boxOcrModel.setText(QCoreApplication.translate("MainWindow", u"Box reader", None))
         self.comboBox_boxOcrModel.setItemText(0, QCoreApplication.translate("MainWindow", u"Use global model", None))
         self.comboBox_boxOcrModel.setItemText(1, QCoreApplication.translate("MainWindow", u"Daktronics", None))
@@ -1336,6 +1361,9 @@ class Ui_MainWindow(object):
         self.groupBox_segmentSettings.setToolTip(QCoreApplication.translate("MainWindow", u"Used only by the OpenCV seven-segment reader for numeric fields. Crop all physical digit cells with equal spacing, including unlit leading cells. Match the digit count and LED color to the display.", None))
 #endif // QT_CONFIG(tooltip)
         self.label_segmentDigits.setText(QCoreApplication.translate("MainWindow", u"Digits", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_segmentDigits.setToolTip(QCoreApplication.translate("MainWindow", u"Digit count for the Number layout. Clock layouts define their own digit and separator cells.", None))
+#endif // QT_CONFIG(tooltip)
         self.comboBox_segmentColor.setItemText(0, QCoreApplication.translate("MainWindow", u"Red / yellow", None))
         self.comboBox_segmentColor.setItemText(1, QCoreApplication.translate("MainWindow", u"Green", None))
         self.comboBox_segmentColor.setItemText(2, QCoreApplication.translate("MainWindow", u"Any LED color", None))
@@ -1380,6 +1408,9 @@ class Ui_MainWindow(object):
         self.checkBox_skip_empty.setText(QCoreApplication.translate("MainWindow", u"Skip Empty Values", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Target:", None))
         self.label_selectedInfo.setText(QCoreApplication.translate("MainWindow", u"Select an item above", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_compositeBox.setToolTip(QCoreApplication.translate("MainWindow", u"For the OpenCV LED reader, draw separate digit and separator cells using the plus button inside the selected box. Cells are read left to right. Match the number of cells to Digits or LED layout. Tesseract and PP-OCR read the complete box.", None))
+#endif // QT_CONFIG(tooltip)
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
 #if QT_CONFIG(tooltip)
         self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))

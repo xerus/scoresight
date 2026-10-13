@@ -280,6 +280,7 @@ class TextDetectionTargetMemoryStorage(QObject):
                         ),
                         "box_ocr_model": detectionTarget.settings["box_ocr_model"],
                         "segment_digits": detectionTarget.settings["segment_digits"],
+                        "segment_layout": detectionTarget.settings["segment_layout"],
                         "segment_color": detectionTarget.settings["segment_color"],
                         "segment_brightness": detectionTarget.settings[
                             "segment_brightness"

@@ -6,6 +6,7 @@ from defaults import (
     normalize_settings_dict,
     format_prefixes,
     BOX_OCR_MODELS,
+    SEGMENT_LAYOUTS,
     basketball_settings_for_box,
 )
 from storage import TextDetectionTargetMemoryStorage
@@ -198,6 +199,10 @@ class BoxSettingsUIHandler:
         self.editSettings(restoreDefaultsSettings)
         self.populateSettings(self.ui.tableWidget_boxes.currentItem().text())
 
+    def segmentLayoutChanged(self, index):
+        self.ui.spinBox_segmentDigits.setEnabled(index == 0)
+        self.genericSettingsChanged("segment_layout", SEGMENT_LAYOUTS[index])
+
     def boxReaderChanged(self, index):
         self.genericSettingsChanged("box_ocr_model", BOX_OCR_MODELS[index])
 
@@ -241,6 +246,9 @@ class BoxSettingsUIHandler:
         self.editSettings(editGenericSettings)
 
     def boxSettingsUiSetup(self):
+        self.ui.comboBox_segmentLayout.currentIndexChanged.connect(
+            self.segmentLayoutChanged
+        )
         self.ui.comboBox_boxOcrModel.currentIndexChanged.connect(self.boxReaderChanged)
         self.ui.pushButton_basketballPreset.clicked.connect(self.applyBasketballPreset)
         self.ui.spinBox_segmentDigits.valueChanged.connect(
@@ -325,6 +333,7 @@ class BoxSettingsUIHandler:
         self.ui.checkBox_smoothing.blockSignals(True)
         self.ui.comboBox_temporalMode.blockSignals(True)
         self.ui.comboBox_boxOcrModel.blockSignals(True)
+        self.ui.comboBox_segmentLayout.blockSignals(True)
         self.ui.spinBox_segmentDigits.blockSignals(True)
         self.ui.comboBox_segmentColor.blockSignals(True)
         self.ui.spinBox_segmentBrightness.blockSignals(True)
@@ -356,6 +365,7 @@ class BoxSettingsUIHandler:
             self.ui.checkBox_smoothing.setChecked(True)
             self.ui.comboBox_temporalMode.setCurrentIndex(0)
             self.ui.comboBox_boxOcrModel.setCurrentIndex(0)
+            self.ui.comboBox_segmentLayout.setCurrentIndex(0)
             self.ui.pushButton_basketballPreset.setEnabled(False)
             self.ui.spinBox_segmentDigits.setValue(2)
             self.ui.comboBox_segmentColor.setCurrentIndex(0)
@@ -392,6 +402,9 @@ class BoxSettingsUIHandler:
             )
             self.ui.comboBox_boxOcrModel.setCurrentIndex(
                 BOX_OCR_MODELS.index(item_obj.settings["box_ocr_model"])
+            )
+            self.ui.comboBox_segmentLayout.setCurrentIndex(
+                SEGMENT_LAYOUTS.index(item_obj.settings["segment_layout"])
             )
             self.ui.pushButton_basketballPreset.setEnabled(
                 basketball_settings_for_box(item_obj.name) is not None
@@ -442,12 +455,16 @@ class BoxSettingsUIHandler:
             self.ui.checkBox_compositeBox.setChecked(item_obj.settings["composite_box"])
 
         self.ui.comboBox_formatPrefix.setCurrentIndex(12)
+        self.ui.spinBox_segmentDigits.setEnabled(
+            self.ui.comboBox_segmentLayout.currentIndex() == 0
+        )
 
         self.ui.lineEdit_format.blockSignals(False)
         self.ui.comboBox_fieldType.blockSignals(False)
         self.ui.checkBox_smoothing.blockSignals(False)
         self.ui.comboBox_temporalMode.blockSignals(False)
         self.ui.comboBox_boxOcrModel.blockSignals(False)
+        self.ui.comboBox_segmentLayout.blockSignals(False)
         self.ui.spinBox_segmentDigits.blockSignals(False)
         self.ui.comboBox_segmentColor.blockSignals(False)
         self.ui.spinBox_segmentBrightness.blockSignals(False)

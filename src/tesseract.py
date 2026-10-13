@@ -215,8 +215,13 @@ class TextDetector:
             if rect is None or not valid_frame:
                 continue
             settings = rect.settings or {}
-            # This calibrated score reader does not parse clocks or general text.
-            if settings.get("type", FieldType.NUMBER) != FieldType.NUMBER:
+            field_type = settings.get("type", FieldType.NUMBER)
+            layout = settings.get("segment_layout", "number")
+            if (
+                field_type not in (FieldType.NUMBER, FieldType.TIME)
+                or (field_type == FieldType.TIME and layout == "number")
+                or (field_type == FieldType.NUMBER and layout != "number")
+            ):
                 continue
             x, y = int(rect.x()), int(rect.y())
             right, bottom = int(rect.x() + rect.width()), int(rect.y() + rect.height())
@@ -229,11 +234,21 @@ class TextDetector:
                 or bottom <= y
             ):
                 continue
-            text, mask, details = read_score(
+            from seven_segment import read_display
+
+            cells = None
+            if settings.get("composite_box"):
+                cells = [
+                    (cell.x(), cell.y(), cell.width(), cell.height())
+                    for cell in getattr(rect, "mini_rects", [])
+                ]
+            text, mask, details = read_display(
                 color[y:bottom, x:right],
                 digit_count=settings.get("segment_digits", 2),
                 led_color=settings.get("segment_color", 0),
                 brightness=settings.get("segment_brightness", 140),
+                layout=layout,
+                cells=cells,
             )
             result.extra = {"segment_slots": details, "engine": "opencv_seven_segment"}
             if (
@@ -250,14 +265,14 @@ class TextDetector:
             if text == "":
                 result.state = states.Empty
                 continue
-            if settings.get("remove_leading_zeros"):
+            if settings.get("remove_leading_zeros") and field_type == FieldType.NUMBER:
                 result.text = text.lstrip("0") or "0"
             pattern = settings.get("format_regex")
             if pattern and (
                 not is_valid_regex(pattern) or not re.fullmatch(pattern, result.text)
             ):
                 continue
-            if settings.get("ordinal_indicator"):
+            if settings.get("ordinal_indicator") and field_type == FieldType.NUMBER:
                 result.text = add_ordinal_indicator(result.text)
             result.state = states.Success
         return results
@@ -348,6 +363,10 @@ class TextDetector:
                 rect.y(),
                 rect.width(),
                 rect.height(),
+                tuple(
+                    (cell.x(), cell.y(), cell.width(), cell.height())
+                    for cell in getattr(rect, "mini_rects", [])
+                ),
                 tuple(
                     sorted(
                         (key, repr(value))

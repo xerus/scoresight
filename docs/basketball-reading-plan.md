@@ -51,6 +51,20 @@ Temporal score/countdown confirmation already exists; reuse it.
   isolated model-load failures and basketball settings for selected standard
   fields. Mixed-reader/confirmation regression cases and offscreen UI checks
   pass; full suite now has 88 passing tests. See [usage](basketball-settings.md).
-- Milestones 2 and 4 remain to do.
+- Milestone 2 implementation complete: explicit local digit/separator cells for
+  numeric fields and MM:SS/M:SS/SS.t/S.t clocks, observed punctuation checks,
+  saved layouts/cells, and confirmation resets after calibration edits. Fixed
+  scene edits so updated cells are included when storage emits its change.
+- Clock layout/blank/tick/calibration tests and offscreen UI checks pass; full
+  suite now has 96 passing tests. Automatic physical layout switching and real
+  clock accuracy validation remain open. See [calibration](calibrated-led-clocks.md).
+- Milestone 4 started: seven clock crops labeled without assuming legible
+  separators, and a reproducible [fixture comparison](camera-fixture-readers.md)
+  recorded. Neural numeric results: 8 correct, 1 wrong, 2 rejected; uncalibrated
+  equal-width LED results: 0 correct, 7 wrong, 4 rejected. Neural shot clock 14
+  becomes 4. These findings prioritize calibration/completeness/digit recognition
+  before treating LED readings as independent verification.
+- Next: calibrate a development subset, freeze it, evaluate additional frame
+  sequences, and collect another game/camera session for independent validation.
 - Existing local benchmarks cover mostly scores from one session. Synthetic
   regression tests verify behavior, not accuracy on unseen basketball footage.

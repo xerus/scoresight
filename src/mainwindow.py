@@ -570,13 +570,15 @@ class MainWindow(QMainWindow):
             self.tr("Pixels to remove from the bottom edge of the image.")
         )
         segment_tooltip = self.tr(
-            "OpenCV: numeric fields with one to three equally spaced LED digit slots. "
+            "OpenCV: numeric LED fields, or clocks with calibrated digit and separator cells. "
             "Set digits, LED color and brightness under LED reader calibration for each box. "
             "Draw the box around all complete slots, including unlit leading slots; exclude indicator LEDs. "
             "Alignment and exposure sensitive; rectify perspective first. Blank is distinct from zero. "
             "Uses its own color mask (visible in Binary View). Binarize, cleanup, dilate, auto crop, "
             "rescale, H.Scale, skew, confidence and Average Output controls do not apply. "
-            "Clocks/general text and unknown patterns are rejected. Disable Skip Empty Values to publish blanks."
+            "For clocks, select Time and an LED layout, enable Composite (Per-Character), "
+            "and draw a cell for each digit and visible separator. General text and unknown "
+            "patterns are rejected. Disable Skip Empty Values to publish blanks."
         )
         self.ui.comboBox_ocrModel.setItemData(
             5, segment_tooltip, Qt.ItemDataRole.ToolTipRole
