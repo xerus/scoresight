@@ -7,6 +7,7 @@ class FieldType:
 
 # UI indices map to these model identifiers; -1 inherits the global selection.
 BOX_OCR_MODELS = (-1, 0, 1, 2, 3, 5, 6)
+SEGMENT_LAYOUTS = ("number", "dd:dd", "d:dd", "dd.d", "d.d")
 
 
 def basketball_settings_for_box(name):
@@ -216,6 +217,11 @@ def normalize_settings_dict(settings, box_info):
             if type(settings.get("box_ocr_model", -1)) is int
             and settings.get("box_ocr_model", -1) in BOX_OCR_MODELS
             else -1
+        ),
+        "segment_layout": (
+            settings.get("segment_layout", "number")
+            if settings.get("segment_layout", "number") in SEGMENT_LAYOUTS
+            else "number"
         ),
         "segment_digits": (
             settings.get("segment_digits", 2)

@@ -291,6 +291,21 @@
                <item><property name="text"><string>Count-up clock</string></property></item>
               </widget>
              </item>
+             <item row="16" column="0">
+              <widget class="QLabel" name="label_segmentLayout">
+               <property name="text"><string>LED layout</string></property>
+              </widget>
+             </item>
+             <item row="16" column="1" colspan="3">
+              <widget class="QComboBox" name="comboBox_segmentLayout">
+               <property name="toolTip"><string>OpenCV LED layout. For clocks select Time and enable Composite (Per-Character), then draw one cell for every digit and separator, from left to right. Separator cells must span the digit height. A colon or decimal point must be visible.</string></property>
+               <item><property name="text"><string>Number</string></property></item>
+               <item><property name="text"><string>MM:SS (5 cells)</string></property></item>
+               <item><property name="text"><string>M:SS (4 cells)</string></property></item>
+               <item><property name="text"><string>SS.t (4 cells)</string></property></item>
+               <item><property name="text"><string>S.t (3 cells)</string></property></item>
+              </widget>
+             </item>
              <item row="15" column="0">
               <widget class="QLabel" name="label_boxOcrModel">
                <property name="text"><string>Box reader</string></property>
@@ -321,6 +336,7 @@
                <layout class="QHBoxLayout" name="horizontalLayout_segmentSettings">
                 <item><widget class="QLabel" name="label_segmentDigits"><property name="text"><string>Digits</string></property></widget></item>
                 <item><widget class="QSpinBox" name="spinBox_segmentDigits">
+                 <property name="toolTip"><string>Digit count for the Number layout. Clock layouts define their own digit and separator cells.</string></property>
                  <property name="minimum"><number>1</number></property>
                  <property name="maximum"><number>3</number></property>
                  <property name="value"><number>2</number></property>
@@ -651,6 +667,7 @@
              </item>
              <item row="9" column="3">
               <widget class="QCheckBox" name="checkBox_compositeBox">
+               <property name="toolTip"><string>For the OpenCV LED reader, draw separate digit and separator cells using the plus button inside the selected box. Cells are read left to right. Match the number of cells to Digits or LED layout. Tesseract and PP-OCR read the complete box.</string></property>
                <property name="text">
                 <string>Composite (Per-Character)</string>
                </property>

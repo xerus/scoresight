@@ -28,8 +28,14 @@ rejects `11` and the isolated foul `1`. Their ground-truth labels remain `7`,
 exercise working numeric cases and ensure the thin-digit cases either reject or
 read correctly. The ambiguous seven remains an evaluation case for future fixes.
 
+`clock_manifest.json` adds seven reviewed clock crops from these same frames:
+five green game clocks and two shot clocks. It records visible digit strings
+separately from semantic time values. Green punctuation is not independently
+legible under glare, so these labels must not be used to claim separator-reading
+accuracy. The main numeric manifest and PNG hashes are unchanged.
+
 These frames come from the existing development session, not an independent
-held-out camera/game. They contain no labeled physical blanks or clock values
+held-out camera/game. They contain no labeled physical blanks or fractional clocks
 and are sparse observations rather than a continuous transition sequence.
 
 Re-extract using the original recordings:

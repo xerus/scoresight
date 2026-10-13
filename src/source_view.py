@@ -306,10 +306,10 @@ class ImageViewer(CameraView):
                 detectionTarget.setY(rect.y())
                 detectionTarget.setWidth(rect.width())
                 detectionTarget.setHeight(rect.height())
+                detectionTarget.mini_rects = mini_rects
                 self.detectionTargetsStorage.edit_item(
                     detectionTarget.name, detectionTarget
                 )
-                detectionTarget.mini_rects = mini_rects
                 break
 
     def findBox(self, name):

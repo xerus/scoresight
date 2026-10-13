@@ -1,0 +1,96 @@
+{
+  "note": "Clock digits visually reviewed. displayed_time describes scoreboard semantics; expected_digits does not assume visible punctuation. Not a transition sequence.",
+  "fields": [
+    {
+      "image": "zero.png",
+      "name": "game_clock",
+      "roi": [
+        260,
+        345,
+        145,
+        78
+      ],
+      "expected_digits": "055",
+      "displayed_time": "0:55",
+      "separator_status": "not independently legible in this crop"
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "name": "game_clock",
+      "roi": [
+        260,
+        345,
+        145,
+        78
+      ],
+      "expected_digits": "720",
+      "displayed_time": "7:20",
+      "separator_status": "not independently legible in this crop"
+    },
+    {
+      "image": "seven.png",
+      "name": "game_clock",
+      "roi": [
+        265,
+        345,
+        140,
+        78
+      ],
+      "expected_digits": "642",
+      "displayed_time": "6:42",
+      "separator_status": "not independently legible in this crop"
+    },
+    {
+      "image": "eleven.png",
+      "name": "game_clock",
+      "roi": [
+        265,
+        345,
+        140,
+        78
+      ],
+      "expected_digits": "553",
+      "displayed_time": "5:53",
+      "separator_status": "not independently legible in this crop"
+    },
+    {
+      "image": "foul_one.png",
+      "name": "game_clock",
+      "roi": [
+        235,
+        335,
+        145,
+        85
+      ],
+      "expected_digits": "741",
+      "displayed_time": "7:41",
+      "separator_status": "not independently legible in this crop"
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "name": "shot_clock",
+      "roi": [
+        1700,
+        660,
+        120,
+        110
+      ],
+      "expected_digits": "17",
+      "displayed_time": "17",
+      "separator_status": "integer seconds"
+    },
+    {
+      "image": "foul_one.png",
+      "name": "shot_clock",
+      "roi": [
+        1680,
+        655,
+        115,
+        115
+      ],
+      "expected_digits": "14",
+      "displayed_time": "14",
+      "separator_status": "integer seconds"
+    }
+  ]
+}
