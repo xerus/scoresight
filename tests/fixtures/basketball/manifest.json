@@ -1,0 +1,181 @@
+{
+  "frame_indexing": "zero-based",
+  "frames": [
+    {
+      "image": "zero.png",
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 18,
+      "fps": 30.008110300081103,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "e724b68e7a6b68cf615d6b533b71507d3ae0fcc946e6e29ef57a8781b486deab",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "expected": "0"
+        },
+        {
+          "name": "away",
+          "roi": [
+            430,
+            430,
+            105,
+            90
+          ],
+          "expected": "0"
+        }
+      ]
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 3600,
+      "fps": 23.83724368519586,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "f04e736a3c717999800b7b1e846bdf59ce5758890ded98e04fb5e547b05919d0",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "expected": "7"
+        }
+      ]
+    },
+    {
+      "image": "seven.png",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 5400,
+      "fps": 23.83724368519586,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "6a4993d7a8fb4a3102a2bde27ea8ca405b4ccddb6839a50dc585dbc2b3548c8c",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "expected": "7"
+        }
+      ]
+    },
+    {
+      "image": "eleven.png",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 8100,
+      "fps": 23.83724368519586,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "8b19307c9eed29c0f4dba372809572f5f69cacc7516d58773a9069b896f5bc90",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            140,
+            445,
+            120,
+            90
+          ],
+          "expected": "9"
+        },
+        {
+          "name": "away",
+          "roi": [
+            425,
+            430,
+            110,
+            90
+          ],
+          "expected": "11"
+        }
+      ]
+    },
+    {
+      "image": "foul_one.png",
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 113,
+      "fps": 29.534652948242545,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "9ef6c22876ba7812943d508db7fb67f43a3ed39c087ac5d16a00dfe997fbb63b",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            105,
+            445,
+            110,
+            85
+          ],
+          "expected": "24"
+        },
+        {
+          "name": "away",
+          "roi": [
+            380,
+            425,
+            110,
+            90
+          ],
+          "expected": "32"
+        },
+        {
+          "name": "away_fouls",
+          "roi": [
+            390,
+            340,
+            85,
+            75
+          ],
+          "expected": "1"
+        }
+      ]
+    },
+    {
+      "image": "three_digit.png",
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 167,
+      "fps": 29.384246535290334,
+      "width": 1920,
+      "height": 1080,
+      "sha256": "5c566824c1553cfde8e70d2292dcdb2ef649bbc5d8c88e09f2d01eb636fdb748",
+      "fields": [
+        {
+          "name": "home",
+          "roi": [
+            185,
+            455,
+            105,
+            90
+          ],
+          "expected": "96"
+        },
+        {
+          "name": "away",
+          "roi": [
+            445,
+            445,
+            110,
+            85
+          ],
+          "expected": "108"
+        }
+      ]
+    }
+  ]
+}
