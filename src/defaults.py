@@ -155,6 +155,9 @@ def normalize_settings_dict(settings, box_info):
             "ordinal_indicator": False,
             "is_custom": True,
         }
+    temporal_mode = settings.get("temporal_mode", 0)
+    if temporal_mode not in (0, 1, 2, 3):
+        temporal_mode = 0
     return {
         "is_custom": (
             settings["is_custom"] if "is_custom" in settings else box_info["is_custom"]
@@ -171,6 +174,7 @@ def normalize_settings_dict(settings, box_info):
         ),
         "type": (settings["type"] if "type" in settings else box_info["type"]),
         "smoothing": (settings["smoothing"] if "smoothing" in settings else False),
+        "temporal_mode": temporal_mode,
         "skip_empty": (settings["skip_empty"] if "skip_empty" in settings else True),
         "conf_thresh": (settings["conf_thresh"] if "conf_thresh" in settings else 0.5),
         "cleanup_thresh": (

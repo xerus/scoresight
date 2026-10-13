@@ -23,6 +23,24 @@ if "--check-imports" in sys.argv:
         # Exercise the bundled OCR DLLs and traineddata, not just imports.
         api = PyTessBaseAPI(path=resource_path("tesseract", "tessdata"), lang="eng")
         api.End()
+        from dnn_ocr import DnnOcr
+        import numpy as np
+
+        # Exercise the ONNX native runtime and packaged model without a camera.
+        dnn = DnnOcr(resource_path("models", "en_PP-OCRv4_rec_mobile.onnx"))
+        dnn.predict(np.zeros((48, 80, 3), dtype=np.uint8))
+        # CI supplies a real scoreboard crop to exercise selective TTA in the
+        # frozen executable, including ONNX native libraries and resource paths.
+        ocr_check_image = os.environ.get("SCORESIGHT_OCR_CHECK_IMAGE")
+        if ocr_check_image:
+            import cv2
+
+            crop = cv2.imread(ocr_check_image)
+            if crop is None:
+                raise RuntimeError("Unable to read the packaged OCR smoke-test input")
+            text, _, readings = dnn.recognize(crop)
+            if text != "7" or len(readings) != 4:
+                raise RuntimeError(f"Packaged TTA check failed: {text!r}, {readings!r}")
     except BaseException:
         import_check_result = traceback.format_exc()
         import_check_exit_code = 1

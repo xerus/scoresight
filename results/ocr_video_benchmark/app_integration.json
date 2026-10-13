@@ -1,0 +1,813 @@
+[
+  {
+    "image": "clip01_1.png",
+    "field": "home",
+    "expected": "0",
+    "predicted": "0",
+    "state": "Success",
+    "ms": 84.95105399924796,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.5385233333333334,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "0",
+          "confidence": 0.60857
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "0",
+          "confidence": 0.51021
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "0",
+          "confidence": 0.62965
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "0",
+          "confidence": 0.47571
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip01_1.png",
+    "field": "away",
+    "expected": "0",
+    "predicted": "0",
+    "state": "Success",
+    "ms": 83.96578799874987,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.54291,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "0",
+          "confidence": 0.44863
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "0",
+          "confidence": 0.39864
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "0",
+          "confidence": 0.59162
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "0",
+          "confidence": 0.63847
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip02_1.png",
+    "field": "home",
+    "expected": "0",
+    "predicted": "0",
+    "state": "Success",
+    "ms": 149.27004800119903,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.5512033333333334,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "0",
+          "confidence": 0.65305
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "0",
+          "confidence": 0.50189
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "0",
+          "confidence": 0.61875
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "0",
+          "confidence": 0.53297
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip02_1.png",
+    "field": "away",
+    "expected": "0",
+    "predicted": "0",
+    "state": "Success",
+    "ms": 83.80397500150139,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.58472,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "0",
+          "confidence": 0.57154
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "0",
+          "confidence": 0.47214
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "0",
+          "confidence": 0.65611
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "0",
+          "confidence": 0.62591
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip03_1.png",
+    "field": "home",
+    "expected": "7",
+    "predicted": "7",
+    "state": "Success",
+    "ms": 82.92831600192585,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.71503,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "1",
+          "confidence": 0.62315
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "1",
+          "confidence": 0.52306
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "7",
+          "confidence": 0.82665
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "7",
+          "confidence": 0.60341
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip03_1.png",
+    "field": "away",
+    "expected": "10",
+    "predicted": "10",
+    "state": "Success",
+    "ms": 85.04357600031653,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.7886133333333333,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "10",
+          "confidence": 0.67393
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "10",
+          "confidence": 0.6959
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "10",
+          "confidence": 0.90323
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "10",
+          "confidence": 0.76671
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip04_1.png",
+    "field": "home",
+    "expected": "24",
+    "predicted": "24",
+    "state": "Success",
+    "ms": 22.922488999029156,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99833,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "24",
+          "confidence": 0.99833
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip04_1.png",
+    "field": "away",
+    "expected": "30",
+    "predicted": "30",
+    "state": "Success",
+    "ms": 20.570574000885244,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.96579,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "30",
+          "confidence": 0.96579
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip05_1.png",
+    "field": "home",
+    "expected": "24",
+    "predicted": "24",
+    "state": "Success",
+    "ms": 20.76117099932162,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99794,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "24",
+          "confidence": 0.99794
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip05_1.png",
+    "field": "away",
+    "expected": "32",
+    "predicted": "32",
+    "state": "Success",
+    "ms": 18.97071799976402,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99484,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "32",
+          "confidence": 0.99484
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip06_1.png",
+    "field": "home",
+    "expected": "27",
+    "predicted": "27",
+    "state": "Success",
+    "ms": 18.55994800280314,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.92581,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "27",
+          "confidence": 0.92581
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip06_1.png",
+    "field": "away",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 19.39958100047079,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.98715,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.98715
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip07_1.png",
+    "field": "home",
+    "expected": "27",
+    "predicted": "27",
+    "state": "Success",
+    "ms": 18.927466997411102,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.9269,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "27",
+          "confidence": 0.9269
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip07_1.png",
+    "field": "away",
+    "expected": "37",
+    "predicted": "37",
+    "state": "Success",
+    "ms": 77.0464900015213,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.9061333333333333,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "31",
+          "confidence": 0.73777
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "37",
+          "confidence": 0.7899
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "37",
+          "confidence": 0.97494
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "37",
+          "confidence": 0.95356
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip08_1.png",
+    "field": "home",
+    "expected": "27",
+    "predicted": "27",
+    "state": "Success",
+    "ms": 75.6078759986849,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.9418000000000001,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "27",
+          "confidence": 0.77578
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "27",
+          "confidence": 0.87136
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "27",
+          "confidence": 0.99597
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "27",
+          "confidence": 0.95807
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip08_1.png",
+    "field": "away",
+    "expected": "38",
+    "predicted": "38",
+    "state": "Success",
+    "ms": 19.454755001788726,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.88775,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "38",
+          "confidence": 0.88775
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip10_1.png",
+    "field": "home",
+    "expected": "31",
+    "predicted": "31",
+    "state": "Success",
+    "ms": 18.59999299995252,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.96789,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "31",
+          "confidence": 0.96789
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip10_1.png",
+    "field": "away",
+    "expected": "42",
+    "predicted": "42",
+    "state": "Success",
+    "ms": 19.20753200101899,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99622,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "42",
+          "confidence": 0.99622
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip12_1.png",
+    "field": "home",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 18.418653999106027,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99462,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.99462
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip12_1.png",
+    "field": "away",
+    "expected": "42",
+    "predicted": "42",
+    "state": "Success",
+    "ms": 19.084610998106655,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99671,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "42",
+          "confidence": 0.99671
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip13_1.png",
+    "field": "home",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 19.4001819982077,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99604,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.99604
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip13_1.png",
+    "field": "away",
+    "expected": "42",
+    "predicted": "42",
+    "state": "Success",
+    "ms": 18.95856500050286,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99651,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "42",
+          "confidence": 0.99651
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip14_1.png",
+    "field": "home",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 18.86783499867306,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.9963,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.9963
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip14_1.png",
+    "field": "away",
+    "expected": "43",
+    "predicted": "43",
+    "state": "Success",
+    "ms": 18.452075997629436,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.98552,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "43",
+          "confidence": 0.98552
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip15_1.png",
+    "field": "home",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 18.385673000011593,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99593,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.99593
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip15_1.png",
+    "field": "away",
+    "expected": "43",
+    "predicted": "43",
+    "state": "Success",
+    "ms": 18.54526099850773,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99152,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "43",
+          "confidence": 0.99152
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip16_1.png",
+    "field": "home",
+    "expected": "34",
+    "predicted": "34",
+    "state": "Success",
+    "ms": 18.63401700029499,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.9962,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "34",
+          "confidence": 0.9962
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip16_1.png",
+    "field": "away",
+    "expected": "46",
+    "predicted": "46",
+    "state": "Success",
+    "ms": 18.977510997501668,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99208,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "46",
+          "confidence": 0.99208
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip17_1.png",
+    "field": "home",
+    "expected": "37",
+    "predicted": "37",
+    "state": "Success",
+    "ms": 76.0022239992395,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.89335,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "37",
+          "confidence": 0.8311
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "37",
+          "confidence": 0.78566
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "37",
+          "confidence": 0.97966
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "37",
+          "confidence": 0.91473
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip17_1.png",
+    "field": "away",
+    "expected": "46",
+    "predicted": "46",
+    "state": "Success",
+    "ms": 18.553756999608595,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.98952,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "46",
+          "confidence": 0.98952
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip18_1.png",
+    "field": "home",
+    "expected": "37",
+    "predicted": "37",
+    "state": "Success",
+    "ms": 75.93702200028929,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.90489,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "37",
+          "confidence": 0.81816
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "37",
+          "confidence": 0.80275
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "37",
+          "confidence": 0.9798
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "37",
+          "confidence": 0.93212
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip18_1.png",
+    "field": "away",
+    "expected": "50",
+    "predicted": "50",
+    "state": "Success",
+    "ms": 74.35158299995237,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.783945,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "5O",
+          "confidence": 0.61047
+        },
+        {
+          "variant": "inverted_gray",
+          "text": "50",
+          "confidence": 0.77155
+        },
+        {
+          "variant": "shear_-0.25",
+          "text": "5O",
+          "confidence": 0.6779
+        },
+        {
+          "variant": "shear_0.25",
+          "text": "50",
+          "confidence": 0.79634
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip19_1.png",
+    "field": "home",
+    "expected": "96",
+    "predicted": "96",
+    "state": "Success",
+    "ms": 20.86346299984143,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.99404,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "96",
+          "confidence": 0.99404
+        }
+      ]
+    }
+  },
+  {
+    "image": "clip19_1.png",
+    "field": "away",
+    "expected": "108",
+    "predicted": "108",
+    "state": "Success",
+    "ms": 18.64195200323593,
+    "extra": {
+      "engine": "ppocrv4_tta",
+      "confidence": 0.85102,
+      "tta": [
+        {
+          "variant": "native",
+          "text": "108",
+          "confidence": 0.85102
+        }
+      ]
+    }
+  }
+]

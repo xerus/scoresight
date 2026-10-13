@@ -225,6 +225,9 @@ class BoxSettingsUIHandler:
         self.ui.checkBox_smoothing.toggled.connect(
             partial(self.genericSettingsChanged, "smoothing")
         )
+        self.ui.comboBox_temporalMode.currentIndexChanged.connect(
+            partial(self.genericSettingsChanged, "temporal_mode")
+        )
         self.ui.checkBox_skip_empty.toggled.connect(
             partial(self.genericSettingsChanged, "skip_empty")
         )
@@ -289,6 +292,7 @@ class BoxSettingsUIHandler:
         self.ui.lineEdit_format.blockSignals(True)
         self.ui.comboBox_fieldType.blockSignals(True)
         self.ui.checkBox_smoothing.blockSignals(True)
+        self.ui.comboBox_temporalMode.blockSignals(True)
         self.ui.checkBox_skip_empty.blockSignals(True)
         self.ui.spinBox_conf_thresh.blockSignals(True)
         self.ui.checkBox_autocrop.blockSignals(True)
@@ -315,6 +319,7 @@ class BoxSettingsUIHandler:
             self.ui.lineEdit_format.setText("")
             self.ui.comboBox_fieldType.setCurrentIndex(0)
             self.ui.checkBox_smoothing.setChecked(True)
+            self.ui.comboBox_temporalMode.setCurrentIndex(0)
             self.ui.checkBox_skip_empty.setChecked(True)
             self.ui.spinBox_conf_thresh.setValue(50)
             self.ui.checkBox_autocrop.setChecked(False)
@@ -342,6 +347,9 @@ class BoxSettingsUIHandler:
             self.ui.lineEdit_format.setText(item_obj.settings["format_regex"])
             self.ui.comboBox_fieldType.setCurrentIndex(item_obj.settings["type"])
             self.ui.checkBox_smoothing.setChecked(item_obj.settings["smoothing"])
+            self.ui.comboBox_temporalMode.setCurrentIndex(
+                item_obj.settings["temporal_mode"]
+            )
             self.ui.checkBox_skip_empty.setChecked(item_obj.settings["skip_empty"])
             self.ui.spinBox_conf_thresh.setValue(
                 int(item_obj.settings["conf_thresh"] * 100)
@@ -385,6 +393,7 @@ class BoxSettingsUIHandler:
         self.ui.lineEdit_format.blockSignals(False)
         self.ui.comboBox_fieldType.blockSignals(False)
         self.ui.checkBox_smoothing.blockSignals(False)
+        self.ui.comboBox_temporalMode.blockSignals(False)
         self.ui.checkBox_skip_empty.blockSignals(False)
         self.ui.spinBox_conf_thresh.blockSignals(False)
         self.ui.checkBox_autocrop.blockSignals(False)

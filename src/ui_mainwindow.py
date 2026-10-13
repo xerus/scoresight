@@ -3,14 +3,25 @@
 ################################################################################
 ## Form generated from reading UI file 'mainwindow.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.7.2
+## Created by: Qt User Interface Compiler version 6.10.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *  # type: ignore
-from PySide6.QtGui import *  # type: ignore
-from PySide6.QtWidgets import *  # type: ignore
+from PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,
+    QMetaObject, QObject, QPoint, QRect,
+    QSize, QTime, QUrl, Qt)
+from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
+    QFont, QFontDatabase, QGradient, QIcon,
+    QImage, QKeySequence, QLinearGradient, QPainter,
+    QPalette, QPixmap, QRadialGradient, QTransform)
+from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication, QCheckBox,
+    QComboBox, QFormLayout, QFrame, QGridLayout,
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QLayout, QLineEdit, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
+    QTabWidget, QTableView, QTableWidget, QTableWidgetItem,
+    QToolButton, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -145,6 +156,20 @@ class Ui_MainWindow(object):
         self.checkBox_smoothing.setObjectName(u"checkBox_smoothing")
 
         self.gridLayout_6.addWidget(self.checkBox_smoothing, 3, 2, 1, 1)
+
+        self.label_temporalMode = QLabel(self.groupBox_target_settings)
+        self.label_temporalMode.setObjectName(u"label_temporalMode")
+
+        self.gridLayout_6.addWidget(self.label_temporalMode, 13, 2, 1, 1)
+
+        self.comboBox_temporalMode = QComboBox(self.groupBox_target_settings)
+        self.comboBox_temporalMode.addItem("")
+        self.comboBox_temporalMode.addItem("")
+        self.comboBox_temporalMode.addItem("")
+        self.comboBox_temporalMode.addItem("")
+        self.comboBox_temporalMode.setObjectName(u"comboBox_temporalMode")
+
+        self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
 
         self.widget_27 = QWidget(self.groupBox_target_settings)
         self.widget_27.setObjectName(u"widget_27")
@@ -418,6 +443,7 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_hscale.addWidget(self.spinBox_hscale)
 
+
         self.gridLayout_6.addWidget(self.widget_hscale, 11, 3, 1, 1)
 
         self.widget_skew = QWidget(self.groupBox_target_settings)
@@ -507,7 +533,7 @@ class Ui_MainWindow(object):
         self.label_7 = QLabel(self.tab_textFiles)
         self.label_7.setObjectName(u"label_7")
 
-        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.label_7)
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.LabelRole, self.label_7)
 
         self.widget_5 = QWidget(self.tab_textFiles)
         self.widget_5.setObjectName(u"widget_5")
@@ -536,7 +562,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_6.addWidget(self.toolButton_trashFolder)
 
 
-        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.widget_5)
+        self.formLayout_2.setWidget(0, QFormLayout.ItemRole.FieldRole, self.widget_5)
 
         self.widget_12 = QWidget(self.tab_textFiles)
         self.widget_12.setObjectName(u"widget_12")
@@ -556,12 +582,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_14.addWidget(self.checkBox_saveXML)
 
 
-        self.formLayout_2.setWidget(1, QFormLayout.FieldRole, self.widget_12)
+        self.formLayout_2.setWidget(1, QFormLayout.ItemRole.FieldRole, self.widget_12)
 
         self.label_append = QLabel(self.tab_textFiles)
         self.label_append.setObjectName(u"label_append")
 
-        self.formLayout_2.setWidget(2, QFormLayout.LabelRole, self.label_append)
+        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.LabelRole, self.label_append)
 
         self.comboBox_appendMethod = QComboBox(self.tab_textFiles)
         self.comboBox_appendMethod.addItem("")
@@ -572,12 +598,12 @@ class Ui_MainWindow(object):
         sizePolicy4.setHeightForWidth(self.comboBox_appendMethod.sizePolicy().hasHeightForWidth())
         self.comboBox_appendMethod.setSizePolicy(sizePolicy4)
 
-        self.formLayout_2.setWidget(2, QFormLayout.FieldRole, self.comboBox_appendMethod)
+        self.formLayout_2.setWidget(2, QFormLayout.ItemRole.FieldRole, self.comboBox_appendMethod)
 
         self.label_savePerSec = QLabel(self.tab_textFiles)
         self.label_savePerSec.setObjectName(u"label_savePerSec")
 
-        self.formLayout_2.setWidget(3, QFormLayout.LabelRole, self.label_savePerSec)
+        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.LabelRole, self.label_savePerSec)
 
         self.spinBox_aggsPerSecond = QSpinBox(self.tab_textFiles)
         self.spinBox_aggsPerSecond.setObjectName(u"spinBox_aggsPerSecond")
@@ -585,11 +611,11 @@ class Ui_MainWindow(object):
         self.spinBox_aggsPerSecond.setMaximum(10)
         self.spinBox_aggsPerSecond.setValue(5)
 
-        self.formLayout_2.setWidget(3, QFormLayout.FieldRole, self.spinBox_aggsPerSecond)
+        self.formLayout_2.setWidget(3, QFormLayout.ItemRole.FieldRole, self.spinBox_aggsPerSecond)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.formLayout_2.setItem(4, QFormLayout.FieldRole, self.verticalSpacer_2)
+        self.formLayout_2.setItem(4, QFormLayout.ItemRole.FieldRole, self.verticalSpacer_2)
 
         self.tabWidget_outputs.addTab(self.tab_textFiles, "")
         self.tab_browser = QWidget()
@@ -847,12 +873,12 @@ class Ui_MainWindow(object):
         self.checkBox_enableOutAPI = QCheckBox(self.tab_api)
         self.checkBox_enableOutAPI.setObjectName(u"checkBox_enableOutAPI")
 
-        self.formLayout_3.setWidget(0, QFormLayout.FieldRole, self.checkBox_enableOutAPI)
+        self.formLayout_3.setWidget(0, QFormLayout.ItemRole.FieldRole, self.checkBox_enableOutAPI)
 
         self.label_21 = QLabel(self.tab_api)
         self.label_21.setObjectName(u"label_21")
 
-        self.formLayout_3.setWidget(4, QFormLayout.LabelRole, self.label_21)
+        self.formLayout_3.setWidget(4, QFormLayout.ItemRole.LabelRole, self.label_21)
 
         self.comboBox_api_encode = QComboBox(self.tab_api)
         self.comboBox_api_encode.addItem("")
@@ -861,11 +887,11 @@ class Ui_MainWindow(object):
         self.comboBox_api_encode.addItem("")
         self.comboBox_api_encode.setObjectName(u"comboBox_api_encode")
 
-        self.formLayout_3.setWidget(4, QFormLayout.FieldRole, self.comboBox_api_encode)
+        self.formLayout_3.setWidget(4, QFormLayout.ItemRole.FieldRole, self.comboBox_api_encode)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
 
-        self.formLayout_3.setItem(5, QFormLayout.FieldRole, self.verticalSpacer)
+        self.formLayout_3.setItem(5, QFormLayout.ItemRole.FieldRole, self.verticalSpacer)
 
         self.widget_24 = QWidget(self.tab_api)
         self.widget_24.setObjectName(u"widget_24")
@@ -888,12 +914,12 @@ class Ui_MainWindow(object):
         self.horizontalLayout_27.addWidget(self.comboBox_outApiMethod)
 
 
-        self.formLayout_3.setWidget(1, QFormLayout.FieldRole, self.widget_24)
+        self.formLayout_3.setWidget(1, QFormLayout.ItemRole.FieldRole, self.widget_24)
 
         self.label_20 = QLabel(self.tab_api)
         self.label_20.setObjectName(u"label_20")
 
-        self.formLayout_3.setWidget(1, QFormLayout.LabelRole, self.label_20)
+        self.formLayout_3.setWidget(1, QFormLayout.ItemRole.LabelRole, self.label_20)
 
         self.tabWidget_outputs.addTab(self.tab_api, "")
 
@@ -1217,6 +1243,15 @@ class Ui_MainWindow(object):
         self.pushButton_removeBox.setText(QCoreApplication.translate("MainWindow", u"Remove Selected", None))
         self.pushButton_restoreDefaults.setText(QCoreApplication.translate("MainWindow", u"Defaults", None))
         self.checkBox_smoothing.setText(QCoreApplication.translate("MainWindow", u"Average Output", None))
+        self.label_temporalMode.setText(QCoreApplication.translate("MainWindow", u"Confirm changes", None))
+        self.comboBox_temporalMode.setItemText(0, QCoreApplication.translate("MainWindow", u"Off", None))
+        self.comboBox_temporalMode.setItemText(1, QCoreApplication.translate("MainWindow", u"Numbers / scores", None))
+        self.comboBox_temporalMode.setItemText(2, QCoreApplication.translate("MainWindow", u"Countdown clock", None))
+        self.comboBox_temporalMode.setItemText(3, QCoreApplication.translate("MainWindow", u"Count-up clock", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_binarizationMethod.setText(QCoreApplication.translate("MainWindow", u"Binarize", None))
         self.comboBox_binarizationMethod.setItemText(0, QCoreApplication.translate("MainWindow", u"Global", None))
         self.comboBox_binarizationMethod.setItemText(1, QCoreApplication.translate("MainWindow", u"No Binarization", None))
@@ -1254,9 +1289,14 @@ class Ui_MainWindow(object):
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Target:", None))
         self.label_selectedInfo.setText(QCoreApplication.translate("MainWindow", u"Select an item above", None))
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
+#if QT_CONFIG(tooltip)
         self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Conf. Th", None))
         self.spinBox_conf_thresh.setSuffix(QCoreApplication.translate("MainWindow", u" %", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_conf_thresh.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))
+#endif // QT_CONFIG(tooltip)
 #if QT_CONFIG(tooltip)
         self.checkBox_normWHRatio.setToolTip(QCoreApplication.translate("MainWindow", u"Scale to a favorable 1:2 width-to-height ratio", None))
 #endif // QT_CONFIG(tooltip)

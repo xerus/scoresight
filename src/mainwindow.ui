@@ -275,6 +275,22 @@
                </property>
               </widget>
              </item>
+             <item row="13" column="2">
+              <widget class="QLabel" name="label_temporalMode">
+               <property name="text"><string>Confirm changes</string></property>
+              </widget>
+             </item>
+             <item row="13" column="3">
+              <widget class="QComboBox" name="comboBox_temporalMode">
+               <property name="toolTip">
+                <string>Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.</string>
+               </property>
+               <item><property name="text"><string>Off</string></property></item>
+               <item><property name="text"><string>Numbers / scores</string></property></item>
+               <item><property name="text"><string>Countdown clock</string></property></item>
+               <item><property name="text"><string>Count-up clock</string></property></item>
+              </widget>
+             </item>
              <item row="9" column="2">
               <widget class="QWidget" name="widget_27" native="true">
                <property name="sizePolicy">
