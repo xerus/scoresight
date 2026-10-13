@@ -173,24 +173,33 @@ class VMixOutputTests(unittest.TestCase):
         self.api.set_field_mapping(
             {"Home": "Home.Text", "Away": "Away.Text", "Clock": "Clock.Text"}
         )
-        with patch(
-            "vmix_output.requests.get",
-            side_effect=[
-                SimpleNamespace(status_code=500),
-                requests.Timeout("timed out"),
-                SimpleNamespace(status_code=200),
-            ],
-        ) as get, patch("vmix_output.logger.error") as error:
+        with (
+            patch(
+                "vmix_output.requests.get",
+                side_effect=[
+                    SimpleNamespace(status_code=500),
+                    requests.Timeout("timed out"),
+                    SimpleNamespace(status_code=200),
+                ],
+            ) as get,
+            patch("vmix_output.logger.error") as error,
+        ):
             self.api.update_vmix([result(), result(name="Away"), result(name="Clock")])
             self.wait_for_updates()
             self.assertEqual(get.call_count, 3)
             self.assertEqual(error.call_count, 2)
 
     def test_failed_field_retries_on_unchanged_update_until_success_then_stops(self):
-        with patch(
-            "vmix_output.requests.get",
-            side_effect=[requests.Timeout("offline"), SimpleNamespace(status_code=200)],
-        ) as get, patch("vmix_output.logger.error"):
+        with (
+            patch(
+                "vmix_output.requests.get",
+                side_effect=[
+                    requests.Timeout("offline"),
+                    SimpleNamespace(status_code=200),
+                ],
+            ) as get,
+            patch("vmix_output.logger.error"),
+        ):
             self.api.update_vmix([result(text="7")])
             self.wait_for_updates()
             self.assertEqual(get.call_count, 1)
@@ -215,8 +224,9 @@ class VMixOutputTests(unittest.TestCase):
                 release.wait(5)
             return SimpleNamespace(status_code=200)
 
-        with patch("vmix_output.requests.get", side_effect=send), patch(
-            "vmix_output.logger.error"
+        with (
+            patch("vmix_output.requests.get", side_effect=send),
+            patch("vmix_output.logger.error"),
         ):
             try:
                 self.api.update_vmix([result(text="41")])
