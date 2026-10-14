@@ -238,7 +238,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_target_settings">
+           <widget class="QScrollArea" name="scrollArea_target_settings">
+            <property name="minimumSize"><size><width>470</width><height>180</height></size></property>
+            <property name="frameShape"><enum>QFrame::NoFrame</enum></property>
+            <property name="widgetResizable"><bool>true</bool></property>
+            <property name="horizontalScrollBarPolicy"><enum>Qt::ScrollBarAlwaysOff</enum></property>
+            <widget class="QGroupBox" name="groupBox_target_settings">
             <layout class="QGridLayout" name="gridLayout_6">
              <property name="leftMargin">
               <number>2</number>
@@ -291,6 +296,26 @@
                <item><property name="text"><string>Count-up clock</string></property></item>
               </widget>
              </item>
+             <item row="18" column="0">
+              <widget class="QLabel" name="label_clockInput"><property name="text"><string>Clock input</string></property></widget>
+             </item>
+             <item row="18" column="1" colspan="3">
+              <widget class="QComboBox" name="comboBox_clockInput">
+               <property name="toolTip"><string>Time fields only. Declare how this display encodes time when separators are absent or obscured. Compact modes require every digit and valid seconds; they never fill missing digits or predict the clock. Applies to all OCR readers.</string></property>
+               <item><property name="text"><string>Read displayed separators</string></property></item>
+               <item><property name="text"><string>MSS to M:SS</string></property></item>
+               <item><property name="text"><string>MMSS to MM:SS</string></property></item>
+               <item><property name="text"><string>SSt to SS.t</string></property></item>
+               <item><property name="text"><string>St to S.t</string></property></item>
+               <item><property name="text"><string>Integer seconds</string></property></item>
+              </widget>
+             </item>
+             <item row="17" column="0" colspan="4">
+              <widget class="QCheckBox" name="checkBox_checkLed">
+               <property name="text"><string>Check LED digit shapes (PP-OCR)</string></property>
+               <property name="toolTip"><string>For physical LED numbers and clocks: check clear bright digit shapes against PP-OCR. On disagreement, retry a tighter crop and require agreement. This can recover 7/1 confusion or a missing digit, but adds work and may reject valid values. Merged or unclear shapes cannot verify a reading. General text ignores this option.</string></property>
+              </widget>
+             </item>
              <item row="16" column="0">
               <widget class="QLabel" name="label_segmentLayout">
                <property name="text"><string>LED layout</string></property>
@@ -304,6 +329,8 @@
                <item><property name="text"><string>M:SS (4 cells)</string></property></item>
                <item><property name="text"><string>SS.t (4 cells)</string></property></item>
                <item><property name="text"><string>S.t (3 cells)</string></property></item>
+               <item><property name="text"><string>MSS compact (3 cells)</string></property></item>
+               <item><property name="text"><string>MMSS compact (4 cells)</string></property></item>
               </widget>
              </item>
              <item row="15" column="0">
@@ -956,6 +983,7 @@
               </widget>
              </item>
             </layout>
+           </widget>
            </widget>
           </item>
           <item>

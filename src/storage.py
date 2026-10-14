@@ -279,6 +279,8 @@ class TextDetectionTargetMemoryStorage(QObject):
                             "temporal_mode", 0
                         ),
                         "box_ocr_model": detectionTarget.settings["box_ocr_model"],
+                        "check_led": detectionTarget.settings["check_led"],
+                        "clock_input": detectionTarget.settings["clock_input"],
                         "segment_digits": detectionTarget.settings["segment_digits"],
                         "segment_layout": detectionTarget.settings["segment_layout"],
                         "segment_color": detectionTarget.settings["segment_color"],

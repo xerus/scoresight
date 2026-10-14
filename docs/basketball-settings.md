@@ -30,6 +30,11 @@ to a particular league's period duration or shot-clock reset rules.
 
 PP-OCR + TTA and Tesseract can read clock text. The OpenCV reader supports clocks
 with [explicitly calibrated digits and visible separators](calibrated-led-clocks.md).
-Its default Number layout rejects Time fields.
+Its Number layout accepts Time only with explicit Integer seconds input.
+Use **Clock input** for an explicitly declared compact or decimal clock format;
+see the [format table](led-ambiguity-check.md).
 See [confirmation behavior](temporal-confirmation.md) for update delay and resets,
 and [LED calibration](opencv-benchmark.md) for digit geometry and color settings.
+
+For PP-OCR on physical LEDs, the optional [LED ambiguity check](led-ambiguity-check.md)
+can retry a tighter crop when clear digit shapes disagree with the neural reading.
