@@ -19,9 +19,9 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication
     QComboBox, QFormLayout, QFrame, QGridLayout,
     QGroupBox, QHBoxLayout, QHeaderView, QLabel,
     QLayout, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
-    QTabWidget, QTableView, QTableWidget, QTableWidgetItem,
-    QToolButton, QVBoxLayout, QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSpinBox, QTabWidget, QTableView, QTableWidget,
+    QTableWidgetItem, QToolButton, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -136,7 +136,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.widget_2)
 
-        self.groupBox_target_settings = QGroupBox(self.groupBox_sb_info)
+        self.scrollArea_target_settings = QScrollArea(self.groupBox_sb_info)
+        self.scrollArea_target_settings.setObjectName(u"scrollArea_target_settings")
+        self.scrollArea_target_settings.setMinimumSize(QSize(470, 180))
+        self.scrollArea_target_settings.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_target_settings.setWidgetResizable(True)
+        self.scrollArea_target_settings.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.groupBox_target_settings = QGroupBox()
         self.groupBox_target_settings.setObjectName(u"groupBox_target_settings")
         self.gridLayout_6 = QGridLayout(self.groupBox_target_settings)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
@@ -170,6 +176,107 @@ class Ui_MainWindow(object):
         self.comboBox_temporalMode.setObjectName(u"comboBox_temporalMode")
 
         self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
+
+        self.label_clockInput = QLabel(self.groupBox_target_settings)
+        self.label_clockInput.setObjectName(u"label_clockInput")
+
+        self.gridLayout_6.addWidget(self.label_clockInput, 18, 0, 1, 1)
+
+        self.comboBox_clockInput = QComboBox(self.groupBox_target_settings)
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.setObjectName(u"comboBox_clockInput")
+
+        self.gridLayout_6.addWidget(self.comboBox_clockInput, 18, 1, 1, 3)
+
+        self.checkBox_checkLed = QCheckBox(self.groupBox_target_settings)
+        self.checkBox_checkLed.setObjectName(u"checkBox_checkLed")
+
+        self.gridLayout_6.addWidget(self.checkBox_checkLed, 17, 0, 1, 4)
+
+        self.label_segmentLayout = QLabel(self.groupBox_target_settings)
+        self.label_segmentLayout.setObjectName(u"label_segmentLayout")
+
+        self.gridLayout_6.addWidget(self.label_segmentLayout, 16, 0, 1, 1)
+
+        self.comboBox_segmentLayout = QComboBox(self.groupBox_target_settings)
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.setObjectName(u"comboBox_segmentLayout")
+
+        self.gridLayout_6.addWidget(self.comboBox_segmentLayout, 16, 1, 1, 3)
+
+        self.label_boxOcrModel = QLabel(self.groupBox_target_settings)
+        self.label_boxOcrModel.setObjectName(u"label_boxOcrModel")
+
+        self.gridLayout_6.addWidget(self.label_boxOcrModel, 15, 0, 1, 1)
+
+        self.comboBox_boxOcrModel = QComboBox(self.groupBox_target_settings)
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.addItem("")
+        self.comboBox_boxOcrModel.setObjectName(u"comboBox_boxOcrModel")
+
+        self.gridLayout_6.addWidget(self.comboBox_boxOcrModel, 15, 1, 1, 2)
+
+        self.pushButton_basketballPreset = QPushButton(self.groupBox_target_settings)
+        self.pushButton_basketballPreset.setObjectName(u"pushButton_basketballPreset")
+
+        self.gridLayout_6.addWidget(self.pushButton_basketballPreset, 15, 3, 1, 1)
+
+        self.groupBox_segmentSettings = QGroupBox(self.groupBox_target_settings)
+        self.groupBox_segmentSettings.setObjectName(u"groupBox_segmentSettings")
+        self.horizontalLayout_segmentSettings = QHBoxLayout(self.groupBox_segmentSettings)
+        self.horizontalLayout_segmentSettings.setObjectName(u"horizontalLayout_segmentSettings")
+        self.label_segmentDigits = QLabel(self.groupBox_segmentSettings)
+        self.label_segmentDigits.setObjectName(u"label_segmentDigits")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.label_segmentDigits)
+
+        self.spinBox_segmentDigits = QSpinBox(self.groupBox_segmentSettings)
+        self.spinBox_segmentDigits.setObjectName(u"spinBox_segmentDigits")
+        self.spinBox_segmentDigits.setMinimum(1)
+        self.spinBox_segmentDigits.setMaximum(3)
+        self.spinBox_segmentDigits.setValue(2)
+
+        self.horizontalLayout_segmentSettings.addWidget(self.spinBox_segmentDigits)
+
+        self.comboBox_segmentColor = QComboBox(self.groupBox_segmentSettings)
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.addItem("")
+        self.comboBox_segmentColor.setObjectName(u"comboBox_segmentColor")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.comboBox_segmentColor)
+
+        self.label_segmentBrightness = QLabel(self.groupBox_segmentSettings)
+        self.label_segmentBrightness.setObjectName(u"label_segmentBrightness")
+
+        self.horizontalLayout_segmentSettings.addWidget(self.label_segmentBrightness)
+
+        self.spinBox_segmentBrightness = QSpinBox(self.groupBox_segmentSettings)
+        self.spinBox_segmentBrightness.setObjectName(u"spinBox_segmentBrightness")
+        self.spinBox_segmentBrightness.setMinimum(1)
+        self.spinBox_segmentBrightness.setMaximum(255)
+        self.spinBox_segmentBrightness.setValue(140)
+
+        self.horizontalLayout_segmentSettings.addWidget(self.spinBox_segmentBrightness)
+
+
+        self.gridLayout_6.addWidget(self.groupBox_segmentSettings, 14, 0, 1, 4)
 
         self.widget_27 = QWidget(self.groupBox_target_settings)
         self.widget_27.setObjectName(u"widget_27")
@@ -466,8 +573,9 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.widget_skew, 12, 3, 1, 1)
 
+        self.scrollArea_target_settings.setWidget(self.groupBox_target_settings)
 
-        self.verticalLayout_3.addWidget(self.groupBox_target_settings)
+        self.verticalLayout_3.addWidget(self.scrollArea_target_settings)
 
         self.widget_23 = QWidget(self.groupBox_sb_info)
         self.widget_23.setObjectName(u"widget_23")
@@ -1252,6 +1360,65 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
 #endif // QT_CONFIG(tooltip)
+        self.label_clockInput.setText(QCoreApplication.translate("MainWindow", u"Clock input", None))
+        self.comboBox_clockInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Read displayed separators", None))
+        self.comboBox_clockInput.setItemText(1, QCoreApplication.translate("MainWindow", u"MSS to M:SS", None))
+        self.comboBox_clockInput.setItemText(2, QCoreApplication.translate("MainWindow", u"MMSS to MM:SS", None))
+        self.comboBox_clockInput.setItemText(3, QCoreApplication.translate("MainWindow", u"SSt to SS.t", None))
+        self.comboBox_clockInput.setItemText(4, QCoreApplication.translate("MainWindow", u"St to S.t", None))
+        self.comboBox_clockInput.setItemText(5, QCoreApplication.translate("MainWindow", u"Integer seconds", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_clockInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time fields only. Declare how this display encodes time when separators are absent or obscured. Compact modes require every digit and valid seconds; they never fill missing digits or predict the clock. Applies to all OCR readers.", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_checkLed.setText(QCoreApplication.translate("MainWindow", u"Check LED digit shapes (PP-OCR)", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_checkLed.setToolTip(QCoreApplication.translate("MainWindow", u"For physical LED numbers and clocks: check clear bright digit shapes against PP-OCR. On disagreement, retry a tighter crop and require agreement. This can recover 7/1 confusion or a missing digit, but adds work and may reject valid values. Merged or unclear shapes cannot verify a reading. General text ignores this option.", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_segmentLayout.setText(QCoreApplication.translate("MainWindow", u"LED layout", None))
+        self.comboBox_segmentLayout.setItemText(0, QCoreApplication.translate("MainWindow", u"Number", None))
+        self.comboBox_segmentLayout.setItemText(1, QCoreApplication.translate("MainWindow", u"MM:SS (5 cells)", None))
+        self.comboBox_segmentLayout.setItemText(2, QCoreApplication.translate("MainWindow", u"M:SS (4 cells)", None))
+        self.comboBox_segmentLayout.setItemText(3, QCoreApplication.translate("MainWindow", u"SS.t (4 cells)", None))
+        self.comboBox_segmentLayout.setItemText(4, QCoreApplication.translate("MainWindow", u"S.t (3 cells)", None))
+        self.comboBox_segmentLayout.setItemText(5, QCoreApplication.translate("MainWindow", u"MSS compact (3 cells)", None))
+        self.comboBox_segmentLayout.setItemText(6, QCoreApplication.translate("MainWindow", u"MMSS compact (4 cells)", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_segmentLayout.setToolTip(QCoreApplication.translate("MainWindow", u"OpenCV LED layout. For clocks select Time and enable Composite (Per-Character), then draw one cell for every digit and separator, from left to right. Separator cells must span the digit height. A colon or decimal point must be visible.", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_boxOcrModel.setText(QCoreApplication.translate("MainWindow", u"Box reader", None))
+        self.comboBox_boxOcrModel.setItemText(0, QCoreApplication.translate("MainWindow", u"Use global model", None))
+        self.comboBox_boxOcrModel.setItemText(1, QCoreApplication.translate("MainWindow", u"Daktronics", None))
+        self.comboBox_boxOcrModel.setItemText(2, QCoreApplication.translate("MainWindow", u"General Scoreboard", None))
+        self.comboBox_boxOcrModel.setItemText(3, QCoreApplication.translate("MainWindow", u"General Fonts (English)", None))
+        self.comboBox_boxOcrModel.setItemText(4, QCoreApplication.translate("MainWindow", u"General Scoreboard Large", None))
+        self.comboBox_boxOcrModel.setItemText(5, QCoreApplication.translate("MainWindow", u"OpenCV Seven-Segment", None))
+        self.comboBox_boxOcrModel.setItemText(6, QCoreApplication.translate("MainWindow", u"PP-OCRv4 + TTA", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_boxOcrModel.setToolTip(QCoreApplication.translate("MainWindow", u"Choose an OCR reader for this box, or inherit the global OCR Model. Each selected reader stays loaded. The external model file is available through the global selection.", None))
+#endif // QT_CONFIG(tooltip)
+        self.pushButton_basketballPreset.setText(QCoreApplication.translate("MainWindow", u"Basketball", None))
+#if QT_CONFIG(tooltip)
+        self.pushButton_basketballPreset.setToolTip(QCoreApplication.translate("MainWindow", u"Apply basketball format and change-confirmation settings to the selected standard field (scores, Time, Shot Clock, Period, or fouls). Keeps the box position, reader, LED calibration, and output mapping.", None))
+#endif // QT_CONFIG(tooltip)
+        self.groupBox_segmentSettings.setTitle(QCoreApplication.translate("MainWindow", u"LED reader calibration", None))
+#if QT_CONFIG(tooltip)
+        self.groupBox_segmentSettings.setToolTip(QCoreApplication.translate("MainWindow", u"Used only by the OpenCV seven-segment reader for numeric fields. Crop all physical digit cells with equal spacing, including unlit leading cells. Match the digit count and LED color to the display.", None))
+#endif // QT_CONFIG(tooltip)
+        self.label_segmentDigits.setText(QCoreApplication.translate("MainWindow", u"Digits", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_segmentDigits.setToolTip(QCoreApplication.translate("MainWindow", u"Digit count for the Number layout. Clock layouts define their own digit and separator cells.", None))
+#endif // QT_CONFIG(tooltip)
+        self.comboBox_segmentColor.setItemText(0, QCoreApplication.translate("MainWindow", u"Red / yellow", None))
+        self.comboBox_segmentColor.setItemText(1, QCoreApplication.translate("MainWindow", u"Green", None))
+        self.comboBox_segmentColor.setItemText(2, QCoreApplication.translate("MainWindow", u"Any LED color", None))
+
+        self.label_segmentBrightness.setText(QCoreApplication.translate("MainWindow", u"Brightness", None))
+#if QT_CONFIG(tooltip)
+        self.spinBox_segmentBrightness.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum LED brightness, from 1 to 255. Lower it for dim segments; raise it to suppress background light. Verify results against the display.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_binarizationMethod.setText(QCoreApplication.translate("MainWindow", u"Binarize", None))
         self.comboBox_binarizationMethod.setItemText(0, QCoreApplication.translate("MainWindow", u"Global", None))
         self.comboBox_binarizationMethod.setItemText(1, QCoreApplication.translate("MainWindow", u"No Binarization", None))
@@ -1288,6 +1455,9 @@ class Ui_MainWindow(object):
         self.checkBox_skip_empty.setText(QCoreApplication.translate("MainWindow", u"Skip Empty Values", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"Target:", None))
         self.label_selectedInfo.setText(QCoreApplication.translate("MainWindow", u"Select an item above", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_compositeBox.setToolTip(QCoreApplication.translate("MainWindow", u"For the OpenCV LED reader, draw separate digit and separator cells using the plus button inside the selected box. Cells are read left to right. Match the number of cells to Digits or LED layout. Tesseract and PP-OCR read the complete box.", None))
+#endif // QT_CONFIG(tooltip)
         self.checkBox_compositeBox.setText(QCoreApplication.translate("MainWindow", u"Composite (Per-Character)", None))
 #if QT_CONFIG(tooltip)
         self.label_3.setToolTip(QCoreApplication.translate("MainWindow", u"Minimum OCR confidence in percent. Raise this to reject uncertain readings.", None))

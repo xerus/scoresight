@@ -238,7 +238,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QGroupBox" name="groupBox_target_settings">
+           <widget class="QScrollArea" name="scrollArea_target_settings">
+            <property name="minimumSize"><size><width>470</width><height>180</height></size></property>
+            <property name="frameShape"><enum>QFrame::NoFrame</enum></property>
+            <property name="widgetResizable"><bool>true</bool></property>
+            <property name="horizontalScrollBarPolicy"><enum>Qt::ScrollBarAlwaysOff</enum></property>
+            <widget class="QGroupBox" name="groupBox_target_settings">
             <layout class="QGridLayout" name="gridLayout_6">
              <property name="leftMargin">
               <number>2</number>
@@ -289,6 +294,93 @@
                <item><property name="text"><string>Numbers / scores</string></property></item>
                <item><property name="text"><string>Countdown clock</string></property></item>
                <item><property name="text"><string>Count-up clock</string></property></item>
+              </widget>
+             </item>
+             <item row="18" column="0">
+              <widget class="QLabel" name="label_clockInput"><property name="text"><string>Clock input</string></property></widget>
+             </item>
+             <item row="18" column="1" colspan="3">
+              <widget class="QComboBox" name="comboBox_clockInput">
+               <property name="toolTip"><string>Time fields only. Declare how this display encodes time when separators are absent or obscured. Compact modes require every digit and valid seconds; they never fill missing digits or predict the clock. Applies to all OCR readers.</string></property>
+               <item><property name="text"><string>Read displayed separators</string></property></item>
+               <item><property name="text"><string>MSS to M:SS</string></property></item>
+               <item><property name="text"><string>MMSS to MM:SS</string></property></item>
+               <item><property name="text"><string>SSt to SS.t</string></property></item>
+               <item><property name="text"><string>St to S.t</string></property></item>
+               <item><property name="text"><string>Integer seconds</string></property></item>
+              </widget>
+             </item>
+             <item row="17" column="0" colspan="4">
+              <widget class="QCheckBox" name="checkBox_checkLed">
+               <property name="text"><string>Check LED digit shapes (PP-OCR)</string></property>
+               <property name="toolTip"><string>For physical LED numbers and clocks: check clear bright digit shapes against PP-OCR. On disagreement, retry a tighter crop and require agreement. This can recover 7/1 confusion or a missing digit, but adds work and may reject valid values. Merged or unclear shapes cannot verify a reading. General text ignores this option.</string></property>
+              </widget>
+             </item>
+             <item row="16" column="0">
+              <widget class="QLabel" name="label_segmentLayout">
+               <property name="text"><string>LED layout</string></property>
+              </widget>
+             </item>
+             <item row="16" column="1" colspan="3">
+              <widget class="QComboBox" name="comboBox_segmentLayout">
+               <property name="toolTip"><string>OpenCV LED layout. For clocks select Time and enable Composite (Per-Character), then draw one cell for every digit and separator, from left to right. Separator cells must span the digit height. A colon or decimal point must be visible.</string></property>
+               <item><property name="text"><string>Number</string></property></item>
+               <item><property name="text"><string>MM:SS (5 cells)</string></property></item>
+               <item><property name="text"><string>M:SS (4 cells)</string></property></item>
+               <item><property name="text"><string>SS.t (4 cells)</string></property></item>
+               <item><property name="text"><string>S.t (3 cells)</string></property></item>
+               <item><property name="text"><string>MSS compact (3 cells)</string></property></item>
+               <item><property name="text"><string>MMSS compact (4 cells)</string></property></item>
+              </widget>
+             </item>
+             <item row="15" column="0">
+              <widget class="QLabel" name="label_boxOcrModel">
+               <property name="text"><string>Box reader</string></property>
+              </widget>
+             </item>
+             <item row="15" column="1" colspan="2">
+              <widget class="QComboBox" name="comboBox_boxOcrModel">
+               <property name="toolTip"><string>Choose an OCR reader for this box, or inherit the global OCR Model. Each selected reader stays loaded. The external model file is available through the global selection.</string></property>
+               <item><property name="text"><string>Use global model</string></property></item>
+               <item><property name="text"><string>Daktronics</string></property></item>
+               <item><property name="text"><string>General Scoreboard</string></property></item>
+               <item><property name="text"><string>General Fonts (English)</string></property></item>
+               <item><property name="text"><string>General Scoreboard Large</string></property></item>
+               <item><property name="text"><string>OpenCV Seven-Segment</string></property></item>
+               <item><property name="text"><string>PP-OCRv4 + TTA</string></property></item>
+              </widget>
+             </item>
+             <item row="15" column="3">
+              <widget class="QPushButton" name="pushButton_basketballPreset">
+               <property name="text"><string>Basketball</string></property>
+               <property name="toolTip"><string>Apply basketball format and change-confirmation settings to the selected standard field (scores, Time, Shot Clock, Period, or fouls). Keeps the box position, reader, LED calibration, and output mapping.</string></property>
+              </widget>
+             </item>
+             <item row="14" column="0" colspan="4">
+              <widget class="QGroupBox" name="groupBox_segmentSettings">
+               <property name="title"><string>LED reader calibration</string></property>
+               <property name="toolTip"><string>Used only by the OpenCV seven-segment reader for numeric fields. Crop all physical digit cells with equal spacing, including unlit leading cells. Match the digit count and LED color to the display.</string></property>
+               <layout class="QHBoxLayout" name="horizontalLayout_segmentSettings">
+                <item><widget class="QLabel" name="label_segmentDigits"><property name="text"><string>Digits</string></property></widget></item>
+                <item><widget class="QSpinBox" name="spinBox_segmentDigits">
+                 <property name="toolTip"><string>Digit count for the Number layout. Clock layouts define their own digit and separator cells.</string></property>
+                 <property name="minimum"><number>1</number></property>
+                 <property name="maximum"><number>3</number></property>
+                 <property name="value"><number>2</number></property>
+                </widget></item>
+                <item><widget class="QComboBox" name="comboBox_segmentColor">
+                 <item><property name="text"><string>Red / yellow</string></property></item>
+                 <item><property name="text"><string>Green</string></property></item>
+                 <item><property name="text"><string>Any LED color</string></property></item>
+                </widget></item>
+                <item><widget class="QLabel" name="label_segmentBrightness"><property name="text"><string>Brightness</string></property></widget></item>
+                <item><widget class="QSpinBox" name="spinBox_segmentBrightness">
+                 <property name="toolTip"><string>Minimum LED brightness, from 1 to 255. Lower it for dim segments; raise it to suppress background light. Verify results against the display.</string></property>
+                 <property name="minimum"><number>1</number></property>
+                 <property name="maximum"><number>255</number></property>
+                 <property name="value"><number>140</number></property>
+                </widget></item>
+               </layout>
               </widget>
              </item>
              <item row="9" column="2">
@@ -602,6 +694,7 @@
              </item>
              <item row="9" column="3">
               <widget class="QCheckBox" name="checkBox_compositeBox">
+               <property name="toolTip"><string>For the OpenCV LED reader, draw separate digit and separator cells using the plus button inside the selected box. Cells are read left to right. Match the number of cells to Digits or LED layout. Tesseract and PP-OCR read the complete box.</string></property>
                <property name="text">
                 <string>Composite (Per-Character)</string>
                </property>
@@ -890,6 +983,7 @@
               </widget>
              </item>
             </layout>
+           </widget>
            </widget>
           </item>
           <item>

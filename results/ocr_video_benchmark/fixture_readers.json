@@ -1,0 +1,327 @@
+{
+  "scope": "Same-session development fixtures; LED geometry/default thresholds untuned. Not an independent accuracy estimate.",
+  "platform": "Linux-7.2.9-201.fc44.x86_64-x86_64-with-glibc2.43",
+  "python": "3.11.16",
+  "packages": {
+    "onnxruntime": "1.31.0",
+    "numpy": "1.26.4",
+    "opencv-python": "4.10.0.84"
+  },
+  "sha256": {
+    "model": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318",
+    "numeric_manifest": "1ed6c0ac4dfb10b5f9ec1e3fe86ff9218e2f440bbee8c8ba60b8994aeddeb087",
+    "clock_manifest": "d79c1a66a32cb963f42ceaed922fcd8bfcf26713f7013f9b2ee2cfb163c7179f"
+  },
+  "repeats": 5,
+  "summary": {
+    "ppocr": {
+      "correct": 8,
+      "wrong": 1,
+      "rejected": 2
+    },
+    "led": {
+      "correct": 0,
+      "wrong": 7,
+      "rejected": 4
+    }
+  },
+  "numeric": [
+    {
+      "image": "zero.png",
+      "field": "home",
+      "expected": "0",
+      "ppocr": {
+        "text": "0",
+        "confidence": 0.72777,
+        "accepted": true,
+        "median_ms": 28.822
+      },
+      "led": {
+        "text": "18",
+        "digit_count": 2,
+        "median_ms": 0.208
+      }
+    },
+    {
+      "image": "zero.png",
+      "field": "away",
+      "expected": "0",
+      "ppocr": {
+        "text": "0",
+        "confidence": 0.6813933333333333,
+        "accepted": true,
+        "median_ms": 29.035
+      },
+      "led": {
+        "text": null,
+        "digit_count": 2,
+        "median_ms": 0.18
+      }
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "field": "home",
+      "expected": "7",
+      "ppocr": {
+        "text": "1",
+        "confidence": 0.59075,
+        "accepted": true,
+        "median_ms": 28.645
+      },
+      "led": {
+        "text": null,
+        "digit_count": 2,
+        "median_ms": 0.202
+      }
+    },
+    {
+      "image": "seven.png",
+      "field": "home",
+      "expected": "7",
+      "ppocr": {
+        "text": "7",
+        "confidence": 0.749095,
+        "accepted": true,
+        "median_ms": 29.006
+      },
+      "led": {
+        "text": null,
+        "digit_count": 2,
+        "median_ms": 0.21
+      }
+    },
+    {
+      "image": "eleven.png",
+      "field": "home",
+      "expected": "9",
+      "ppocr": {
+        "text": "9",
+        "confidence": 0.99031,
+        "accepted": true,
+        "median_ms": 7.129
+      },
+      "led": {
+        "text": "18",
+        "digit_count": 2,
+        "median_ms": 0.196
+      }
+    },
+    {
+      "image": "eleven.png",
+      "field": "away",
+      "expected": "11",
+      "ppocr": {
+        "text": null,
+        "confidence": 0.0,
+        "accepted": false,
+        "median_ms": 29.927
+      },
+      "led": {
+        "text": null,
+        "digit_count": 2,
+        "median_ms": 0.194
+      }
+    },
+    {
+      "image": "foul_one.png",
+      "field": "home",
+      "expected": "24",
+      "ppocr": {
+        "text": "24",
+        "confidence": 0.99802,
+        "accepted": true,
+        "median_ms": 7.652
+      },
+      "led": {
+        "text": "88",
+        "digit_count": 2,
+        "median_ms": 0.191
+      }
+    },
+    {
+      "image": "foul_one.png",
+      "field": "away",
+      "expected": "32",
+      "ppocr": {
+        "text": "32",
+        "confidence": 0.9865,
+        "accepted": true,
+        "median_ms": 7.126
+      },
+      "led": {
+        "text": "88",
+        "digit_count": 2,
+        "median_ms": 0.203
+      }
+    },
+    {
+      "image": "foul_one.png",
+      "field": "away_fouls",
+      "expected": "1",
+      "ppocr": {
+        "text": null,
+        "confidence": 0.0,
+        "accepted": false,
+        "median_ms": 29.715
+      },
+      "led": {
+        "text": "7",
+        "digit_count": 1,
+        "median_ms": 0.129
+      }
+    },
+    {
+      "image": "three_digit.png",
+      "field": "home",
+      "expected": "96",
+      "ppocr": {
+        "text": "96",
+        "confidence": 0.99743,
+        "accepted": true,
+        "median_ms": 7.787
+      },
+      "led": {
+        "text": "88",
+        "digit_count": 2,
+        "median_ms": 0.183
+      }
+    },
+    {
+      "image": "three_digit.png",
+      "field": "away",
+      "expected": "108",
+      "ppocr": {
+        "text": "108",
+        "confidence": 0.8276049999999999,
+        "accepted": true,
+        "median_ms": 30.873
+      },
+      "led": {
+        "text": "008",
+        "digit_count": 3,
+        "median_ms": 0.251
+      }
+    }
+  ],
+  "clocks": [
+    {
+      "image": "zero.png",
+      "name": "game_clock",
+      "roi": [
+        260,
+        345,
+        145,
+        78
+      ],
+      "expected_digits": "055",
+      "displayed_time": "0:55",
+      "separator_status": "not independently legible in this crop",
+      "text": null,
+      "confidence": 0.0,
+      "median_ms": 79.172,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "name": "game_clock",
+      "roi": [
+        260,
+        345,
+        145,
+        78
+      ],
+      "expected_digits": "720",
+      "displayed_time": "7:20",
+      "separator_status": "not independently legible in this crop",
+      "text": "720",
+      "confidence": 0.910625,
+      "median_ms": 71.956,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "seven.png",
+      "name": "game_clock",
+      "roi": [
+        265,
+        345,
+        140,
+        78
+      ],
+      "expected_digits": "642",
+      "displayed_time": "6:42",
+      "separator_status": "not independently legible in this crop",
+      "text": "642",
+      "confidence": 0.92076,
+      "median_ms": 25.273,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "eleven.png",
+      "name": "game_clock",
+      "roi": [
+        265,
+        345,
+        140,
+        78
+      ],
+      "expected_digits": "553",
+      "displayed_time": "5:53",
+      "separator_status": "not independently legible in this crop",
+      "text": "553",
+      "confidence": 0.993,
+      "median_ms": 20.791,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "foul_one.png",
+      "name": "game_clock",
+      "roi": [
+        235,
+        335,
+        145,
+        85
+      ],
+      "expected_digits": "741",
+      "displayed_time": "7:41",
+      "separator_status": "not independently legible in this crop",
+      "text": null,
+      "confidence": 0.0,
+      "median_ms": 70.216,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "seven_ambiguous.png",
+      "name": "shot_clock",
+      "roi": [
+        1700,
+        660,
+        120,
+        110
+      ],
+      "expected_digits": "17",
+      "displayed_time": "17",
+      "separator_status": "integer seconds",
+      "text": null,
+      "confidence": 0.0,
+      "median_ms": 71.014,
+      "exact_displayed_time_match": false
+    },
+    {
+      "image": "foul_one.png",
+      "name": "shot_clock",
+      "roi": [
+        1680,
+        655,
+        115,
+        115
+      ],
+      "expected_digits": "14",
+      "displayed_time": "14",
+      "separator_status": "integer seconds",
+      "text": "4",
+      "confidence": 0.9156,
+      "median_ms": 68.879,
+      "exact_displayed_time_match": false
+    }
+  ]
+}

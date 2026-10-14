@@ -1,0 +1,1539 @@
+{
+  "note": "Same-session chronological crops. Labels reviewed from contact sheets before running the revised policy; no inference or predicted countdown is used as ground truth. Times are source playback timestamps.",
+  "frame_indexing": "zero-based",
+  "sequences": [
+    {
+      "name": "score_3_to_5",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "fps": 23.83724368519586,
+      "field": "Home Score",
+      "clock_input": 0,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "score_3_to_5_00942.png",
+          "frame": 942,
+          "timestamp": 39.762666666666675,
+          "expected": "3",
+          "sha256": "3bec5ddca0ccf341a36c9f1d05e70f62dece73f76d92a6b015fc8b369034edad"
+        },
+        {
+          "image": "score_3_to_5_00948.png",
+          "frame": 948,
+          "timestamp": 39.82966666666667,
+          "expected": "3",
+          "sha256": "fe656a71cf314435600c6237148130a1d3c6098fa6878f9c007b89765c99547d"
+        },
+        {
+          "image": "score_3_to_5_00954.png",
+          "frame": 954,
+          "timestamp": 40.096,
+          "expected": "3",
+          "sha256": "aaf338ea20a43da0dddcadac742e81f12bd95d964e77fc8c3da936668ed41390"
+        },
+        {
+          "image": "score_3_to_5_00960.png",
+          "frame": 960,
+          "timestamp": 40.36333333333333,
+          "expected": "3",
+          "sha256": "b8fb7702ba4375974ad36905e390b4615c6c9ee96194892a657b1b0eb74536b1"
+        },
+        {
+          "image": "score_3_to_5_00966.png",
+          "frame": 966,
+          "timestamp": 40.629666666666665,
+          "expected": "3",
+          "sha256": "10aead81e9c3d2eccc4df2d26779467887cc5b0c812e7650f57b118951d8dfb2"
+        },
+        {
+          "image": "score_3_to_5_00972.png",
+          "frame": 972,
+          "timestamp": 40.896,
+          "expected": "3",
+          "sha256": "5b0c03ccc36ebc5ca6844b1abed5ed9e7f43734ac5af3c8c228e1f4893161127"
+        },
+        {
+          "image": "score_3_to_5_00978.png",
+          "frame": 978,
+          "timestamp": 41.163,
+          "expected": "3",
+          "sha256": "cbbbf1476e5f7fd1cd916e2e766c107599a8d72f7723887162c197eb5284df16"
+        },
+        {
+          "image": "score_3_to_5_00984.png",
+          "frame": 984,
+          "timestamp": 41.42966666666666,
+          "expected": "3",
+          "sha256": "051fbce3893d88f7d99975084259074efdd823f89aefce7a1b887aaf47e2f7a3"
+        },
+        {
+          "image": "score_3_to_5_00990.png",
+          "frame": 990,
+          "timestamp": 41.696,
+          "expected": "3",
+          "sha256": "9f1f7365ed1d1d6af5934ef61520324ee1f1b07a2626cd1aa2a4af2bff4727ba"
+        },
+        {
+          "image": "score_3_to_5_00996.png",
+          "frame": 996,
+          "timestamp": 41.96233333333333,
+          "expected": "3",
+          "sha256": "bb6693d06f43a25e47a349004895af8fff5fda52a9a7f66fd5bf9e9d8043819b"
+        },
+        {
+          "image": "score_3_to_5_01002.png",
+          "frame": 1002,
+          "timestamp": 42.229,
+          "expected": "3",
+          "sha256": "cf213ceecee6209a2b8dd60d4e702666db7d31c2d035712a8bedf949aef6179c"
+        },
+        {
+          "image": "score_3_to_5_01008.png",
+          "frame": 1008,
+          "timestamp": 42.495999999999995,
+          "expected": "5",
+          "sha256": "3ac0d4bd866c645aa22a97723f387c1d3288609771bcb2c42bd6c684f28bc4b0"
+        },
+        {
+          "image": "score_3_to_5_01014.png",
+          "frame": 1014,
+          "timestamp": 42.76233333333333,
+          "expected": "5",
+          "sha256": "eaf42d947e03a38a0dcdaab368bdc2202857dd1dcfc263656ac82c4a3ed23c8d"
+        },
+        {
+          "image": "score_3_to_5_01020.png",
+          "frame": 1020,
+          "timestamp": 43.029,
+          "expected": "5",
+          "sha256": "ccf91c25dc62c5255724d10c08c8c159c8dd05abf01ccf0c42fd0244c4dc7ac5"
+        },
+        {
+          "image": "score_3_to_5_01026.png",
+          "frame": 1026,
+          "timestamp": 43.296,
+          "expected": "5",
+          "sha256": "318964bb6674cc8761dde775d2740d59c37a6904d3a23e5745771e61272aabac"
+        },
+        {
+          "image": "score_3_to_5_01032.png",
+          "frame": 1032,
+          "timestamp": 43.562999999999995,
+          "expected": "5",
+          "sha256": "5e21ad4dd218da396dfe8c489af1eea48e17ebfa03a8f8e858351866fca16c7f"
+        },
+        {
+          "image": "score_3_to_5_01038.png",
+          "frame": 1038,
+          "timestamp": 43.83,
+          "expected": "5",
+          "sha256": "ef94689b981201c7f723d957e5b412fbd8e7e8fd6ef1f2b85e052ddba1f2c7e4"
+        },
+        {
+          "image": "score_3_to_5_01044.png",
+          "frame": 1044,
+          "timestamp": 43.863,
+          "expected": "5",
+          "sha256": "ae2c76a4954dacc61241b39164dcb509ae19034520abc3f2f0a5a40925454239"
+        },
+        {
+          "image": "score_3_to_5_01050.png",
+          "frame": 1050,
+          "timestamp": 44.129666666666665,
+          "expected": "5",
+          "sha256": "75ae223c77b47646a80ba35c94c7c41266b44725a1326753aedc41b4486dc981"
+        },
+        {
+          "image": "score_3_to_5_01056.png",
+          "frame": 1056,
+          "timestamp": 44.39633333333333,
+          "expected": "5",
+          "sha256": "21abdad505f8fcee3bfdf6ba5c01142715d764d88977b1b109d3c07f1259fef2"
+        },
+        {
+          "image": "score_3_to_5_01062.png",
+          "frame": 1062,
+          "timestamp": 44.66266666666667,
+          "expected": "5",
+          "sha256": "82823aa2ef3f746428a9f3fdb964f9cb4b1cc10eb304b91d329945ef76fe187d"
+        },
+        {
+          "image": "score_3_to_5_01068.png",
+          "frame": 1068,
+          "timestamp": 44.92933333333333,
+          "expected": "5",
+          "sha256": "3d667a17ddd435170065c0f79c43d9a075185fd07eeb4021b2480e09f1fa3ecd"
+        },
+        {
+          "image": "score_3_to_5_01074.png",
+          "frame": 1074,
+          "timestamp": 45.196333333333335,
+          "expected": "5",
+          "sha256": "fe8beccacb1c0eed39a5c0c936617330eb444747484749288faf8aca5b8af2b0"
+        },
+        {
+          "image": "score_3_to_5_01080.png",
+          "frame": 1080,
+          "timestamp": 45.462666666666664,
+          "expected": "5",
+          "sha256": "d127ab50a99fa9dcd982de71c3899e69115133e3ea2584d13e1bf976b9eeeab2"
+        },
+        {
+          "image": "score_3_to_5_01086.png",
+          "frame": 1086,
+          "timestamp": 45.72933333333333,
+          "expected": "5",
+          "sha256": "1d2bc245ef7d7305069df265ce4bfea62598d4ab81022ee70edb0b90dad2dbd3"
+        }
+      ]
+    },
+    {
+      "name": "score_5_to_7",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "fps": 23.83724368519586,
+      "field": "Home Score",
+      "clock_input": 0,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "score_5_to_7_03024.png",
+          "frame": 3024,
+          "timestamp": 127.06633333333333,
+          "expected": "5",
+          "sha256": "967163270fd7686195e397a0c6bc9453070f13a9e9e25b80cdfd39d7f16c6896"
+        },
+        {
+          "image": "score_5_to_7_03030.png",
+          "frame": 3030,
+          "timestamp": 127.333,
+          "expected": "5",
+          "sha256": "167080312743064ccbb006fcb0d6693a15fc61ecdefb1af69c0be04c5411cdad"
+        },
+        {
+          "image": "score_5_to_7_03036.png",
+          "frame": 3036,
+          "timestamp": 127.59966666666665,
+          "expected": "5",
+          "sha256": "0071b9e34a982edd95765a9ceb7dfcefe7f29d52581155cbeb42c09bbb1c0bcf"
+        },
+        {
+          "image": "score_5_to_7_03042.png",
+          "frame": 3042,
+          "timestamp": 127.86666666666666,
+          "expected": "5",
+          "sha256": "c05f6ab8468fec3580475904cf11890f5c4d90a43d98c6b524cb46d0828e7af8"
+        },
+        {
+          "image": "score_5_to_7_03048.png",
+          "frame": 3048,
+          "timestamp": 127.86666666666666,
+          "expected": "5",
+          "sha256": "c05f6ab8468fec3580475904cf11890f5c4d90a43d98c6b524cb46d0828e7af8"
+        },
+        {
+          "image": "score_5_to_7_03054.png",
+          "frame": 3054,
+          "timestamp": 128.133,
+          "expected": "5",
+          "sha256": "331735d0fe0416c01e0c39bab2b71ee890b663dcc21e54b1abac9718199cc311"
+        },
+        {
+          "image": "score_5_to_7_03060.png",
+          "frame": 3060,
+          "timestamp": 128.39966666666666,
+          "expected": "5",
+          "sha256": "ec407b7b3a2125470daa5d3b0782a453a96625f8b3774c1bc62419e68975d5a0"
+        },
+        {
+          "image": "score_5_to_7_03066.png",
+          "frame": 3066,
+          "timestamp": 128.66633333333334,
+          "expected": "7",
+          "sha256": "2ccb185625f2f634538371bf12f88e97af160fa8780ef7e306dfee5796b0a761"
+        },
+        {
+          "image": "score_5_to_7_03072.png",
+          "frame": 3072,
+          "timestamp": 128.933,
+          "expected": "7",
+          "sha256": "8d518e85b529c7a7b1d5cf6f039a25ba311368c6f78fadafe4d4ebbeed5fb47b"
+        },
+        {
+          "image": "score_5_to_7_03078.png",
+          "frame": 3078,
+          "timestamp": 129.19966666666667,
+          "expected": "7",
+          "sha256": "1a4fbcfd679b7a882876aa3f7c60a9ebb08df9234b74aa31d3247fbe340f555c"
+        },
+        {
+          "image": "score_5_to_7_03084.png",
+          "frame": 3084,
+          "timestamp": 129.46633333333332,
+          "expected": "7",
+          "sha256": "f2b3cfd7dda0e74b906c470697479f4e59c781a55c0af184f8bc283753180a25"
+        },
+        {
+          "image": "score_5_to_7_03090.png",
+          "frame": 3090,
+          "timestamp": 129.73266666666666,
+          "expected": "7",
+          "sha256": "f896391ca39db053fd1534f85889214231560d0da74e8cac6ff3f877061da63f"
+        },
+        {
+          "image": "score_5_to_7_03096.png",
+          "frame": 3096,
+          "timestamp": 129.99933333333334,
+          "expected": "7",
+          "sha256": "39ae56a65bf55aba83e8e21ae446908d28d7e0f9d6e4a4e206beb92fa7dfacb9"
+        },
+        {
+          "image": "score_5_to_7_03102.png",
+          "frame": 3102,
+          "timestamp": 130.266,
+          "expected": "7",
+          "sha256": "cbb0d562ecf23ceac6200ec153dd7075f556bf4323b3f60ddc9f8e2e311374d4"
+        },
+        {
+          "image": "score_5_to_7_03108.png",
+          "frame": 3108,
+          "timestamp": 130.53433333333334,
+          "expected": "7",
+          "sha256": "0cb794cc3f4e36aa0aafa0374f16599ea1a5413989399f78733ee9227d4ff0c9"
+        },
+        {
+          "image": "score_5_to_7_03114.png",
+          "frame": 3114,
+          "timestamp": 130.801,
+          "expected": "7",
+          "sha256": "539040ff80c5a3699047d214db92973e60a36c1f1e1aaa5f5cbbe5002b2fed16"
+        },
+        {
+          "image": "score_5_to_7_03120.png",
+          "frame": 3120,
+          "timestamp": 131.06766666666667,
+          "expected": "7",
+          "sha256": "b23f37177f89ae27037f9b686023cc272bbddfeff2be7aa168dbc70a1516ed9d"
+        },
+        {
+          "image": "score_5_to_7_03126.png",
+          "frame": 3126,
+          "timestamp": 131.33433333333332,
+          "expected": "7",
+          "sha256": "63f23117e28cfbe0775fd45ac06548596a62af1b778aac05882b504020d23de4"
+        },
+        {
+          "image": "score_5_to_7_03132.png",
+          "frame": 3132,
+          "timestamp": 131.602,
+          "expected": "7",
+          "sha256": "8a079f945a1a105e98e997502fa1f2da130b766d93f62e61981391728f8cc316"
+        },
+        {
+          "image": "score_5_to_7_03138.png",
+          "frame": 3138,
+          "timestamp": 131.86866666666666,
+          "expected": "7",
+          "sha256": "48a5ceeb6f55ea16ffe3871f06e19c0ffa2ed90ce30f0f33473e48b4293fc077"
+        },
+        {
+          "image": "score_5_to_7_03144.png",
+          "frame": 3144,
+          "timestamp": 131.93533333333332,
+          "expected": "7",
+          "sha256": "15b2b3dc6ca779dc28e6e5a51c9ba0d2cb8a51f65b9a0ac98c0fab111ea4a2ff"
+        },
+        {
+          "image": "score_5_to_7_03150.png",
+          "frame": 3150,
+          "timestamp": 132.202,
+          "expected": "7",
+          "sha256": "ac6f96d83c014c9d2ce0310fa5b9f6beb3bca3cdce8bb0c0773e34207604a171"
+        },
+        {
+          "image": "score_5_to_7_03156.png",
+          "frame": 3156,
+          "timestamp": 132.46866666666665,
+          "expected": "7",
+          "sha256": "bb9b4ad50ee384c9e1937819c4747ea916f0e908d04fde0b8124913295def194"
+        },
+        {
+          "image": "score_5_to_7_03162.png",
+          "frame": 3162,
+          "timestamp": 132.73499999999996,
+          "expected": "7",
+          "sha256": "c99ba17241cad0e9bdce9a955d31d521e0babae610a09f665ad8b4b1caf17e35"
+        },
+        {
+          "image": "score_5_to_7_03168.png",
+          "frame": 3168,
+          "timestamp": 133.00166666666667,
+          "expected": "7",
+          "sha256": "cbb4adc3f892e53d2402535a9cea785ce5e53b3a45041ec7013474e3f89ecc80"
+        },
+        {
+          "image": "score_5_to_7_03174.png",
+          "frame": 3174,
+          "timestamp": 133.26833333333332,
+          "expected": "7",
+          "sha256": "70f03b111c0d7033cb7a0ddedb983e3988418bf6a37b9265b2b7c90bfc1bf664"
+        },
+        {
+          "image": "score_5_to_7_03180.png",
+          "frame": 3180,
+          "timestamp": 133.535,
+          "expected": "7",
+          "sha256": "598fb2eb91250dd0d9651db39b697f8bb2d773a2f840b101c7a7feb1cee3324b"
+        },
+        {
+          "image": "score_5_to_7_03186.png",
+          "frame": 3186,
+          "timestamp": 133.80166666666665,
+          "expected": "7",
+          "sha256": "1bc28a21983a99a096778d6f2da5b83d19cc48e45f1f4af84dfbdb5dd6c1515e"
+        },
+        {
+          "image": "score_5_to_7_03192.png",
+          "frame": 3192,
+          "timestamp": 134.06833333333333,
+          "expected": "7",
+          "sha256": "54711860869da45e8ed5c0d459516ba90b2280dd22c2ca8719694c242d065bc4"
+        },
+        {
+          "image": "score_5_to_7_03198.png",
+          "frame": 3198,
+          "timestamp": 134.335,
+          "expected": "7",
+          "sha256": "df8e7f58e3003709c9b261fc8e858b86873859eae05c2207542f707e2e24e9e4"
+        },
+        {
+          "image": "score_5_to_7_03204.png",
+          "frame": 3204,
+          "timestamp": 134.60133333333332,
+          "expected": "7",
+          "sha256": "6a87bd3e0f637290afa31c32e29d4e2668ea58311909325132ddcdd7d217d887"
+        },
+        {
+          "image": "score_5_to_7_03210.png",
+          "frame": 3210,
+          "timestamp": 134.868,
+          "expected": "7",
+          "sha256": "473205082b1506d3ac2a185f55f7104e47d5e6be5aeab8ac295c11783aa7f154"
+        },
+        {
+          "image": "score_5_to_7_03216.png",
+          "frame": 3216,
+          "timestamp": 135.13466666666667,
+          "expected": "7",
+          "sha256": "94da33d78aebfe33239210a82fc01d848dba0b545843d292e3991c3e05306e10"
+        },
+        {
+          "image": "score_5_to_7_03222.png",
+          "frame": 3222,
+          "timestamp": 135.40133333333333,
+          "expected": "7",
+          "sha256": "0eccb78ff0e8828432a48a695271a83c6473d12b45c84ce80eff16305f824002"
+        },
+        {
+          "image": "score_5_to_7_03228.png",
+          "frame": 3228,
+          "timestamp": 135.668,
+          "expected": "7",
+          "sha256": "5beeaca3c0acc737fdf2a0dc3899e85f49840323b664e27bd145f1734997c255"
+        },
+        {
+          "image": "score_5_to_7_03234.png",
+          "frame": 3234,
+          "timestamp": 135.93466666666666,
+          "expected": "7",
+          "sha256": "2587330a8c5dc009d15f47a2d716aa77cab09a93f68f8f05be66e23d83f76df1"
+        },
+        {
+          "image": "score_5_to_7_03240.png",
+          "frame": 3240,
+          "timestamp": 135.968,
+          "expected": "7",
+          "sha256": "179be66780cff760c8e56f79b324311b522bdad2de9fab266f60cbc9509e45f7"
+        },
+        {
+          "image": "score_5_to_7_03246.png",
+          "frame": 3246,
+          "timestamp": 136.23466666666667,
+          "expected": "7",
+          "sha256": "e7930138d7cf2c66fb93ae8b76303e4807c399cb14fcc4a04c2b46c8d022b757"
+        }
+      ]
+    },
+    {
+      "name": "score_7_to_9",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "fps": 23.83724368519586,
+      "field": "Home Score",
+      "clock_input": 0,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "score_7_to_9_05940.png",
+          "frame": 5940,
+          "timestamp": 248.97266666666667,
+          "expected": "7",
+          "sha256": "ac207f618c0b574af685a90be40ec354c581ba5b46d54e0e044f832928166055"
+        },
+        {
+          "image": "score_7_to_9_05946.png",
+          "frame": 5946,
+          "timestamp": 249.1723333333333,
+          "expected": "7",
+          "sha256": "390d31878bdbfc7ec0ab99434cc9ca15bf6906c5550fc1d13f24eec5ce17bf40"
+        },
+        {
+          "image": "score_7_to_9_05952.png",
+          "frame": 5952,
+          "timestamp": 249.37233333333333,
+          "expected": "7",
+          "sha256": "433a6e475ee1b55b18d79abfa8599256ac32c7fcfa1aa25fd021ea9f3621de73"
+        },
+        {
+          "image": "score_7_to_9_05958.png",
+          "frame": 5958,
+          "timestamp": 249.57233333333332,
+          "expected": "7",
+          "sha256": "b0dd4eb3723325e7a2e530036c632b27171133171e1f33bd19592f1919f3f987"
+        },
+        {
+          "image": "score_7_to_9_05964.png",
+          "frame": 5964,
+          "timestamp": 249.839,
+          "expected": "7",
+          "sha256": "99b088e144d9feb9dcb02a95eb616d62e54f85e02720a4255a112c17bf88d6b8"
+        },
+        {
+          "image": "score_7_to_9_05970.png",
+          "frame": 5970,
+          "timestamp": 250.13899999999998,
+          "expected": "7",
+          "sha256": "3d38ce1d88d16cf8197dc9cdc513ea49f4a18967bca39e7fce85a2d75b63e441"
+        },
+        {
+          "image": "score_7_to_9_05976.png",
+          "frame": 5976,
+          "timestamp": 250.50933333333333,
+          "expected": "7",
+          "sha256": "784460729c528cf3caa8daa0b253dafa4b19e8f89ecb9fd7cf1eb7958f4069af"
+        },
+        {
+          "image": "score_7_to_9_05982.png",
+          "frame": 5982,
+          "timestamp": 250.80966666666666,
+          "expected": "7",
+          "sha256": "9442384eff97d5c7c39795bff6cb4461c74df98ad39f14d544c8f866d1174f3a"
+        },
+        {
+          "image": "score_7_to_9_05988.png",
+          "frame": 5988,
+          "timestamp": 251.17633333333333,
+          "expected": "7",
+          "sha256": "f20a5e6dcb0628152256859a5308165486e5173a824f3beab1e20bfa56d85efd"
+        },
+        {
+          "image": "score_7_to_9_05994.png",
+          "frame": 5994,
+          "timestamp": 251.44266666666667,
+          "expected": "7",
+          "sha256": "481910da7fff379917a65d2614203078ef4970c6a2ac1b747d674d5c3bcf088e"
+        },
+        {
+          "image": "score_7_to_9_06000.png",
+          "frame": 6000,
+          "timestamp": 251.8093333333333,
+          "expected": "7",
+          "sha256": "5910db9e0fd6cbd188b9866f1b6307cc36a569f8a56df05bddf1e8da6014565b"
+        },
+        {
+          "image": "score_7_to_9_06006.png",
+          "frame": 6006,
+          "timestamp": 252.176,
+          "expected": "7",
+          "sha256": "5e3d0cdd188fb838d5c59b9c7ff95f4ce6de95eafd9f6ba0f0fd2dc806eb7c65"
+        },
+        {
+          "image": "score_7_to_9_06012.png",
+          "frame": 6012,
+          "timestamp": 252.60999999999996,
+          "expected": "7",
+          "sha256": "2870d7abaa4ddfa5b1cb95495296f987f2f21096036cbb3fd29227bd9a4c4d7c"
+        },
+        {
+          "image": "score_7_to_9_06018.png",
+          "frame": 6018,
+          "timestamp": 252.97666666666666,
+          "expected": "7",
+          "sha256": "c897f65408b35877782e421de29e08a7a131dfcd00a6c0a21fc5fc308106dcb3"
+        },
+        {
+          "image": "score_7_to_9_06024.png",
+          "frame": 6024,
+          "timestamp": 253.30966666666666,
+          "expected": "7",
+          "sha256": "d3638bf965dd4895b62a2baaf378382f37fa290d3c23958203e546ef3290fb49"
+        },
+        {
+          "image": "score_7_to_9_06030.png",
+          "frame": 6030,
+          "timestamp": 253.50966666666665,
+          "expected": "7",
+          "sha256": "2c2b6d41ccfe5eed679853fa6073e8144f8c2201d33ccc46d5c1dfa246881e53"
+        },
+        {
+          "image": "score_7_to_9_06036.png",
+          "frame": 6036,
+          "timestamp": 253.843,
+          "expected": "9",
+          "sha256": "e22cd782d297abb8a8bab93252dc4583379a76059f4483550a518d4699a71666"
+        },
+        {
+          "image": "score_7_to_9_06042.png",
+          "frame": 6042,
+          "timestamp": 254.04299999999998,
+          "expected": "9",
+          "sha256": "8847eec455260fc729042f67391811b3f07a0f887f9f214b28442baa2a82a9d4"
+        },
+        {
+          "image": "score_7_to_9_06048.png",
+          "frame": 6048,
+          "timestamp": 254.30966666666666,
+          "expected": "9",
+          "sha256": "4e75434d4af145f74c59da2d831cce89b40533984da1321c17d868009d9bc1ad"
+        },
+        {
+          "image": "score_7_to_9_06054.png",
+          "frame": 6054,
+          "timestamp": 254.60966666666667,
+          "expected": "9",
+          "sha256": "a95edeb6c44fc414b541f4b876fec0439bf27646e0e1da549b7aed5bb29cad95"
+        },
+        {
+          "image": "score_7_to_9_06060.png",
+          "frame": 6060,
+          "timestamp": 254.843,
+          "expected": "9",
+          "sha256": "c1a7f88a72747b0cc3835165ec8869241f0eee5071d0dbbc0bdd95d60d7a6d76"
+        },
+        {
+          "image": "score_7_to_9_06066.png",
+          "frame": 6066,
+          "timestamp": 255.04266666666666,
+          "expected": "9",
+          "sha256": "2902ecce7ad286074ff37a1c6c06f6157fb8ba45e1018ce4a9f1a74bbacba631"
+        },
+        {
+          "image": "score_7_to_9_06072.png",
+          "frame": 6072,
+          "timestamp": 255.24266666666665,
+          "expected": "9",
+          "sha256": "7755e1bb94425d4295263702d879ece2c36a770e1d149ef24d512e25bf2ccfd4"
+        },
+        {
+          "image": "score_7_to_9_06078.png",
+          "frame": 6078,
+          "timestamp": 255.44266666666667,
+          "expected": "9",
+          "sha256": "4a2708893d86639f083afd8d2e9d2d1752b5fe99e830a8634161af5a20186da2"
+        },
+        {
+          "image": "score_7_to_9_06084.png",
+          "frame": 6084,
+          "timestamp": 255.70933333333332,
+          "expected": "9",
+          "sha256": "d83ff17bf12f00c52554a99144fe4449090146f08c0597f60c992ba0ad003b68"
+        },
+        {
+          "image": "score_7_to_9_06090.png",
+          "frame": 6090,
+          "timestamp": 255.94266666666667,
+          "expected": "9",
+          "sha256": "1d62dfc4a4a98e06df9ffd0615e117b08b8b78d0d5b2c8fcd34327e35e036cb7"
+        },
+        {
+          "image": "score_7_to_9_06096.png",
+          "frame": 6096,
+          "timestamp": 256.176,
+          "expected": "9",
+          "sha256": "41b6d15b4065e005a4f9f940df62c06e18b5765ec041601b54584fcf2cc7735b"
+        },
+        {
+          "image": "score_7_to_9_06102.png",
+          "frame": 6102,
+          "timestamp": 256.376,
+          "expected": "9",
+          "sha256": "ecc31e1fca4846bf89c85f6896faa35a5fd8f1343004549c6b49bd2b334e7107"
+        },
+        {
+          "image": "score_7_to_9_06108.png",
+          "frame": 6108,
+          "timestamp": 256.5756666666667,
+          "expected": "9",
+          "sha256": "b8b36e6c2d7a0e940db6db13a50c9678d8edb31a2ed89073105aafe1debfd4a3"
+        },
+        {
+          "image": "score_7_to_9_06114.png",
+          "frame": 6114,
+          "timestamp": 256.40933333333334,
+          "expected": "9",
+          "sha256": "1b4540358d872d079f30308bed3cc808b41aaa545f65d5a2d57920aa5d7e112d"
+        },
+        {
+          "image": "score_7_to_9_06120.png",
+          "frame": 6120,
+          "timestamp": 256.6093333333333,
+          "expected": "9",
+          "sha256": "daa621b37ee057491f22421b082c4f4c4f422460f4ecccbbb12ce8367c33965c"
+        },
+        {
+          "image": "score_7_to_9_06126.png",
+          "frame": 6126,
+          "timestamp": 256.80899999999997,
+          "expected": "9",
+          "sha256": "dbe2bd57fbee2f1ddb32d6ca5fc3684839079c32508b2dd562c711c80a79dd9b"
+        }
+      ]
+    },
+    {
+      "name": "game_clock_ticking",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "roi": [
+        265,
+        345,
+        140,
+        78
+      ],
+      "fps": 23.83724368519586,
+      "field": "Time",
+      "clock_input": 1,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "game_clock_ticking_05406.png",
+          "frame": 5406,
+          "timestamp": 226.503,
+          "expected": "6:42",
+          "sha256": "746c04c5e29fea423fad6f687b01ced67986f8eb0003eee3d9297f8c7f7f7f9b"
+        },
+        {
+          "image": "game_clock_ticking_05412.png",
+          "frame": 5412,
+          "timestamp": 226.70333333333332,
+          "expected": "6:41",
+          "sha256": "6f6fc9f2899871dbb938c47ef702195ec60ab1e2c48f4bba748cd62c18472fc3"
+        },
+        {
+          "image": "game_clock_ticking_05418.png",
+          "frame": 5418,
+          "timestamp": 226.90333333333334,
+          "expected": "6:41",
+          "sha256": "3253517f89de64997d1a11ff550bc74c0c4cee4df2705328cec70490e01159d4"
+        },
+        {
+          "image": "game_clock_ticking_05424.png",
+          "frame": 5424,
+          "timestamp": 227.1363333333333,
+          "expected": "6:41",
+          "sha256": "f8ea2f768649f27445585c54da7d2270cc304b2954558732e17f16fcd06ac631"
+        },
+        {
+          "image": "game_clock_ticking_05430.png",
+          "frame": 5430,
+          "timestamp": 227.46966666666665,
+          "expected": "6:41",
+          "sha256": "0e35c92c38222f4bca2856525450c4de30df4ae672559348b0deee6e08ee4be8"
+        },
+        {
+          "image": "game_clock_ticking_05436.png",
+          "frame": 5436,
+          "timestamp": 227.73633333333333,
+          "expected": "6:40",
+          "sha256": "cf4e1f90c476a5dd4a82313eb172d54817baa988276e68426eff0d8abd80919c"
+        },
+        {
+          "image": "game_clock_ticking_05442.png",
+          "frame": 5442,
+          "timestamp": 228.003,
+          "expected": "6:40",
+          "sha256": "690e16afcd8767ce0b3d93ccd89f05daf97b269331b5597fb5638ad1ba3e305d"
+        },
+        {
+          "image": "game_clock_ticking_05448.png",
+          "frame": 5448,
+          "timestamp": 228.304,
+          "expected": "6:40",
+          "sha256": "e75b22caafb1fee47fe3e0e17e0df019854cf98255c596e33bae0deb24144397"
+        },
+        {
+          "image": "game_clock_ticking_05454.png",
+          "frame": 5454,
+          "timestamp": 228.83733333333333,
+          "expected": "6:40",
+          "sha256": "4ed771c52135a5fd6ad8538ae0c3c075254236f8ed29f7ad517b2c121d057920"
+        },
+        {
+          "image": "game_clock_ticking_05460.png",
+          "frame": 5460,
+          "timestamp": 229.03733333333332,
+          "expected": "6:40",
+          "sha256": "8a38d64a65e9117bdd31003b76463ac054264a4301a9ec441b1ad8012045e637"
+        },
+        {
+          "image": "game_clock_ticking_05466.png",
+          "frame": 5466,
+          "timestamp": 229.23733333333334,
+          "expected": "6:40",
+          "sha256": "d01bcf2ad2744b6638c2265e77544134815afbe69887cfa08332802c967d0da7"
+        },
+        {
+          "image": "game_clock_ticking_05472.png",
+          "frame": 5472,
+          "timestamp": 229.43733333333333,
+          "expected": "6:40",
+          "sha256": "ea5298f48945a19f84535aeee92f3b50c7e96be2af7d812ff84742056411373a"
+        },
+        {
+          "image": "game_clock_ticking_05478.png",
+          "frame": 5478,
+          "timestamp": 229.63733333333332,
+          "expected": "6:40",
+          "sha256": "5496cdda6155903b48be9402415da11e87a0c13921288a551854e63a23e3d087"
+        },
+        {
+          "image": "game_clock_ticking_05484.png",
+          "frame": 5484,
+          "timestamp": 229.87066666666666,
+          "expected": "6:40",
+          "sha256": "323d1b17078f90c630b069322ec8676dbbbf617eaeb3cfcf9353da311e9ef7c7"
+        },
+        {
+          "image": "game_clock_ticking_05490.png",
+          "frame": 5490,
+          "timestamp": 230.07033333333334,
+          "expected": "6:40",
+          "sha256": "05d43b18d9b091cc6658fc1f48321a5c90aa0016f81c3f453030bafb9a843fa4"
+        },
+        {
+          "image": "game_clock_ticking_05496.png",
+          "frame": 5496,
+          "timestamp": 230.27033333333333,
+          "expected": "6:40",
+          "sha256": "5d7ee30b3af18d08f8efbb26e64927dc14d6075c090a4c1af79a66666ee26d56"
+        },
+        {
+          "image": "game_clock_ticking_05502.png",
+          "frame": 5502,
+          "timestamp": 230.47033333333331,
+          "expected": "6:40",
+          "sha256": "d390fe89caf379776e615e325efad51e84300c544f59b8cc5c8ce11bd43c475b"
+        },
+        {
+          "image": "game_clock_ticking_05508.png",
+          "frame": 5508,
+          "timestamp": 230.67033333333333,
+          "expected": "6:40",
+          "sha256": "b3a064d1b1a9710c0886dd6c3ce8b853e42c4d62644166642c0ed0d69bcb541e"
+        },
+        {
+          "image": "game_clock_ticking_05514.png",
+          "frame": 5514,
+          "timestamp": 230.87033333333332,
+          "expected": "6:40",
+          "sha256": "e1f7e02ea5bc5929edf0596f41eca43cc761967b0dc27a6f49f6ef468df00951"
+        },
+        {
+          "image": "game_clock_ticking_05520.png",
+          "frame": 5520,
+          "timestamp": 231.07033333333334,
+          "expected": "6:40",
+          "sha256": "d1090e3e4b30a7b32b182c98a85b491a1c35ae4bb31897c27720d30aec7b72f9"
+        },
+        {
+          "image": "game_clock_ticking_05526.png",
+          "frame": 5526,
+          "timestamp": 231.27033333333333,
+          "expected": "6:40",
+          "sha256": "6f83d51e4f442eccc392e0e57e385872b1108b97dbad34b3f03aef9b0b72659d"
+        },
+        {
+          "image": "game_clock_ticking_05532.png",
+          "frame": 5532,
+          "timestamp": 231.90333333333334,
+          "expected": "6:40",
+          "sha256": "a8ddc05e209b9d31ff1cfad57a708ff7c0ae01d8bf228d9ea4638169678b87f7"
+        },
+        {
+          "image": "game_clock_ticking_05538.png",
+          "frame": 5538,
+          "timestamp": 232.10366666666667,
+          "expected": "6:40",
+          "sha256": "c8fe3379d5a719f245d9413991811601107dd1ef733201e7baba2d7be1d804ae"
+        },
+        {
+          "image": "game_clock_ticking_05544.png",
+          "frame": 5544,
+          "timestamp": 232.30366666666666,
+          "expected": "6:40",
+          "sha256": "40b6dc43f7123dd0b2ee2f380d9eee24a700a0587112609fc65d4830df091200"
+        },
+        {
+          "image": "game_clock_ticking_05550.png",
+          "frame": 5550,
+          "timestamp": 232.50366666666665,
+          "expected": "6:40",
+          "sha256": "b30f9c4925fd0b3a0e66bda70a1a6cf517d40315d022c30001e0ced3127cf101"
+        },
+        {
+          "image": "game_clock_ticking_05556.png",
+          "frame": 5556,
+          "timestamp": 232.70366666666666,
+          "expected": "6:40",
+          "sha256": "7c940eeaf5bfaa62a03b7d553bce894c3b9a680bcc4c5eb88cf593abb3399b60"
+        },
+        {
+          "image": "game_clock_ticking_05562.png",
+          "frame": 5562,
+          "timestamp": 232.90333333333334,
+          "expected": "6:40",
+          "sha256": "66a1c28dedd5a66773baa4b26e6997ffb64ff73cee95313bd3460aeebde4ad32"
+        }
+      ]
+    },
+    {
+      "name": "shot_clock_reset",
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "roi": [
+        1685,
+        660,
+        135,
+        115
+      ],
+      "fps": 23.83724368519586,
+      "field": "Shot Clock",
+      "clock_input": 0,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "shot_clock_reset_05406.png",
+          "frame": 5406,
+          "timestamp": 226.503,
+          "expected": "",
+          "sha256": "1f0b1324da5aba38a8cc1d9bdbca3c00a4a33d4041337ec96cb7666786ac272a"
+        },
+        {
+          "image": "shot_clock_reset_05412.png",
+          "frame": 5412,
+          "timestamp": 226.70333333333332,
+          "expected": "",
+          "sha256": "0448af687720d4f2bc0130604658b630ad0648e054b663c3930496ac4e4b0c04"
+        },
+        {
+          "image": "shot_clock_reset_05418.png",
+          "frame": 5418,
+          "timestamp": 226.90333333333334,
+          "expected": "",
+          "sha256": "657f61977650db794cfeac549c3aea3af684b62bcb98ebadac32e502a926ed39"
+        },
+        {
+          "image": "shot_clock_reset_05424.png",
+          "frame": 5424,
+          "timestamp": 227.1363333333333,
+          "expected": "",
+          "sha256": "8d327b6612babaf2fe29ac7003c849294e03f4ec44232e44e2256b7ff1bbd183"
+        },
+        {
+          "image": "shot_clock_reset_05430.png",
+          "frame": 5430,
+          "timestamp": 227.46966666666665,
+          "expected": "",
+          "sha256": "47b2a3c86a3a99e77b2aa2b4ec73073edc55cbb257874cb592425d6f99b18d58"
+        },
+        {
+          "image": "shot_clock_reset_05436.png",
+          "frame": 5436,
+          "timestamp": 227.73633333333333,
+          "expected": "",
+          "sha256": "638cd4153bda13c2761221ca66cb132a37d7385a844c66627a7d43b8be4bba13"
+        },
+        {
+          "image": "shot_clock_reset_05442.png",
+          "frame": 5442,
+          "timestamp": 228.003,
+          "expected": "",
+          "sha256": "2b337e5e854b1daba2ee1fbf67b90ed16df4b4703d81be74e7fd29f5ef576860"
+        },
+        {
+          "image": "shot_clock_reset_05448.png",
+          "frame": 5448,
+          "timestamp": 228.304,
+          "expected": "",
+          "sha256": "584737475726dc609ee90bf711ca8e73110139806605113e0e097debfa7d464c"
+        },
+        {
+          "image": "shot_clock_reset_05454.png",
+          "frame": 5454,
+          "timestamp": 228.83733333333333,
+          "expected": "",
+          "sha256": "3d4cf8e9f5de569f2f89acf0c0c59851e128e8f5f5c8b464dd44a1c9ac9bccf8"
+        },
+        {
+          "image": "shot_clock_reset_05460.png",
+          "frame": 5460,
+          "timestamp": 229.03733333333332,
+          "expected": "",
+          "sha256": "19364e1ef081f41ca55f8e4219f10d5f44b8168194a02c6d064e59e47cb8ce10"
+        },
+        {
+          "image": "shot_clock_reset_05466.png",
+          "frame": 5466,
+          "timestamp": 229.23733333333334,
+          "expected": "",
+          "sha256": "4a49347c8a193fd57131e77cf0081773a57c68b9dce7a2e04851904d194f2d86"
+        },
+        {
+          "image": "shot_clock_reset_05472.png",
+          "frame": 5472,
+          "timestamp": 229.43733333333333,
+          "expected": "",
+          "sha256": "ce86a2b766e0a4ea317b1377bd42730a2c532b978df5a1041702678b2a73a2df"
+        },
+        {
+          "image": "shot_clock_reset_05478.png",
+          "frame": 5478,
+          "timestamp": 229.63733333333332,
+          "expected": "",
+          "sha256": "8728491aa7686057a6b3f6fb4a3f63e0616e8ed0d4088916a7419e07f44bae14"
+        },
+        {
+          "image": "shot_clock_reset_05484.png",
+          "frame": 5484,
+          "timestamp": 229.87066666666666,
+          "expected": "24",
+          "sha256": "76ddc76c1781a36f04fb8cc8565f8e87c60abeaaaa530624a80be308cbb283c8"
+        },
+        {
+          "image": "shot_clock_reset_05490.png",
+          "frame": 5490,
+          "timestamp": 230.07033333333334,
+          "expected": "24",
+          "sha256": "624899ed901140795112d2650c5ee2b37da3a7ad575179becfd2c53f558b2521"
+        },
+        {
+          "image": "shot_clock_reset_05496.png",
+          "frame": 5496,
+          "timestamp": 230.27033333333333,
+          "expected": "24",
+          "sha256": "ef7a451cbfcf5ba217e1fdd89dc5c9c04f10c2ebea85b7cb7871eaa468fc68f9"
+        },
+        {
+          "image": "shot_clock_reset_05502.png",
+          "frame": 5502,
+          "timestamp": 230.47033333333331,
+          "expected": "24",
+          "sha256": "6a3d4dd24631cbd3f6850b36f9484404de2dcb0717cd230b76d2d1d8d83b8794"
+        },
+        {
+          "image": "shot_clock_reset_05508.png",
+          "frame": 5508,
+          "timestamp": 230.67033333333333,
+          "expected": "24",
+          "sha256": "dbba71543b136d30697d0268584468bc8db562dd433a8e03faed511005a42221"
+        },
+        {
+          "image": "shot_clock_reset_05514.png",
+          "frame": 5514,
+          "timestamp": 230.87033333333332,
+          "expected": "24",
+          "sha256": "20d6aac0957178ac65d043809c5525f43048d609dbd876152015748b085924aa"
+        },
+        {
+          "image": "shot_clock_reset_05520.png",
+          "frame": 5520,
+          "timestamp": 231.07033333333334,
+          "expected": "24",
+          "sha256": "62766fb54436a702102a3baaffd3e8930478db642f47295a554db98d78b53f58"
+        },
+        {
+          "image": "shot_clock_reset_05526.png",
+          "frame": 5526,
+          "timestamp": 231.27033333333333,
+          "expected": "24",
+          "sha256": "359b567dc4701e8217788fccdfd4317498253d7a62c618435f032f7251f9051e"
+        },
+        {
+          "image": "shot_clock_reset_05532.png",
+          "frame": 5532,
+          "timestamp": 231.90333333333334,
+          "expected": "24",
+          "sha256": "20c367401b4e5d1b90147a7c0dd4e6d2e5e65e234b9a3e97a576de2a1e3d26ca"
+        },
+        {
+          "image": "shot_clock_reset_05538.png",
+          "frame": 5538,
+          "timestamp": 232.10366666666667,
+          "expected": "24",
+          "sha256": "0c766e3e6ee304366ba025b56d6fac78756ed23e45b1f90d3a9c8da1495b6d97"
+        },
+        {
+          "image": "shot_clock_reset_05544.png",
+          "frame": 5544,
+          "timestamp": 232.30366666666666,
+          "expected": "24",
+          "sha256": "8a23151c864ea7f2619dd3529c4ddb9a135d986bcf87384091fb07293d1bd720"
+        },
+        {
+          "image": "shot_clock_reset_05550.png",
+          "frame": 5550,
+          "timestamp": 232.50366666666665,
+          "expected": "24",
+          "sha256": "2c6d806702c5ed6d60efed41ead0d8c3b9afd0fde14577a80a4a076cc95f1f6e"
+        },
+        {
+          "image": "shot_clock_reset_05556.png",
+          "frame": 5556,
+          "timestamp": 232.70366666666666,
+          "expected": "24",
+          "sha256": "82509e12173e76e40e935f6e90e4e93cdb48a6b61b1e2e041718f3b296ea3234"
+        },
+        {
+          "image": "shot_clock_reset_05562.png",
+          "frame": 5562,
+          "timestamp": 232.90333333333334,
+          "expected": "24",
+          "sha256": "2109a1f60bd71120bee4f68997caa67157a8ca4575a4184c60507f6bbe8fec96"
+        }
+      ]
+    },
+    {
+      "name": "shot_clock_fourteen",
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "roi": [
+        1680,
+        655,
+        115,
+        115
+      ],
+      "fps": 29.534652948242545,
+      "field": "Shot Clock",
+      "clock_input": 0,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "shot_clock_fourteen_00042.png",
+          "frame": 42,
+          "timestamp": 1.3996666666666666,
+          "expected": "14",
+          "sha256": "6a254f6c429fcafef043fd37f8842b0e271c1374d6de98b8d417bd20416117fa"
+        },
+        {
+          "image": "shot_clock_fourteen_00048.png",
+          "frame": 48,
+          "timestamp": 1.5996666666666666,
+          "expected": "14",
+          "sha256": "ca80bcbdb865bca9874a63fa5c90c1922646d2c8547e1ddea8aecd6cfef976e3"
+        },
+        {
+          "image": "shot_clock_fourteen_00054.png",
+          "frame": 54,
+          "timestamp": 1.7996666666666665,
+          "expected": "14",
+          "sha256": "cee5f78e26f9e538e95ad4f80347a2daed14a527c011e50acdc664dca8e20416"
+        },
+        {
+          "image": "shot_clock_fourteen_00060.png",
+          "frame": 60,
+          "timestamp": 1.9996666666666667,
+          "expected": "14",
+          "sha256": "f5a99dcb9be0ec99ddf2bfedf00749b513a3de138a40350083d58e72e6b92312"
+        },
+        {
+          "image": "shot_clock_fourteen_00066.png",
+          "frame": 66,
+          "timestamp": 2.1996666666666664,
+          "expected": "14",
+          "sha256": "8da774a9fd05d27c65363ff873b32a029528b6d24163379b93cfcbb3a924a187"
+        },
+        {
+          "image": "shot_clock_fourteen_00072.png",
+          "frame": 72,
+          "timestamp": 2.3996666666666666,
+          "expected": "14",
+          "sha256": "ce69ce6e782e40db63553485bb936d8db8ab0094b634fb4a53997e40cff76548"
+        },
+        {
+          "image": "shot_clock_fourteen_00078.png",
+          "frame": 78,
+          "timestamp": 2.599666666666667,
+          "expected": "14",
+          "sha256": "4d968af4869f3ff44e9d848e8062a355be7d9fd59790fd3fe06a6ecdd2723083"
+        },
+        {
+          "image": "shot_clock_fourteen_00084.png",
+          "frame": 84,
+          "timestamp": 2.7993333333333332,
+          "expected": "14",
+          "sha256": "9412bbb97b4f7bace42a32b5d51708f2a4df02acccb29609ab2702abcd3c6529"
+        },
+        {
+          "image": "shot_clock_fourteen_00090.png",
+          "frame": 90,
+          "timestamp": 2.9993333333333334,
+          "expected": "14",
+          "sha256": "0c333becf6fa81788f243fc1f90710ae3cf484e61474d76a14db77d30ac53d17"
+        },
+        {
+          "image": "shot_clock_fourteen_00096.png",
+          "frame": 96,
+          "timestamp": 3.199333333333333,
+          "expected": "14",
+          "sha256": "51b89eeb31e66f5470dfc5d3893bb0512d122c23c480a7033acf7aa782ac6e0b"
+        },
+        {
+          "image": "shot_clock_fourteen_00102.png",
+          "frame": 102,
+          "timestamp": 3.3993333333333333,
+          "expected": "14",
+          "sha256": "7b9546bddfe771f48cfe649d8ec0370ff66fc8630534374cf8b7e1c966d7a4e8"
+        },
+        {
+          "image": "shot_clock_fourteen_00108.png",
+          "frame": 108,
+          "timestamp": 3.6326666666666667,
+          "expected": "14",
+          "sha256": "a4e11685ee911f0694b29b61f1c1f2dd87446d831739f854e722fa7d973c8766"
+        },
+        {
+          "image": "shot_clock_fourteen_00114.png",
+          "frame": 114,
+          "timestamp": 3.8326666666666664,
+          "expected": "14",
+          "sha256": "089d5630ce19de019a402a711aa1f4459706e60888217d196d50fd8e9866fae4"
+        },
+        {
+          "image": "shot_clock_fourteen_00120.png",
+          "frame": 120,
+          "timestamp": 4.032666666666667,
+          "expected": "14",
+          "sha256": "92f1cda2c86b0f1826e00acb348abb2e13416ab72687552ecbd250c0f6d82550"
+        },
+        {
+          "image": "shot_clock_fourteen_00126.png",
+          "frame": 126,
+          "timestamp": 4.232666666666667,
+          "expected": "14",
+          "sha256": "c88ea7f626fbeac573c61393d2b6ecb27899e4ae961d560f8b583cc52ffb4d3f"
+        },
+        {
+          "image": "shot_clock_fourteen_00132.png",
+          "frame": 132,
+          "timestamp": 4.432666666666666,
+          "expected": "14",
+          "sha256": "88d3c5ef5d0de6144871312319b78fcfb7a23fe35b96ef51b731199f28208a17"
+        },
+        {
+          "image": "shot_clock_fourteen_00138.png",
+          "frame": 138,
+          "timestamp": 4.632333333333333,
+          "expected": "14",
+          "sha256": "532a94d4b09fd27d9cffdfca5a7fcc0889b7765b5049c849b04c35815c765418"
+        },
+        {
+          "image": "shot_clock_fourteen_00144.png",
+          "frame": 144,
+          "timestamp": 4.832333333333334,
+          "expected": "14",
+          "sha256": "9609fefd1c90b46031d185dd5c50499d819bbf08383e419bb3e7180b00d35c32"
+        },
+        {
+          "image": "shot_clock_fourteen_00150.png",
+          "frame": 150,
+          "timestamp": 5.032333333333333,
+          "expected": "14",
+          "sha256": "1abdd5da5f0dafd122a3a589245a994140435418dc387370b715a044b85f403e"
+        },
+        {
+          "image": "shot_clock_fourteen_00156.png",
+          "frame": 156,
+          "timestamp": 5.232333333333333,
+          "expected": "14",
+          "sha256": "8b9f3cde763376a05cb8a9c012f76bdd3af96968f9c4e052aa2a1fdafb51d12a"
+        },
+        {
+          "image": "shot_clock_fourteen_00162.png",
+          "frame": 162,
+          "timestamp": 5.432333333333333,
+          "expected": "14",
+          "sha256": "39caef3a1ea04da82bab621c9733154d508a1c5754e93ceb8397ed39af128c1c"
+        },
+        {
+          "image": "shot_clock_fourteen_00168.png",
+          "frame": 168,
+          "timestamp": 5.632333333333333,
+          "expected": "14",
+          "sha256": "d6c95e8b1d9ba5fc60c586180de8c15ae94a728b2d936ea6b478622ee7b76bb4"
+        },
+        {
+          "image": "shot_clock_fourteen_00174.png",
+          "frame": 174,
+          "timestamp": 5.832333333333333,
+          "expected": "14",
+          "sha256": "dea9e1536d02c4837de07cfb25f0fabfc051d2b642f637a8fcb761468217faed"
+        },
+        {
+          "image": "shot_clock_fourteen_00180.png",
+          "frame": 180,
+          "timestamp": 6.032333333333333,
+          "expected": "14",
+          "sha256": "3cddda1ae29a828fc2b93551a2dc6fdb4e8a845ca79912f6da0e17129b59162b"
+        },
+        {
+          "image": "shot_clock_fourteen_00186.png",
+          "frame": 186,
+          "timestamp": 6.232333333333333,
+          "expected": "14",
+          "sha256": "f6cae7cc69a7d9fbb3d7d2540e0ec807aee307e25c1b0975f2b81e3846cef80c"
+        },
+        {
+          "image": "shot_clock_fourteen_00192.png",
+          "frame": 192,
+          "timestamp": 6.4319999999999995,
+          "expected": "14",
+          "sha256": "8ff21e6c477486fea7562067f386c7faad0667710d46e2044f1f17e4496483fe"
+        },
+        {
+          "image": "shot_clock_fourteen_00198.png",
+          "frame": 198,
+          "timestamp": 6.698666666666666,
+          "expected": "14",
+          "sha256": "63d1b8b46ade2c6cccacf27195253fc00ca12768ba18b59752f203be9e495e82"
+        }
+      ]
+    },
+    {
+      "name": "game_clock_stopped",
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "roi": [
+        235,
+        335,
+        145,
+        85
+      ],
+      "fps": 29.534652948242545,
+      "field": "Time",
+      "clock_input": 1,
+      "label_status": "visually_reviewed",
+      "frames": [
+        {
+          "image": "game_clock_stopped_00042.png",
+          "frame": 42,
+          "timestamp": 1.3996666666666666,
+          "expected": "7:41",
+          "sha256": "1bca55d4810c61ea9acf47fe5267719c4a10999ca5ac19ac0ae3d389b2932a5c"
+        },
+        {
+          "image": "game_clock_stopped_00048.png",
+          "frame": 48,
+          "timestamp": 1.5996666666666666,
+          "expected": "7:41",
+          "sha256": "91ce136c035cd5cba2edca5782ceb92e387a23043653d7c95a03c8c1da4b2725"
+        },
+        {
+          "image": "game_clock_stopped_00054.png",
+          "frame": 54,
+          "timestamp": 1.7996666666666665,
+          "expected": "7:41",
+          "sha256": "50b227f328a16dc12cbdc107eca169f76ed3373a7b5b46dfc76192c9abfc9566"
+        },
+        {
+          "image": "game_clock_stopped_00060.png",
+          "frame": 60,
+          "timestamp": 1.9996666666666667,
+          "expected": "7:41",
+          "sha256": "7b6604087ebf94007f920ca2a735310f8f6feb88615bdb008db0596336e9c448"
+        },
+        {
+          "image": "game_clock_stopped_00066.png",
+          "frame": 66,
+          "timestamp": 2.1996666666666664,
+          "expected": "7:41",
+          "sha256": "089631ea749b7e8886ce961cff2ef82c30267be8bcffe3cb6f260be3c5577471"
+        },
+        {
+          "image": "game_clock_stopped_00072.png",
+          "frame": 72,
+          "timestamp": 2.3996666666666666,
+          "expected": "7:41",
+          "sha256": "654304d3644d50946a839df36f440ec8171037746c06fb2b34234777973a753f"
+        },
+        {
+          "image": "game_clock_stopped_00078.png",
+          "frame": 78,
+          "timestamp": 2.599666666666667,
+          "expected": "7:41",
+          "sha256": "8292aeae5bf071673ff9eab025a5cb91bb54dc48427cf213acb3c9094343d7c0"
+        },
+        {
+          "image": "game_clock_stopped_00084.png",
+          "frame": 84,
+          "timestamp": 2.7993333333333332,
+          "expected": "7:41",
+          "sha256": "e9bdc098894e6ffecc57e95838c17fc20f3e2755707229415171b09308fdf0ad"
+        },
+        {
+          "image": "game_clock_stopped_00090.png",
+          "frame": 90,
+          "timestamp": 2.9993333333333334,
+          "expected": "7:41",
+          "sha256": "2ab36c8697eeba5e65970afaf0ff6db62f2cf33d7fa7eac59b80bd6c9b24352a"
+        },
+        {
+          "image": "game_clock_stopped_00096.png",
+          "frame": 96,
+          "timestamp": 3.199333333333333,
+          "expected": "7:41",
+          "sha256": "344fc31caf1295f93185a4a1123e906a2bfd357047ea670fda6016955a828437"
+        },
+        {
+          "image": "game_clock_stopped_00102.png",
+          "frame": 102,
+          "timestamp": 3.3993333333333333,
+          "expected": "7:41",
+          "sha256": "3adfea8b97565f40fec65485a339786b824bce469d597675bb16fd0caaf2fe4c"
+        },
+        {
+          "image": "game_clock_stopped_00108.png",
+          "frame": 108,
+          "timestamp": 3.6326666666666667,
+          "expected": "7:41",
+          "sha256": "fa4037c8ceaa434b53a34db00f50add2e4cdae8fab70278d6736309b74f522ef"
+        },
+        {
+          "image": "game_clock_stopped_00114.png",
+          "frame": 114,
+          "timestamp": 3.8326666666666664,
+          "expected": "7:41",
+          "sha256": "e360a8b5aa68a0faf6a2a612598253f79b6ced35fad41498a7928c7968132006"
+        },
+        {
+          "image": "game_clock_stopped_00120.png",
+          "frame": 120,
+          "timestamp": 4.032666666666667,
+          "expected": "7:41",
+          "sha256": "271a2b84caf2a7ac3b7fbeae0fb5a0f9323d85a38a4b43e9acfe8f92cc5fb624"
+        },
+        {
+          "image": "game_clock_stopped_00126.png",
+          "frame": 126,
+          "timestamp": 4.232666666666667,
+          "expected": "7:41",
+          "sha256": "bea6b0d118fcb9edf6e0bcfe6f236a82dc2544d7460c9845dbf2150599558eec"
+        },
+        {
+          "image": "game_clock_stopped_00132.png",
+          "frame": 132,
+          "timestamp": 4.432666666666666,
+          "expected": "7:41",
+          "sha256": "3b2ecd4b030665e872964f2888b7a733f960c818dc3db59a58a3a3b288ec72f6"
+        },
+        {
+          "image": "game_clock_stopped_00138.png",
+          "frame": 138,
+          "timestamp": 4.632333333333333,
+          "expected": "7:41",
+          "sha256": "fcca19858e8dfe215cbbcb3f6611471afe8dca441346e29aee79e37e779c40dd"
+        },
+        {
+          "image": "game_clock_stopped_00144.png",
+          "frame": 144,
+          "timestamp": 4.832333333333334,
+          "expected": "7:41",
+          "sha256": "9a89552508ecf7618b583e91372ab6ad2c5e0759d5e61bec1c1da051f2d9ebcc"
+        },
+        {
+          "image": "game_clock_stopped_00150.png",
+          "frame": 150,
+          "timestamp": 5.032333333333333,
+          "expected": "7:41",
+          "sha256": "d65fc04bddf97b53ace5acc1e89fd3ce9b7d99c074e8db6df5cc932b63d9974a"
+        },
+        {
+          "image": "game_clock_stopped_00156.png",
+          "frame": 156,
+          "timestamp": 5.232333333333333,
+          "expected": "7:41",
+          "sha256": "bb69fbcd1c3d611a2463897c2c7649b329407295d3a713ce0b7e4431640ed86c"
+        },
+        {
+          "image": "game_clock_stopped_00162.png",
+          "frame": 162,
+          "timestamp": 5.432333333333333,
+          "expected": "7:41",
+          "sha256": "a542db3d2048adc093627c2993ace042f9bb6056bf58e0aad048744939825f32"
+        },
+        {
+          "image": "game_clock_stopped_00168.png",
+          "frame": 168,
+          "timestamp": 5.632333333333333,
+          "expected": "7:41",
+          "sha256": "ce87955d9337984bae56e35f045d7cb6372c0f99b94a0ccfe0fb630ec4478a88"
+        },
+        {
+          "image": "game_clock_stopped_00174.png",
+          "frame": 174,
+          "timestamp": 5.832333333333333,
+          "expected": "7:41",
+          "sha256": "08e5e08eb71b7e940ed8994727c0f556424365e0302e41a0d3ebbc69ba7513e3"
+        },
+        {
+          "image": "game_clock_stopped_00180.png",
+          "frame": 180,
+          "timestamp": 6.032333333333333,
+          "expected": "7:41",
+          "sha256": "c96a16824fafad04f0de63fc8c896974131bb851b40677948b50802f102b182a"
+        },
+        {
+          "image": "game_clock_stopped_00186.png",
+          "frame": 186,
+          "timestamp": 6.232333333333333,
+          "expected": "7:41",
+          "sha256": "8bb231f90305a645df560901334b5d86ee45fd378a22ef26e5b4548f50ff2a34"
+        },
+        {
+          "image": "game_clock_stopped_00192.png",
+          "frame": 192,
+          "timestamp": 6.4319999999999995,
+          "expected": "7:41",
+          "sha256": "826a5b502e9d1804b9ebee6302885fb5caf982e29855750ba71e4d4def471694"
+        },
+        {
+          "image": "game_clock_stopped_00198.png",
+          "frame": 198,
+          "timestamp": 6.698666666666666,
+          "expected": "7:41",
+          "sha256": "1335c29ec891f35537f5c7950b678d0779893efbf2945cb3b565ced48fa4b28b"
+        }
+      ]
+    }
+  ]
+}

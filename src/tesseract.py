@@ -104,12 +104,16 @@ class TextDetector:
         ADAPTIVE = 3
         OPENCV_LED_MASK = 4
 
-    def __init__(self):
+    def __init__(self, model_index=None):
         self.api_lock = Lock()
         self.api = None
         self.dnn = None
         self.ocr_model_index = None
-        self.setOcrModel(fetch_data("scoresight.json", "ocr_model", 1))
+        self.setOcrModel(
+            fetch_data("scoresight.json", "ocr_model", 1)
+            if model_index is None
+            else model_index
+        )
         if self.api is None and self.ocr_model_index not in (
             self.OcrModelIndex.OPENCV_SEVEN_SEGMENT,
             self.OcrModelIndex.PPOCR_TTA,
@@ -211,8 +215,17 @@ class TextDetector:
             if rect is None or not valid_frame:
                 continue
             settings = rect.settings or {}
-            # This calibrated score reader does not parse clocks or general text.
-            if settings.get("type", FieldType.NUMBER) != FieldType.NUMBER:
+            field_type = settings.get("type", FieldType.NUMBER)
+            layout = settings.get("segment_layout", "number")
+            if (
+                field_type not in (FieldType.NUMBER, FieldType.TIME)
+                or (
+                    field_type == FieldType.TIME
+                    and layout == "number"
+                    and settings.get("clock_input", 0) != 5
+                )
+                or (field_type == FieldType.NUMBER and layout != "number")
+            ):
                 continue
             x, y = int(rect.x()), int(rect.y())
             right, bottom = int(rect.x() + rect.width()), int(rect.y() + rect.height())
@@ -225,7 +238,22 @@ class TextDetector:
                 or bottom <= y
             ):
                 continue
-            text, mask, details = read_score(color[y:bottom, x:right])
+            from seven_segment import read_display
+
+            cells = None
+            if settings.get("composite_box"):
+                cells = [
+                    (cell.x(), cell.y(), cell.width(), cell.height())
+                    for cell in getattr(rect, "mini_rects", [])
+                ]
+            text, mask, details = read_display(
+                color[y:bottom, x:right],
+                digit_count=settings.get("segment_digits", 2),
+                led_color=settings.get("segment_color", 0),
+                brightness=settings.get("segment_brightness", 140),
+                layout=layout,
+                cells=cells,
+            )
             result.extra = {"segment_slots": details, "engine": "opencv_seven_segment"}
             if (
                 mask is not None
@@ -238,17 +266,24 @@ class TextDetector:
             if text is None:
                 continue
             result.text = text
+            if field_type == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(text, settings.get("clock_input", 0))
+                if formatted is None:
+                    continue
+                result.text = formatted
             if text == "":
                 result.state = states.Empty
                 continue
-            if settings.get("remove_leading_zeros"):
+            if settings.get("remove_leading_zeros") and field_type == FieldType.NUMBER:
                 result.text = text.lstrip("0") or "0"
             pattern = settings.get("format_regex")
             if pattern and (
                 not is_valid_regex(pattern) or not re.fullmatch(pattern, result.text)
             ):
                 continue
-            if settings.get("ordinal_indicator"):
+            if settings.get("ordinal_indicator") and field_type == FieldType.NUMBER:
                 result.text = add_ordinal_indicator(result.text)
             result.state = states.Success
         return results
@@ -283,7 +318,12 @@ class TextDetector:
             try:
                 with self.api_lock:
                     text, confidence, readings = self.dnn.recognize(
-                        frame[y:bottom, x:right], settings.get("type", FieldType.NUMBER)
+                        frame[y:bottom, x:right],
+                        settings.get("type", FieldType.NUMBER),
+                        check_led=settings.get("check_led", False),
+                        integer_seconds=settings.get("type", FieldType.NUMBER)
+                        == FieldType.TIME
+                        and settings.get("clock_input", 0) == 5,
                     )
             except Exception:
                 logger.exception("PP-OCRv4 recognition failed")
@@ -297,7 +337,16 @@ class TextDetector:
             if text is None or not text or confidence < settings.get("conf_thresh", 0):
                 continue
             result.text = text
-            if settings.get("remove_leading_zeros") and re.fullmatch(r"[0-9]+", text):
+            if settings.get("type", FieldType.NUMBER) == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(text, settings.get("clock_input", 0))
+                if formatted is None:
+                    continue
+                result.text = formatted
+            if settings.get("remove_leading_zeros") and re.fullmatch(
+                r"[0-9]+", result.text
+            ):
                 result.text = text.lstrip("0") or "0"
             pattern = settings.get("format_regex")
             if pattern and (
@@ -311,6 +360,7 @@ class TextDetector:
 
     def reset_temporal(self):
         self._temporal_token = object()
+        self._box_model_failures = {}
 
     def detect_multi_text(self, binary, gray, rects, color=None, observation_time=None):
         readings = self._detect_multi_text(binary, gray, rects, color=color)
@@ -339,6 +389,10 @@ class TextDetector:
                 rect.width(),
                 rect.height(),
                 tuple(
+                    (cell.x(), cell.y(), cell.width(), cell.height())
+                    for cell in getattr(rect, "mini_rects", [])
+                ),
+                tuple(
                     sorted(
                         (key, repr(value))
                         for key, value in settings.items()
@@ -358,6 +412,58 @@ class TextDetector:
         return readings
 
     def _detect_multi_text(
+        self, binary, gray, rects: list[TextDetectionTarget], color=None
+    ) -> list[TextDetectionResult]:
+        """Group fields by reader while retaining input order and cached models."""
+        from defaults import BOX_OCR_MODELS
+
+        groups = {}
+        for index, rect in enumerate(rects):
+            model = (rect.settings or {}).get("box_ocr_model", -1) if rect else -1
+            if type(model) is not int or model not in BOX_OCR_MODELS or model == -1:
+                model = self.ocr_model_index
+            groups.setdefault(model, []).append((index, rect))
+        if not groups:
+            return []
+        if len(groups) == 1 and self.ocr_model_index in groups:
+            return self._detect_selected_model(binary, gray, rects, color=color)
+        if not hasattr(self, "_box_detectors"):
+            self._box_detectors = {}
+        if not hasattr(self, "_box_model_failures"):
+            self._box_model_failures = {}
+        results = [
+            TextDetectionResult(
+                "", TextDetectionTargetWithResult.ResultState.FailedFilter
+            )
+            for _ in rects
+        ]
+        for model, entries in groups.items():
+            targets = [rect for _, rect in entries]
+            if model == self.ocr_model_index:
+                detector = self
+            else:
+                try:
+                    # A missing/broken optional model must reject its fields,
+                    # not silently use another reader or reload on every frame.
+                    failed_at = self._box_model_failures.get(model)
+                    if failed_at is not None and time.monotonic() - failed_at < 5:
+                        continue
+                    if model not in self._box_detectors:
+                        self._box_detectors[model] = TextDetector(model)
+                    detector = self._box_detectors[model]
+                    self._box_model_failures.pop(model, None)
+                except Exception:
+                    self._box_model_failures[model] = time.monotonic()
+                    logger.exception("Cannot load OCR reader %s for box", model)
+                    continue
+            readings = detector._detect_selected_model(
+                binary, gray, targets, color=color
+            )
+            for (index, _), result in zip(entries, readings):
+                results[index] = result
+        return results
+
+    def _detect_selected_model(
         self, binary, gray, rects: list[TextDetectionTarget], color=None
     ) -> list[TextDetectionResult]:
         if self.ocr_model_index == self.OcrModelIndex.OPENCV_SEVEN_SEGMENT:
@@ -834,6 +940,16 @@ class TextDetector:
                         rect.settings["median_wh_ratio"] = np.median(wh_ratios)
 
             textstate = TextDetectionTargetWithResult.ResultState.Success
+            if rect.settings.get("type") == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(
+                    text, rect.settings.get("clock_input", 0)
+                )
+                if formatted is None:
+                    textstate = TextDetectionTargetWithResult.ResultState.FailedFilter
+                else:
+                    text = formatted
             if rect.settings is not None:
                 if "format_regex" in rect.settings:
                     # validate the regex format is valid

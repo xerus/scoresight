@@ -24,6 +24,19 @@ class RecordingSession:
 
 
 class DnnPaddingTests(unittest.TestCase):
+    def test_only_explicit_integer_clocks_use_the_short_numeric_padding(self):
+        for kind, integer, width in (
+            (FieldType.TIME, False, 320),
+            (FieldType.TIME, True, 128),
+            (FieldType.TEXT, True, 320),
+        ):
+            with self.subTest(kind=kind, integer=integer):
+                reader = self.reader()
+                reader.recognize(
+                    np.zeros((40, 80, 3), np.uint8), kind, integer_seconds=integer
+                )
+                self.assertEqual(reader.session.inputs[0].shape, (1, 3, 48, width))
+
     def reader(self, session=None):
         reader = DnnOcr.__new__(DnnOcr)
         reader.input_name = "image"

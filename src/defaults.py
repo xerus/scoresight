@@ -5,6 +5,43 @@ class FieldType:
     TEXT = 2
 
 
+# UI indices map to these model identifiers; -1 inherits the global selection.
+BOX_OCR_MODELS = (-1, 0, 1, 2, 3, 5, 6)
+SEGMENT_LAYOUTS = ("number", "dd:dd", "d:dd", "dd.d", "d.d", "ddd", "dddd")
+
+
+def basketball_settings_for_box(name):
+    """Settings for an existing basketball field; geometry/reader stay calibrated."""
+    if name in ("Home Score", "Away Score"):
+        field_type, pattern, mode = FieldType.NUMBER, r"[0-9]{1,3}", 1
+    elif name == "Time":
+        field_type, pattern, mode = (
+            FieldType.TIME,
+            r"(?:[0-5]?[0-9]:[0-5][0-9]|[0-5]?[0-9]\.[0-9])",
+            2,
+        )
+    elif name == "Shot Clock":
+        field_type, pattern, mode = (
+            FieldType.TIME,
+            r"(?:[0-9]|[0-3][0-9])(?:\.[0-9])?",
+            2,
+        )
+    elif name == "Period":
+        field_type, pattern, mode = FieldType.NUMBER, r"[0-9]{1,2}", 1
+    elif name in ("Home Fouls", "Away Fouls"):
+        field_type, pattern, mode = FieldType.NUMBER, r"[0-9]{1,2}", 1
+    else:
+        return None
+    return {
+        "type": field_type,
+        "format_regex": pattern,
+        "temporal_mode": mode,
+        "smoothing": False,
+        "skip_similar_image": False,
+        "skip_empty": True,
+    }
+
+
 # 0 - Time MM:ss and ss.m
 # 1 - Time MM:ss
 # 2 - Time ss.m
@@ -175,6 +212,42 @@ def normalize_settings_dict(settings, box_info):
         "type": (settings["type"] if "type" in settings else box_info["type"]),
         "smoothing": (settings["smoothing"] if "smoothing" in settings else False),
         "temporal_mode": temporal_mode,
+        "check_led": settings.get("check_led", False) is True,
+        "clock_input": (
+            settings.get("clock_input", 0)
+            if type(settings.get("clock_input", 0)) is int
+            and settings.get("clock_input", 0) in (0, 1, 2, 3, 4, 5)
+            else 0
+        ),
+        "box_ocr_model": (
+            settings.get("box_ocr_model", -1)
+            if type(settings.get("box_ocr_model", -1)) is int
+            and settings.get("box_ocr_model", -1) in BOX_OCR_MODELS
+            else -1
+        ),
+        "segment_layout": (
+            settings.get("segment_layout", "number")
+            if settings.get("segment_layout", "number") in SEGMENT_LAYOUTS
+            else "number"
+        ),
+        "segment_digits": (
+            settings.get("segment_digits", 2)
+            if type(settings.get("segment_digits", 2)) is int
+            and settings.get("segment_digits", 2) in (1, 2, 3)
+            else 2
+        ),
+        "segment_color": (
+            settings.get("segment_color", 0)
+            if type(settings.get("segment_color", 0)) is int
+            and settings.get("segment_color", 0) in (0, 1, 2)
+            else 0
+        ),
+        "segment_brightness": (
+            settings.get("segment_brightness", 140)
+            if type(settings.get("segment_brightness", 140)) is int
+            and 1 <= settings.get("segment_brightness", 140) <= 255
+            else 140
+        ),
         "skip_empty": (settings["skip_empty"] if "skip_empty" in settings else True),
         "conf_thresh": (settings["conf_thresh"] if "conf_thresh" in settings else 0.5),
         "cleanup_thresh": (
