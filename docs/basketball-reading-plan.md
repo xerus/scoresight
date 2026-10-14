@@ -38,33 +38,31 @@ Temporal score/countdown confirmation already exists; reuse it.
 
 ## Progress
 
-- Milestone 1 complete: one/two/three numeric cells, LED color and brightness
-  controls, normalized and persisted per box, generated UI, and regression tests.
-- Offscreen UI edits and reloads checked. Full suite: 82 tests passed, including
-  real ONNX inference; configured Ruff lint/format checks passed.
-- Six original 1920×1080 lossless camera frames and 11 reviewed numeric labels
-  committed separately in `261bc8c`, with a pixel-verifying re-extraction tool.
-- Those fixtures reproduce the PP-OCR/TTA accepted 7-to-1 error and rejected
-  isolated foul 1 / score 11. No recognition accuracy improvement is claimed
-  for those cases.
-- Milestone 3 complete: cached per-box readers with global inheritance,
-  isolated model-load failures and basketball settings for selected standard
-  fields. Mixed-reader/confirmation regression cases and offscreen UI checks
-  pass; full suite now has 88 passing tests. See [usage](basketball-settings.md).
-- Milestone 2 implementation complete: explicit local digit/separator cells for
-  numeric fields and MM:SS/M:SS/SS.t/S.t clocks, observed punctuation checks,
-  saved layouts/cells, and confirmation resets after calibration edits. Fixed
-  scene edits so updated cells are included when storage emits its change.
-- Clock layout/blank/tick/calibration tests and offscreen UI checks pass; full
-  suite now has 96 passing tests. Automatic physical layout switching and real
-  clock accuracy validation remain open. See [calibration](calibrated-led-clocks.md).
-- Milestone 4 started: seven clock crops labeled without assuming legible
-  separators, and a reproducible [fixture comparison](camera-fixture-readers.md)
-  recorded. Neural numeric results: 8 correct, 1 wrong, 2 rejected; uncalibrated
-  equal-width LED results: 0 correct, 7 wrong, 4 rejected. Neural shot clock 14
-  becomes 4. These findings prioritize calibration/completeness/digit recognition
-  before treating LED readings as independent verification.
-- Next: calibrate a development subset, freeze it, evaluate additional frame
-  sequences, and collect another game/camera session for independent validation.
-- Existing local benchmarks cover mostly scores from one session. Synthetic
-  regression tests verify behavior, not accuracy on unseen basketball footage.
+- Numeric LED cells, color/brightness, calibrated clock cells, saved per-box
+  reader selection, and basketball presets are implemented and tested.
+- Six full camera frames and reviewed numeric/clock labels are committed. The
+  original diagnostic remains an audit of baseline failures, including the
+  uncalibrated equal-width LED reader's poor results.
+- Optional PP-OCR LED checks now recover demonstrated missing/confused digits.
+  Explicit Clock input formatting supports clocks whose separators are obscured.
+  Settings scroll so the controls remain reachable on laptop screens.
+- Seven chronological sequences contain 203 reviewed lossless crops, with source
+  frame/timestamp/ROI/hash metadata and pixel-verifying re-extraction. Actual
+  OCR plus confirmation accepts 40 wrong baseline values and zero new wrong
+  checked values; three stale score outputs remain during confirmation.
+- Existing 94 additional fields pass as regression; ten fresh score crops pass
+  both policies after freezing the revised reader. All are from one session.
+- See [recognition and measurement details](led-ambiguity-check.md),
+  [field settings](basketball-settings.md), and [LED calibration](calibrated-led-clocks.md).
+
+- Final checks: 122 regression tests, including actual ONNX camera replay, pass.
+  Configured Ruff lint/format hooks pass; source crop re-extraction matches pixels.
+
+## Remaining external validation
+
+Another game/camera session and physical transitions to tenths are not present
+in the available labeled data. Validate those before enabling the LED check by
+default or claiming general accuracy. Automatic physical layout switching is
+not implemented. The standalone calibrated LED clock reader has synthetic
+coverage but still needs legible real separator examples. Temporal confirmation
+cannot establish correctness of a persistent wrong reading.

@@ -19,9 +19,9 @@ from PySide6.QtWidgets import (QAbstractItemView, QAbstractSpinBox, QApplication
     QComboBox, QFormLayout, QFrame, QGridLayout,
     QGroupBox, QHBoxLayout, QHeaderView, QLabel,
     QLayout, QLineEdit, QMainWindow, QMenuBar,
-    QPushButton, QSizePolicy, QSpacerItem, QSpinBox,
-    QTabWidget, QTableView, QTableWidget, QTableWidgetItem,
-    QToolButton, QVBoxLayout, QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QSpacerItem,
+    QSpinBox, QTabWidget, QTableView, QTableWidget,
+    QTableWidgetItem, QToolButton, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -136,7 +136,13 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_3.addWidget(self.widget_2)
 
-        self.groupBox_target_settings = QGroupBox(self.groupBox_sb_info)
+        self.scrollArea_target_settings = QScrollArea(self.groupBox_sb_info)
+        self.scrollArea_target_settings.setObjectName(u"scrollArea_target_settings")
+        self.scrollArea_target_settings.setMinimumSize(QSize(470, 180))
+        self.scrollArea_target_settings.setFrameShape(QFrame.NoFrame)
+        self.scrollArea_target_settings.setWidgetResizable(True)
+        self.scrollArea_target_settings.setHorizontalScrollBarPolicy(Qt.ScrollBarAlwaysOff)
+        self.groupBox_target_settings = QGroupBox()
         self.groupBox_target_settings.setObjectName(u"groupBox_target_settings")
         self.gridLayout_6 = QGridLayout(self.groupBox_target_settings)
         self.gridLayout_6.setObjectName(u"gridLayout_6")
@@ -171,12 +177,35 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.comboBox_temporalMode, 13, 3, 1, 1)
 
+        self.label_clockInput = QLabel(self.groupBox_target_settings)
+        self.label_clockInput.setObjectName(u"label_clockInput")
+
+        self.gridLayout_6.addWidget(self.label_clockInput, 18, 0, 1, 1)
+
+        self.comboBox_clockInput = QComboBox(self.groupBox_target_settings)
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.addItem("")
+        self.comboBox_clockInput.setObjectName(u"comboBox_clockInput")
+
+        self.gridLayout_6.addWidget(self.comboBox_clockInput, 18, 1, 1, 3)
+
+        self.checkBox_checkLed = QCheckBox(self.groupBox_target_settings)
+        self.checkBox_checkLed.setObjectName(u"checkBox_checkLed")
+
+        self.gridLayout_6.addWidget(self.checkBox_checkLed, 17, 0, 1, 4)
+
         self.label_segmentLayout = QLabel(self.groupBox_target_settings)
         self.label_segmentLayout.setObjectName(u"label_segmentLayout")
 
         self.gridLayout_6.addWidget(self.label_segmentLayout, 16, 0, 1, 1)
 
         self.comboBox_segmentLayout = QComboBox(self.groupBox_target_settings)
+        self.comboBox_segmentLayout.addItem("")
+        self.comboBox_segmentLayout.addItem("")
         self.comboBox_segmentLayout.addItem("")
         self.comboBox_segmentLayout.addItem("")
         self.comboBox_segmentLayout.addItem("")
@@ -544,8 +573,9 @@ class Ui_MainWindow(object):
 
         self.gridLayout_6.addWidget(self.widget_skew, 12, 3, 1, 1)
 
+        self.scrollArea_target_settings.setWidget(self.groupBox_target_settings)
 
-        self.verticalLayout_3.addWidget(self.groupBox_target_settings)
+        self.verticalLayout_3.addWidget(self.scrollArea_target_settings)
 
         self.widget_23 = QWidget(self.groupBox_sb_info)
         self.widget_23.setObjectName(u"widget_23")
@@ -1330,12 +1360,29 @@ class Ui_MainWindow(object):
 #if QT_CONFIG(tooltip)
         self.comboBox_temporalMode.setToolTip(QCoreApplication.translate("MainWindow", u"Confirm whole OCR values over successive frames. Normal score increases need two readings; drops and large jumps need three. Clocks use elapsed time and allow stops and confirmed resets. Adds delay and uses fresh OCR readings.", None))
 #endif // QT_CONFIG(tooltip)
+        self.label_clockInput.setText(QCoreApplication.translate("MainWindow", u"Clock input", None))
+        self.comboBox_clockInput.setItemText(0, QCoreApplication.translate("MainWindow", u"Read displayed separators", None))
+        self.comboBox_clockInput.setItemText(1, QCoreApplication.translate("MainWindow", u"MSS to M:SS", None))
+        self.comboBox_clockInput.setItemText(2, QCoreApplication.translate("MainWindow", u"MMSS to MM:SS", None))
+        self.comboBox_clockInput.setItemText(3, QCoreApplication.translate("MainWindow", u"SSt to SS.t", None))
+        self.comboBox_clockInput.setItemText(4, QCoreApplication.translate("MainWindow", u"St to S.t", None))
+        self.comboBox_clockInput.setItemText(5, QCoreApplication.translate("MainWindow", u"Integer seconds", None))
+
+#if QT_CONFIG(tooltip)
+        self.comboBox_clockInput.setToolTip(QCoreApplication.translate("MainWindow", u"Time fields only. Declare how this display encodes time when separators are absent or obscured. Compact modes require every digit and valid seconds; they never fill missing digits or predict the clock. Applies to all OCR readers.", None))
+#endif // QT_CONFIG(tooltip)
+        self.checkBox_checkLed.setText(QCoreApplication.translate("MainWindow", u"Check LED digit shapes (PP-OCR)", None))
+#if QT_CONFIG(tooltip)
+        self.checkBox_checkLed.setToolTip(QCoreApplication.translate("MainWindow", u"For physical LED numbers and clocks: check clear bright digit shapes against PP-OCR. On disagreement, retry a tighter crop and require agreement. This can recover 7/1 confusion or a missing digit, but adds work and may reject valid values. Merged or unclear shapes cannot verify a reading. General text ignores this option.", None))
+#endif // QT_CONFIG(tooltip)
         self.label_segmentLayout.setText(QCoreApplication.translate("MainWindow", u"LED layout", None))
         self.comboBox_segmentLayout.setItemText(0, QCoreApplication.translate("MainWindow", u"Number", None))
         self.comboBox_segmentLayout.setItemText(1, QCoreApplication.translate("MainWindow", u"MM:SS (5 cells)", None))
         self.comboBox_segmentLayout.setItemText(2, QCoreApplication.translate("MainWindow", u"M:SS (4 cells)", None))
         self.comboBox_segmentLayout.setItemText(3, QCoreApplication.translate("MainWindow", u"SS.t (4 cells)", None))
         self.comboBox_segmentLayout.setItemText(4, QCoreApplication.translate("MainWindow", u"S.t (3 cells)", None))
+        self.comboBox_segmentLayout.setItemText(5, QCoreApplication.translate("MainWindow", u"MSS compact (3 cells)", None))
+        self.comboBox_segmentLayout.setItemText(6, QCoreApplication.translate("MainWindow", u"MMSS compact (4 cells)", None))
 
 #if QT_CONFIG(tooltip)
         self.comboBox_segmentLayout.setToolTip(QCoreApplication.translate("MainWindow", u"OpenCV LED layout. For clocks select Time and enable Composite (Per-Character), then draw one cell for every digit and separator, from left to right. Separator cells must span the digit height. A colon or decimal point must be visible.", None))

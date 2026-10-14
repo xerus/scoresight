@@ -13,6 +13,8 @@ digits so the reader can distinguish low decimal dots from colon dots.
 | M:SS | Digit, colon, digit, digit |
 | SS.t | Digit, digit, decimal point, digit |
 | S.t | Digit, decimal point, digit |
+| MSS compact | Three digits; select Clock input MSS |
+| MMSS compact | Four digits; select Clock input MMSS |
 
 Choose the actual LED color and brightness. Cells must lie inside the box and
 must not overlap. Unknown digit patterns, missing punctuation, missing trailing
@@ -29,8 +31,8 @@ field crop has margins or the digits are not evenly spaced within it.
 
 The existing countdown confirmation applies to these readings. Editing a cell
 resets confirmation, just like changing a field box or reader. The reader only
-returns observed values; it does not extrapolate time or insert an unseen
-separator. Tesseract and PP-OCR continue to use the complete field crop.
+returns observed values and does not extrapolate time. Compact layouts insert
+a separator only through the explicitly selected Clock input format. Tesseract and PP-OCR continue to use the complete field crop.
 
 Layouts are explicitly selected. A display that changes physical layout below
 one minute needs a corresponding calibration/layout change; automatic switching

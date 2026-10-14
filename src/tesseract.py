@@ -219,7 +219,11 @@ class TextDetector:
             layout = settings.get("segment_layout", "number")
             if (
                 field_type not in (FieldType.NUMBER, FieldType.TIME)
-                or (field_type == FieldType.TIME and layout == "number")
+                or (
+                    field_type == FieldType.TIME
+                    and layout == "number"
+                    and settings.get("clock_input", 0) != 5
+                )
                 or (field_type == FieldType.NUMBER and layout != "number")
             ):
                 continue
@@ -262,6 +266,13 @@ class TextDetector:
             if text is None:
                 continue
             result.text = text
+            if field_type == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(text, settings.get("clock_input", 0))
+                if formatted is None:
+                    continue
+                result.text = formatted
             if text == "":
                 result.state = states.Empty
                 continue
@@ -307,7 +318,12 @@ class TextDetector:
             try:
                 with self.api_lock:
                     text, confidence, readings = self.dnn.recognize(
-                        frame[y:bottom, x:right], settings.get("type", FieldType.NUMBER)
+                        frame[y:bottom, x:right],
+                        settings.get("type", FieldType.NUMBER),
+                        check_led=settings.get("check_led", False),
+                        integer_seconds=settings.get("type", FieldType.NUMBER)
+                        == FieldType.TIME
+                        and settings.get("clock_input", 0) == 5,
                     )
             except Exception:
                 logger.exception("PP-OCRv4 recognition failed")
@@ -321,7 +337,16 @@ class TextDetector:
             if text is None or not text or confidence < settings.get("conf_thresh", 0):
                 continue
             result.text = text
-            if settings.get("remove_leading_zeros") and re.fullmatch(r"[0-9]+", text):
+            if settings.get("type", FieldType.NUMBER) == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(text, settings.get("clock_input", 0))
+                if formatted is None:
+                    continue
+                result.text = formatted
+            if settings.get("remove_leading_zeros") and re.fullmatch(
+                r"[0-9]+", result.text
+            ):
                 result.text = text.lstrip("0") or "0"
             pattern = settings.get("format_regex")
             if pattern and (
@@ -915,6 +940,16 @@ class TextDetector:
                         rect.settings["median_wh_ratio"] = np.median(wh_ratios)
 
             textstate = TextDetectionTargetWithResult.ResultState.Success
+            if rect.settings.get("type") == FieldType.TIME:
+                from clock_digits import format_clock_digits
+
+                formatted = format_clock_digits(
+                    text, rect.settings.get("clock_input", 0)
+                )
+                if formatted is None:
+                    textstate = TextDetectionTargetWithResult.ResultState.FailedFilter
+                else:
+                    text = formatted
             if rect.settings is not None:
                 if "format_regex" in rect.settings:
                     # validate the regex format is valid

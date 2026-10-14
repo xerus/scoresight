@@ -1,0 +1,8104 @@
+{
+  "scope": "Same-session regression corpus used during policy development; excludes the 11 original numeric fixture fields. Not independent validation.",
+  "policy": {
+    "revision": 4,
+    "white_core_min": {
+      "warm": 160,
+      "green": 240
+    },
+    "reject_horizontal_border_clipping": true,
+    "minimum_height_fraction": 0.4,
+    "thin_aspect_max": 0.32,
+    "wide_aspect_max": 0.85,
+    "segment_occupancy": 0.25,
+    "tight_padding": 3,
+    "require_neural_shape_agreement": true,
+    "enclosed_holes": {
+      "0": 1,
+      "6": 1,
+      "8": 2,
+      "9": 1
+    }
+  },
+  "sha256": {
+    "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee",
+    "src/dnn_ocr.py": "d28abd1cbb642666fd595e9169185668821a5f5ef9944872e73affaf02c2a351",
+    "src/seven_segment.py": "a0599723efb96158dba4e9c0b02618a8a271426e18b8105d8acb243482b134e2",
+    "models/en_PP-OCRv4_rec_mobile.onnx": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318"
+  },
+  "packages": {
+    "onnxruntime": "1.31.0",
+    "opencv-python": "4.10.0.84",
+    "numpy": "1.26.4"
+  },
+  "repeats": 3,
+  "summary": {
+    "baseline": {
+      "accepted_correct": 94,
+      "accepted_wrong": 0,
+      "rejected": 0,
+      "median_field_ms": 19.197
+    },
+    "checked": {
+      "accepted_correct": 94,
+      "accepted_wrong": 0,
+      "rejected": 0,
+      "median_field_ms": 16.995
+    }
+  },
+  "results": [
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 3,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip01_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6470433333333334,
+        "accepted": true,
+        "median_ms": 29.451,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.56712
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.53795
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.64795
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.75523
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6470433333333334,
+        "accepted": true,
+        "median_ms": 31.025,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.56712
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.53795
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.64795
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.75523
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                31,
+                3,
+                37,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.893048128342246,
+                  0.75,
+                  1.0,
+                  0.7916666666666666,
+                  0.8088235294117647,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  31,
+                  3,
+                  37,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 3,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip01_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.7160099999999999,
+        "accepted": true,
+        "median_ms": 29.05,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.79107
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.71506
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.73118
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70179
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.7160099999999999,
+        "accepted": true,
+        "median_ms": 31.493,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.79107
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.71506
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.73118
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70179
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                56,
+                1,
+                40,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8725490196078431,
+                  0.7813765182186235,
+                  1.0,
+                  0.8299595141700404,
+                  0.7815126050420168,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  56,
+                  1,
+                  40,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 32,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip01_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6787933333333335,
+        "accepted": true,
+        "median_ms": 29.671,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.5965
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.57452
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.68084
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.78102
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6787933333333335,
+        "accepted": true,
+        "median_ms": 68.646,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.5965
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.57452
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.68084
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.78102
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                31,
+                3,
+                37,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.893048128342246,
+                  0.7268518518518519,
+                  1.0,
+                  0.8009259259259259,
+                  0.8137254901960784,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  31,
+                  3,
+                  37,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 17-58-51.368406.mp4",
+      "frame": 32,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip01_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.7227033333333334,
+        "accepted": true,
+        "median_ms": 59.55,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.81317
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.73657
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.76936
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.66218
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.7227033333333334,
+        "accepted": true,
+        "median_ms": 79.218,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.81317
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.73657
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.76936
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.66218
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                56,
+                1,
+                40,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8676470588235294,
+                  0.7854251012145749,
+                  1.0,
+                  0.8299595141700404,
+                  0.773109243697479,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  56,
+                  1,
+                  40,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 39,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip02_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6587333333333333,
+        "accepted": true,
+        "median_ms": 74.86,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.61918
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.62571
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.66164
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.68885
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6587333333333333,
+        "accepted": true,
+        "median_ms": 76.514,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.61918
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.62571
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.66164
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.68885
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                32,
+                3,
+                36,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8716577540106952,
+                  0.7129629629629629,
+                  1.0,
+                  0.7962962962962963,
+                  0.7254901960784313,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  32,
+                  3,
+                  36,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 39,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip02_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6910133333333334,
+        "accepted": true,
+        "median_ms": 72.177,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.80356
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.65499
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.71406
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70399
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6910133333333334,
+        "accepted": true,
+        "median_ms": 69.383,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.80356
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.65499
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.71406
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70399
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                56,
+                2,
+                40,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8627450980392157,
+                  0.7350427350427351,
+                  0.9833333333333333,
+                  0.811965811965812,
+                  0.7815126050420168,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  56,
+                  2,
+                  40,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip02_1.png",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.7035833333333333,
+        "accepted": true,
+        "median_ms": 66.758,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.63084
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.60526
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.73636
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.76913
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.7035833333333333,
+        "accepted": true,
+        "median_ms": 72.765,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.63084
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.60526
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.73636
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.76913
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                32,
+                3,
+                36,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8579545454545454,
+                  0.6990740740740741,
+                  0.9363636363636364,
+                  0.8055555555555556,
+                  0.734375,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  32,
+                  3,
+                  36,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 196,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip02_1.png",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6924266666666666,
+        "accepted": true,
+        "median_ms": 75.037,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.77977
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.67702
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.71983
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.68043
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6924266666666666,
+        "accepted": true,
+        "median_ms": 74.41,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.77977
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.67702
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.71983
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.68043
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                56,
+                2,
+                40,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8676470588235294,
+                  0.7393162393162394,
+                  0.9916666666666667,
+                  0.8162393162393162,
+                  0.7815126050420168,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  56,
+                  2,
+                  40,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 353,
+      "field": "away",
+      "expected": "0",
+      "roi": [
+        430,
+        430,
+        105,
+        90
+      ],
+      "image": "clip02_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.6621733333333334,
+        "accepted": true,
+        "median_ms": 72.065,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.60857
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.61275
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.70116
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.67261
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.6621733333333334,
+        "accepted": true,
+        "median_ms": 77.529,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.60857
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.61275
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.70116
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.67261
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                32,
+                3,
+                36,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8502673796791443,
+                  0.7129629629629629,
+                  1.0,
+                  0.7870370370370371,
+                  0.7352941176470589,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  32,
+                  3,
+                  36,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-00-04.801364.mp4",
+      "frame": 353,
+      "field": "home",
+      "expected": "0",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip02_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "0",
+        "confidence": 0.7102466666666666,
+        "accepted": true,
+        "median_ms": 74.487,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.82792
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.65836
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.76542
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70696
+          }
+        ]
+      },
+      "checked": {
+        "text": "0",
+        "confidence": 0.7102466666666666,
+        "accepted": true,
+        "median_ms": 90.635,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "0",
+            "confidence": 0.82792
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "0",
+            "confidence": 0.65836
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "0",
+            "confidence": 0.76542
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "0",
+            "confidence": 0.70696
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                56,
+                2,
+                40,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111110",
+                "densities": [
+                  1.0,
+                  0.8578431372549019,
+                  0.7307692307692307,
+                  0.9666666666666667,
+                  0.8076923076923077,
+                  0.7815126050420168,
+                  0.0
+                ],
+                "value": "0",
+                "holes": 1,
+                "bounds": [
+                  56,
+                  2,
+                  40,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "0",
+            "known_suffix": "0",
+            "variant": "led_shapes",
+            "text": "0"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 900,
+      "field": "away",
+      "expected": "5",
+      "roi": [
+        425,
+        430,
+        110,
+        90
+      ],
+      "image": "clip03_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "5",
+        "confidence": 0.90534,
+        "accepted": true,
+        "median_ms": 23.431,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "5",
+            "confidence": 0.90534
+          }
+        ]
+      },
+      "checked": {
+        "text": "5",
+        "confidence": 0.90534,
+        "accepted": true,
+        "median_ms": 26.481,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "5",
+            "confidence": 0.90534
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                36,
+                3,
+                37,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1011011",
+                "densities": [
+                  1.0,
+                  0.06951871657754011,
+                  0.75,
+                  0.9916666666666667,
+                  0.05555555555555555,
+                  0.8137254901960784,
+                  0.9236111111111112
+                ],
+                "value": "5",
+                "holes": 0,
+                "bounds": [
+                  36,
+                  3,
+                  37,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "5",
+            "known_suffix": "5",
+            "variant": "led_shapes",
+            "text": "5"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 900,
+      "field": "home",
+      "expected": "3",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip03_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "3",
+        "confidence": 0.96105,
+        "accepted": true,
+        "median_ms": 24.109,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "3",
+            "confidence": 0.96105
+          }
+        ]
+      },
+      "checked": {
+        "text": "3",
+        "confidence": 0.96105,
+        "accepted": true,
+        "median_ms": 23.205,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "3",
+            "confidence": 0.96105
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                59,
+                2,
+                37,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8502673796791443,
+                  0.8333333333333334,
+                  0.9583333333333334,
+                  0.10648148148148148,
+                  0.19117647058823528,
+                  0.9236111111111112
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  59,
+                  2,
+                  37,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "3",
+            "known_suffix": "3",
+            "variant": "led_shapes",
+            "text": "3"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "away",
+      "expected": "10",
+      "roi": [
+        425,
+        430,
+        110,
+        90
+      ],
+      "image": "clip03_1.png",
+      "baseline": {
+        "text": "10",
+        "confidence": 0.7384066666666667,
+        "accepted": true,
+        "median_ms": 87.666,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "10",
+            "confidence": 0.51645
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "10",
+            "confidence": 0.68889
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "10",
+            "confidence": 0.69839
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "10",
+            "confidence": 0.82794
+          }
+        ]
+      },
+      "checked": {
+        "text": "10",
+        "confidence": 0.7384066666666667,
+        "accepted": true,
+        "median_ms": 92.211,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "10",
+            "confidence": 0.51645
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "10",
+            "confidence": 0.68889
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "10",
+            "confidence": 0.69839
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "10",
+            "confidence": 0.82794
+          },
+          {
+            "reason": "unclear_topology",
+            "boxes": [
+              [
+                25,
+                2,
+                48,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111111",
+                "densities": [
+                  0.9925925925925926,
+                  0.7019607843137254,
+                  0.56656346749226,
+                  1.0,
+                  0.8256578947368421,
+                  0.9705882352941176,
+                  0.4256410256410256
+                ],
+                "value": null,
+                "holes": 1,
+                "bounds": [
+                  25,
+                  2,
+                  48,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 4500,
+      "field": "home",
+      "expected": "7",
+      "roi": [
+        140,
+        445,
+        120,
+        90
+      ],
+      "image": "clip03_1.png",
+      "baseline": {
+        "text": "7",
+        "confidence": 0.6867800000000001,
+        "accepted": true,
+        "median_ms": 94.411,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "7",
+            "confidence": 0.68866
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "7",
+            "confidence": 0.4752
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "7",
+            "confidence": 0.96478
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "7",
+            "confidence": 0.62036
+          }
+        ]
+      },
+      "checked": {
+        "text": "7",
+        "confidence": 0.6867800000000001,
+        "accepted": true,
+        "median_ms": 72.494,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "7",
+            "confidence": 0.68866
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "7",
+            "confidence": 0.4752
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "7",
+            "confidence": 0.96478
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "7",
+            "confidence": 0.62036
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                59,
+                2,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9030303030303031,
+                  0.6862745098039216,
+                  0.0,
+                  0.0,
+                  0.19444444444444445,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  59,
+                  2,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 1,
+            "known_prefix": "7",
+            "known_suffix": "7",
+            "variant": "led_shapes",
+            "text": "7"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 204,
+      "field": "away",
+      "expected": "27",
+      "roi": [
+        665,
+        435,
+        100,
+        85
+      ],
+      "image": "clip04_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.95539,
+        "accepted": true,
+        "median_ms": 23.335,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.95539
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.95539,
+        "accepted": true,
+        "median_ms": 21.997,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.95539
+          },
+          {
+            "reason": "unknown_digit",
+            "boxes": [
+              [
+                5,
+                6,
+                33,
+                61
+              ],
+              [
+                41,
+                4,
+                33,
+                57
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111101",
+                "densities": [
+                  1.0,
+                  0.9352941176470588,
+                  0.25462962962962965,
+                  1.0,
+                  0.9343434343434344,
+                  0.1711229946524064,
+                  0.95
+                ],
+                "value": null,
+                "bounds": [
+                  5,
+                  6,
+                  33,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.86,
+                  0.6712962962962963,
+                  0.0,
+                  0.0,
+                  0.19393939393939394,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  41,
+                  4,
+                  33,
+                  57
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "7",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 204,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        395,
+        450,
+        105,
+        85
+      ],
+      "image": "clip04_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "24",
+        "confidence": 0.99735,
+        "accepted": true,
+        "median_ms": 21.597,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99735
+          }
+        ]
+      },
+      "checked": {
+        "text": "24",
+        "confidence": 0.99735,
+        "accepted": true,
+        "median_ms": 21.606,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99735
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                4,
+                72,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  4,
+                  72,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "away",
+      "expected": "30",
+      "roi": [
+        665,
+        435,
+        100,
+        85
+      ],
+      "image": "clip04_1.png",
+      "baseline": {
+        "text": "30",
+        "confidence": 0.9643,
+        "accepted": true,
+        "median_ms": 21.162,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.9643
+          }
+        ]
+      },
+      "checked": {
+        "text": "30",
+        "confidence": 0.9643,
+        "accepted": true,
+        "median_ms": 22.858,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.9643
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                5,
+                0,
+                69,
+                67
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  5,
+                  0,
+                  69,
+                  67
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1021,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        395,
+        450,
+        105,
+        85
+      ],
+      "image": "clip04_1.png",
+      "baseline": {
+        "text": "24",
+        "confidence": 0.99827,
+        "accepted": true,
+        "median_ms": 21.726,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99827
+          }
+        ]
+      },
+      "checked": {
+        "text": "24",
+        "confidence": 0.99827,
+        "accepted": true,
+        "median_ms": 23.492,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99827
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                72,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  72,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1837,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        665,
+        435,
+        100,
+        85
+      ],
+      "image": "clip04_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99011,
+        "accepted": true,
+        "median_ms": 22.1,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99011
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99011,
+        "accepted": true,
+        "median_ms": 26.14,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99011
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                5,
+                0,
+                68,
+                67
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  5,
+                  0,
+                  68,
+                  67
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-28-53.175333.mp4",
+      "frame": 1837,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        395,
+        450,
+        105,
+        85
+      ],
+      "image": "clip04_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "24",
+        "confidence": 0.99789,
+        "accepted": true,
+        "median_ms": 21.347,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99789
+          }
+        ]
+      },
+      "checked": {
+        "text": "24",
+        "confidence": 0.99789,
+        "accepted": true,
+        "median_ms": 23.185,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99789
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                72,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  72,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        320,
+        430,
+        95,
+        85
+      ],
+      "image": "clip05_1.png",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99769,
+        "accepted": true,
+        "median_ms": 20.31,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99769
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99769,
+        "accepted": true,
+        "median_ms": 19.03,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99769
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                6,
+                0,
+                70,
+                68
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  6,
+                  0,
+                  70,
+                  68
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 565,
+      "field": "home",
+      "expected": "24",
+      "roi": [
+        35,
+        445,
+        110,
+        85
+      ],
+      "image": "clip05_1.png",
+      "baseline": {
+        "text": "24",
+        "confidence": 0.99848,
+        "accepted": true,
+        "median_ms": 18.876,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99848
+          }
+        ]
+      },
+      "checked": {
+        "text": "24",
+        "confidence": 0.99848,
+        "accepted": true,
+        "median_ms": 22.742,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "24",
+            "confidence": 0.99848
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                79,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  79,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 1017,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        320,
+        430,
+        95,
+        85
+      ],
+      "image": "clip05_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99856,
+        "accepted": true,
+        "median_ms": 22.517,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99856
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99856,
+        "accepted": true,
+        "median_ms": 24.809,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99856
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                20,
+                6,
+                68,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  20,
+                  6,
+                  68,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-30-32.731683.mp4",
+      "frame": 1017,
+      "field": "home",
+      "expected": "26",
+      "roi": [
+        35,
+        445,
+        110,
+        85
+      ],
+      "image": "clip05_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "26",
+        "confidence": 0.99932,
+        "accepted": true,
+        "median_ms": 24.143,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99932
+          }
+        ]
+      },
+      "checked": {
+        "text": "26",
+        "confidence": 0.99932,
+        "accepted": true,
+        "median_ms": 25.232,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99932
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                30,
+                4,
+                78,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  30,
+                  4,
+                  78,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 262,
+      "field": "away",
+      "expected": "32",
+      "roi": [
+        345,
+        425,
+        110,
+        90
+      ],
+      "image": "clip06_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99045,
+        "accepted": true,
+        "median_ms": 19.638,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99045
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99045,
+        "accepted": true,
+        "median_ms": 22.769,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99045
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                19,
+                9,
+                68,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  19,
+                  9,
+                  68,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 262,
+      "field": "home",
+      "expected": "26",
+      "roi": [
+        70,
+        445,
+        115,
+        85
+      ],
+      "image": "clip06_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "26",
+        "confidence": 0.99637,
+        "accepted": true,
+        "median_ms": 23.523,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99637
+          }
+        ]
+      },
+      "checked": {
+        "text": "26",
+        "confidence": 0.99637,
+        "accepted": true,
+        "median_ms": 23.89,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99637
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                20,
+                3,
+                79,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  20,
+                  3,
+                  79,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "away",
+      "expected": "34",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip06_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99191,
+        "accepted": true,
+        "median_ms": 23.979,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99191
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99191,
+        "accepted": true,
+        "median_ms": 26.277,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99191
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                6,
+                69,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  6,
+                  69,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 1311,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip06_1.png",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.94974,
+        "accepted": true,
+        "median_ms": 23.901,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.94974
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.94974,
+        "accepted": true,
+        "median_ms": 22.828,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.94974
+          },
+          {
+            "reason": "unknown_digit",
+            "boxes": [
+              [
+                13,
+                5,
+                37,
+                62
+              ],
+              [
+                53,
+                2,
+                37,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9679144385026738,
+                  0.21052631578947367,
+                  1.0,
+                  0.9210526315789473,
+                  0.17647058823529413,
+                  0.8525641025641025
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  13,
+                  5,
+                  37,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110010",
+                "densities": [
+                  1.0,
+                  0.8636363636363636,
+                  0.7314814814814815,
+                  0.0,
+                  0.0,
+                  0.2708333333333333,
+                  0.0
+                ],
+                "value": null,
+                "bounds": [
+                  53,
+                  2,
+                  37,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "2",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 2360,
+      "field": "away",
+      "expected": "35",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip06_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "35",
+        "confidence": 0.99467,
+        "accepted": true,
+        "median_ms": 19.852,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "35",
+            "confidence": 0.99467
+          }
+        ]
+      },
+      "checked": {
+        "text": "35",
+        "confidence": 0.99467,
+        "accepted": true,
+        "median_ms": 14.959,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "35",
+            "confidence": 0.99467
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                69,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  69,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 2360,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip06_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.90348,
+        "accepted": true,
+        "median_ms": 20.323,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.90348
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.90348,
+        "accepted": true,
+        "median_ms": 24.73,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.90348
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                14,
+                5,
+                36,
+                62
+              ],
+              [
+                54,
+                3,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9358288770053476,
+                  0.20614035087719298,
+                  1.0,
+                  0.9429824561403509,
+                  0.16176470588235295,
+                  0.8391608391608392
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  14,
+                  5,
+                  36,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8666666666666667,
+                  0.6813725490196079,
+                  0.0,
+                  0.0,
+                  0.19444444444444445,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  54,
+                  3,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 354,
+      "field": "away",
+      "expected": "37",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip07_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.690315,
+        "accepted": true,
+        "median_ms": 86.255,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "",
+            "confidence": 0.0
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "m",
+            "confidence": 0.29391
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.95828
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.42235
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.690315,
+        "accepted": true,
+        "median_ms": 92.7,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "",
+            "confidence": 0.0
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "m",
+            "confidence": 0.29391
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.95828
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.42235
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                7,
+                0,
+                76,
+                72
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  7,
+                  0,
+                  76,
+                  72
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 354,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip07_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.8642266666666667,
+        "accepted": true,
+        "median_ms": 94.671,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.78576
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "27",
+            "confidence": 0.94442
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "27",
+            "confidence": 0.98259
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "27",
+            "confidence": 0.66567
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.8642266666666667,
+        "accepted": true,
+        "median_ms": 93.079,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.78576
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "27",
+            "confidence": 0.94442
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "27",
+            "confidence": 0.98259
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "27",
+            "confidence": 0.66567
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                11,
+                0,
+                85,
+                72
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  11,
+                  0,
+                  85,
+                  72
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "away",
+      "expected": "37",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip07_1.png",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.93331,
+        "accepted": true,
+        "median_ms": 74.749,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.79181
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.85526
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98177
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.9629
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.93331,
+        "accepted": true,
+        "median_ms": 94.025,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.79181
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.85526
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98177
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.9629
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                6,
+                34,
+                61
+              ],
+              [
+                46,
+                4,
+                33,
+                57
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8764705882352941,
+                  0.7878787878787878,
+                  0.990909090909091,
+                  0.10606060606060606,
+                  0.18716577540106952,
+                  0.9318181818181818
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  6,
+                  34,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8866666666666667,
+                  0.6990740740740741,
+                  0.0,
+                  0.0,
+                  0.19393939393939394,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  46,
+                  4,
+                  33,
+                  57
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 1772,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip07_1.png",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.92407,
+        "accepted": true,
+        "median_ms": 20.973,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.92407
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.92407,
+        "accepted": true,
+        "median_ms": 23.942,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.92407
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                14,
+                5,
+                37,
+                62
+              ],
+              [
+                54,
+                3,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9679144385026738,
+                  0.21052631578947367,
+                  1.0,
+                  0.9078947368421053,
+                  0.1715686274509804,
+                  0.8141025641025641
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  14,
+                  5,
+                  37,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9333333333333333,
+                  0.6568627450980392,
+                  0.0,
+                  0.0,
+                  0.2,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  54,
+                  3,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 3189,
+      "field": "away",
+      "expected": "37",
+      "roi": [
+        395,
+        430,
+        110,
+        90
+      ],
+      "image": "clip07_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.88467,
+        "accepted": true,
+        "median_ms": 19.518,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.88467
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.88467,
+        "accepted": true,
+        "median_ms": 23.733,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.88467
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                11,
+                6,
+                34,
+                61
+              ],
+              [
+                46,
+                4,
+                34,
+                57
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8529411764705882,
+                  0.8232323232323232,
+                  0.990909090909091,
+                  0.1111111111111111,
+                  0.17647058823529413,
+                  0.9242424242424242
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  11,
+                  6,
+                  34,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8,
+                  0.7070707070707071,
+                  0.0,
+                  0.0,
+                  0.20606060606060606,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  46,
+                  4,
+                  34,
+                  57
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-34-05.113014.mp4",
+      "frame": 3189,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        120,
+        445,
+        115,
+        85
+      ],
+      "image": "clip07_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.85678,
+        "accepted": true,
+        "median_ms": 20.973,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.85678
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.85678,
+        "accepted": true,
+        "median_ms": 27.168,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.85678
+          },
+          {
+            "reason": "unknown_digit",
+            "boxes": [
+              [
+                15,
+                5,
+                36,
+                62
+              ],
+              [
+                55,
+                2,
+                36,
+                59
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9411764705882353,
+                  0.21929824561403508,
+                  1.0,
+                  0.9692982456140351,
+                  0.16176470588235295,
+                  0.8811188811188811
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  15,
+                  5,
+                  36,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110010",
+                "densities": [
+                  1.0,
+                  0.8806818181818182,
+                  0.7156862745098039,
+                  0.0,
+                  0.0,
+                  0.28125,
+                  0.0
+                ],
+                "value": null,
+                "bounds": [
+                  55,
+                  2,
+                  36,
+                  59
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "2",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 465,
+      "field": "away",
+      "expected": "38",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip08_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "38",
+        "confidence": 0.8772366666666667,
+        "accepted": true,
+        "median_ms": 88.828,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.83845
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.95081
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94284
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "38",
+            "confidence": 0.73806
+          }
+        ]
+      },
+      "checked": {
+        "text": "38",
+        "confidence": 0.8772366666666667,
+        "accepted": true,
+        "median_ms": 85.458,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.83845
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.95081
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94284
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "38",
+            "confidence": 0.73806
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                4,
+                69,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  4,
+                  69,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 465,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip08_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.90839,
+        "accepted": true,
+        "median_ms": 10.082,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.90839
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.90839,
+        "accepted": true,
+        "median_ms": 11.176,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.90839
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                36,
+                62
+              ],
+              [
+                49,
+                3,
+                36,
+                59
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9732620320855615,
+                  0.2236842105263158,
+                  0.9727272727272728,
+                  0.9298245614035088,
+                  0.18627450980392157,
+                  0.8461538461538461
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  5,
+                  36,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8977272727272727,
+                  0.6372549019607843,
+                  0.0,
+                  0.0,
+                  0.21875,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  3,
+                  36,
+                  59
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "away",
+      "expected": "38",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip08_1.png",
+      "baseline": {
+        "text": "38",
+        "confidence": 0.94665,
+        "accepted": true,
+        "median_ms": 33.41,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.81883
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.94537
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94793
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "39",
+            "confidence": 0.70975
+          }
+        ]
+      },
+      "checked": {
+        "text": "38",
+        "confidence": 0.94665,
+        "accepted": true,
+        "median_ms": 32.648,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.81883
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.94537
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94793
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "39",
+            "confidence": 0.70975
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                4,
+                69,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  4,
+                  69,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 2326,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip08_1.png",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.89407,
+        "accepted": true,
+        "median_ms": 7.806,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.89407
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.89407,
+        "accepted": true,
+        "median_ms": 9.397,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.89407
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                6,
+                36,
+                61
+              ],
+              [
+                49,
+                3,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9572192513368984,
+                  0.18518518518518517,
+                  0.9636363636363636,
+                  0.9166666666666666,
+                  0.13725490196078433,
+                  0.9015151515151515
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  6,
+                  36,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9151515151515152,
+                  0.6421568627450981,
+                  0.0,
+                  0.0,
+                  0.22777777777777777,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  3,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 4186,
+      "field": "away",
+      "expected": "40",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip08_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "40",
+        "confidence": 0.97951,
+        "accepted": true,
+        "median_ms": 10.445,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "40",
+            "confidence": 0.97951
+          }
+        ]
+      },
+      "checked": {
+        "text": "40",
+        "confidence": 0.97951,
+        "accepted": true,
+        "median_ms": 10.572,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "40",
+            "confidence": 0.97951
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                6,
+                5,
+                72,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  6,
+                  5,
+                  72,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 4186,
+      "field": "home",
+      "expected": "27",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip08_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.91607,
+        "accepted": true,
+        "median_ms": 8.692,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.91607
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.91607,
+        "accepted": true,
+        "median_ms": 10.092,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.91607
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                6,
+                36,
+                61
+              ],
+              [
+                49,
+                3,
+                36,
+                59
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9732620320855615,
+                  0.18981481481481483,
+                  0.9727272727272728,
+                  0.9490740740740741,
+                  0.1323529411764706,
+                  0.9090909090909091
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  6,
+                  36,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9090909090909091,
+                  0.6470588235294118,
+                  0.0,
+                  0.0,
+                  0.22395833333333334,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  3,
+                  36,
+                  59
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 216,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip10_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99879,
+        "accepted": true,
+        "median_ms": 10.409,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99879
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99879,
+        "accepted": true,
+        "median_ms": 10.485,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99879
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                7,
+                5,
+                70,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  7,
+                  5,
+                  70,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 216,
+      "field": "home",
+      "expected": "30",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip10_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "30",
+        "confidence": 0.88706,
+        "accepted": true,
+        "median_ms": 8.82,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.88706
+          }
+        ]
+      },
+      "checked": {
+        "text": "30",
+        "confidence": 0.88706,
+        "accepted": true,
+        "median_ms": 9.957,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.88706
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                12,
+                4,
+                75,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  12,
+                  4,
+                  75,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip10_1.png",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99646,
+        "accepted": true,
+        "median_ms": 10.403,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99646
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99646,
+        "accepted": true,
+        "median_ms": 10.46,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99646
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1081,
+      "field": "home",
+      "expected": "31",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip10_1.png",
+      "baseline": {
+        "text": "31",
+        "confidence": 0.89096,
+        "accepted": true,
+        "median_ms": 8.44,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "31",
+            "confidence": 0.89096
+          }
+        ]
+      },
+      "checked": {
+        "text": "31",
+        "confidence": 0.89096,
+        "accepted": true,
+        "median_ms": 10.449,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "31",
+            "confidence": 0.89096
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                36,
+                61
+              ],
+              [
+                76,
+                6,
+                13,
+                56
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8502673796791443,
+                  0.8148148148148148,
+                  0.9272727272727272,
+                  0.12962962962962962,
+                  0.16666666666666666,
+                  0.9015151515151515
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  16,
+                  6,
+                  36,
+                  61
+                ]
+              },
+              {
+                "pattern": "thin_stroke",
+                "holes": 0,
+                "value": "1",
+                "bounds": [
+                  76,
+                  6,
+                  13,
+                  56
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "31",
+            "known_suffix": "31",
+            "variant": "led_shapes",
+            "text": "31"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1945,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip10_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99581,
+        "accepted": true,
+        "median_ms": 10.159,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99581
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99581,
+        "accepted": true,
+        "median_ms": 10.859,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99581
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 1945,
+      "field": "home",
+      "expected": "32",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip10_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99673,
+        "accepted": true,
+        "median_ms": 9.16,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99673
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99673,
+        "accepted": true,
+        "median_ms": 10.267,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99673
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                4,
+                72,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  4,
+                  72,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 116,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip12_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99804,
+        "accepted": true,
+        "median_ms": 10.538,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99804
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99804,
+        "accepted": true,
+        "median_ms": 11.083,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99804
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 116,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip12_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99024,
+        "accepted": true,
+        "median_ms": 9.121,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99024
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99024,
+        "accepted": true,
+        "median_ms": 10.099,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99024
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip12_1.png",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99708,
+        "accepted": true,
+        "median_ms": 9.669,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99708
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99708,
+        "accepted": true,
+        "median_ms": 10.083,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99708
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 580,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip12_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99496,
+        "accepted": true,
+        "median_ms": 8.165,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99496
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99496,
+        "accepted": true,
+        "median_ms": 9.257,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99496
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                6,
+                74,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  6,
+                  74,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 1044,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip12_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99702,
+        "accepted": true,
+        "median_ms": 10.19,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99702
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99702,
+        "accepted": true,
+        "median_ms": 10.539,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99702
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-45-51.650377.mp4",
+      "frame": 1044,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip12_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99576,
+        "accepted": true,
+        "median_ms": 8.371,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99576
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99576,
+        "accepted": true,
+        "median_ms": 9.771,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99576
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                74,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  6,
+                  74,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 34,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip13_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99817,
+        "accepted": true,
+        "median_ms": 9.564,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99817
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99817,
+        "accepted": true,
+        "median_ms": 10.177,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99817
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 34,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip13_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.9546,
+        "accepted": true,
+        "median_ms": 8.291,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9546
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.9546,
+        "accepted": true,
+        "median_ms": 9.158,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9546
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                73,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  6,
+                  73,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip13_1.png",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99663,
+        "accepted": true,
+        "median_ms": 10.204,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99663
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99663,
+        "accepted": true,
+        "median_ms": 10.247,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99663
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 174,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip13_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.98783,
+        "accepted": true,
+        "median_ms": 8.449,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98783
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.98783,
+        "accepted": true,
+        "median_ms": 9.21,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98783
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                74,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  6,
+                  74,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 314,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip13_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99778,
+        "accepted": true,
+        "median_ms": 10.353,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99778
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99778,
+        "accepted": true,
+        "median_ms": 9.912,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99778
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-46-32.984904.mp4",
+      "frame": 314,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip13_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99307,
+        "accepted": true,
+        "median_ms": 8.292,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99307
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99307,
+        "accepted": true,
+        "median_ms": 9.648,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99307
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                73,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  6,
+                  73,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 89,
+      "field": "away",
+      "expected": "42",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip14_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99597,
+        "accepted": true,
+        "median_ms": 10.094,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99597
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99597,
+        "accepted": true,
+        "median_ms": 10.04,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99597
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                70,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  70,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 89,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip14_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.98444,
+        "accepted": true,
+        "median_ms": 8.482,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98444
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.98444,
+        "accepted": true,
+        "median_ms": 9.54,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98444
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                5,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  5,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip14_1.png",
+      "baseline": {
+        "text": "43",
+        "confidence": 0.98267,
+        "accepted": true,
+        "median_ms": 10.427,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.98267
+          }
+        ]
+      },
+      "checked": {
+        "text": "43",
+        "confidence": 0.98267,
+        "accepted": true,
+        "median_ms": 10.43,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.98267
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                9,
+                37,
+                55
+              ],
+              [
+                49,
+                5,
+                32,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "0110011",
+                "densities": [
+                  0.0,
+                  0.8363636363636363,
+                  0.7107843137254902,
+                  0.0,
+                  0.10784313725490197,
+                  0.7111111111111111,
+                  0.946969696969697
+                ],
+                "value": "4",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  9,
+                  37,
+                  55
+                ]
+              },
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.93125,
+                  0.7626262626262627,
+                  0.9222222222222223,
+                  0.10555555555555556,
+                  0.16875,
+                  0.8888888888888888
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  5,
+                  32,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "43",
+            "known_suffix": "43",
+            "variant": "led_shapes",
+            "text": "43"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 445,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip14_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99527,
+        "accepted": true,
+        "median_ms": 8.051,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99527
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99527,
+        "accepted": true,
+        "median_ms": 10.082,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99527
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                5,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  5,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 801,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip14_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "43",
+        "confidence": 0.99294,
+        "accepted": true,
+        "median_ms": 10.226,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.99294
+          }
+        ]
+      },
+      "checked": {
+        "text": "43",
+        "confidence": 0.99294,
+        "accepted": true,
+        "median_ms": 11.253,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.99294
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                9,
+                36,
+                55
+              ],
+              [
+                49,
+                5,
+                33,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "0110011",
+                "densities": [
+                  0.0,
+                  0.8727272727272727,
+                  0.6568627450980392,
+                  0.0,
+                  0.10784313725490197,
+                  0.7166666666666667,
+                  0.9173553719008265
+                ],
+                "value": "4",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  9,
+                  36,
+                  55
+                ]
+              },
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.84375,
+                  0.7638888888888888,
+                  0.93,
+                  0.1111111111111111,
+                  0.17045454545454544,
+                  0.875
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  5,
+                  33,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "43",
+            "known_suffix": "43",
+            "variant": "led_shapes",
+            "text": "43"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-47-24.245829.mp4",
+      "frame": 801,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip14_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.9949,
+        "accepted": true,
+        "median_ms": 9.253,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9949
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.9949,
+        "accepted": true,
+        "median_ms": 10.787,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9949
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                6,
+                74,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  6,
+                  74,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 64,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip15_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "43",
+        "confidence": 0.9919,
+        "accepted": true,
+        "median_ms": 10.078,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.9919
+          }
+        ]
+      },
+      "checked": {
+        "text": "43",
+        "confidence": 0.9919,
+        "accepted": true,
+        "median_ms": 10.464,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.9919
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                9,
+                37,
+                55
+              ],
+              [
+                49,
+                5,
+                33,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "0110011",
+                "densities": [
+                  0.0,
+                  0.8424242424242424,
+                  0.7156862745098039,
+                  0.0,
+                  0.10784313725490197,
+                  0.7111111111111111,
+                  0.9318181818181818
+                ],
+                "value": "4",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  9,
+                  37,
+                  55
+                ]
+              },
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.85,
+                  0.7777777777777778,
+                  0.93,
+                  0.11616161616161616,
+                  0.17045454545454544,
+                  0.8833333333333333
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  5,
+                  33,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "43",
+            "known_suffix": "43",
+            "variant": "led_shapes",
+            "text": "43"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 64,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip15_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.9831,
+        "accepted": true,
+        "median_ms": 8.607,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9831
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.9831,
+        "accepted": true,
+        "median_ms": 9.655,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9831
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "away",
+      "expected": "43",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip15_1.png",
+      "baseline": {
+        "text": "43",
+        "confidence": 0.99132,
+        "accepted": true,
+        "median_ms": 10.841,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.99132
+          }
+        ]
+      },
+      "checked": {
+        "text": "43",
+        "confidence": 0.99132,
+        "accepted": true,
+        "median_ms": 10.491,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "43",
+            "confidence": 0.99132
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                9,
+                37,
+                55
+              ],
+              [
+                49,
+                5,
+                33,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "0110011",
+                "densities": [
+                  0.0,
+                  0.8363636363636363,
+                  0.7254901960784313,
+                  0.0,
+                  0.10784313725490197,
+                  0.7111111111111111,
+                  0.946969696969697
+                ],
+                "value": "4",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  9,
+                  37,
+                  55
+                ]
+              },
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.84375,
+                  0.7916666666666666,
+                  0.95,
+                  0.12626262626262627,
+                  0.17045454545454544,
+                  0.9
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  5,
+                  33,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "43",
+            "known_suffix": "43",
+            "variant": "led_shapes",
+            "text": "43"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 323,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip15_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.9955,
+        "accepted": true,
+        "median_ms": 8.476,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9955
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.9955,
+        "accepted": true,
+        "median_ms": 9.659,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.9955
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                73,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  73,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 581,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip15_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99562,
+        "accepted": true,
+        "median_ms": 10.61,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99562
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99562,
+        "accepted": true,
+        "median_ms": 10.463,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99562
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-13.305977.mp4",
+      "frame": 581,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip15_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99453,
+        "accepted": true,
+        "median_ms": 8.7,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99453
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99453,
+        "accepted": true,
+        "median_ms": 9.657,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99453
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                74,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  5,
+                  74,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 56,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip16_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99288,
+        "accepted": true,
+        "median_ms": 10.317,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99288
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99288,
+        "accepted": true,
+        "median_ms": 9.944,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99288
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 56,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip16_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99502,
+        "accepted": true,
+        "median_ms": 8.476,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99502
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99502,
+        "accepted": true,
+        "median_ms": 9.483,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99502
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                6,
+                74,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  6,
+                  74,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip16_1.png",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99747,
+        "accepted": true,
+        "median_ms": 10.203,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99747
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99747,
+        "accepted": true,
+        "median_ms": 10.324,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99747
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                71,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  71,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 284,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip16_1.png",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.99636,
+        "accepted": true,
+        "median_ms": 8.758,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99636
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.99636,
+        "accepted": true,
+        "median_ms": 10.184,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.99636
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  16,
+                  6,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 512,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip16_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99326,
+        "accepted": true,
+        "median_ms": 9.791,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99326
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99326,
+        "accepted": true,
+        "median_ms": 9.877,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99326
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 512,
+      "field": "home",
+      "expected": "34",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip16_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.98748,
+        "accepted": true,
+        "median_ms": 8.396,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98748
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.98748,
+        "accepted": true,
+        "median_ms": 9.069,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.98748
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                5,
+                75,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  5,
+                  75,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 71,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip17_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99645,
+        "accepted": true,
+        "median_ms": 10.159,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99645
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99645,
+        "accepted": true,
+        "median_ms": 11.696,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99645
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 71,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip17_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.8706633333333333,
+        "accepted": true,
+        "median_ms": 37.62,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.75893
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.75761
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98575
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.86863
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.8706633333333333,
+        "accepted": true,
+        "median_ms": 38.264,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.75893
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.75761
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98575
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.86863
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                16,
+                5,
+                36,
+                62
+              ],
+              [
+                54,
+                4,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8770053475935828,
+                  0.8114035087719298,
+                  0.9363636363636364,
+                  0.14035087719298245,
+                  0.22058823529411764,
+                  0.8321678321678322
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  16,
+                  5,
+                  36,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8181818181818182,
+                  0.7205882352941176,
+                  0.0,
+                  0.0,
+                  0.17777777777777778,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  54,
+                  4,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip17_1.png",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99434,
+        "accepted": true,
+        "median_ms": 10.859,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99434
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99434,
+        "accepted": true,
+        "median_ms": 11.554,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99434
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                71,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  71,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 358,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip17_1.png",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.9357500000000001,
+        "accepted": true,
+        "median_ms": 36.118,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.80174
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.78089
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.97089
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.90061
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.9357500000000001,
+        "accepted": true,
+        "median_ms": 41.457,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.80174
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.78089
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.97089
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.90061
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                35,
+                61
+              ],
+              [
+                53,
+                4,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.9251336898395722,
+                  0.7676767676767676,
+                  0.9,
+                  0.10101010101010101,
+                  0.16666666666666666,
+                  0.8916666666666667
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  16,
+                  6,
+                  35,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.8909090909090909,
+                  0.6470588235294118,
+                  0.0,
+                  0.0,
+                  0.17222222222222222,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  53,
+                  4,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 645,
+      "field": "away",
+      "expected": "46",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip17_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.99719,
+        "accepted": true,
+        "median_ms": 13.062,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99719
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.99719,
+        "accepted": true,
+        "median_ms": 12.004,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.99719
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-49-56.465996.mp4",
+      "frame": 645,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip17_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.941735,
+        "accepted": true,
+        "median_ms": 40.363,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.79285
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.82951
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98786
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.89561
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.941735,
+        "accepted": true,
+        "median_ms": 43.556,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.79285
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.82951
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98786
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.89561
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                16,
+                6,
+                36,
+                61
+              ],
+              [
+                54,
+                4,
+                35,
+                57
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8716577540106952,
+                  0.8055555555555556,
+                  0.9272727272727272,
+                  0.11574074074074074,
+                  0.16666666666666666,
+                  0.8939393939393939
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  16,
+                  6,
+                  36,
+                  61
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9030303030303031,
+                  0.7171717171717171,
+                  0.0,
+                  0.0,
+                  0.19444444444444445,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  54,
+                  4,
+                  35,
+                  57
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 798,
+      "field": "away",
+      "expected": "48",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip18_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "48",
+        "confidence": 0.89881,
+        "accepted": true,
+        "median_ms": 36.567,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "48",
+            "confidence": 0.83743
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "48",
+            "confidence": 0.8855
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "48",
+            "confidence": 0.96235
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "48",
+            "confidence": 0.84858
+          }
+        ]
+      },
+      "checked": {
+        "text": "48",
+        "confidence": 0.89881,
+        "accepted": true,
+        "median_ms": 35.826,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "48",
+            "confidence": 0.83743
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "48",
+            "confidence": 0.8855
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "48",
+            "confidence": 0.96235
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "48",
+            "confidence": 0.84858
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                4,
+                72,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  4,
+                  72,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 798,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip18_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.9360999999999999,
+        "accepted": true,
+        "median_ms": 34.339,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "31",
+            "confidence": 0.75559
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.86014
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.96609
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.90611
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.9360999999999999,
+        "accepted": true,
+        "median_ms": 38.162,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "31",
+            "confidence": 0.75559
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "31",
+            "confidence": 0.86014
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.96609
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.90611
+          },
+          {
+            "reason": "unknown_digit",
+            "boxes": [
+              [
+                15,
+                5,
+                37,
+                63
+              ],
+              [
+                53,
+                0,
+                36,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8556149732620321,
+                  0.8464912280701754,
+                  1.0,
+                  0.16228070175438597,
+                  0.16666666666666666,
+                  0.9166666666666666
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  15,
+                  5,
+                  37,
+                  63
+                ]
+              },
+              {
+                "pattern": "1110010",
+                "densities": [
+                  0.7575757575757576,
+                  0.9037433155080213,
+                  0.6622807017543859,
+                  0.0,
+                  0.0,
+                  0.4411764705882353,
+                  0.0
+                ],
+                "value": null,
+                "bounds": [
+                  53,
+                  0,
+                  36,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "3",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "away",
+      "expected": "50",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip18_1.png",
+      "baseline": {
+        "text": "50",
+        "confidence": 0.7040150000000001,
+        "accepted": true,
+        "median_ms": 39.407,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "5O",
+            "confidence": 0.50741
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "50",
+            "confidence": 0.63207
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "5O",
+            "confidence": 0.45264
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "50",
+            "confidence": 0.77596
+          }
+        ]
+      },
+      "checked": {
+        "text": "50",
+        "confidence": 0.7040150000000001,
+        "accepted": true,
+        "median_ms": 36.84,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "5O",
+            "confidence": 0.50741
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "50",
+            "confidence": 0.63207
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "5O",
+            "confidence": 0.45264
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "50",
+            "confidence": 0.77596
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 3992,
+      "field": "home",
+      "expected": "37",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip18_1.png",
+      "baseline": {
+        "text": "37",
+        "confidence": 0.8853533333333333,
+        "accepted": true,
+        "median_ms": 33.13,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.75403
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.75753
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98678
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.91175
+          }
+        ]
+      },
+      "checked": {
+        "text": "37",
+        "confidence": 0.8853533333333333,
+        "accepted": true,
+        "median_ms": 37.103,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "37",
+            "confidence": 0.75403
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "37",
+            "confidence": 0.75753
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "37",
+            "confidence": 0.98678
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "37",
+            "confidence": 0.91175
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                15,
+                5,
+                37,
+                62
+              ],
+              [
+                53,
+                4,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1111001",
+                "densities": [
+                  1.0,
+                  0.8556149732620321,
+                  0.8333333333333334,
+                  0.975,
+                  0.15350877192982457,
+                  0.23039215686274508,
+                  0.8525641025641025
+                ],
+                "value": "3",
+                "holes": 0,
+                "bounds": [
+                  15,
+                  5,
+                  37,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.896969696969697,
+                  0.6568627450980392,
+                  0.0,
+                  0.0,
+                  0.18333333333333332,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  53,
+                  4,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "37",
+            "known_suffix": "37",
+            "variant": "led_shapes",
+            "text": "37"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 7186,
+      "field": "away",
+      "expected": "50",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "clip18_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "50",
+        "confidence": 0.728735,
+        "accepted": true,
+        "median_ms": 33.888,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "50",
+            "confidence": 0.49617
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "50",
+            "confidence": 0.77381
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "5O",
+            "confidence": 0.43911
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "50",
+            "confidence": 0.68366
+          }
+        ]
+      },
+      "checked": {
+        "text": "50",
+        "confidence": 0.728735,
+        "accepted": true,
+        "median_ms": 35.116,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "50",
+            "confidence": 0.49617
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "50",
+            "confidence": 0.77381
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "5O",
+            "confidence": 0.43911
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "50",
+            "confidence": 0.68366
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                0,
+                72,
+                67
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  0,
+                  72,
+                  67
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-50-21.398077.mp4",
+      "frame": 7186,
+      "field": "home",
+      "expected": "39",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "clip18_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "39",
+        "confidence": 0.9923,
+        "accepted": true,
+        "median_ms": 8.243,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "39",
+            "confidence": 0.9923
+          }
+        ]
+      },
+      "checked": {
+        "text": "39",
+        "confidence": 0.9923,
+        "accepted": true,
+        "median_ms": 9.891,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "39",
+            "confidence": 0.9923
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                4,
+                75,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  4,
+                  75,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 33,
+      "field": "away",
+      "expected": "108",
+      "roi": [
+        445,
+        445,
+        110,
+        85
+      ],
+      "image": "clip19_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "108",
+        "confidence": 0.8024300000000001,
+        "accepted": true,
+        "median_ms": 34.722,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.77606
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "108",
+            "confidence": 0.68017
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.82927
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.89785
+          }
+        ]
+      },
+      "checked": {
+        "text": "108",
+        "confidence": 0.8024300000000001,
+        "accepted": true,
+        "median_ms": 34.883,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.77606
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "108",
+            "confidence": 0.68017
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.82927
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.89785
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                0,
+                84,
+                65
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  0,
+                  84,
+                  65
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 33,
+      "field": "home",
+      "expected": "96",
+      "roi": [
+        185,
+        455,
+        105,
+        90
+      ],
+      "image": "clip19_0.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "96",
+        "confidence": 0.99803,
+        "accepted": true,
+        "median_ms": 9.001,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99803
+          }
+        ]
+      },
+      "checked": {
+        "text": "96",
+        "confidence": 0.99803,
+        "accepted": true,
+        "median_ms": 10.262,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99803
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                14,
+                6,
+                78,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  14,
+                  6,
+                  78,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 300,
+      "field": "away",
+      "expected": "108",
+      "roi": [
+        445,
+        445,
+        110,
+        85
+      ],
+      "image": "clip19_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "108",
+        "confidence": 0.8000033333333333,
+        "accepted": true,
+        "median_ms": 35.493,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.83394
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "108",
+            "confidence": 0.76989
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.74571
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.88441
+          }
+        ]
+      },
+      "checked": {
+        "text": "108",
+        "confidence": 0.8000033333333333,
+        "accepted": true,
+        "median_ms": 34.915,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.83394
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "108",
+            "confidence": 0.76989
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.74571
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.88441
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                0,
+                84,
+                65
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  0,
+                  84,
+                  65
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 300,
+      "field": "home",
+      "expected": "96",
+      "roi": [
+        185,
+        455,
+        105,
+        90
+      ],
+      "image": "clip19_2.png",
+      "label_status": "visually_checked",
+      "baseline": {
+        "text": "96",
+        "confidence": 0.99761,
+        "accepted": true,
+        "median_ms": 8.823,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99761
+          }
+        ]
+      },
+      "checked": {
+        "text": "96",
+        "confidence": 0.99761,
+        "accepted": true,
+        "median_ms": 9.675,
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99761
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                14,
+                6,
+                77,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  14,
+                  6,
+                  77,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    }
+  ]
+}
