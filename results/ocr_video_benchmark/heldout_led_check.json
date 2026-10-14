@@ -1,0 +1,798 @@
+{
+  "scope": "New same-session score samples selected after policy freeze; labels reviewed before inference.",
+  "policy_sha256": {
+    "src/dnn_ocr.py": "d28abd1cbb642666fd595e9169185668821a5f5ef9944872e73affaf02c2a351",
+    "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee"
+  },
+  "summary": {
+    "baseline": {
+      "correct": 10,
+      "wrong": 0,
+      "rejected": 0
+    },
+    "checked": {
+      "correct": 10,
+      "wrong": 0,
+      "rejected": 0
+    }
+  },
+  "results": [
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 273,
+      "timestamp": 9.266333333333334,
+      "field": "home",
+      "roi": [
+        70,
+        445,
+        115,
+        85
+      ],
+      "image": "06_00273_home.png",
+      "expected": "26",
+      "sha256": "7e8b0dc66d424ec733a43023709811fe087ad626a9e740602b58a6dc943c8ad6",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "26",
+        "confidence": 0.99627,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99627
+          }
+        ]
+      },
+      "checked": {
+        "text": "26",
+        "confidence": 0.99627,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "26",
+            "confidence": 0.99627
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                20,
+                3,
+                79,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  20,
+                  3,
+                  79,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-31-13.722673.mp4",
+      "frame": 273,
+      "timestamp": 9.266333333333334,
+      "field": "away",
+      "roi": [
+        345,
+        425,
+        110,
+        90
+      ],
+      "image": "06_00273_away.png",
+      "expected": "32",
+      "sha256": "e06f59366b7ba9f70f47e0217e5ae25a8f907541a10ebcbbfa879ffa2ad2077c",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "32",
+        "confidence": 0.99391,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99391
+          }
+        ]
+      },
+      "checked": {
+        "text": "32",
+        "confidence": 0.99391,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "32",
+            "confidence": 0.99391
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                19,
+                9,
+                68,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  19,
+                  9,
+                  68,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 476,
+      "timestamp": 19.067666666666668,
+      "field": "home",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "08_00476_home.png",
+      "expected": "27",
+      "sha256": "19cfd10946cb35d7a63755fa5f08f251609584fe7661f6ba6a79b51bc9eda655",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "27",
+        "confidence": 0.88815,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.88815
+          }
+        ]
+      },
+      "checked": {
+        "text": "27",
+        "confidence": 0.88815,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "27",
+            "confidence": 0.88815
+          },
+          {
+            "reason": "clear_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                36,
+                62
+              ],
+              [
+                49,
+                3,
+                36,
+                58
+              ]
+            ],
+            "digits": [
+              {
+                "pattern": "1101101",
+                "densities": [
+                  1.0,
+                  0.9786096256684492,
+                  0.19298245614035087,
+                  0.9818181818181818,
+                  0.9298245614035088,
+                  0.18627450980392157,
+                  0.8321678321678322
+                ],
+                "value": "2",
+                "holes": 0,
+                "bounds": [
+                  10,
+                  5,
+                  36,
+                  62
+                ]
+              },
+              {
+                "pattern": "1110000",
+                "densities": [
+                  1.0,
+                  0.9090909090909091,
+                  0.6421568627450981,
+                  0.0,
+                  0.0,
+                  0.2111111111111111,
+                  0.0
+                ],
+                "value": "7",
+                "holes": 0,
+                "bounds": [
+                  49,
+                  3,
+                  36,
+                  58
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "27",
+            "known_suffix": "27",
+            "variant": "led_shapes",
+            "text": "27"
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-37-19.940502.mp4",
+      "frame": 476,
+      "timestamp": 19.067666666666668,
+      "field": "away",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "08_00476_away.png",
+      "expected": "38",
+      "sha256": "c28d624a6cce8a98cd36852cd0bc2887f58ef448268992d54409a609a367d4c0",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "38",
+        "confidence": 0.8637033333333334,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.81109
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.93357
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94579
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "38",
+            "confidence": 0.71175
+          }
+        ]
+      },
+      "checked": {
+        "text": "38",
+        "confidence": 0.8637033333333334,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "38",
+            "confidence": 0.81109
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "38",
+            "confidence": 0.93357
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "38",
+            "confidence": 0.94579
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "38",
+            "confidence": 0.71175
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                4,
+                69,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  4,
+                  69,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 227,
+      "timestamp": 7.599666666666667,
+      "field": "home",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "09_00227_home.png",
+      "expected": "30",
+      "sha256": "5c1dfddf72f60602e86e0ca2705dbacea90a0cc40ae7d6c21143dc2bc87e130b",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "30",
+        "confidence": 0.96196,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.96196
+          }
+        ]
+      },
+      "checked": {
+        "text": "30",
+        "confidence": 0.96196,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "30",
+            "confidence": 0.96196
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                12,
+                3,
+                75,
+                65
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  12,
+                  3,
+                  75,
+                  65
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-43-09.256719.mp4",
+      "frame": 227,
+      "timestamp": 7.599666666666667,
+      "field": "away",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "09_00227_away.png",
+      "expected": "42",
+      "sha256": "ccae802e31615b5f4f7545e44095863dcca1c3ace58b7c3d9c6286e7ff92e1c5",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "42",
+        "confidence": 0.99736,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99736
+          }
+        ]
+      },
+      "checked": {
+        "text": "42",
+        "confidence": 0.99736,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "42",
+            "confidence": 0.99736
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                7,
+                5,
+                70,
+                61
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  7,
+                  5,
+                  70,
+                  61
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 67,
+      "timestamp": 2.234,
+      "field": "home",
+      "roi": [
+        150,
+        445,
+        115,
+        90
+      ],
+      "image": "14_00067_home.png",
+      "expected": "34",
+      "sha256": "74efe38d5feac6fb4e07765f4fb267e121680518804be6805504d8fc79d90704",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "34",
+        "confidence": 0.91149,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.91149
+          }
+        ]
+      },
+      "checked": {
+        "text": "34",
+        "confidence": 0.91149,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "34",
+            "confidence": 0.91149
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                15,
+                5,
+                74,
+                62
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  15,
+                  5,
+                  74,
+                  62
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 18-48-36.189887.mp4",
+      "frame": 67,
+      "timestamp": 2.234,
+      "field": "away",
+      "roi": [
+        420,
+        430,
+        115,
+        95
+      ],
+      "image": "14_00067_away.png",
+      "expected": "46",
+      "sha256": "016fa2b73edf737e76eac685e5df743b6f529e289d3a9729bff4f29d6ebca7a4",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "46",
+        "confidence": 0.9937,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.9937
+          }
+        ]
+      },
+      "checked": {
+        "text": "46",
+        "confidence": 0.9937,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "46",
+            "confidence": 0.9937
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                10,
+                5,
+                72,
+                60
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  10,
+                  5,
+                  72,
+                  60
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 44,
+      "timestamp": 1.5003333333333333,
+      "field": "home",
+      "roi": [
+        185,
+        455,
+        105,
+        90
+      ],
+      "image": "17_00044_home.png",
+      "expected": "96",
+      "sha256": "6d375a2b86d0eafac344766fcc3196f5baa72cb46e0fe13dbe2a2f0ce4da52ec",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "96",
+        "confidence": 0.99661,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99661
+          }
+        ]
+      },
+      "checked": {
+        "text": "96",
+        "confidence": 0.99661,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "96",
+            "confidence": 0.99661
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                14,
+                6,
+                77,
+                63
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  14,
+                  6,
+                  77,
+                  63
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    },
+    {
+      "video": "Recording from 2026-09-26 20-19-02.354711.mp4",
+      "frame": 44,
+      "timestamp": 1.5003333333333333,
+      "field": "away",
+      "roi": [
+        445,
+        445,
+        110,
+        85
+      ],
+      "image": "17_00044_away.png",
+      "expected": "108",
+      "sha256": "45a4ba72d307dc7d82f840eb12611bc32371e619d7665f900d06e606de64a03c",
+      "label_status": "visually_reviewed_before_inference",
+      "baseline": {
+        "text": "108",
+        "confidence": 0.85621,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.7729
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "10B",
+            "confidence": 0.54846
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.78822
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.9242
+          }
+        ]
+      },
+      "checked": {
+        "text": "108",
+        "confidence": 0.85621,
+        "outcome": "correct",
+        "readings": [
+          {
+            "variant": "native",
+            "text": "108",
+            "confidence": 0.7729
+          },
+          {
+            "variant": "inverted_gray",
+            "text": "10B",
+            "confidence": 0.54846
+          },
+          {
+            "variant": "shear_-0.25",
+            "text": "108",
+            "confidence": 0.78822
+          },
+          {
+            "variant": "shear_0.25",
+            "text": "108",
+            "confidence": 0.9242
+          },
+          {
+            "reason": "joined_or_wide_digits",
+            "boxes": [
+              [
+                9,
+                0,
+                84,
+                64
+              ]
+            ],
+            "digits": [
+              {
+                "value": null,
+                "bounds": [
+                  9,
+                  0,
+                  84,
+                  64
+                ]
+              }
+            ],
+            "core_min": 160,
+            "min_digits": 2,
+            "known_prefix": "",
+            "known_suffix": "",
+            "variant": "led_shapes",
+            "text": null
+          }
+        ]
+      }
+    }
+  ]
+}

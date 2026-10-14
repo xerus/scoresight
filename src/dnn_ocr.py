@@ -52,11 +52,161 @@ class DnnOcr:
             return re.fullmatch(r"[0-9]+(?:[:.][0-9]+)?", text) is not None
         return bool(text.strip())
 
-    def recognize(self, crop, field_type=FieldType.NUMBER):
+    def recognize(
+        self, crop, field_type=FieldType.NUMBER, check_led=False, integer_seconds=False
+    ):
+        if not check_led or field_type == FieldType.TEXT:
+            return self._recognize(crop, field_type, integer_seconds)
+        from led_digit_evidence import digit_evidence
+
+        shape_text, bounds, details = digit_evidence(crop)
+        evidence_reading = dict(details, variant="led_shapes", text=shape_text)
+        if details.get("reason") == "clipped_digits":
+            return None, 0.0, [evidence_reading]
+        text, confidence, readings = self._recognize(crop, field_type, integer_seconds)
+        readings.append(evidence_reading)
+
+        def masked_reading():
+            core_min = details.get("core_min", 160)
+            masked = cv2.cvtColor(
+                (crop.min(axis=2) >= core_min).astype(np.uint8) * 255,
+                cv2.COLOR_GRAY2BGR,
+            )
+            if core_min != 240 and bounds is not None:
+                left, top, right, bottom = bounds
+                masked = masked[top:bottom, left:right]
+            value, score, alternatives = self._recognize(
+                masked, field_type, integer_seconds
+            )
+            readings.extend(
+                dict(reading, variant="core_" + reading["variant"])
+                for reading in alternatives
+            )
+            return value, score
+
+        if shape_text is None:
+            # Partial evidence can establish a missing terminal stroke even
+            # when glare prevents classifying the preceding joined digits.
+            minimum = details.get("min_digits", 0)
+            suffix = details.get("known_suffix", "")
+            prefix = details.get("known_prefix", "")
+            native = next((r["text"] for r in readings if r["variant"] == "native"), "")
+            anchor = re.match(r"[0-9]+", native or "")
+            observed = text.replace(":", "").replace(".", "") if text else ""
+            contradicts = (suffix and not observed.endswith(suffix)) or (
+                prefix and not observed.startswith(prefix)
+            )
+            if anchor and suffix and len(anchor[0]) >= minimum:
+                anchor_text = anchor[0][: -len(suffix)]
+            else:
+                anchor_text = anchor[0] if anchor else ""
+            if (
+                bounds is not None
+                and (suffix or prefix)
+                and minimum >= 2
+                and (len(observed) < minimum or contradicts)
+                and anchor
+            ):
+                retry, score = masked_reading()
+                digits = retry.replace(":", "").replace(".", "") if retry else ""
+                if (
+                    self.valid_text(retry or "", field_type)
+                    and len(digits) >= minimum
+                    and (
+                        digits.startswith(prefix)
+                        if prefix
+                        else digits.startswith(anchor_text)
+                    )
+                    and digits.endswith(suffix)
+                ):
+                    return retry, score, readings
+                return None, 0.0, readings
+            # A lone neural digit is unsafe when the bright silhouette could
+            # contain joined digits. Retry the complete silhouette and require
+            # an additional observed leading digit while preserving the suffix.
+            boxes = details.get("boxes", [])
+            observed = text.replace(":", "").replace(".", "") if text else ""
+            wide_single = len(boxes) == 1 and boxes[0][2] / boxes[0][3] >= 0.7
+            consistent_parts = len(boxes) >= 2 and all(
+                box[3] >= 0.8 * max(part[3] for part in boxes) for box in boxes
+            )
+            if (
+                bounds is not None
+                and observed.isascii()
+                and observed.isdigit()
+                and len(observed) == 1
+                and (wide_single or consistent_parts)
+            ):
+                left, top, right, bottom = bounds
+                retry, retry_confidence, retry_readings = self._recognize(
+                    crop[top:bottom, left:right], field_type, integer_seconds
+                )
+                readings.extend(
+                    dict(reading, variant="tight_" + reading["variant"])
+                    for reading in retry_readings
+                )
+                retry_digits = retry.replace(":", "").replace(".", "") if retry else ""
+                if (
+                    self.valid_text(retry or "", field_type)
+                    and len(retry_digits) == 2
+                    and retry_digits.endswith(observed)
+                ):
+                    return retry, retry_confidence, readings
+                return None, 0.0, readings
+            return text, confidence, readings
+
+        def agrees(value):
+            if value is None or not self.valid_text(value, field_type):
+                return False
+            observed_digits = value.replace(":", "").replace(".", "")
+            if field_type == FieldType.NUMBER:
+                return (observed_digits.lstrip("0") or "0") == (
+                    shape_text.lstrip("0") or "0"
+                )
+            return observed_digits == shape_text
+
+        if agrees(text) and confidence >= 0.5:
+            return text, confidence, readings
+        if details.get("core_min") == 240:
+            retry_mask, mask_confidence = masked_reading()
+            if agrees(retry_mask) and mask_confidence >= 0.5:
+                return retry_mask, mask_confidence, readings
+        left, top, right, bottom = bounds
+        retry, retry_confidence, retry_readings = self._recognize(
+            crop[top:bottom, left:right], field_type, integer_seconds
+        )
+        readings.extend(
+            dict(reading, variant="tight_" + reading["variant"])
+            for reading in retry_readings
+        )
+        # A tighter neural reading must agree with the independently observed
+        # shapes. Never publish a shape-only substitution or a shortened value.
+        if agrees(retry) and retry_confidence >= 0.5:
+            return retry, retry_confidence, readings
+        if details.get("core_min") != 240:
+            retry_mask, mask_confidence = masked_reading()
+            if agrees(retry_mask) and mask_confidence >= 0.5:
+                return retry_mask, mask_confidence, readings
+        low_confidence = [
+            (value, score)
+            for value, score in ((text, confidence), (retry, retry_confidence))
+            if agrees(value)
+        ]
+        if low_confidence:
+            value, score = max(low_confidence, key=lambda pair: pair[1])
+            return value, score, readings
+        return None, 0.0, readings
+
+    def _recognize(self, crop, field_type, integer_seconds=False):
         # Short numeric fields need less right padding. Keep the original
         # convention for clocks/text and choose per call rather than mutating
         # shared model state while processing different fields.
-        minimum_width = 128 if field_type == FieldType.NUMBER else 320
+        minimum_width = (
+            128
+            if field_type == FieldType.NUMBER
+            or (field_type == FieldType.TIME and integer_seconds)
+            else 320
+        )
         text, confidence = self.predict(crop, minimum_width=minimum_width)
         readings = [{"variant": "native", "text": text, "confidence": confidence}]
         if confidence >= 0.85 and self.valid_text(text, field_type):
