@@ -16,6 +16,11 @@ ScoreSight now offers the ability to send OCR-extracted scoreboard data to exter
 
 5. Choose the HTTP method for the API request: POST, PUT, or GET.
 
+Both JSON formats retain each field's last accepted nonempty text when detection
+becomes empty or uncertain. Full JSON keeps the current detection state alongside
+that retained text. A newly accepted value, including zero, replaces it; removing
+a field from the result batch discards its saved value.
+
 ## Troubleshooting
 
 If you encounter issues with the API integration, follow these steps to troubleshoot:

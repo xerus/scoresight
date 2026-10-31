@@ -39,6 +39,47 @@ class BasketballCameraOcrTests(unittest.TestCase):
                 self.assertEqual(format_clock_digits(text, 1), row["expected"])
                 self.assertGreaterEqual(confidence, 0.5)
 
+    def test_panel_scoreboard_seventeen_is_recovered_or_rejected_without_shortening(
+        self,
+    ):
+        root = ROOT / "tests/fixtures/panel_scoreboard"
+        for row in json.loads((root / "manifest.json").read_text())["fields"]:
+            with self.subTest(image=row["image"]):
+                crop = cv2.imread(str(root / row["image"]))
+                text, confidence, readings = self.reader.recognize(crop, check_led=True)
+                if row["recover"]:
+                    self.assertEqual(text, row["expected"])
+                    self.assertGreaterEqual(confidence, 0.5)
+                else:
+                    self.assertIn(text, (None, row["expected"]))
+                json.dumps(readings)
+
+    def test_panel_scoreboard_acquires_seventeen_with_shifted_and_wider_boxes(self):
+        root = ROOT / "tests/fixtures/panel_scoreboard"
+        boxes = [
+            (21, 22, 54, 58),
+            (15, 15, 65, 70),
+            (8, 8, 80, 84),
+            (10, 15, 65, 70),
+            (20, 15, 65, 70),
+            (15, 10, 65, 70),
+            (15, 20, 65, 70),
+        ]
+        for frame in (0, 32, 80, 164, 240, 295, 327):
+            image = cv2.imread(str(root / f"context_{frame:04}.png"))
+            for box in boxes:
+                x, y, width, height = box
+                for check in (False, True):
+                    with self.subTest(frame=frame, box=box, check_led=check):
+                        text, _, _ = self.reader.recognize(
+                            image[y : y + height, x : x + width], check_led=check
+                        )
+                        self.assertIn(text, (None, "17"))
+                        # These two frames must acquire the score for every
+                        # tested box, with the optional LED check on or off.
+                        if frame in (32, 164):
+                            self.assertEqual(text, "17")
+
     def readings(self, names):
         for frame in self.frames:
             if frame["image"] not in names:
