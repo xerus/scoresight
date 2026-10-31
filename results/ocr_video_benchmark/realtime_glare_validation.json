@@ -581,9 +581,265 @@
     }
   ],
   "scope": "Same-session development footage; playback comparison uses three PP-OCR fields at requested 5 Hz. Before uses the prior camera loop with the same current OCR code. Age measures source observation to OCR completion, excludes startup, confirmation holds, GUI/network delivery; no hard realtime guarantee.",
-  "sha256": {
+  "paced_revision_sha256": {
     "src/camera_thread.py": "4d702ad33acb90ed889abe7e1fbfbc3db7e5248c35ce56f6b8a96b26da91fbed",
     "src/file_playback.py": "86a1129fe4429809e09aa5c09bff1a007a1bd4f82f9486e5fa37bdc17e2d191a",
+    "src/dnn_ocr.py": "5c73ba4b2074c7e8a811ae75760f311a7a0bc7dbb3c3fb4d88950f15fd097020",
+    "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee",
+    "models/en_PP-OCRv4_rec_mobile.onnx": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318"
+  },
+  "scheduled": {
+    "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+    "start_frame": 1800,
+    "requested_ocr_hz": 5,
+    "fields": 3,
+    "wall_seconds": 9.487015602000156,
+    "source_seconds": 9.268999999999991,
+    "output_age_seconds": {
+      "median": 0.20700156916657164,
+      "maximum": 0.30370803766679444,
+      "last": 0.21801560200016468
+    },
+    "processing_ms_median": 189.38666799999737,
+    "ocr_updates": 46,
+    "preview_updates": 46,
+    "observations": [
+      {
+        "source_time": 75.12766666666667,
+        "started_at": 4064.57618004,
+        "completed_at": 4064.865840232
+      },
+      {
+        "source_time": 75.39399999999999,
+        "started_at": 4064.87149547,
+        "completed_at": 4065.146221411
+      },
+      {
+        "source_time": 75.66066666666667,
+        "started_at": 4065.150242723,
+        "completed_at": 4065.289175375
+      },
+      {
+        "source_time": 75.82733333333333,
+        "started_at": 4065.291975768,
+        "completed_at": 4065.439835318
+      },
+      {
+        "source_time": 76.02733333333333,
+        "started_at": 4065.475879767,
+        "completed_at": 4065.616232062
+      },
+      {
+        "source_time": 76.22733333333333,
+        "started_at": 4065.675942623,
+        "completed_at": 4065.827161539
+      },
+      {
+        "source_time": 76.42766666666667,
+        "started_at": 4065.876190608,
+        "completed_at": 4066.028555661
+      },
+      {
+        "source_time": 76.62766666666667,
+        "started_at": 4066.076216624,
+        "completed_at": 4066.228631511
+      },
+      {
+        "source_time": 76.82766666666666,
+        "started_at": 4066.276265253,
+        "completed_at": 4066.438416062
+      },
+      {
+        "source_time": 77.02766666666666,
+        "started_at": 4066.476175812,
+        "completed_at": 4066.699991082
+      },
+      {
+        "source_time": 77.22766666666665,
+        "started_at": 4066.705224997,
+        "completed_at": 4066.865189069
+      },
+      {
+        "source_time": 77.42833333333333,
+        "started_at": 4066.876793039,
+        "completed_at": 4067.040350016
+      },
+      {
+        "source_time": 77.62833333333333,
+        "started_at": 4067.076804558,
+        "completed_at": 4067.24151653
+      },
+      {
+        "source_time": 77.82833333333333,
+        "started_at": 4067.277222733,
+        "completed_at": 4067.456144641
+      },
+      {
+        "source_time": 78.02833333333334,
+        "started_at": 4067.476821174,
+        "completed_at": 4067.66663412
+      },
+      {
+        "source_time": 78.22833333333332,
+        "started_at": 4067.676805632,
+        "completed_at": 4067.851145243
+      },
+      {
+        "source_time": 78.428,
+        "started_at": 4067.876547333,
+        "completed_at": 4068.051879513
+      },
+      {
+        "source_time": 78.628,
+        "started_at": 4068.076490734,
+        "completed_at": 4068.242434345
+      },
+      {
+        "source_time": 78.828,
+        "started_at": 4068.276491152,
+        "completed_at": 4068.469596337
+      },
+      {
+        "source_time": 79.02799999999999,
+        "started_at": 4068.476481702,
+        "completed_at": 4068.640571893
+      },
+      {
+        "source_time": 79.228,
+        "started_at": 4068.676489814,
+        "completed_at": 4068.859623964
+      },
+      {
+        "source_time": 79.428,
+        "started_at": 4068.876495983,
+        "completed_at": 4069.066452229
+      },
+      {
+        "source_time": 79.628,
+        "started_at": 4069.076466024,
+        "completed_at": 4069.242702988
+      },
+      {
+        "source_time": 79.828,
+        "started_at": 4069.276487913,
+        "completed_at": 4069.497348419
+      },
+      {
+        "source_time": 80.02799999999999,
+        "started_at": 4069.502928727,
+        "completed_at": 4069.740432552
+      },
+      {
+        "source_time": 80.261,
+        "started_at": 4069.747170028,
+        "completed_at": 4069.922497699
+      },
+      {
+        "source_time": 80.461,
+        "started_at": 4069.928135965,
+        "completed_at": 4070.110532186
+      },
+      {
+        "source_time": 80.62766666666667,
+        "started_at": 4070.114474659,
+        "completed_at": 4070.306629775
+      },
+      {
+        "source_time": 80.82766666666666,
+        "started_at": 4070.310553152,
+        "completed_at": 4070.50001133
+      },
+      {
+        "source_time": 81.02766666666666,
+        "started_at": 4070.503759187,
+        "completed_at": 4070.665482653
+      },
+      {
+        "source_time": 81.22766666666665,
+        "started_at": 4070.676140681,
+        "completed_at": 4070.900829856
+      },
+      {
+        "source_time": 81.42766666666667,
+        "started_at": 4070.906094569,
+        "completed_at": 4071.094021484
+      },
+      {
+        "source_time": 81.62766666666667,
+        "started_at": 4071.098126964,
+        "completed_at": 4071.31419692
+      },
+      {
+        "source_time": 81.82933333333332,
+        "started_at": 4071.321607304,
+        "completed_at": 4071.535033532
+      },
+      {
+        "source_time": 82.06266666666666,
+        "started_at": 4071.540448498,
+        "completed_at": 4071.755848342
+      },
+      {
+        "source_time": 82.33033333333333,
+        "started_at": 4071.778822702,
+        "completed_at": 4071.974264406
+      },
+      {
+        "source_time": 82.497,
+        "started_at": 4071.977532039,
+        "completed_at": 4072.166847197
+      },
+      {
+        "source_time": 82.697,
+        "started_at": 4072.171509396,
+        "completed_at": 4072.381848381
+      },
+      {
+        "source_time": 82.89699999999999,
+        "started_at": 4072.385691477,
+        "completed_at": 4072.624327233
+      },
+      {
+        "source_time": 83.16366666666666,
+        "started_at": 4072.628577406,
+        "completed_at": 4072.849655001
+      },
+      {
+        "source_time": 83.36366666666666,
+        "started_at": 4072.853661485,
+        "completed_at": 4073.031252007
+      },
+      {
+        "source_time": 83.56333333333333,
+        "started_at": 4073.03773804,
+        "completed_at": 4073.236143004
+      },
+      {
+        "source_time": 83.76333333333334,
+        "started_at": 4073.239558194,
+        "completed_at": 4073.437134578
+      },
+      {
+        "source_time": 83.96333333333332,
+        "started_at": 4073.441053066,
+        "completed_at": 4073.647420964
+      },
+      {
+        "source_time": 84.16333333333333,
+        "started_at": 4073.651158221,
+        "completed_at": 4073.85242302
+      },
+      {
+        "source_time": 84.39666666666666,
+        "started_at": 4073.857950879,
+        "completed_at": 4074.063195642
+      }
+    ]
+  },
+  "scheduled_revision_sha256": {
+    "src/camera_thread.py": "060fa2ded3045f5ec64dfaab8759ea9f5d85a9b0e7ba0ea739d401667236c851",
+    "src/file_playback.py": "86a1129fe4429809e09aa5c09bff1a007a1bd4f82f9486e5fa37bdc17e2d191a",
+    "src/detection_schedule.py": "6e4befe573037c57e399ad4e15ef6219aa8219e24100687870c4a62b9971ccdd",
     "src/dnn_ocr.py": "5c73ba4b2074c7e8a811ae75760f311a7a0bc7dbb3c3fb4d88950f15fd097020",
     "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee",
     "models/en_PP-OCRv4_rec_mobile.onnx": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318"

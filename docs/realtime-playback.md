@@ -6,6 +6,15 @@ Pause/resume, speed changes, reconnects and looping reset the playback anchor.
 Playback speed multiplies source time instead of adding an extra frame jump.
 When timestamps are unavailable, frame position and source FPS provide a fallback.
 
+OCR scheduling uses fixed intervals of the input timeline. At 5 updates/s,
+deadlines are at 0.0, 0.2, 0.4 seconds, etc.; the first available frame at or
+after a deadline is used. Late frames do not shift future deadlines. Missed
+slots are dropped instead of queued. Video files use playback timestamps;
+sources without timestamps use the monotonic frame-arrival clock. Cadence
+changes, backward seeks and playback resets establish a new schedule. This
+bounds queueing delay, but cannot make a recognition job take zero time or
+ensure every deadline is met when processing is slower than the chosen interval.
+
 Preview updates no longer wait for OCR cadence and target up to 30 updates/s.
 Actual preview rate still depends on decoding, transforms and OCR, which share
 one worker. Binary preview updates require OCR. Camera/stream capture is not
@@ -23,8 +32,9 @@ A 10-second replay with three fields requested at 5 Hz showed:
 | --- | --- | --- | --- |
 | Previous | 9.64 s | 4.20 s | 5.44 s |
 | Timestamp-paced | 9.84 s | 9.60 s | 0.24 s |
+| Input-grid scheduling | 9.49 s | 9.27 s | 0.22 s |
 
-With timestamp pacing, median age was 0.19 s and maximum 0.35 s on this machine.
+With input-grid scheduling, median age was 0.21 s and maximum 0.30 s on this machine.
 This measures processing completion against the source playback clock, excluding
 startup, confirmation holds and GUI/network delivery. Rejected reads can still
 leave the last confirmed output visible; these measurements are not a guarantee
