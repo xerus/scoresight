@@ -26,6 +26,19 @@ class BasketballCameraOcrTests(unittest.TestCase):
         cls.reader = DnnOcr(str(MODEL))
         cls.frames = json.loads((FIXTURES / "manifest.json").read_text())["frames"]
 
+    def test_green_glare_masks_recover_complete_clock_digits(self):
+        from clock_digits import format_clock_digits
+
+        root = FIXTURES / "glare"
+        for row in json.loads((root / "manifest.json").read_text())["fields"]:
+            with self.subTest(frame=row["frame"]):
+                crop = cv2.imread(str(root / row["image"]))
+                text, confidence, _ = self.reader.recognize(
+                    crop, FieldType.TIME, check_led=True
+                )
+                self.assertEqual(format_clock_digits(text, 1), row["expected"])
+                self.assertGreaterEqual(confidence, 0.5)
+
     def readings(self, names):
         for frame in self.frames:
             if frame["image"] not in names:

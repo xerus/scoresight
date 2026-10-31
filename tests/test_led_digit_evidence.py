@@ -16,6 +16,30 @@ from text_detection_target import TextDetectionTarget
 
 
 class LedEvidencePolicyTests(unittest.TestCase):
+    def test_green_fallback_requires_two_agreeing_masks_and_shape_evidence(self):
+        evidence = (
+            None,
+            (0, 0, 80, 40),
+            dict(core_min=240, min_digits=3, known_suffix="1"),
+        )
+        for alternatives, expected in (
+            ([("80 1", 0.81), ("801", 0.92)], "801"),
+            ([("801", 0.81), ("901", 0.92)], None),
+            ([("801", 0.79), ("801", 0.92)], None),
+            ([("802", 0.91), ("802", 0.92)], None),
+        ):
+            with self.subTest(alternatives=alternatives):
+                reader = self.reader(
+                    [(None, 0.0, [dict(variant="native", text="80I")]), (None, 0.0, [])]
+                )
+                reader.predict.side_effect = alternatives
+                with patch("led_digit_evidence.digit_evidence", return_value=evidence):
+                    result = reader.recognize(
+                        np.zeros((40, 80, 3), np.uint8), FieldType.TIME, check_led=True
+                    )
+                self.assertEqual(result[0], expected)
+                self.assertEqual(reader.predict.call_count, 2)
+
     def test_clipped_cores_reject_before_running_neural_inference(self):
         reader = self.reader([])
         with patch(
@@ -116,6 +140,7 @@ class LedEvidencePolicyTests(unittest.TestCase):
     def reader(self, responses):
         reader = DnnOcr.__new__(DnnOcr)
         reader._recognize = Mock(side_effect=responses)
+        reader.predict = Mock(return_value=("", 0.0))
         return reader
 
     def test_conflicting_tighter_reading_cannot_publish_shape_only_value(self):

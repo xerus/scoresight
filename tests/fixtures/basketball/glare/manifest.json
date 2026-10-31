@@ -1,0 +1,33 @@
+{
+  "note": "Development examples from the same display/session; visually reviewed from full clock crops.",
+  "fields": [
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 1800,
+      "roi": [
+        255,
+        350,
+        155,
+        79
+      ],
+      "image": "clock_1800.png",
+      "expected": "8:01",
+      "timestamp": 75.12766666666667,
+      "sha256": "e2e96fd74399d1a4cc8816a8fe8b3fca0496f1debe02348158f722c25abfa151"
+    },
+    {
+      "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+      "frame": 3000,
+      "roi": [
+        255,
+        350,
+        155,
+        79
+      ],
+      "image": "clock_3000.png",
+      "expected": "7:27",
+      "timestamp": 126.0,
+      "sha256": "a857af8ddd51b2327385ea049bdac091187f7e9a233882e18c33172b58aa77d0"
+    }
+  ]
+}

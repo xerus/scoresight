@@ -86,3 +86,6 @@ Processing timings are CPU-only and depend on retries. In this run integer
 shot-clock mode reduced median processing from 48 to 21 ms on the 14 sequence
 with unchanged outcomes. Clocks requiring compact/decimal formatting keep the
 original wider padding because reducing it hurt recognition coverage.
+
+See [timestamp-paced playback and bounded glare retries](realtime-playback.md)
+for the follow-up latency measurements and green-clock improvements.
