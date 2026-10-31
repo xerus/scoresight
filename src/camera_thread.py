@@ -7,6 +7,7 @@ from datetime import datetime
 import threading
 import math
 
+from file_playback import RealtimeFilePlayback
 from base_video_capture import BaseVideoCapture
 from camera_info import CameraInfo
 from ndi import NDICapture
@@ -157,6 +158,14 @@ class OpenCVVideoCaptureWithSettings(BaseVideoCapture):
         with self.video_capture_mutex:
             return self.video_capture.read()
 
+    def grab(self):
+        with self.video_capture_mutex:
+            return self.video_capture.grab()
+
+    def retrieve(self):
+        with self.video_capture_mutex:
+            return self.video_capture.retrieve()
+
     def release(self):
         with self.video_capture_mutex:
             self.video_capture.release()
@@ -200,13 +209,14 @@ class TimerThread(QThread):
         subscribe_to_data(
             "scoresight.json", "detection_cadence", self.setUpdateFrameInterval
         )
-        self.preview_frame_interval = 1000
+        self.preview_frame_interval = 1000 / 30
         self.fps = 1000 / self.frame_interval  # frames per second
         self.pps = 1000 / self.preview_frame_interval  # previews per second
         self.ups = 1000 / self.update_frame_interval  # updates per second
         self.fps_alpha = 0.1  # Smoothing factor
         self.updateOnChange = True
         self.crop = FrameCropAndRotation()
+        self.file_playback = RealtimeFilePlayback()
         self.speed = 1
         self.paused = False
         self._preview_update_requested = threading.Event()
@@ -214,6 +224,7 @@ class TimerThread(QThread):
     def setPaused(self, paused):
         if paused != self.paused:
             self.textDetector.reset_temporal()
+            self.file_playback.reset()
         self.paused = paused
 
     def isPaused(self):
@@ -228,6 +239,7 @@ class TimerThread(QThread):
     def setSpeed(self, speed):
         self.textDetector.reset_temporal()
         self.speed = speed
+        self.file_playback.reset()
 
     def setUpdateFrameInterval(self, cadence):
         self.update_frame_interval = 1000 / cadence
@@ -283,6 +295,7 @@ class TimerThread(QThread):
         #     set_camera_highest_resolution(self.video_capture)
 
         self.textDetector.reset_temporal()
+        self.file_playback.reset()
         return True
 
     def run(self):
@@ -331,7 +344,12 @@ class TimerThread(QThread):
             # Read the frame from the camera
             ret, frame_rgb = None, None
             try:
-                ret, frame_rgb = self.video_capture.read()
+                if self.camera_info.type == CameraInfo.CameraType.FILE:
+                    ret, frame_rgb = self.file_playback.read(
+                        self.video_capture, self.speed
+                    )
+                else:
+                    ret, frame_rgb = self.video_capture.read()
             except Exception as e:
                 self.retry_count += 1
                 logger.exception(
@@ -342,19 +360,13 @@ class TimerThread(QThread):
                 self.sleep_fps_target()
                 continue
 
-            if self.camera_info.type == CameraInfo.CameraType.FILE:
-                if self.speed != 1:
-                    self.video_capture.set(
-                        cv2.CAP_PROP_POS_FRAMES,
-                        self.video_capture.get(cv2.CAP_PROP_POS_FRAMES) + self.speed,
-                    )
-
             if not ret:
                 self.retry_count += 1
                 if self.camera_info.type == CameraInfo.CameraType.FILE:
                     logger.debug("Restarting video file")
                     self.textDetector.reset_temporal()
                     self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                    self.file_playback.reset()
                     self.sleep_fps_target()
                     continue
                 logger.warn(
@@ -370,28 +382,13 @@ class TimerThread(QThread):
             # calculate the frame rate
             time_diff_ms = (
                 current_time - self.last_frame_timestamp
-            ).microseconds / 1000
+            ).total_seconds() * 1000
             if time_diff_ms > 0:
                 self.fps = (
                     self.fps_alpha * (1000 / time_diff_ms)
                     + (1.0 - self.fps_alpha) * self.fps
                 )
             self.last_frame_timestamp = current_time
-
-            # check that enough time has passed since last update
-            time_diff_ms = (
-                current_time - self.last_update_timestamp
-            ).microseconds / 1000
-            if time_diff_ms < self.update_frame_interval:
-                # dump this frame since not enough time has passed
-                self.sleep_fps_target()
-                continue
-            # process this frame
-            self.last_update_timestamp = current_time
-            self.ups = (
-                self.fps_alpha * (1000 / time_diff_ms)
-                + (1.0 - self.fps_alpha) * self.ups
-            )
 
             # apply rotation if set
             if self.crop.rotation != 0:
@@ -429,6 +426,24 @@ class TimerThread(QThread):
             if self.homography is not None:
                 frame_rgb = cv2.warpPerspective(
                     frame_rgb, self.homography, (frame_rgb.shape[1], frame_rgb.shape[0])
+                )
+
+            elapsed_update = (
+                current_time - self.last_update_timestamp
+            ).total_seconds() * 1000
+            if elapsed_update < self.update_frame_interval:
+                if not self.show_binary:
+                    self.emit_preview_if_due(
+                        preview_frame if self.crop.isCropSet else frame_rgb,
+                        current_time,
+                    )
+                self.sleep_fps_target()
+                continue
+            self.last_update_timestamp = current_time
+            if elapsed_update > 0:
+                self.ups = (
+                    self.fps_alpha * (1000 / elapsed_update)
+                    + (1 - self.fps_alpha) * self.ups
                 )
 
             needs_full_frame_gray = (
@@ -523,25 +538,14 @@ class TimerThread(QThread):
                             binary, gray, results
                         )
 
-            # Emit the signal to update the pixmap once per second
-            time_diff_prev = (current_time - self.last_emit_time).total_seconds() * 1000
-            if (
-                time_diff_prev >= self.preview_frame_interval
-                or self._preview_update_requested.is_set()
-            ):
-                if self.show_binary:
-                    self.update_signal.emit(binary)
-                else:
-                    self.update_signal.emit(
-                        preview_frame if self.crop.isCropSet else frame_rgb
-                    )
-                self.last_emit_time = current_time
-                self._preview_update_requested.clear()
-                if time_diff_prev > 0:
-                    self.pps = (
-                        self.fps_alpha * (1000 / time_diff_prev)
-                        + (1.0 - self.fps_alpha) * self.pps
-                    )
+            self.emit_preview_if_due(
+                binary
+                if self.show_binary
+                else preview_frame
+                if self.crop.isCropSet
+                else frame_rgb,
+                datetime.now(),
+            )
 
             self.sleep_fps_target()
 
@@ -551,8 +555,26 @@ class TimerThread(QThread):
 
         logger.info("Camera thread stopped")
 
+    def emit_preview_if_due(self, frame, current_time):
+        elapsed = (current_time - self.last_emit_time).total_seconds() * 1000
+        if frame is not None and (
+            elapsed >= self.preview_frame_interval
+            or self._preview_update_requested.is_set()
+        ):
+            self.update_signal.emit(frame)
+            self.last_emit_time = current_time
+            self._preview_update_requested.clear()
+            if elapsed > 0:
+                self.pps = (
+                    self.fps_alpha * (1000 / elapsed) + (1 - self.fps_alpha) * self.pps
+                )
+
     def sleep_fps_target(self):
-        time_diff_ms = (datetime.now() - self.last_frame_timestamp).microseconds / 1000
+        if self.camera_info.type == CameraInfo.CameraType.FILE:
+            return  # File playback already follows its source timestamps.
+        time_diff_ms = (
+            datetime.now() - self.last_frame_timestamp
+        ).total_seconds() * 1000
         if time_diff_ms < self.frame_interval:
             time.sleep((self.frame_interval - time_diff_ms) / 1000.0)
 
