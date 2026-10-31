@@ -19,11 +19,14 @@ import uvicorn
 from text_detection_target import TextDetectionTargetWithResult
 from sc_logging import logger, file_handler
 from resource_path import resource_path
+from json_output import JsonOutput
 
 load_dotenv(resource_path(".env"))
 
 PORT = 18099
 http_results = []
+json_output = JsonOutput()
+json_results = ([], {})
 loop: asyncio.AbstractEventLoop | None = None
 
 
@@ -133,22 +136,11 @@ async def get_html():
 @app.get("/json")
 async def get_json(pivot=Query(None)):
     # check querystring for "?pivot" to pivot the data
-    data = {}
+    results, values = json_results
     if pivot is not None:
-        for result in http_results:
-            if (
-                result.result_state == TextDetectionTargetWithResult.ResultState.Success
-                or result.result_state
-                == TextDetectionTargetWithResult.ResultState.SameNoChange
-                or (
-                    result.result_state
-                    == TextDetectionTargetWithResult.ResultState.Empty
-                    and not (result.settings or {}).get("skip_empty", False)
-                )
-            ):
-                data[result.name] = result.result
+        data = values
     else:
-        data = [result.to_dict() for result in http_results]
+        data = [result.to_dict() for result in results]
 
     return JSONResponse(content=data)
 
@@ -261,5 +253,6 @@ def stop_http_server():
 
 
 def update_http_server(results: list[TextDetectionTargetWithResult]):
-    global http_results
+    global http_results, json_results
+    json_results = json_output.update(results)
     http_results = results

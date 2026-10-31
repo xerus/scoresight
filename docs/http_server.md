@@ -15,24 +15,26 @@ All the scoreboard information will be delivered as JSON in http://localhost:180
 ## JSON response formats
 
 `GET /json` returns a list of fields. Each entry contains `name`, `text`, `state`,
-and `rect` (`x`, `y`, `width`, `height`). It includes rejected readings and empty
-fields so clients can inspect their state. Text values remain strings: a score
-of zero is `"0"`, a confirmed blank is `""`, and a missing raw reading can be
-JSON `null`. A client should check `state` before publishing a reading.
+and `rect` (`x`, `y`, `width`, `height`). After a field has an accepted nonempty
+reading, `text` retains that value during empty or rejected detections. For
+example, a score of `"17"` stays `"17"` until another value is accepted, including
+`"0"`. The `state` still describes the current detection, so consumers can tell
+when text is being held. Before the first accepted reading, empty strings and
+JSON `null` can still appear.
 
-`GET /json?pivot` returns a map from field names to text. It includes `Success`
-and `SameNoChange` readings, plus `Empty` readings when **Skip Empty Values** is
-off. `FailedFilter` readings and skipped blanks are omitted. For example:
+`GET /json?pivot` returns a map from field names to text. It also retains the
+last accepted value during detection gaps, regardless of **Skip Empty Values**.
+Before a value is acquired, failed readings and skipped blanks are omitted.
+For example:
 
 ```json
-{"Home Score": "0", "Away Score": "", "Time": "01:07"}
+{"Home Score": "0", "Away Score": "17", "Time": "01:07"}
 ```
 
 The presence of `pivot` enables this format, even with `?pivot=false`. With no
-results, the responses are `[]` and `{}` respectively. Duplicate names use the
-last accepted value in pivot output; use distinct box names to retain all fields.
-Each update replaces the previous batch, so clients must handle omitted fields
-explicitly rather than assuming that an earlier score is still current.
+results, responses are `[]` and `{}` respectively. Removing a field or clearing
+all results discards its retained value. Use distinct box names: retained values
+are tracked by name, and duplicate names share the last accepted value.
 
 The JSON endpoint accepts GET requests and browser CORS/preflight requests.
 It does not accept POST updates. Its regression tests cover both response formats,

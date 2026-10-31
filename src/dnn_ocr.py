@@ -56,7 +56,17 @@ class DnnOcr:
         self, crop, field_type=FieldType.NUMBER, check_led=False, integer_seconds=False
     ):
         if not check_led or field_type == FieldType.TEXT:
-            return self._recognize(crop, field_type, integer_seconds)
+            initial = self._recognize(crop, field_type, integer_seconds)
+            if field_type == FieldType.NUMBER and len(initial[0] or "") <= 1:
+                from led_digit_evidence import digit_evidence
+
+                _, _, details = digit_evidence(crop)
+                if (
+                    details.get("reason") == "joined_or_wide_digits"
+                    and details.get("min_digits", 0) >= 2
+                ):
+                    return self._retry_joined_score(crop, details, initial[2])
+            return initial
         from led_digit_evidence import digit_evidence
 
         shape_text, bounds, details = digit_evidence(crop)
@@ -140,6 +150,13 @@ class DnnOcr:
             )
             anchor = re.match(r"[0-9]+", anchor_source)
             observed = text.replace(":", "").replace(".", "") if text else ""
+            if (
+                field_type == FieldType.NUMBER
+                and details.get("reason") == "joined_or_wide_digits"
+                and minimum >= 2
+                and len(observed) < minimum
+            ):
+                return self._retry_joined_score(crop, details, readings)
             contradicts = (suffix and not observed.endswith(suffix)) or (
                 prefix and not observed.startswith(prefix)
             )
@@ -242,6 +259,72 @@ class DnnOcr:
         if low_confidence:
             value, score = max(low_confidence, key=lambda pair: pair[1])
             return value, score, readings
+        return None, 0.0, readings
+
+    def _retry_joined_score(self, crop, details, readings):
+        minimum = details["min_digits"]
+        prefix = details.get("known_prefix", "")
+        suffix = details.get("known_suffix", "")
+        # Bright scores on an illuminated panel can merge into one
+        # silhouette. Require two stricter masks to independently read
+        # a complete number; a confident shortened digit is unsafe.
+        candidates = []
+        core = crop.min(axis=2)
+        for threshold in (200, 220, 240):
+            mask = (core >= threshold).astype(np.uint8) * 255
+            x, y, width, height = cv2.boundingRect(mask)
+            if not width or not height:
+                continue
+            # Normalize margins as well as contrast. Raw user-box padding made
+            # the same digits alternate between "17", "1", and unknown.
+            padding = max(3, round(height * 0.22))
+            mask = cv2.copyMakeBorder(
+                mask[y : y + height, x : x + width],
+                padding,
+                padding,
+                padding,
+                padding,
+                cv2.BORDER_CONSTANT,
+                value=0,
+            )
+            variants = (
+                ("raw", (core >= threshold).astype(np.uint8) * 255),
+                ("normalized", mask),
+            )
+            for name, variant in variants:
+                value, score = self.predict(
+                    cv2.cvtColor(variant, cv2.COLOR_GRAY2BGR), minimum_width=128
+                )
+                readings.append(
+                    dict(
+                        variant=f"score_core_{threshold}_{name}",
+                        text=value,
+                        confidence=score,
+                    )
+                )
+                if (
+                    score >= 0.8
+                    and self.valid_text(value, FieldType.NUMBER)
+                    and len(value) >= minimum
+                    and value.startswith(prefix)
+                    and value.endswith(suffix)
+                ):
+                    candidates.append((value, score, threshold))
+            # Different margins of one mask do not count as independent votes.
+            votes = {}
+            for value, _, level in candidates:
+                votes.setdefault(value, set()).add(level)
+            for value, levels in votes.items():
+                if len(levels) >= 2:
+                    return (
+                        value,
+                        min(
+                            score
+                            for candidate, score, _ in candidates
+                            if candidate == value
+                        ),
+                        readings,
+                    )
         return None, 0.0, readings
 
     def _recognize(self, crop, field_type, integer_seconds=False):
