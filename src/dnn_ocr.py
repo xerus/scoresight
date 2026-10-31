@@ -82,6 +82,48 @@ class DnnOcr:
                 dict(reading, variant="core_" + reading["variant"])
                 for reading in alternatives
             )
+            if core_min == 240 and field_type == FieldType.TIME:
+
+                def matches_evidence(candidate):
+                    if not self.valid_text(candidate or "", field_type):
+                        return False
+                    digits = candidate.replace(":", "").replace(".", "")
+                    if shape_text is not None:
+                        return digits == shape_text
+                    return (
+                        len(digits) >= details.get("min_digits", 0)
+                        and digits.startswith(details.get("known_prefix", ""))
+                        and digits.endswith(details.get("known_suffix", ""))
+                    )
+
+                if score >= 0.5 and matches_evidence(value):
+                    return value, score
+                # Two bounded native passes on less aggressive masks can retain
+                # thin strokes erased by the strict green-core threshold. Both
+                # must agree confidently and satisfy the original shape evidence.
+                candidates = []
+                core = crop.min(axis=2)
+                for threshold in (220, 200):
+                    variant = cv2.cvtColor(
+                        (core >= threshold).astype(np.uint8) * 255, cv2.COLOR_GRAY2BGR
+                    )
+                    candidate, candidate_score = self.predict(
+                        variant, minimum_width=320
+                    )
+                    readings.append(
+                        dict(
+                            variant=f"core_{threshold}",
+                            text=candidate,
+                            confidence=candidate_score,
+                        )
+                    )
+                    candidates.append((candidate.replace(" ", ""), candidate_score))
+                if (
+                    candidates[0][0] == candidates[1][0]
+                    and all(conf >= 0.8 for _, conf in candidates)
+                    and matches_evidence(candidates[0][0])
+                ):
+                    return candidates[0][0], min(conf for _, conf in candidates)
             return value, score
 
         if shape_text is None:
@@ -91,7 +133,12 @@ class DnnOcr:
             suffix = details.get("known_suffix", "")
             prefix = details.get("known_prefix", "")
             native = next((r["text"] for r in readings if r["variant"] == "native"), "")
-            anchor = re.match(r"[0-9]+", native or "")
+            anchor_source = (
+                (native or "").lstrip(".: ")
+                if field_type == FieldType.TIME
+                else native or ""
+            )
+            anchor = re.match(r"[0-9]+", anchor_source)
             observed = text.replace(":", "").replace(".", "") if text else ""
             contradicts = (suffix and not observed.endswith(suffix)) or (
                 prefix and not observed.startswith(prefix)
