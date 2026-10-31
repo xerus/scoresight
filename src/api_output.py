@@ -7,9 +7,12 @@ import xml.etree.ElementTree as ET
 from urllib.parse import urlparse, urlencode
 import threading
 
+from json_output import JsonOutput
 from sc_logging import logger
 from text_detection_target import TextDetectionTargetWithResult
 from storage import fetch_data, subscribe_to_data
+
+json_output = JsonOutput()
 
 out_api_url = fetch_data("scoresight.json", "out_api_url", None)
 out_api_encoding = fetch_data("scoresight.json", "out_api_encoding", "JSON (Full)")
@@ -57,6 +60,9 @@ def update_out_api(data: list[TextDetectionTargetWithResult]):
         return
 
     logger.debug(f"Sending data to output API: {out_api_url}")
+
+    if out_api_encoding.startswith("JSON"):
+        data, _ = json_output.update(data)
 
     def send_data():
         try:

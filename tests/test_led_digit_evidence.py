@@ -16,6 +16,38 @@ from text_detection_target import TextDetectionTarget
 
 
 class LedEvidencePolicyTests(unittest.TestCase):
+    def test_joined_score_retry_needs_two_complete_confident_mask_readings(self):
+        evidence = (
+            None,
+            (3, 3, 70, 35),
+            dict(
+                reason="joined_or_wide_digits",
+                core_min=160,
+                min_digits=2,
+                boxes=[(6, 6, 60, 30)],
+                known_prefix="",
+                known_suffix="",
+            ),
+        )
+        for predictions, expected in (
+            ([("17", 0.9), ("1", 0.99), ("17", 0.92)], "17"),
+            ([("17", 0.9), ("71", 0.99), ("1", 0.92)], None),
+            ([("17", 0.79), ("1", 0.99), ("17", 0.92)], None),
+            ([("1", 0.99)] * 3, None),
+            ([("", 0.99)] * 3, None),
+        ):
+            with self.subTest(predictions=predictions):
+                reader = self.reader([(None, 0, [])])
+                reader.predict.side_effect = [
+                    item for item in predictions for _ in range(2)
+                ]
+                with patch("led_digit_evidence.digit_evidence", return_value=evidence):
+                    result = reader.recognize(
+                        np.full((40, 80, 3), 250, np.uint8), check_led=True
+                    )
+                self.assertEqual(result[0], expected)
+                self.assertEqual(reader.predict.call_count, 6)
+
     def test_green_fallback_requires_two_agreeing_masks_and_shape_evidence(self):
         evidence = (
             None,

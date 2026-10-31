@@ -167,6 +167,38 @@ class HttpServerJsonTests(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(await self.json_response(), [])
         self.assertEqual(await self.json_response(query=b"pivot"), {})
 
+    async def test_detection_gaps_hold_last_accepted_text_in_both_formats(self):
+        state = TextDetectionTargetWithResult.ResultState
+        http_server.update_http_server([self.result("Away", "17")])
+        for text, status in (
+            ("", state.Empty),
+            (None, state.FailedFilter),
+            ("71", state.FailedFilter),
+        ):
+            with self.subTest(status=status, text=text):
+                raw = self.result("Away", text, status)
+                http_server.update_http_server([raw])
+                data = await self.json_response()
+                self.assertEqual(data[0]["text"], "17")
+                self.assertEqual(data[0]["state"], status.name)
+                self.assertEqual(
+                    await self.json_response(query=b"pivot"), {"Away": "17"}
+                )
+                self.assertEqual(raw.result, text)
+        http_server.update_http_server([self.result("Away", "0", state.SameNoChange)])
+        http_server.update_http_server(
+            [self.result("Away", "", state.Empty, {"skip_empty": True})]
+        )
+        self.assertEqual(await self.json_response(query=b"pivot"), {"Away": "0"})
+
+    async def test_removed_field_does_not_recover_an_old_value(self):
+        state = TextDetectionTargetWithResult.ResultState
+        http_server.update_http_server([self.result("Away", "17")])
+        http_server.update_http_server([])
+        http_server.update_http_server([self.result("Away", "", state.FailedFilter)])
+        self.assertEqual((await self.json_response())[0]["text"], "")
+        self.assertEqual(await self.json_response(query=b"pivot"), {})
+
     async def test_worker_update_during_serialization_preserves_current_batch(self):
         first = self.result("First", "1")
         second = self.result("Second", "7")

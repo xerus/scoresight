@@ -1,0 +1,173 @@
+{
+  "source": "Recording from 2026-10-31 17-48-28.861960.mp4",
+  "fields": [
+    {
+      "image": "away_0000.png",
+      "frame": 0,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": true
+    },
+    {
+      "image": "home_0000.png",
+      "frame": 0,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0032.png",
+      "frame": 32,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": true
+    },
+    {
+      "image": "home_0032.png",
+      "frame": 32,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0080.png",
+      "frame": 80,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": false
+    },
+    {
+      "image": "home_0080.png",
+      "frame": 80,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0164.png",
+      "frame": 164,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": true
+    },
+    {
+      "image": "home_0164.png",
+      "frame": 164,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0240.png",
+      "frame": 240,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": true
+    },
+    {
+      "image": "home_0240.png",
+      "frame": 240,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0295.png",
+      "frame": 295,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": true
+    },
+    {
+      "image": "home_0295.png",
+      "frame": 295,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    },
+    {
+      "image": "away_0327.png",
+      "frame": 327,
+      "roi": [
+        1585,
+        255,
+        65,
+        70
+      ],
+      "expected": "17",
+      "recover": false
+    },
+    {
+      "image": "home_0327.png",
+      "frame": 327,
+      "roi": [
+        1470,
+        255,
+        83,
+        70
+      ],
+      "expected": "59",
+      "recover": true
+    }
+  ]
+}
