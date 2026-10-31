@@ -1,0 +1,847 @@
+{
+  "before": {
+    "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+    "start_frame": 1800,
+    "requested_ocr_hz": 5,
+    "fields": 3,
+    "wall_seconds": 9.640834572999665,
+    "source_seconds": 4.200333333333333,
+    "output_age_seconds": {
+      "median": 2.7762000059997405,
+      "maximum": 5.440501239666332,
+      "last": 5.440501239666332
+    },
+    "processing_ms_median": 146.56346099991424,
+    "ocr_updates": 45,
+    "preview_updates": 9,
+    "observations": [
+      {
+        "source_time": 75.32766666666666,
+        "started_at": 3586.452877647,
+        "completed_at": 3586.726291035
+      },
+      {
+        "source_time": 75.36066666666666,
+        "started_at": 3586.730606722,
+        "completed_at": 3586.87763101
+      },
+      {
+        "source_time": 75.46066666666667,
+        "started_at": 3586.943926775,
+        "completed_at": 3587.086898983
+      },
+      {
+        "source_time": 75.56066666666666,
+        "started_at": 3587.153481438,
+        "completed_at": 3587.292535477
+      },
+      {
+        "source_time": 75.66066666666667,
+        "started_at": 3587.358060901,
+        "completed_at": 3587.502217509
+      },
+      {
+        "source_time": 75.76066666666667,
+        "started_at": 3587.56944552,
+        "completed_at": 3587.713150267
+      },
+      {
+        "source_time": 75.86066666666666,
+        "started_at": 3587.779782415,
+        "completed_at": 3587.921840021
+      },
+      {
+        "source_time": 75.96066666666667,
+        "started_at": 3587.987951428,
+        "completed_at": 3588.141888946
+      },
+      {
+        "source_time": 76.06066666666666,
+        "started_at": 3588.209657474,
+        "completed_at": 3588.355638408
+      },
+      {
+        "source_time": 76.16066666666667,
+        "started_at": 3588.422111125,
+        "completed_at": 3588.579322448
+      },
+      {
+        "source_time": 76.26066666666667,
+        "started_at": 3588.645435529,
+        "completed_at": 3588.805708897
+      },
+      {
+        "source_time": 76.361,
+        "started_at": 3588.871077606,
+        "completed_at": 3589.026887179
+      },
+      {
+        "source_time": 76.461,
+        "started_at": 3589.094447685,
+        "completed_at": 3589.250557784
+      },
+      {
+        "source_time": 76.561,
+        "started_at": 3589.317197266,
+        "completed_at": 3589.463398104
+      },
+      {
+        "source_time": 76.661,
+        "started_at": 3589.529718395,
+        "completed_at": 3589.67745265
+      },
+      {
+        "source_time": 76.761,
+        "started_at": 3589.743083433,
+        "completed_at": 3589.883308568
+      },
+      {
+        "source_time": 76.861,
+        "started_at": 3589.949248252,
+        "completed_at": 3590.094310115
+      },
+      {
+        "source_time": 76.961,
+        "started_at": 3590.160865929,
+        "completed_at": 3590.305447718
+      },
+      {
+        "source_time": 77.06133333333334,
+        "started_at": 3590.372478838,
+        "completed_at": 3590.511756068
+      },
+      {
+        "source_time": 77.16133333333333,
+        "started_at": 3590.577278786,
+        "completed_at": 3590.721385902
+      },
+      {
+        "source_time": 77.261,
+        "started_at": 3590.78843785,
+        "completed_at": 3590.935447982
+      },
+      {
+        "source_time": 77.36166666666666,
+        "started_at": 3591.002730044,
+        "completed_at": 3591.153678052
+      },
+      {
+        "source_time": 77.46166666666666,
+        "started_at": 3591.219522677,
+        "completed_at": 3591.363077653
+      },
+      {
+        "source_time": 77.56166666666667,
+        "started_at": 3591.429811903,
+        "completed_at": 3591.576321813
+      },
+      {
+        "source_time": 77.66166666666666,
+        "started_at": 3591.642508021,
+        "completed_at": 3591.786272522
+      },
+      {
+        "source_time": 77.76166666666667,
+        "started_at": 3591.852694524,
+        "completed_at": 3591.993140966
+      },
+      {
+        "source_time": 77.86166666666666,
+        "started_at": 3592.059794794,
+        "completed_at": 3592.205672424
+      },
+      {
+        "source_time": 77.96166666666666,
+        "started_at": 3592.272422283,
+        "completed_at": 3592.412443725
+      },
+      {
+        "source_time": 78.06166666666667,
+        "started_at": 3592.478470533,
+        "completed_at": 3592.633825349
+      },
+      {
+        "source_time": 78.16166666666666,
+        "started_at": 3592.699877606,
+        "completed_at": 3592.852738195
+      },
+      {
+        "source_time": 78.26166666666667,
+        "started_at": 3592.921426134,
+        "completed_at": 3593.080443958
+      },
+      {
+        "source_time": 78.36133333333333,
+        "started_at": 3593.147760545,
+        "completed_at": 3593.307720364
+      },
+      {
+        "source_time": 78.46133333333333,
+        "started_at": 3593.373649318,
+        "completed_at": 3593.5151847
+      },
+      {
+        "source_time": 78.56133333333334,
+        "started_at": 3593.582245123,
+        "completed_at": 3593.723551936
+      },
+      {
+        "source_time": 78.66133333333333,
+        "started_at": 3593.790338204,
+        "completed_at": 3593.933990664
+      },
+      {
+        "source_time": 78.76133333333333,
+        "started_at": 3594.000286619,
+        "completed_at": 3594.15143832
+      },
+      {
+        "source_time": 78.86133333333333,
+        "started_at": 3594.216970256,
+        "completed_at": 3594.363533717
+      },
+      {
+        "source_time": 78.96133333333333,
+        "started_at": 3594.428869584,
+        "completed_at": 3594.570041452
+      },
+      {
+        "source_time": 79.06133333333334,
+        "started_at": 3594.636766375,
+        "completed_at": 3594.800627439
+      },
+      {
+        "source_time": 79.16133333333333,
+        "started_at": 3594.867449064,
+        "completed_at": 3595.035673757
+      },
+      {
+        "source_time": 79.228,
+        "started_at": 3595.070672534,
+        "completed_at": 3595.235870427
+      },
+      {
+        "source_time": 79.328,
+        "started_at": 3595.302171191,
+        "completed_at": 3595.479179985
+      },
+      {
+        "source_time": 79.39466666666667,
+        "started_at": 3595.512938227,
+        "completed_at": 3595.69074882
+      },
+      {
+        "source_time": 79.46133333333333,
+        "started_at": 3595.724347572,
+        "completed_at": 3595.901649808
+      },
+      {
+        "source_time": 79.52799999999999,
+        "started_at": 3595.936913766,
+        "completed_at": 3596.09371222
+      }
+    ]
+  },
+  "after": {
+    "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+    "start_frame": 1800,
+    "requested_ocr_hz": 5,
+    "fields": 3,
+    "wall_seconds": 9.841431838000062,
+    "source_seconds": 9.60233333333332,
+    "output_age_seconds": {
+      "median": 0.18930794350022495,
+      "maximum": 0.34878322400004436,
+      "last": 0.23909850466674243
+    },
+    "processing_ms_median": 183.44770900012008,
+    "ocr_updates": 44,
+    "preview_updates": 54,
+    "observations": [
+      {
+        "source_time": 75.32766666666666,
+        "started_at": 3598.383126678,
+        "completed_at": 3598.662620436
+      },
+      {
+        "source_time": 75.594,
+        "started_at": 3598.668423404,
+        "completed_at": 3598.823087119
+      },
+      {
+        "source_time": 75.82733333333333,
+        "started_at": 3598.88238777,
+        "completed_at": 3599.025703565
+      },
+      {
+        "source_time": 76.02733333333333,
+        "started_at": 3599.082444216,
+        "completed_at": 3599.222622363
+      },
+      {
+        "source_time": 76.22733333333333,
+        "started_at": 3599.282525559,
+        "completed_at": 3599.435311768
+      },
+      {
+        "source_time": 76.42766666666667,
+        "started_at": 3599.482726568,
+        "completed_at": 3599.639888557
+      },
+      {
+        "source_time": 76.62766666666667,
+        "started_at": 3599.682837195,
+        "completed_at": 3599.837035213
+      },
+      {
+        "source_time": 76.82766666666666,
+        "started_at": 3599.882854328,
+        "completed_at": 3600.038252375
+      },
+      {
+        "source_time": 77.06133333333334,
+        "started_at": 3600.116521317,
+        "completed_at": 3600.269664078
+      },
+      {
+        "source_time": 77.261,
+        "started_at": 3600.316429213,
+        "completed_at": 3600.462096867
+      },
+      {
+        "source_time": 77.46166666666666,
+        "started_at": 3600.516764194,
+        "completed_at": 3600.654841714
+      },
+      {
+        "source_time": 77.695,
+        "started_at": 3600.750325924,
+        "completed_at": 3600.892041176
+      },
+      {
+        "source_time": 77.92833333333333,
+        "started_at": 3600.983561493,
+        "completed_at": 3601.126599194
+      },
+      {
+        "source_time": 78.12833333333333,
+        "started_at": 3601.183570368,
+        "completed_at": 3601.321097703
+      },
+      {
+        "source_time": 78.36133333333333,
+        "started_at": 3601.416669609,
+        "completed_at": 3601.559059962
+      },
+      {
+        "source_time": 78.59466666666667,
+        "started_at": 3601.649732842,
+        "completed_at": 3601.795820096
+      },
+      {
+        "source_time": 78.828,
+        "started_at": 3601.883235512,
+        "completed_at": 3602.044530775
+      },
+      {
+        "source_time": 79.06133333333334,
+        "started_at": 3602.116502629,
+        "completed_at": 3602.294974869
+      },
+      {
+        "source_time": 79.29466666666666,
+        "started_at": 3602.349670689,
+        "completed_at": 3602.64463977
+      },
+      {
+        "source_time": 79.56133333333334,
+        "started_at": 3602.648964093,
+        "completed_at": 3602.828785183
+      },
+      {
+        "source_time": 79.79466666666666,
+        "started_at": 3602.849660274,
+        "completed_at": 3603.037797414
+      },
+      {
+        "source_time": 80.02799999999999,
+        "started_at": 3603.083055201,
+        "completed_at": 3603.277322265
+      },
+      {
+        "source_time": 80.22766666666665,
+        "started_at": 3603.285716412,
+        "completed_at": 3603.489577974
+      },
+      {
+        "source_time": 80.42766666666667,
+        "started_at": 3603.495933953,
+        "completed_at": 3603.717663803
+      },
+      {
+        "source_time": 80.62766666666667,
+        "started_at": 3603.723808896,
+        "completed_at": 3603.936647061
+      },
+      {
+        "source_time": 80.861,
+        "started_at": 3603.942234423,
+        "completed_at": 3604.106761953
+      },
+      {
+        "source_time": 81.09433333333332,
+        "started_at": 3604.149340655,
+        "completed_at": 3604.34556798
+      },
+      {
+        "source_time": 81.261,
+        "started_at": 3604.3500446,
+        "completed_at": 3604.541134531
+      },
+      {
+        "source_time": 81.52766666666666,
+        "started_at": 3604.582641956,
+        "completed_at": 3604.76829589
+      },
+      {
+        "source_time": 81.72766666666665,
+        "started_at": 3604.783082786,
+        "completed_at": 3604.963167943
+      },
+      {
+        "source_time": 81.92933333333333,
+        "started_at": 3604.984297984,
+        "completed_at": 3605.17310729
+      },
+      {
+        "source_time": 82.16366666666666,
+        "started_at": 3605.218793083,
+        "completed_at": 3605.398391824
+      },
+      {
+        "source_time": 82.39699999999999,
+        "started_at": 3605.452091879,
+        "completed_at": 3605.646371366
+      },
+      {
+        "source_time": 82.597,
+        "started_at": 3605.653489371,
+        "completed_at": 3605.874789582
+      },
+      {
+        "source_time": 82.797,
+        "started_at": 3605.879146566,
+        "completed_at": 3606.107636707
+      },
+      {
+        "source_time": 83.03033333333333,
+        "started_at": 3606.111808103,
+        "completed_at": 3606.351905842
+      },
+      {
+        "source_time": 83.26366666666667,
+        "started_at": 3606.35562177,
+        "completed_at": 3606.582674935
+      },
+      {
+        "source_time": 83.497,
+        "started_at": 3606.587106661,
+        "completed_at": 3606.784777694
+      },
+      {
+        "source_time": 83.69666666666666,
+        "started_at": 3606.788581908,
+        "completed_at": 3606.990559662
+      },
+      {
+        "source_time": 83.89666666666666,
+        "started_at": 3606.994285489,
+        "completed_at": 3607.175526973
+      },
+      {
+        "source_time": 84.16333333333333,
+        "started_at": 3607.218329066,
+        "completed_at": 3607.432379475
+      },
+      {
+        "source_time": 84.36333333333333,
+        "started_at": 3607.440139127,
+        "completed_at": 3607.664926676
+      },
+      {
+        "source_time": 84.59666666666666,
+        "started_at": 3607.673683436,
+        "completed_at": 3608.000909902
+      },
+      {
+        "source_time": 84.92999999999998,
+        "started_at": 3608.008285992,
+        "completed_at": 3608.224558516
+      }
+    ]
+  },
+  "sequence_regression": [
+    {
+      "name": "score_3_to_5",
+      "summary": {
+        "accepted_correct": 23,
+        "accepted_wrong": 0,
+        "rejected": 2,
+        "correct_published_samples": 23,
+        "wrong_published_samples": 1,
+        "retained_mismatch_samples": 1,
+        "unavailable_samples": 1,
+        "median_processing_ms": 31.575,
+        "p95_processing_ms": 35.865
+      }
+    },
+    {
+      "name": "score_5_to_7",
+      "summary": {
+        "accepted_correct": 32,
+        "accepted_wrong": 0,
+        "rejected": 6,
+        "correct_published_samples": 36,
+        "wrong_published_samples": 1,
+        "retained_mismatch_samples": 1,
+        "unavailable_samples": 1,
+        "median_processing_ms": 35.262,
+        "p95_processing_ms": 69.79
+      }
+    },
+    {
+      "name": "score_7_to_9",
+      "summary": {
+        "accepted_correct": 28,
+        "accepted_wrong": 0,
+        "rejected": 4,
+        "correct_published_samples": 30,
+        "wrong_published_samples": 1,
+        "retained_mismatch_samples": 1,
+        "unavailable_samples": 1,
+        "median_processing_ms": 22.297,
+        "p95_processing_ms": 71.729
+      }
+    },
+    {
+      "name": "game_clock_ticking",
+      "summary": {
+        "accepted_correct": 22,
+        "accepted_wrong": 0,
+        "rejected": 5,
+        "correct_published_samples": 26,
+        "wrong_published_samples": 0,
+        "retained_mismatch_samples": 0,
+        "unavailable_samples": 1,
+        "median_processing_ms": 83.164,
+        "p95_processing_ms": 109.847
+      }
+    },
+    {
+      "name": "shot_clock_reset",
+      "summary": {
+        "accepted_correct": 13,
+        "accepted_wrong": 0,
+        "rejected": 14,
+        "correct_published_samples": 13,
+        "wrong_published_samples": 0,
+        "retained_mismatch_samples": 0,
+        "unavailable_samples": 14,
+        "median_processing_ms": 31.731,
+        "p95_processing_ms": 95.552
+      }
+    },
+    {
+      "name": "shot_clock_fourteen",
+      "summary": {
+        "accepted_correct": 17,
+        "accepted_wrong": 0,
+        "rejected": 10,
+        "correct_published_samples": 26,
+        "wrong_published_samples": 0,
+        "retained_mismatch_samples": 0,
+        "unavailable_samples": 1,
+        "median_processing_ms": 47.555,
+        "p95_processing_ms": 176.261
+      }
+    },
+    {
+      "name": "game_clock_stopped",
+      "summary": {
+        "accepted_correct": 5,
+        "accepted_wrong": 0,
+        "rejected": 22,
+        "correct_published_samples": 18,
+        "wrong_published_samples": 0,
+        "retained_mismatch_samples": 0,
+        "unavailable_samples": 9,
+        "median_processing_ms": 101.022,
+        "p95_processing_ms": 203.981
+      }
+    }
+  ],
+  "scope": "Same-session development footage; playback comparison uses three PP-OCR fields at requested 5 Hz. Before uses the prior camera loop with the same current OCR code. Age measures source observation to OCR completion, excludes startup, confirmation holds, GUI/network delivery; no hard realtime guarantee.",
+  "paced_revision_sha256": {
+    "src/camera_thread.py": "4d702ad33acb90ed889abe7e1fbfbc3db7e5248c35ce56f6b8a96b26da91fbed",
+    "src/file_playback.py": "86a1129fe4429809e09aa5c09bff1a007a1bd4f82f9486e5fa37bdc17e2d191a",
+    "src/dnn_ocr.py": "5c73ba4b2074c7e8a811ae75760f311a7a0bc7dbb3c3fb4d88950f15fd097020",
+    "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee",
+    "models/en_PP-OCRv4_rec_mobile.onnx": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318"
+  },
+  "scheduled": {
+    "video": "Recording from 2026-09-26 18-02-24.926611.mp4",
+    "start_frame": 1800,
+    "requested_ocr_hz": 5,
+    "fields": 3,
+    "wall_seconds": 9.487015602000156,
+    "source_seconds": 9.268999999999991,
+    "output_age_seconds": {
+      "median": 0.20700156916657164,
+      "maximum": 0.30370803766679444,
+      "last": 0.21801560200016468
+    },
+    "processing_ms_median": 189.38666799999737,
+    "ocr_updates": 46,
+    "preview_updates": 46,
+    "observations": [
+      {
+        "source_time": 75.12766666666667,
+        "started_at": 4064.57618004,
+        "completed_at": 4064.865840232
+      },
+      {
+        "source_time": 75.39399999999999,
+        "started_at": 4064.87149547,
+        "completed_at": 4065.146221411
+      },
+      {
+        "source_time": 75.66066666666667,
+        "started_at": 4065.150242723,
+        "completed_at": 4065.289175375
+      },
+      {
+        "source_time": 75.82733333333333,
+        "started_at": 4065.291975768,
+        "completed_at": 4065.439835318
+      },
+      {
+        "source_time": 76.02733333333333,
+        "started_at": 4065.475879767,
+        "completed_at": 4065.616232062
+      },
+      {
+        "source_time": 76.22733333333333,
+        "started_at": 4065.675942623,
+        "completed_at": 4065.827161539
+      },
+      {
+        "source_time": 76.42766666666667,
+        "started_at": 4065.876190608,
+        "completed_at": 4066.028555661
+      },
+      {
+        "source_time": 76.62766666666667,
+        "started_at": 4066.076216624,
+        "completed_at": 4066.228631511
+      },
+      {
+        "source_time": 76.82766666666666,
+        "started_at": 4066.276265253,
+        "completed_at": 4066.438416062
+      },
+      {
+        "source_time": 77.02766666666666,
+        "started_at": 4066.476175812,
+        "completed_at": 4066.699991082
+      },
+      {
+        "source_time": 77.22766666666665,
+        "started_at": 4066.705224997,
+        "completed_at": 4066.865189069
+      },
+      {
+        "source_time": 77.42833333333333,
+        "started_at": 4066.876793039,
+        "completed_at": 4067.040350016
+      },
+      {
+        "source_time": 77.62833333333333,
+        "started_at": 4067.076804558,
+        "completed_at": 4067.24151653
+      },
+      {
+        "source_time": 77.82833333333333,
+        "started_at": 4067.277222733,
+        "completed_at": 4067.456144641
+      },
+      {
+        "source_time": 78.02833333333334,
+        "started_at": 4067.476821174,
+        "completed_at": 4067.66663412
+      },
+      {
+        "source_time": 78.22833333333332,
+        "started_at": 4067.676805632,
+        "completed_at": 4067.851145243
+      },
+      {
+        "source_time": 78.428,
+        "started_at": 4067.876547333,
+        "completed_at": 4068.051879513
+      },
+      {
+        "source_time": 78.628,
+        "started_at": 4068.076490734,
+        "completed_at": 4068.242434345
+      },
+      {
+        "source_time": 78.828,
+        "started_at": 4068.276491152,
+        "completed_at": 4068.469596337
+      },
+      {
+        "source_time": 79.02799999999999,
+        "started_at": 4068.476481702,
+        "completed_at": 4068.640571893
+      },
+      {
+        "source_time": 79.228,
+        "started_at": 4068.676489814,
+        "completed_at": 4068.859623964
+      },
+      {
+        "source_time": 79.428,
+        "started_at": 4068.876495983,
+        "completed_at": 4069.066452229
+      },
+      {
+        "source_time": 79.628,
+        "started_at": 4069.076466024,
+        "completed_at": 4069.242702988
+      },
+      {
+        "source_time": 79.828,
+        "started_at": 4069.276487913,
+        "completed_at": 4069.497348419
+      },
+      {
+        "source_time": 80.02799999999999,
+        "started_at": 4069.502928727,
+        "completed_at": 4069.740432552
+      },
+      {
+        "source_time": 80.261,
+        "started_at": 4069.747170028,
+        "completed_at": 4069.922497699
+      },
+      {
+        "source_time": 80.461,
+        "started_at": 4069.928135965,
+        "completed_at": 4070.110532186
+      },
+      {
+        "source_time": 80.62766666666667,
+        "started_at": 4070.114474659,
+        "completed_at": 4070.306629775
+      },
+      {
+        "source_time": 80.82766666666666,
+        "started_at": 4070.310553152,
+        "completed_at": 4070.50001133
+      },
+      {
+        "source_time": 81.02766666666666,
+        "started_at": 4070.503759187,
+        "completed_at": 4070.665482653
+      },
+      {
+        "source_time": 81.22766666666665,
+        "started_at": 4070.676140681,
+        "completed_at": 4070.900829856
+      },
+      {
+        "source_time": 81.42766666666667,
+        "started_at": 4070.906094569,
+        "completed_at": 4071.094021484
+      },
+      {
+        "source_time": 81.62766666666667,
+        "started_at": 4071.098126964,
+        "completed_at": 4071.31419692
+      },
+      {
+        "source_time": 81.82933333333332,
+        "started_at": 4071.321607304,
+        "completed_at": 4071.535033532
+      },
+      {
+        "source_time": 82.06266666666666,
+        "started_at": 4071.540448498,
+        "completed_at": 4071.755848342
+      },
+      {
+        "source_time": 82.33033333333333,
+        "started_at": 4071.778822702,
+        "completed_at": 4071.974264406
+      },
+      {
+        "source_time": 82.497,
+        "started_at": 4071.977532039,
+        "completed_at": 4072.166847197
+      },
+      {
+        "source_time": 82.697,
+        "started_at": 4072.171509396,
+        "completed_at": 4072.381848381
+      },
+      {
+        "source_time": 82.89699999999999,
+        "started_at": 4072.385691477,
+        "completed_at": 4072.624327233
+      },
+      {
+        "source_time": 83.16366666666666,
+        "started_at": 4072.628577406,
+        "completed_at": 4072.849655001
+      },
+      {
+        "source_time": 83.36366666666666,
+        "started_at": 4072.853661485,
+        "completed_at": 4073.031252007
+      },
+      {
+        "source_time": 83.56333333333333,
+        "started_at": 4073.03773804,
+        "completed_at": 4073.236143004
+      },
+      {
+        "source_time": 83.76333333333334,
+        "started_at": 4073.239558194,
+        "completed_at": 4073.437134578
+      },
+      {
+        "source_time": 83.96333333333332,
+        "started_at": 4073.441053066,
+        "completed_at": 4073.647420964
+      },
+      {
+        "source_time": 84.16333333333333,
+        "started_at": 4073.651158221,
+        "completed_at": 4073.85242302
+      },
+      {
+        "source_time": 84.39666666666666,
+        "started_at": 4073.857950879,
+        "completed_at": 4074.063195642
+      }
+    ]
+  },
+  "scheduled_revision_sha256": {
+    "src/camera_thread.py": "060fa2ded3045f5ec64dfaab8759ea9f5d85a9b0e7ba0ea739d401667236c851",
+    "src/file_playback.py": "86a1129fe4429809e09aa5c09bff1a007a1bd4f82f9486e5fa37bdc17e2d191a",
+    "src/detection_schedule.py": "6e4befe573037c57e399ad4e15ef6219aa8219e24100687870c4a62b9971ccdd",
+    "src/dnn_ocr.py": "5c73ba4b2074c7e8a811ae75760f311a7a0bc7dbb3c3fb4d88950f15fd097020",
+    "src/led_digit_evidence.py": "8021997fda2d08c2a8701137d9759a4f5c84ed763d2116c4cc3c6342d83932ee",
+    "models/en_PP-OCRv4_rec_mobile.onnx": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318"
+  }
+}
