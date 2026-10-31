@@ -7,6 +7,7 @@ from datetime import datetime
 import threading
 import math
 
+from detection_schedule import DetectionSchedule
 from file_playback import RealtimeFilePlayback
 from base_video_capture import BaseVideoCapture
 from camera_info import CameraInfo
@@ -216,6 +217,7 @@ class TimerThread(QThread):
         self.fps_alpha = 0.1  # Smoothing factor
         self.updateOnChange = True
         self.crop = FrameCropAndRotation()
+        self.detection_schedule = DetectionSchedule()
         self.file_playback = RealtimeFilePlayback()
         self.speed = 1
         self.paused = False
@@ -225,6 +227,7 @@ class TimerThread(QThread):
         if paused != self.paused:
             self.textDetector.reset_temporal()
             self.file_playback.reset()
+            self.detection_schedule.reset()
         self.paused = paused
 
     def isPaused(self):
@@ -240,6 +243,7 @@ class TimerThread(QThread):
         self.textDetector.reset_temporal()
         self.speed = speed
         self.file_playback.reset()
+        self.detection_schedule.reset()
 
     def setUpdateFrameInterval(self, cadence):
         self.update_frame_interval = 1000 / cadence
@@ -296,6 +300,7 @@ class TimerThread(QThread):
 
         self.textDetector.reset_temporal()
         self.file_playback.reset()
+        self.detection_schedule.reset()
         return True
 
     def run(self):
@@ -367,6 +372,7 @@ class TimerThread(QThread):
                     self.textDetector.reset_temporal()
                     self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
                     self.file_playback.reset()
+                    self.detection_schedule.reset()
                     self.sleep_fps_target()
                     continue
                 logger.warn(
@@ -378,6 +384,14 @@ class TimerThread(QThread):
 
             self.retry_count = 0  # good frame, reset the retry count
             current_time = datetime.now()
+            observation_time = (
+                self.observation_time_for_file()
+                if self.camera_info.type == CameraInfo.CameraType.FILE
+                else None
+            )
+            schedule_time = (
+                observation_time if observation_time is not None else time.monotonic()
+            )
 
             # calculate the frame rate
             time_diff_ms = (
@@ -431,7 +445,9 @@ class TimerThread(QThread):
             elapsed_update = (
                 current_time - self.last_update_timestamp
             ).total_seconds() * 1000
-            if elapsed_update < self.update_frame_interval:
+            if not self.detection_schedule.due(
+                schedule_time, self.update_frame_interval / 1000
+            ):
                 if not self.show_binary:
                     self.emit_preview_if_due(
                         preview_frame if self.crop.isCropSet else frame_rgb,
@@ -488,9 +504,6 @@ class TimerThread(QThread):
                     )
                     ocr_target.temporal_filter = target.temporal_filter
                     ocrTargets.append(ocr_target)
-                observation_time = None
-                if self.camera_info.type == CameraInfo.CameraType.FILE:
-                    observation_time = self.observation_time_for_file()
                 texts = self.textDetector.detect_multi_text(
                     binary,
                     gray,
