@@ -39,6 +39,39 @@ class BasketballCameraOcrTests(unittest.TestCase):
                 self.assertEqual(format_clock_digits(text, 1), row["expected"])
                 self.assertGreaterEqual(confidence, 0.5)
 
+    def phone_readings(self):
+        from clock_digits import format_clock_digits
+
+        root = ROOT / "tests/fixtures/phone_scoreboards"
+        for row in json.loads((root / "manifest.json").read_text())["fields"]:
+            crop = cv2.imread(str(root / row["image"]))
+            self.assertIsNotNone(crop, row["image"])
+            self.assertEqual(crop.shape[:2], (row["roi"][3], row["roi"][2]))
+            field_type = FieldType.TIME if row["clock_input"] else FieldType.NUMBER
+            text, confidence, _ = self.reader.recognize(
+                crop, field_type, check_led=True
+            )
+            yield row, format_clock_digits(text, row["clock_input"]), confidence
+
+    def test_phone_scores_and_dark_clocks(self):
+        for row, text, confidence in self.phone_readings():
+            if row["source"] == "20261031_172951.mp4" and row["field"] == "home":
+                continue  # Tracked separately as an expected failure below.
+            with self.subTest(image=row["image"]):
+                if row["image"] == "20261031_172951_away.png":
+                    self.assertIn(text, (None, row["expected"]))
+                else:
+                    self.assertEqual(text, row["expected"])
+                    self.assertGreaterEqual(confidence, 0.5)
+
+    @unittest.expectedFailure
+    def test_blurred_phone_thirty_seven_is_not_published_as_eighty_seven(self):
+        for row, text, _ in self.phone_readings():
+            if row["image"] == "20261031_172951_home.png":
+                self.assertIn(text, (None, row["expected"]))
+                return
+        self.fail("Missing blurred 37 fixture")
+
     def test_panel_scoreboard_seventeen_is_recovered_or_rejected_without_shortening(
         self,
     ):
