@@ -669,17 +669,17 @@
   ],
   "artifacts": {
     "baseline": {
-      "path": "/home/pgrunt@inno.innovatrics.net/src/scoresight/models/en_PP-OCRv4_rec_mobile.onnx",
+      "path": "models/en_PP-OCRv4_rec_mobile.onnx",
       "sha256": "e8770c967605983d1570cdf5352041dfb68fa0c21664f49f47b155abd3e0e318",
       "changed_parameters": 0
     },
     "bias_edit": {
-      "path": "/tmp/scoresight-weight-accuracy/bias_edit.onnx",
+      "path": "models/experiments/scoreboard_accuracy/bias_edit.onnx",
       "sha256": "9b05c3056f6752f75d0f682adff602fada9b1a631f218c14f5df2ab3cc7d89c9",
       "changed_parameters": 0
     },
     "ctc_head": {
-      "path": "/tmp/scoresight-weight-accuracy/ctc_head.onnx",
+      "path": "models/experiments/scoreboard_accuracy/ctc_head.onnx",
       "sha256": "b419dffe2be0db20aef52bdceaecba8cc3fad8b8dcb302d19b255ccb13a8e7c4",
       "changed_parameters": 11737
     }
@@ -11730,5 +11730,6 @@
         }
       }
     }
-  ]
+  ],
+  "selection_path": "models/experiments/scoreboard_accuracy/selection.json"
 }

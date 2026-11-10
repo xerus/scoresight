@@ -117,10 +117,16 @@ The [full result](../results/ocr_video_benchmark/weight_space_accuracy.json)
 includes every prediction, acceptance outcome, source, split, confidence, search
 candidate, and input/code/model hash. Candidate-test details are in
 [weight_space_candidate_checks.json](../results/ocr_video_benchmark/weight_space_candidate_checks.json).
-The tuned model is retained locally at
-`/tmp/scoresight-weight-accuracy/ctc_head.onnx`, SHA-256
+The exact experiment artifacts are versioned in
+[`models/experiments/scoreboard_accuracy`](../models/experiments/scoreboard_accuracy/README.md).
+The tuned model is [`ctc_head.onnx`](../models/experiments/scoreboard_accuracy/ctc_head.onnx), SHA-256
 `b419dffe2be0db20aef52bdceaecba8cc3fad8b8dcb302d19b255ccb13a8e7c4`.
-Temporary model files need regeneration after cleanup/reboot.
+The bias-edit candidate and pre-evaluation `selection.json` are also preserved.
+They were copied byte-for-byte from the original run and their checksums were
+verified. The result's artifact paths now refer to these repository copies;
+its original run code hashes are retained. The script defaults to this durable
+directory for future runs. None of these experimental models is loaded by the
+application by default.
 
 ## Reproduce
 
@@ -133,7 +139,7 @@ uv pip install --python .venv/bin/python onnx==1.23.2
 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python \
   tools/ocr_benchmark/weight_space_accuracy.py \
   --output results/ocr_video_benchmark/weight_space_accuracy.json \
-  --artifacts /tmp/scoresight-weight-accuracy
+  --artifacts models/experiments/scoreboard_accuracy
 .venv/bin/python -m unittest discover -s tests -p test_ctc_head.py -v
 PYTHONPATH=src QT_QPA_PLATFORM=offscreen .venv/bin/python \
   -m unittest discover -s tests -v

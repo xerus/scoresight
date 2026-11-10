@@ -1,0 +1,599 @@
+{
+  "selected": {
+    "bias_edit": {
+      "seven_bias": 0.0
+    },
+    "ctc_head": {
+      "method": "ctc_head",
+      "learning_rate": 0.001,
+      "epoch": 40,
+      "train_loss": 0.038660821319425595,
+      "validation": {
+        "correct": 45,
+        "wrong": 14,
+        "rejected": 13,
+        "macro_correct": 0.8634085213032581,
+        "macro_wrong": 0.10401002506265665,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 31,
+            "wrong": 13,
+            "rejected": 13
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    }
+  },
+  "search": [
+    {
+      "method": "bias_edit",
+      "seven_bias": 0.25,
+      "validation": {
+        "correct": 19,
+        "wrong": 24,
+        "rejected": 29,
+        "macro_correct": 0.8671679197994988,
+        "macro_wrong": 0.06015037593984962,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 4,
+            "wrong": 24,
+            "rejected": 29
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "bias_edit",
+      "seven_bias": 0.5,
+      "validation": {
+        "correct": 18,
+        "wrong": 25,
+        "rejected": 29,
+        "macro_correct": 0.8646616541353384,
+        "macro_wrong": 0.06265664160401002,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 3,
+            "wrong": 25,
+            "rejected": 29
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "bias_edit",
+      "seven_bias": 1.0,
+      "validation": {
+        "correct": 17,
+        "wrong": 25,
+        "rejected": 30,
+        "macro_correct": 0.862155388471178,
+        "macro_wrong": 0.06265664160401002,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 2,
+            "wrong": 25,
+            "rejected": 30
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "bias_edit",
+      "seven_bias": 2.0,
+      "validation": {
+        "correct": 17,
+        "wrong": 28,
+        "rejected": 27,
+        "macro_correct": 0.862155388471178,
+        "macro_wrong": 0.07017543859649122,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 2,
+            "wrong": 28,
+            "rejected": 27
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "bias_edit",
+      "seven_bias": 4.0,
+      "validation": {
+        "correct": 14,
+        "wrong": 39,
+        "rejected": 19,
+        "macro_correct": 0.7431077694235589,
+        "macro_wrong": 0.14285714285714285,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 2,
+            "wrong": 38,
+            "rejected": 17
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 2
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 2,
+            "wrong": 1,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.001,
+      "epoch": 5,
+      "train_loss": 0.22685457404870896,
+      "validation": {
+        "correct": 29,
+        "wrong": 24,
+        "rejected": 19,
+        "macro_correct": 0.8233082706766918,
+        "macro_wrong": 0.12907268170426064,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 15,
+            "wrong": 23,
+            "rejected": 19
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.001,
+      "epoch": 15,
+      "train_loss": 0.09518828976428238,
+      "validation": {
+        "correct": 38,
+        "wrong": 20,
+        "rejected": 14,
+        "macro_correct": 0.8458646616541353,
+        "macro_wrong": 0.11904761904761904,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 24,
+            "wrong": 19,
+            "rejected": 14
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.001,
+      "epoch": 40,
+      "train_loss": 0.038660821319425595,
+      "validation": {
+        "correct": 45,
+        "wrong": 14,
+        "rejected": 13,
+        "macro_correct": 0.8634085213032581,
+        "macro_wrong": 0.10401002506265665,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 31,
+            "wrong": 13,
+            "rejected": 13
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.003,
+      "epoch": 5,
+      "train_loss": 0.08901182856657318,
+      "validation": {
+        "correct": 40,
+        "wrong": 19,
+        "rejected": 13,
+        "macro_correct": 0.8508771929824562,
+        "macro_wrong": 0.11654135338345864,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 26,
+            "wrong": 18,
+            "rejected": 13
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.003,
+      "epoch": 15,
+      "train_loss": 0.03565187070978624,
+      "validation": {
+        "correct": 45,
+        "wrong": 14,
+        "rejected": 13,
+        "macro_correct": 0.8634085213032581,
+        "macro_wrong": 0.10401002506265665,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 31,
+            "wrong": 13,
+            "rejected": 13
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    },
+    {
+      "method": "ctc_head",
+      "learning_rate": 0.003,
+      "epoch": 40,
+      "train_loss": 0.022833446891492526,
+      "validation": {
+        "correct": 44,
+        "wrong": 15,
+        "rejected": 13,
+        "macro_correct": 0.8609022556390977,
+        "macro_wrong": 0.10651629072681704,
+        "sources": {
+          "Recording from 2026-09-26 18-30-32.731683.mp4": {
+            "correct": 30,
+            "wrong": 14,
+            "rejected": 13
+          },
+          "Recording from 2026-09-26 20-19-02.354711.mp4": {
+            "correct": 4,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-31-13.722673.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-37-19.940502.mp4": {
+            "correct": 1,
+            "wrong": 1,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-43-09.256719.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "Recording from 2026-09-26 18-48-36.189887.mp4": {
+            "correct": 2,
+            "wrong": 0,
+            "rejected": 0
+          },
+          "20260926_200212.mp4": {
+            "correct": 3,
+            "wrong": 0,
+            "rejected": 0
+          }
+        }
+      }
+    }
+  ]
+}

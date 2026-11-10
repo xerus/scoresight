@@ -240,7 +240,12 @@ def save_head(model, weights, bias, path):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument("--artifacts", type=Path, required=True)
+    parser.add_argument(
+        "--artifacts",
+        type=Path,
+        default=ROOT / "models/experiments/scoreboard_accuracy",
+        help="Persistent candidate/selection directory (default: models/experiments/scoreboard_accuracy)",
+    )
     args = parser.parse_args()
     args.artifacts.mkdir(parents=True, exist_ok=True)
     model_path = ROOT / "models/en_PP-OCRv4_rec_mobile.onnx"
@@ -354,7 +359,9 @@ def main():
             save_head(model, w, b, path)
         readers[name] = DnnOcr(str(path))
         artifacts[name] = dict(
-            path=str(path),
+            path=str(path.resolve().relative_to(ROOT))
+            if path.resolve().is_relative_to(ROOT)
+            else str(path.resolve()),
             sha256=sha256(path),
             changed_parameters=int(
                 np.count_nonzero(w != weights) + np.count_nonzero(b != bias)
