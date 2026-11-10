@@ -1,0 +1,244 @@
+{
+  "fields": [
+    {
+      "image": "20261031_162012_home.png",
+      "source": "20261031_162012.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        780,
+        315,
+        90,
+        130
+      ],
+      "field": "home",
+      "expected": "0",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "0e8ebc68668b2fd288d080e2a44f0e4474e4a0ef3e1687ed8c026698b3604251"
+    },
+    {
+      "image": "20261031_162012_away.png",
+      "source": "20261031_162012.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        940,
+        320,
+        95,
+        130
+      ],
+      "field": "away",
+      "expected": "0",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "0e8ebc68668b2fd288d080e2a44f0e4474e4a0ef3e1687ed8c026698b3604251"
+    },
+    {
+      "image": "20261031_162012_clock.png",
+      "source": "20261031_162012.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        780,
+        495,
+        260,
+        115
+      ],
+      "field": "clock",
+      "expected": "39:19",
+      "clock_input": 2,
+      "label_status": "visually_checked",
+      "source_sha256": "0e8ebc68668b2fd288d080e2a44f0e4474e4a0ef3e1687ed8c026698b3604251"
+    },
+    {
+      "image": "20261031_172951_home.png",
+      "source": "20261031_172951.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1120,
+        300,
+        75,
+        60
+      ],
+      "field": "home",
+      "expected": "37",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "0ec641bfcbef989ab4f755dcbda9a24fe12fddb9c61c7bf0dd936c7295a5f9a3"
+    },
+    {
+      "image": "20261031_172951_away.png",
+      "source": "20261031_172951.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1210,
+        300,
+        70,
+        60
+      ],
+      "field": "away",
+      "expected": "12",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "0ec641bfcbef989ab4f755dcbda9a24fe12fddb9c61c7bf0dd936c7295a5f9a3"
+    },
+    {
+      "image": "20261031_172951_clock.png",
+      "source": "20261031_172951.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1135,
+        368,
+        135,
+        58
+      ],
+      "field": "clock",
+      "expected": "05:22",
+      "clock_input": 2,
+      "label_status": "visually_checked",
+      "source_sha256": "0ec641bfcbef989ab4f755dcbda9a24fe12fddb9c61c7bf0dd936c7295a5f9a3"
+    },
+    {
+      "image": "20261031_173008_home.png",
+      "source": "20261031_173008.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1400,
+        225,
+        110,
+        85
+      ],
+      "field": "home",
+      "expected": "39",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "24048fa6e9bcee19211948f3dd4de88065391a04e7ada7ad83f388e52405acb8"
+    },
+    {
+      "image": "20261031_173008_away.png",
+      "source": "20261031_173008.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1540,
+        225,
+        90,
+        85
+      ],
+      "field": "away",
+      "expected": "12",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "24048fa6e9bcee19211948f3dd4de88065391a04e7ada7ad83f388e52405acb8"
+    },
+    {
+      "image": "20261031_173008_clock.png",
+      "source": "20261031_173008.mp4",
+      "frame": 30,
+      "source_size": [
+        1920,
+        1080
+      ],
+      "roi": [
+        1430,
+        330,
+        175,
+        80
+      ],
+      "field": "clock",
+      "expected": "05:10",
+      "clock_input": 2,
+      "label_status": "visually_checked",
+      "source_sha256": "24048fa6e9bcee19211948f3dd4de88065391a04e7ada7ad83f388e52405acb8"
+    },
+    {
+      "image": "20260926_200212_home.png",
+      "source": "20260926_200212.mp4",
+      "frame": 30,
+      "source_size": [
+        1280,
+        720
+      ],
+      "roi": [
+        196,
+        244,
+        58,
+        44
+      ],
+      "field": "home",
+      "expected": "92",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "f5c2f122c43f3449cbbcebbfeb07255160ef6b05090c384e13da578d2bb5c28a"
+    },
+    {
+      "image": "20260926_200212_away.png",
+      "source": "20260926_200212.mp4",
+      "frame": 30,
+      "source_size": [
+        1280,
+        720
+      ],
+      "roi": [
+        330,
+        243,
+        61,
+        45
+      ],
+      "field": "away",
+      "expected": "100",
+      "clock_input": 0,
+      "label_status": "visually_checked",
+      "source_sha256": "f5c2f122c43f3449cbbcebbfeb07255160ef6b05090c384e13da578d2bb5c28a"
+    },
+    {
+      "image": "20260926_200212_clock.png",
+      "source": "20260926_200212.mp4",
+      "frame": 30,
+      "source_size": [
+        1280,
+        720
+      ],
+      "roi": [
+        260,
+        193,
+        82,
+        47
+      ],
+      "field": "clock",
+      "expected": "3:54",
+      "clock_input": 1,
+      "label_status": "visually_checked",
+      "source_sha256": "f5c2f122c43f3449cbbcebbfeb07255160ef6b05090c384e13da578d2bb5c28a"
+    }
+  ]
+}
