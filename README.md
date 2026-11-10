@@ -76,14 +76,17 @@ See the [Install Guide](docs/INSTALL.md) for help with installation.
 ### Prerequisites
 
 - Python 3.11 or newer
-- git
+- git with Git LFS installed (ONNX models are stored in LFS)
 
 ### Procedure
 
 1. Clone the repository:
 
   ```shell
+  git lfs install
   git clone https://github.com/occ-ai/scoresight.git
+  cd scoresight
+  git lfs pull
   ```
 
 2. Install the required dependencies:
